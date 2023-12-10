@@ -1,0 +1,145 @@
+/* headings */
+
+.authorize-text {
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color: #1463df;
+    font-weight: 300;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* headings for mobile */
+
+@media only screen and (max-width: 600px) {
+    .authorize-text {
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        color: #1463df;
+        font-weight: 300;
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+/* text fields */
+
+.login-textfield {
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 100%;
+}
+
+.login-textfield, textarea {
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    background-color: #efecec;
+    font-weight: 300;
+    text-align: left;
+    border-style: none;
+    padding: 1%;
+    border-radius: 10px;
+    margin: 1%;
+    width: 30%;
+}
+
+/* text fields for mobile*/
+
+@media only screen and (max-width: 600px) {
+    .login-textfield {
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+        font-size: 100%;
+    }
+    
+    .login-textfield, textarea {
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        color: black;
+        background-color: #efecec;
+        font-weight: 300;
+        text-align: left;
+        border-style: none;
+        padding: 1%;
+        border-radius: 10px;
+        margin: 1%;
+        width: 50%;
+    }
+}
+
+/* buttons */
+
+.login-button {
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color: #1463df;
+    font-weight: 300;
+    text-align: center;
+    border-style: none;
+    padding: 1%;
+    border-radius: 10px;
+    margin: 2%;
+    width: 25%;
+    font-size: 100%;
+}
+
+/* buttons for mobile */
+
+@media only screen and (max-width: 600px) {
+    .login-button {
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        background-color: #1463df;
+        font-weight: 300;
+        text-align: center;
+        border-style: none;
+        padding: 1%;
+        border-radius: 10px;
+        margin-top: 10%;
+        width: 25%;
+        font-size: 100%;
+    }
+}
+
+/* images */
+
+.img-div {
+    margin-top: 5%;
+    text-align: center;
+}
+
+.login-img {
+    width: 10%;
+    text-align: center;
+}
+
+/* images for mobile */
+
+@media only screen and (max-width: 600px) {
+    .img-div {
+        margin-top: 5%;
+        text-align: center;
+    }
+    
+    .login-img {
+        width: 20%;
+        text-align: center;
+    }
+}
+
+.error-msg{
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color:red;
+    background-color: pink;
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    padding: 6px 0px;
+    border-radius: 6px;
+}

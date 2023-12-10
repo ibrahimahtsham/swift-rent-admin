@@ -1,0 +1,155 @@
+.menu-item-container li{
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    list-style-type: none;
+    background-color: #ceecff;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin:0px;
+    font-size: 16px;
+    color:#1463df;
+    text-align: center;
+    cursor: pointer;
+    
+    box-sizing: border-box;
+    border-bottom: 1px solid #397FED;
+}
+
+.menu-item-container li:hover{
+    background-color: #397FED;
+    color:#ceecff;
+}
+
+.menu-item{
+    text-decoration: none;
+    color: #1463df;
+}
+
+.menu-item-container li:hover a{
+    text-decoration: none;
+    color: #ceecff;
+}
+
+.copyright-container{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.copyright{
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: small;
+}
+
+.copyright-logo{
+    width: 50px;
+}
+
+/* animations */
+
+.menu-div-open{
+    background-color: #ceecff;
+    margin: 0px;
+    height: calc(100vh - 50px);
+    width: auto;
+    max-width: 230px;
+
+    animation: openSidebar 0.5s;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+
+@keyframes openSidebar {
+    from {left: -220px;}
+    to {left:0px}
+}
+
+.menu-div-close{
+    background-color: #ceecff;
+    margin: 0px;
+    height: calc(100vh - 50px);
+    width: auto;
+    max-width: 230px;
+
+    animation: closeSidebar 0.5s;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+
+@keyframes closeSidebar {
+    from {left: 0px;}
+    to {left: -220px; display:none}
+}
+
+.menu-div-open ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu-div-close ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* smaller screen */
+@media screen and (max-width: 960px) {
+
+    .menu-item-container  {
+        position: absolute;
+        font-size: small;
+        background-color: #ceecff;
+        display: block;
+    }
+
+    .menu-div-open{
+        background-color: #ceecff;
+        height: calc(100vh - 50px);
+        width: 200px;
+    
+        animation: openSidebar 0.5s;
+        animation-fill-mode: forwards;
+        position: absolute;
+    }
+    
+    @keyframes openSidebar {
+        from {left: -220px;}
+        to {left:0px}
+    }
+    
+    .menu-div-close{
+        background-color: #ceecff;
+        height: calc(100vh - 50px);
+        width: 200px;
+    
+        animation: closeSidebar 0.5s;
+        animation-fill-mode: forwards;
+        position: relative;
+    }
+    
+    @keyframes closeSidebar {
+        from {left: 0px;}
+        to {left: -220px; display:none}
+    }
+    
+    .copyright-container{
+        position: absolute;
+        bottom: 0px;
+        text-align: center;
+        width: 200px;
+    }
+    
+    .copyright{
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 10px;
+    }
+    
+    .copyright-logo{
+        width: 25px;
+    }
+}

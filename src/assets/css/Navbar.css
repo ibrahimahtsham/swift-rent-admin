@@ -1,0 +1,123 @@
+body{
+    margin:0px;
+}
+
+.navbar-container{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    background-color: #1463df;
+    padding: 0px 16px;
+    box-sizing: border-box;
+}
+
+.navbar{
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    width:100%;
+    box-sizing: border-box;
+    gap: 16px;
+    user-select: none;
+}
+
+.dashboard-text{
+    display:flex;
+    margin:0px;
+    text-align: center;
+    color:white;
+    text-decoration: none;
+    gap: 16px;
+}
+
+.bars{
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    color:white;
+    cursor: pointer;
+}
+
+.nav-logo{
+    height: 30px;
+    display: flex;
+}
+
+.logout-button{
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: medium;
+    color: white;
+    background: transparent;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid white;
+    cursor: pointer;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+/* smaller screen */
+@media screen and (max-width: 960px) {
+    body{
+        margin:0px;
+    }
+    
+    .navbar-container{
+        display: flex;
+        align-items: center;
+        background-color: #1463df;
+        padding: 10px 16px;
+        box-sizing: border-box;
+    }
+    
+    .navbar{
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        width:100%;
+        box-sizing: border-box;
+        height:auto;
+        gap: 6px;
+        user-select: none;
+    }
+    
+    .dashboard-text{
+        display:flex;
+        text-align: center;
+        color:white;
+        text-decoration: none;
+        margin-top: -2px;
+        gap: 6px;
+    }
+    
+    .bars{
+        font-size: 20px;
+        text-align: center;
+        display: flex;
+        color:white;
+        cursor: pointer;
+    }
+    
+    .nav-logo{
+        height: 20px;
+        display: flex;
+    }
+    
+    .logout-button{
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        color: white;
+        background: transparent;
+        outline: none;
+        border-radius: 6px;
+        border: 1px solid white;
+        cursor: pointer;
+        padding: 5px 10px;
+    }
+}
