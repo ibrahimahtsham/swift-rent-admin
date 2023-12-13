@@ -30,7 +30,7 @@ const LoginPage = () => {
   };
 
   return (
-    <>
+    <div className="main-body">
       <div className="img-div">
         <img className="login-img" src={SwiftRentLogo} alt="swift-rent-logo" />
       </div>
@@ -60,7 +60,7 @@ const LoginPage = () => {
         <br />
         <input className="login-button" type="submit" value="Login" />
       </form>
-    </>
+    </div>
   );
 };
 

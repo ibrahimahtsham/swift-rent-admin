@@ -1,10 +1,7 @@
 /* headings */
 
 .authorize-text {
-    font-family: 'Dongle', sans-serif;
-    font-family: 'Open Sans', sans-serif;
     color: #1463df;
-    font-weight: 300;
     font-size: 2rem;
     text-align: center;
 }
@@ -13,10 +10,7 @@
 
 @media only screen and (max-width: 600px) {
     .authorize-text {
-        font-family: 'Dongle', sans-serif;
-        font-family: 'Open Sans', sans-serif;
         color: #1463df;
-        font-weight: 300;
         font-size: 2rem;
         text-align: center;
     }
@@ -25,18 +19,13 @@
 /* text fields */
 
 .login-textfield {
-    font-family: 'Dongle', sans-serif;
-    font-family: 'Open Sans', sans-serif;
     text-align: center;
     font-size: 100%;
 }
 
 .login-textfield, textarea {
-    font-family: 'Dongle', sans-serif;
-    font-family: 'Open Sans', sans-serif;
     color: black;
     background-color: #efecec;
-    font-weight: 300;
     text-align: left;
     border-style: none;
     padding: 1%;
@@ -49,18 +38,13 @@
 
 @media only screen and (max-width: 600px) {
     .login-textfield {
-        font-family: 'Dongle', sans-serif;
-        font-family: 'Open Sans', sans-serif;
         text-align: center;
         font-size: 100%;
     }
     
     .login-textfield, textarea {
-        font-family: 'Dongle', sans-serif;
-        font-family: 'Open Sans', sans-serif;
         color: black;
         background-color: #efecec;
-        font-weight: 300;
         text-align: left;
         border-style: none;
         padding: 1%;
@@ -73,11 +57,8 @@
 /* buttons */
 
 .login-button {
-    font-family: 'Dongle', sans-serif;
-    font-family: 'Open Sans', sans-serif;
     color: white;
     background-color: #1463df;
-    font-weight: 300;
     text-align: center;
     border-style: none;
     padding: 1%;
@@ -91,11 +72,8 @@
 
 @media only screen and (max-width: 600px) {
     .login-button {
-        font-family: 'Dongle', sans-serif;
-        font-family: 'Open Sans', sans-serif;
         color: white;
         background-color: #1463df;
-        font-weight: 300;
         text-align: center;
         border-style: none;
         padding: 1%;
@@ -133,8 +111,6 @@
 }
 
 .error-msg{
-    font-family: 'Dongle', sans-serif;
-    font-family: 'Open Sans', sans-serif;
     color:rgb(218, 0, 0);
     background-color: #ffebef;
     width: 30%;
