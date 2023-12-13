@@ -1,1 +1,1 @@
-# Swift Rent Admin Panel
+# Swift Rent Web Admin Panel
