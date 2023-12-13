@@ -6,9 +6,10 @@ import Sidebar from "../components/UI/Sidebar";
 import "./styles.css";
 
 const Layout = () => {
-  const [isClicked, setIsClicked] = useState(true);
-  const handleMenuClick = () => setIsClicked(!isClicked);
+  const [isClicked, setIsClicked] = useState(true); // seting sidebar open by default
+  const handleMenuClick = () => setIsClicked(!isClicked); // toggle switch to open and close sidebar
 
+  // if screen is smaller then automatically close the sidebar
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth < 960) {
@@ -18,6 +19,7 @@ const Layout = () => {
       }
     };
 
+    // check screen size
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);

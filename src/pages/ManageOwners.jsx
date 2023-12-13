@@ -1,6 +1,6 @@
 import "../assets/css/ManageOwners.css";
 
-const ManageOwner = () => {
+const ManageOwners = () => {
   return (
     <div>
       <h1>Manage Owners</h1>
@@ -8,4 +8,4 @@ const ManageOwner = () => {
   );
 };
 
-export default ManageOwner;
+export default ManageOwners;

@@ -105,6 +105,25 @@
         background-color: #ceecff;
         display: block;
     }
+    
+    .copyright-container{
+        position: absolute;
+        bottom: 0px;
+        text-align: center;
+        width: 200px;
+    }
+    
+    .copyright{
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 10px;
+    }
+    
+    .copyright-logo{
+        width: 25px;
+    }
+
+    /* animations */
 
     .menu-div-open{
         background-color: #ceecff;
@@ -134,22 +153,5 @@
     @keyframes closeSidebar {
         from {left: 0px;}
         to {left: -220px; display:none}
-    }
-    
-    .copyright-container{
-        position: absolute;
-        bottom: 0px;
-        text-align: center;
-        width: 200px;
-    }
-    
-    .copyright{
-        font-family: 'Dongle', sans-serif;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 10px;
-    }
-    
-    .copyright-logo{
-        width: 25px;
     }
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
-import { BASE_URL } from "../utils/constants";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants"; // api url
+import { useState } from "react"; // store state of error to be shown if error occurs
+import { useNavigate } from "react-router-dom"; // to navigate to dashboard
 
 import SwiftRentLogo from "../assets/images/swift-rent-logo.png";
 import "../assets/css/Login.css";
@@ -10,12 +10,13 @@ const LoginPage = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // function to handle the click on login
   const handleLogin = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
+    event.preventDefault(); //used this to pause console for debugging
+    const formData = new FormData(event.target); // to store data coming from html form (input feilds)
 
     try {
-      setError(null);
+      setError(null); //reset error so it doesnt get show the prev error again
       const response = await axios.post(`${BASE_URL}/login`, {
         emailOrPhone: formData.get("username"),
         password: formData.get("password"),
@@ -39,6 +40,7 @@ const LoginPage = () => {
         id="loginForm"
         onSubmit={handleLogin}
       >
+        {/*if there is an error then show the error*/}
         {error ? <p className="error-msg">{error?.error}</p> : null}
         <input
           className="login-textfield"

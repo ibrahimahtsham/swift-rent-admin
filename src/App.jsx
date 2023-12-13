@@ -1,5 +1,6 @@
 import LoginPage from "./pages/LoginPage";
-import ManageOwner from "./pages/ManageOwner";
+import ManageOwners from "./pages/ManageOwners";
+import ManageTenants from "./pages/ManageTenants";
 import Layout from "./layout";
 
 import {
@@ -15,7 +16,8 @@ function App() {
       <Route>
         <Route path="/" element={<LoginPage />} />
         <Route path="/dashboard" element={<Layout />}>
-          <Route path="manage-owner" element={<ManageOwner />} />
+          <Route path="manage-owners" element={<ManageOwners />} />
+          <Route path="manage-tenants" element={<ManageTenants />} />
         </Route>
       </Route>
     )
