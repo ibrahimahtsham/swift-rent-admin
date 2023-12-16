@@ -21,24 +21,11 @@ const ManageTenants = () => {
               <td>rolceroyer@gmail.com</td>
               <td>03125094820</td>
               <td>
-                <button className="button yellow-button">reset password</button>
+                <button className="button yellow-button">Reset Password</button>
               </td>
               <td>
-                <button className="button blue-button">edit</button>
-                <button className="button red-button">delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Abdullah Shahid</td>
-              <td>2000-10-31</td>
-              <td>rolceroyer@gmail.com</td>
-              <td>03125094820</td>
-              <td>
-                <button className="button yellow-button">reset password</button>
-              </td>
-              <td>
-                <button className="button blue-button">edit</button>
-                <button className="button red-button">delete</button>
+                <button className="button blue-button">Edit</button>
+                <button className="button red-button">Delete</button>
               </td>
             </tr>
             <tr>
@@ -47,24 +34,11 @@ const ManageTenants = () => {
               <td>rolceroyer@gmail.com</td>
               <td>03125094820</td>
               <td>
-                <button className="button yellow-button">reset password</button>
+                <button className="button yellow-button">Reset Password</button>
               </td>
               <td>
-                <button className="button blue-button">edit</button>
-                <button className="button red-button">delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Abdullah Shahid</td>
-              <td>2000-10-31</td>
-              <td>rolceroyer@gmail.com</td>
-              <td>03125094820</td>
-              <td>
-                <button className="button yellow-button">reset password</button>
-              </td>
-              <td>
-                <button className="button blue-button">edit</button>
-                <button className="button red-button">delete</button>
+                <button className="button blue-button">Edit</button>
+                <button className="button red-button">Delete</button>
               </td>
             </tr>
             <tr>
@@ -73,11 +47,63 @@ const ManageTenants = () => {
               <td>rolceroyer@gmail.com</td>
               <td>03125094820</td>
               <td>
-                <button className="button yellow-button">reset password</button>
+                <button className="button yellow-button">Reset Password</button>
               </td>
               <td>
-                <button className="button blue-button">edit</button>
-                <button className="button red-button">delete</button>
+                <button className="button blue-button">Edit</button>
+                <button className="button red-button">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Abdullah Shahid</td>
+              <td>2000-10-31</td>
+              <td>rolceroyer@gmail.com</td>
+              <td>03125094820</td>
+              <td>
+                <button className="button yellow-button">Reset Password</button>
+              </td>
+              <td>
+                <button className="button blue-button">Edit</button>
+                <button className="button red-button">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Abdullah Shahid</td>
+              <td>2000-10-31</td>
+              <td>rolceroyer@gmail.com</td>
+              <td>03125094820</td>
+              <td>
+                <button className="button yellow-button">Reset Password</button>
+              </td>
+              <td>
+                <button className="button blue-button">Edit</button>
+                <button className="button red-button">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Abdullah Shahid</td>
+              <td>2000-10-31</td>
+              <td>rolceroyer@gmail.com</td>
+              <td>03125094820</td>
+              <td>
+                <button className="button yellow-button">Reset Password</button>
+              </td>
+              <td>
+                <button className="button blue-button">Edit</button>
+                <button className="button red-button">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Abdullah Shahid</td>
+              <td>2000-10-31</td>
+              <td>rolceroyer@gmail.com</td>
+              <td>03125094820</td>
+              <td>
+                <button className="button yellow-button">Reset Password</button>
+              </td>
+              <td>
+                <button className="button blue-button">Edit</button>
+                <button className="button red-button">Delete</button>
               </td>
             </tr>
           </tbody>
