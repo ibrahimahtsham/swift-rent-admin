@@ -19,7 +19,7 @@ const Layout = () => {
       }
     };
 
-    // check screen size
+    // check screen size to toggle sidebar
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);

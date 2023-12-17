@@ -17,8 +17,8 @@ const LoginPage = () => {
 
     try {
       setError(null); //reset error so it doesnt get show the prev error again
-      const response = await axios.post(`${BASE_URL}/login`, {
-        emailOrPhone: formData.get("username"),
+      const response = await axios.post(`${BASE_URL}/admin/login`, {
+        userName: formData.get("username"),
         password: formData.get("password"),
       });
       if (response?.data) {
