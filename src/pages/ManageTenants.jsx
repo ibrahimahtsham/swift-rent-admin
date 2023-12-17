@@ -1,8 +1,8 @@
-import "../assets/css/ManageTenants.css";
-
 import { BASE_URL } from "../utils/constants"; // api url
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
+import "../assets/css/ManageTenants.css";
 
 const ManageTenants = () => {
   const [data, setData] = useState(null);

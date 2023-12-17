@@ -1,7 +1,8 @@
-import "../assets/css/ManageOwners.css";
 import { BASE_URL } from "../utils/constants"; // api url
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
+import "../assets/css/ManageOwners.css";
 // import Button from "react-bootstrap/Button";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
