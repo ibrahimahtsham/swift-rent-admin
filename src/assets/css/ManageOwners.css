@@ -76,3 +76,13 @@ tr:hover {background-color: #ceecff;}
   padding-top: 4px;
   padding-bottom: 4px;
 }
+
+.edit-popup{
+  background-color: red;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}

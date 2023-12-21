@@ -30,7 +30,7 @@ const ManageTenants = () => {
     return <div>Loading...</div>;
   }
 
-  const tenants = data;
+  // const tenants = data;
 
   const renderTenant = (tenants, index) => {
     return (
@@ -39,9 +39,6 @@ const ManageTenants = () => {
         <td>{tenants.dob}</td>
         <td>{tenants.email}</td>
         <td>{tenants.phone}</td>
-        <td>
-          <button className="button yellow-button">Reset Password</button>
-        </td>
         <td>
           <button className="button blue-button">Edit</button>
           <button className="button red-button">Delete</button>
@@ -60,10 +57,9 @@ const ManageTenants = () => {
             <th>Date Of Birth</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Password</th>
             <th>Options</th>
           </thead>
-          <tbody>{tenants.map(renderTenant)}</tbody>
+          <tbody>{data.map(renderTenant)}</tbody>
         </table>
       </div>
     </div>

@@ -1,10 +1,9 @@
 import { BASE_URL } from "../utils/constants"; // api url
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import EditPopup from "../components/UI/EditPopup";
 
 import "../assets/css/ManageOwners.css";
-// import Button from "react-bootstrap/Button";
-// import "bootstrap/dist/css/bootstrap.min.css";
 
 const ManageOwners = () => {
   const [data, setData] = useState(null);
@@ -32,20 +31,17 @@ const ManageOwners = () => {
     return <div>Loading...</div>;
   }
 
-  const owners = data;
+  // const owners = data;
 
-  const renderOwner = (owners, index) => {
+  const renderOwner = (owner, index) => {
     return (
       <tr key={index}>
-        <td>{owners.ownername}</td>
-        <td>{owners.dob}</td>
-        <td>{owners.email}</td>
-        <td>{owners.phone}</td>
+        <td>{owner.ownername}</td>
+        <td>{owner.dob}</td>
+        <td>{owner.email}</td>
+        <td>{owner.phone}</td>
         <td>
-          <button className="button yellow-button">Reset Password</button>
-        </td>
-        <td>
-          <button className="button blue-button">Edit</button>
+          <EditPopup />
           <button className="button red-button">Delete</button>
         </td>
       </tr>
@@ -62,10 +58,9 @@ const ManageOwners = () => {
             <th>Date Of Birth</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Password</th>
             <th>Options</th>
           </thead>
-          <tbody>{owners.map(renderOwner)}</tbody>
+          <tbody>{data.map(renderOwner)}</tbody>
         </table>
       </div>
     </div>
