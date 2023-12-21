@@ -2,6 +2,7 @@ import { BASE_URL } from "../utils/constants"; // api url
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditPopup from "../components/UI/EditPopup";
+import qs from "qs";
 
 import "../assets/css/ManageOwners.css";
 
@@ -23,6 +24,29 @@ const ManageOwners = () => {
     fetchData();
   }, []); // The empty dependency array ensures that the effect runs once after the initial render
 
+  // const handleDelete = async (ownerID) => {
+  //   try {
+  //     const formData = { ownerID: ownerID };
+  //     const response = await axios.delete(`${BASE_URL}/admin/delete-owner`, {
+  //       headers: {
+  //         "Content-Type": "application/x-www-form-urlencoded",
+  //       },
+  //       data: qs.stringify(formData),
+  //     });
+
+  //     console.log("From ibrahim: " + ownerID);
+
+  //     if (response?.data?.success) {
+  //       alert("Deleted successfully");
+  //     } else {
+  //       alert("Deletion failed");
+  //     }
+  //   } catch (error) {
+  //     setError(error);
+  //     console.error("Error deleting data:", error);
+  //   }
+  // };
+
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -30,8 +54,6 @@ const ManageOwners = () => {
   if (!data) {
     return <div>Loading...</div>;
   }
-
-  // const owners = data;
 
   const renderOwner = (owner, index) => {
     return (
@@ -41,8 +63,20 @@ const ManageOwners = () => {
         <td>{owner.email}</td>
         <td>{owner.phone}</td>
         <td>
-          <EditPopup />
-          <button className="button red-button">Delete</button>
+          <EditPopup
+            editType="Owner"
+            userID={owner.userid}
+            ownerName={owner.ownername}
+            ownerDOB={owner.dob}
+            ownerEmail={owner.email}
+            ownerPhone={owner.phone}
+          />
+          {/* <button
+            onClick={() => handleDelete(owner.ownerid)}
+            className="button red-button"
+          >
+            Delete
+          </button> */}
         </td>
       </tr>
     );
@@ -54,11 +88,13 @@ const ManageOwners = () => {
         <h1>Owner Data</h1>
         <table>
           <thead>
-            <th>Owner Name</th>
-            <th>Date Of Birth</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Options</th>
+            <tr>
+              <th>Owner Name</th>
+              <th>Date Of Birth</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Options</th>
+            </tr>
           </thead>
           <tbody>{data.map(renderOwner)}</tbody>
         </table>

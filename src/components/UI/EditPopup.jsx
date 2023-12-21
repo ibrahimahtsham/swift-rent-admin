@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { BASE_URL } from "../../utils/constants";
+import axios from "axios";
 import "../../assets/css/EditPopup.css";
 
-export default function EditPopup() {
+export default function EditPopup(props) {
   const [popup, setPopup] = useState(false);
 
   const togglePopup = () => {
@@ -14,6 +16,26 @@ export default function EditPopup() {
     document.body.classList.remove("active-popup");
   }
 
+  const handleEdit = async (event) => {
+    event.preventDefault(); //used this to pause console for debugging
+    const formData = new FormData(event.target); // to store data coming from html form (input feilds)
+    try {
+      const response = await axios.put(`${BASE_URL}/admin/edit-user`, {
+        userID: props.userID,
+        userName: formData.get("name"),
+        DOB: formData.get("dob"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+      });
+      if (response?.data) {
+        alert("Edited Successfully.");
+        setPopup(false);
+      }
+    } catch (error) {
+      alert("Error: " + error);
+    }
+  };
+
   return (
     <>
       <button className="button blue-button" onClick={togglePopup}>
@@ -24,13 +46,14 @@ export default function EditPopup() {
         <div className="popup">
           <div onClick={togglePopup} className="overlay"></div>
           <div className="popup-content">
-            <h2>Edit Owner</h2>
-            <form action="">
+            <h2>Edit {props.editType}</h2>
+            <form id="editForm" onSubmit={handleEdit}>
               <label className="edit-labels" for="name">
                 Name
               </label>
               <input
                 className="edit-inputs"
+                placeholder={props.ownerName}
                 type="text"
                 id="name"
                 name="name"
@@ -38,16 +61,15 @@ export default function EditPopup() {
               />
 
               <label className="edit-labels" for="dob">
-                Date of Birth
+                Date of Birth (YYYY-MM-DD)
               </label>
               <input
                 className="edit-inputs"
                 type="text"
                 id="dob"
                 name="dob"
-                pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]
-                |2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
-                placeholder="yyyy-mm-dd"
+                pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+                placeholder={props.ownerDOB}
                 required
               />
               {/* Checks that
@@ -63,6 +85,7 @@ export default function EditPopup() {
               </label>
               <input
                 className="edit-inputs"
+                placeholder={props.ownerEmail}
                 type="email"
                 id="email"
                 name="email"
@@ -74,6 +97,7 @@ export default function EditPopup() {
               </label>
               <input
                 className="edit-inputs"
+                placeholder={props.ownerPhone}
                 type="tel"
                 id="phone"
                 name="phone"
