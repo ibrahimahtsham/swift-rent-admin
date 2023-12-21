@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
-// import { useHistory } from "react-router-dom"; // to navigate to dashboard
 import "../../assets/css/EditPopup.css";
+import { useNavigate } from "react-router-dom"; // to navigate to dashboard
 
 export default function EditPopup(props) {
   const [popup, setPopup] = useState(false);
-  // const history = useHistory();
+  const navigate = useNavigate();
 
   const togglePopup = () => {
     setPopup(!popup);
@@ -30,6 +30,7 @@ export default function EditPopup(props) {
         phone: formData.get("phone"),
       });
       if (response?.data) {
+        alert("Edited Successfully.");
         setPopup(false);
         window.location.reload();
       }
