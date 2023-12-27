@@ -2,7 +2,7 @@ import { BASE_URL } from "../utils/constants"; // api url
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditPopup from "../components/UI/EditPopup";
-import qs from "qs";
+// import qs from "qs";
 
 import "../assets/css/ManageOwners.css";
 
@@ -66,10 +66,10 @@ const ManageOwners = () => {
           <EditPopup
             editType="Owner"
             userID={owner.userid}
-            ownerName={owner.ownername}
-            ownerDOB={owner.dob}
-            ownerEmail={owner.email}
-            ownerPhone={owner.phone}
+            userName={owner.ownername}
+            userDOB={owner.dob}
+            userEmail={owner.email}
+            userPhone={owner.phone}
           />
           {/* <button
             onClick={() => handleDelete(owner.ownerid)}

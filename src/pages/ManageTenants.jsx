@@ -1,6 +1,8 @@
 import { BASE_URL } from "../utils/constants"; // api url
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import EditPopup from "../components/UI/EditPopup";
+// import qs from "qs";
 
 import "../assets/css/ManageTenants.css";
 
@@ -22,6 +24,29 @@ const ManageTenants = () => {
     fetchData();
   }, []); // The empty dependency array ensures that the effect runs once after the initial render
 
+  // const handleDelete = async (tenantID) => {
+  //   try {
+  //     const formData = { tenantID: tenantID };
+  //     const response = await axios.delete(`${BASE_URL}/admin/delete-tenant`, {
+  //       headers: {
+  //         "Content-Type": "application/x-www-form-urlencoded",
+  //       },
+  //       data: qs.stringify(formData),
+  //     });
+
+  //     console.log("From ibrahim: " + tenantID);
+
+  //     if (response?.data?.success) {
+  //       alert("Deleted successfully");
+  //     } else {
+  //       alert("Deletion failed");
+  //     }
+  //   } catch (error) {
+  //     setError(error);
+  //     console.error("Error deleting data:", error);
+  //   }
+  // };
+
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -30,18 +55,28 @@ const ManageTenants = () => {
     return <div>Loading...</div>;
   }
 
-  // const tenants = data;
-
-  const renderTenant = (tenants, index) => {
+  const renderTenant = (tenant, index) => {
     return (
       <tr key={index}>
-        <td>{tenants.tenantname}</td>
-        <td>{tenants.dob}</td>
-        <td>{tenants.email}</td>
-        <td>{tenants.phone}</td>
+        <td>{tenant.tenantname}</td>
+        <td>{tenant.dob}</td>
+        <td>{tenant.email}</td>
+        <td>{tenant.phone}</td>
         <td>
-          <button className="button blue-button">Edit</button>
-          <button className="button red-button">Delete</button>
+          <EditPopup
+            editType="Tenant"
+            userID={tenant.userid}
+            userName={tenant.tenantname}
+            userDOB={tenant.dob}
+            userEmail={tenant.email}
+            userPhone={tenant.phone}
+          />
+          {/* <button
+            onClick={() => handleDelete(tenant.tenantid)}
+            className="button red-button"
+          >
+            Delete
+          </button> */}
         </td>
       </tr>
     );
@@ -53,11 +88,13 @@ const ManageTenants = () => {
         <h1>Tenant Data</h1>
         <table>
           <thead>
-            <th>Tenant Name</th>
-            <th>Date Of Birth</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Options</th>
+            <tr>
+              <th>Tenant Name</th>
+              <th>Date Of Birth</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Options</th>
+            </tr>
           </thead>
           <tbody>{data.map(renderTenant)}</tbody>
         </table>
