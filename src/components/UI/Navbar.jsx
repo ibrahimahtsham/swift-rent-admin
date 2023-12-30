@@ -6,7 +6,7 @@ import "../../assets/css/Navbar.css";
 const Navbar = ({ handleMenuClick }) => {
   return (
     <nav className="navbar-container">
-      <div className="navbar">
+      <div className="custom-navbar">
         <IoIosMenu className="bars" onClick={handleMenuClick} id="bars" />
         <Link className="dashboard-text" to="/dashboard">
           <img

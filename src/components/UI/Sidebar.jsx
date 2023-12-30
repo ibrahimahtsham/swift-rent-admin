@@ -16,7 +16,13 @@ const Sidebar = ({ isClicked }) => {
           <li>Manage Tenants</li>
         </NavLink>
         <NavLink className="menu-item" to="/dashboard/manage-properties">
-          <li>Manage Properties</li>
+          <li>Manage Properties (WIP)</li>
+        </NavLink>
+        <NavLink className="menu-item" to="/dashboard/user-info">
+          <li>User Info (WIP)</li>
+        </NavLink>
+        <NavLink className="menu-item" to="/dashboard/financial-stats">
+          <li>Financial Statistics (WIP)</li>
         </NavLink>
         <NavLink className="menu-item" to="/dashboard">
           <li>User Complains (WIP)</li>
@@ -26,9 +32,6 @@ const Sidebar = ({ isClicked }) => {
         </NavLink>
         <NavLink className="menu-item" to="/dashboard">
           <li>User Reports (WIP)</li>
-        </NavLink>
-        <NavLink className="menu-item" to="/dashboard">
-          <li>Financial Statistics (WIP)</li>
         </NavLink>
       </ul>
       <div className="copyright-container">

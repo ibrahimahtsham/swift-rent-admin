@@ -1,9 +1,4 @@
-import { BASE_URL } from "../utils/constants"; // api url
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import EditPopup from "../components/UI/EditPopup";
-// import qs from "qs";
-
 import "../assets/css/ManageManagers.css";
 
 const ManageManagers = () => {
@@ -22,86 +17,6 @@ const ManageManagers = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Dummy Manager</td>
-              <td>yyyy-mm-dd</td>
-              <td>dummymanager@gmail.com</td>
-              <td>012345678901</td>
-              <td>
-                <EditPopup
-                  editType="Tenant"
-                  userID="{tenant.userid}"
-                  userName="{tenant.tenantname}"
-                  userDOB="{tenant.dob}"
-                  userEmail="{tenant.email}"
-                  userPhone="{tenant.phone}"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Dummy Manager</td>
-              <td>yyyy-mm-dd</td>
-              <td>dummymanager@gmail.com</td>
-              <td>012345678901</td>
-              <td>
-                <EditPopup
-                  editType="Tenant"
-                  userID="{tenant.userid}"
-                  userName="{tenant.tenantname}"
-                  userDOB="{tenant.dob}"
-                  userEmail="{tenant.email}"
-                  userPhone="{tenant.phone}"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Dummy Manager</td>
-              <td>yyyy-mm-dd</td>
-              <td>dummymanager@gmail.com</td>
-              <td>012345678901</td>
-              <td>
-                <EditPopup
-                  editType="Tenant"
-                  userID="{tenant.userid}"
-                  userName="{tenant.tenantname}"
-                  userDOB="{tenant.dob}"
-                  userEmail="{tenant.email}"
-                  userPhone="{tenant.phone}"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Dummy Manager</td>
-              <td>yyyy-mm-dd</td>
-              <td>dummymanager@gmail.com</td>
-              <td>012345678901</td>
-              <td>
-                <EditPopup
-                  editType="Tenant"
-                  userID="{tenant.userid}"
-                  userName="{tenant.tenantname}"
-                  userDOB="{tenant.dob}"
-                  userEmail="{tenant.email}"
-                  userPhone="{tenant.phone}"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Dummy Manager</td>
-              <td>yyyy-mm-dd</td>
-              <td>dummymanager@gmail.com</td>
-              <td>012345678901</td>
-              <td>
-                <EditPopup
-                  editType="Tenant"
-                  userID="{tenant.userid}"
-                  userName="{tenant.tenantname}"
-                  userDOB="{tenant.dob}"
-                  userEmail="{tenant.email}"
-                  userPhone="{tenant.phone}"
-                />
-              </td>
-            </tr>
             <tr>
               <td>Dummy Manager</td>
               <td>yyyy-mm-dd</td>
