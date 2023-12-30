@@ -2,6 +2,7 @@ import LoginPage from "./pages/LoginPage";
 import ManageOwners from "./pages/ManageOwners";
 import ManageTenants from "./pages/ManageTenants";
 import ManageManagers from "./pages/ManageManagers";
+import ManageProperties from "./pages/ManageProperties";
 import Layout from "./layout";
 
 import {
@@ -20,6 +21,7 @@ function App() {
           <Route path="manage-owners" element={<ManageOwners />} />
           <Route path="manage-tenants" element={<ManageTenants />} />
           <Route path="manage-managers" element={<ManageManagers />} />
+          <Route path="manage-properties" element={<ManageProperties />} />
         </Route>
       </Route>
     )

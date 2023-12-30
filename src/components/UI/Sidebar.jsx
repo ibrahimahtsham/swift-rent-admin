@@ -15,6 +15,9 @@ const Sidebar = ({ isClicked }) => {
         <NavLink className="menu-item" to="/dashboard/manage-tenants">
           <li>Manage Tenants</li>
         </NavLink>
+        <NavLink className="menu-item" to="/dashboard/manage-properties">
+          <li>Manage Properties</li>
+        </NavLink>
         <NavLink className="menu-item" to="/dashboard">
           <li>User Complains (WIP)</li>
         </NavLink>
