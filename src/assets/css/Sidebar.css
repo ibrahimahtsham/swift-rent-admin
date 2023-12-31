@@ -1,16 +1,19 @@
+.menu-item-container{
+    padding: 0px;
+}
+
 .menu-item-container li{
     display: inline-block;
     text-decoration: none;
     list-style-type: none;
     background-color: #ceecff;
+    border-bottom: dotted 1px#397FED;
     width: 100%;
     padding: 16px;
-    margin-bottom: 16px;
     font-size: 16px;
     color:#1463df;
     text-align: left;
     cursor: pointer;
-    
     box-sizing: border-box;
 }
 
@@ -22,11 +25,6 @@
 .menu-item{
     text-decoration: none;
     color: #1463df;
-}
-
-.menu-item-container li:hover a{
-    text-decoration: none;
-    color: #ceecff;
 }
 
 .copyright-container{
@@ -44,108 +42,12 @@
     width: 50px;
 }
 
-/* animations */
-
-.menu-div-open{
+.menu-div{
     background-color: #ceecff;
     margin: 0px;
     height: calc(100vh - 50px);
     width: auto;
-    max-width: 230px;
+    max-width: 300px;
     border-right:2px solid #397FED;
-
-    animation: openSidebar 0.5s;
-    animation-fill-mode: forwards;
     position: relative;
-}
-
-@keyframes openSidebar {
-    from {left: -220px;}
-    to {left:0px}
-}
-
-.menu-div-close{
-    background-color: #ceecff;
-    margin: 0px;
-    height: calc(100vh - 50px);
-    width: auto;
-    max-width: 230px;
-    border-right:2px solid #397FED;
-
-    animation: closeSidebar 0.5s;
-    animation-fill-mode: forwards;
-    position: relative;
-}
-
-@keyframes closeSidebar {
-    from {left: 0px;}
-    to {left: -220px; display:none}
-}
-
-.menu-div-open ul{
-    margin: 0px;
-    padding: 0px;
-}
-
-.menu-div-close ul{
-    margin: 0px;
-    padding: 0px;
-}
-
-/* smaller screen */
-@media screen and (max-width: 960px) {
-
-    .menu-item-container  {
-        position: absolute;
-        font-size: small;
-        background-color: #ceecff;
-        display: block;
-    }
-    
-    .copyright-container{
-        position: absolute;
-        bottom: 0px;
-        text-align: center;
-        width: 200px;
-    }
-    
-    .copyright{
-        font-size: 10px;
-    }
-    
-    .copyright-logo{
-        width: 25px;
-    }
-
-    /* animations */
-
-    .menu-div-open{
-        background-color: #ceecff;
-        height: calc(100vh - 50px);
-        width: 200px;
-    
-        animation: openSidebar 0.5s;
-        animation-fill-mode: forwards;
-        position: absolute;
-    }
-    
-    @keyframes openSidebar {
-        from {left: -220px;}
-        to {left:0px}
-    }
-    
-    .menu-div-close{
-        background-color: #ceecff;
-        height: calc(100vh - 50px);
-        width: 200px;
-    
-        animation: closeSidebar 0.5s;
-        animation-fill-mode: forwards;
-        position: relative;
-    }
-    
-    @keyframes closeSidebar {
-        from {left: 0px;}
-        to {left: -220px; display:none}
-    }
 }

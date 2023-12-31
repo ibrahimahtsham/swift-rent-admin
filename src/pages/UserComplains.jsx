@@ -1,31 +1,29 @@
-import EditPopup from "../components/UI/EditUserPopup";
-import "../assets/css/ManageProperties.css";
+import EditUserPopup from "../components/UI/EditUserPopup";
+import "../assets/css/UserComplains.css";
 
-const ManageProperties = () => {
+const UserComplains = () => {
   return (
     <div className="main-body">
       <div className="table-div">
-        <h1>Property Data</h1>
+        <h1>User Complains</h1>
         <table>
           <thead>
             <tr>
-              <th>Property Address</th>
-              <th>Rent Amount</th>
-              <th>Status</th>
-              <th>Property Owner</th>
-              <th>Property Tenant</th>
+              <th>User Type</th>
+              <th>Bug Type</th>
+              <th>Bug Description</th>
+              <th>Bug Status</th>
               <th>Options</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-bottom">
-              <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-              <td>$1,200.00</td>
-              <td>On-rent</td>
-              <td>Ibrahim Ahtsham</td>
-              <td>Abdullah Shahid</td>
+              <td>Owner</td>
+              <td>Login</td>
+              <td>Cant Login Propperly</td>
+              <td>Pending</td>
               <td>
-                <EditPopup
+                <EditUserPopup
                   editType="Tenant"
                   userID="{tenant.userid}"
                   userName="{tenant.tenantname}"
@@ -36,13 +34,12 @@ const ManageProperties = () => {
               </td>
             </tr>
             <tr className="border-bottom">
-              <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-              <td>$1,200.00</td>
-              <td>On-rent</td>
-              <td>Ibrahim Ahtsham</td>
-              <td>Abdullah Shahid</td>
+              <td>Owner</td>
+              <td>Login</td>
+              <td>Cant Login Propperly</td>
+              <td>Pending</td>
               <td>
-                <EditPopup
+                <EditUserPopup
                   editType="Tenant"
                   userID="{tenant.userid}"
                   userName="{tenant.tenantname}"
@@ -53,13 +50,12 @@ const ManageProperties = () => {
               </td>
             </tr>
             <tr className="border-bottom">
-              <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-              <td>$1,200.00</td>
-              <td>On-rent</td>
-              <td>Ibrahim Ahtsham</td>
-              <td>Abdullah Shahid</td>
+              <td>Owner</td>
+              <td>Login</td>
+              <td>Cant Login Propperly</td>
+              <td>Pending</td>
               <td>
-                <EditPopup
+                <EditUserPopup
                   editType="Tenant"
                   userID="{tenant.userid}"
                   userName="{tenant.tenantname}"
@@ -70,13 +66,12 @@ const ManageProperties = () => {
               </td>
             </tr>
             <tr className="border-bottom">
-              <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-              <td>$1,200.00</td>
-              <td>On-rent</td>
-              <td>Ibrahim Ahtsham</td>
-              <td>Abdullah Shahid</td>
+              <td>Owner</td>
+              <td>Login</td>
+              <td>Cant Login Propperly</td>
+              <td>Pending</td>
               <td>
-                <EditPopup
+                <EditUserPopup
                   editType="Tenant"
                   userID="{tenant.userid}"
                   userName="{tenant.tenantname}"
@@ -87,13 +82,12 @@ const ManageProperties = () => {
               </td>
             </tr>
             <tr className="border-bottom">
-              <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-              <td>$1,200.00</td>
-              <td>On-rent</td>
-              <td>Ibrahim Ahtsham</td>
-              <td>Abdullah Shahid</td>
+              <td>Owner</td>
+              <td>Login</td>
+              <td>Cant Login Propperly</td>
+              <td>Pending</td>
               <td>
-                <EditPopup
+                <EditUserPopup
                   editType="Tenant"
                   userID="{tenant.userid}"
                   userName="{tenant.tenantname}"
@@ -104,30 +98,12 @@ const ManageProperties = () => {
               </td>
             </tr>
             <tr className="border-bottom">
-              <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-              <td>$1,200.00</td>
-              <td>On-rent</td>
-              <td>Ibrahim Ahtsham</td>
-              <td>Abdullah Shahid</td>
+              <td>Owner</td>
+              <td>Login</td>
+              <td>Cant Login Propperly</td>
+              <td>Pending</td>
               <td>
-                <EditPopup
-                  editType="Tenant"
-                  userID="{tenant.userid}"
-                  userName="{tenant.tenantname}"
-                  userDOB="{tenant.dob}"
-                  userEmail="{tenant.email}"
-                  userPhone="{tenant.phone}"
-                />
-              </td>
-            </tr>
-            <tr className="border-bottom">
-              <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-              <td>$1,200.00</td>
-              <td>On-rent</td>
-              <td>Ibrahim Ahtsham</td>
-              <td>Abdullah Shahid</td>
-              <td>
-                <EditPopup
+                <EditUserPopup
                   editType="Tenant"
                   userID="{tenant.userid}"
                   userName="{tenant.tenantname}"
@@ -144,4 +120,4 @@ const ManageProperties = () => {
   );
 };
 
-export default ManageProperties;
+export default UserComplains;

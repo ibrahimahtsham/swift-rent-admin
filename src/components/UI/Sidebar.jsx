@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom";
 import SwiftRentLogoColored from "../../assets/images/swift-rent-logo-color.png";
 import "../../assets/css/Sidebar.css";
 
-const Sidebar = ({ isClicked }) => {
+const Sidebar = () => {
   return (
-    <div className={isClicked ? "menu-div-open" : "menu-div-close"}>
+    <div className="menu-div">
       <ul className="menu-item-container">
         <NavLink className="menu-item" to="/dashboard/manage-owners">
           <li>Manage Owners</li>
@@ -24,14 +24,8 @@ const Sidebar = ({ isClicked }) => {
         <NavLink className="menu-item" to="/dashboard/financial-stats">
           <li>Financial Statistics (WIP)</li>
         </NavLink>
-        <NavLink className="menu-item" to="/dashboard">
+        <NavLink className="menu-item" to="/dashboard/user-complains">
           <li>User Complains (WIP)</li>
-        </NavLink>
-        <NavLink className="menu-item" to="/dashboard">
-          <li>Manage Maintenance (WIP)</li>
-        </NavLink>
-        <NavLink className="menu-item" to="/dashboard">
-          <li>User Reports (WIP)</li>
         </NavLink>
       </ul>
       <div className="copyright-container">

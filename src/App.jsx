@@ -5,6 +5,8 @@ import ManageManagers from "./pages/ManageManagers";
 import ManageProperties from "./pages/ManageProperties";
 import UserInfo from "./pages/UserInfo";
 import FinancialStats from "./pages/FinancialStats";
+import UserComplains from "./pages/UserComplains";
+import NotFoundPage from "./pages/NotFoundPage";
 import Layout from "./layout";
 
 import {
@@ -18,6 +20,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
+        <Route path="*" element={<NotFoundPage />} />
         <Route path="/" element={<LoginPage />} />
         <Route path="/dashboard" element={<Layout />}>
           <Route path="manage-owners" element={<ManageOwners />} />
@@ -26,6 +29,7 @@ function App() {
           <Route path="manage-properties" element={<ManageProperties />} />
           <Route path="user-info" element={<UserInfo />} />
           <Route path="financial-stats" element={<FinancialStats />} />
+          <Route path="user-complains" element={<UserComplains />} />
         </Route>
       </Route>
     )

@@ -30,7 +30,6 @@ export default function EditPopup(props) {
         phone: formData.get("phone"),
       });
       if (response?.data) {
-        alert("Edited Successfully.");
         setPopup(false);
         window.location.reload();
       }

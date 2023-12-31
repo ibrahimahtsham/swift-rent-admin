@@ -34,6 +34,9 @@ const LoginPage = () => {
       <div className="img-div">
         <img className="login-img" src={SwiftRentLogo} alt="swift-rent-logo" />
       </div>
+      <br />
+      <br />
+      <br />
       <h1 className="authorize-text">Admin Login</h1>
       <form
         style={{ textAlign: "center" }}

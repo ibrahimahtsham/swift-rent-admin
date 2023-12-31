@@ -1,7 +1,7 @@
 import { BASE_URL } from "../utils/constants"; // api url
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import EditPopup from "../components/UI/EditPopup";
+import EditPopup from "../components/UI/EditUserPopup";
 // import qs from "qs";
 
 import "../assets/css/ManageOwners.css";
@@ -57,7 +57,7 @@ const ManageOwners = () => {
 
   const renderOwner = (owner, index) => {
     return (
-      <tr key={index}>
+      <tr className="border-bottom" key={index}>
         <td>{owner.ownername}</td>
         <td>{owner.dob}</td>
         <td>{owner.email}</td>
