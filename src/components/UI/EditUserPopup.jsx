@@ -40,15 +40,15 @@ export default function EditPopup(props) {
 
   return (
     <>
-      <button className="button blue-button" onClick={togglePopup}>
+      <button className="button blue-button fs-4 px-5" onClick={togglePopup}>
         Edit
       </button>
 
       {popup && (
         <div className="popup">
           <div onClick={togglePopup} className="overlay"></div>
-          <div className="popup-content">
-            <h2>Edit {props.editType}</h2>
+          <div className="popup-content w-25 p-5">
+            <h2 className="text-center">Edit {props.editType}</h2>
             <form id="editForm" onSubmit={handleEdit}>
               <label className="edit-labels" for="name">
                 Name
@@ -109,13 +109,13 @@ export default function EditPopup(props) {
               />
 
               <div style={{ textAlign: "center" }}>
-                <button className="button blue-button" type="submit">
+                <button className="button blue-button fs-3 mt-3" type="submit">
                   Submit
                 </button>
               </div>
             </form>
             <button
-              className="button red-button close-popup"
+              className="button red-button close-popup fs-5 mt-2 me-3"
               onClick={togglePopup}
             >
               X
