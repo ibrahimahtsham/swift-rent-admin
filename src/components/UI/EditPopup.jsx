@@ -95,7 +95,7 @@ export default function EditPopup(props) {
                 required
               />
 
-              <label className="edit-labels" for="phone">
+              <label className="edit-labels" htmlFor="phone">
                 Phone Number
               </label>
               <input
@@ -104,6 +104,8 @@ export default function EditPopup(props) {
                 type="tel"
                 id="phone"
                 name="phone"
+                pattern="^\d{11}$"
+                title="Enter 11-digit number"
                 required
               />
 
