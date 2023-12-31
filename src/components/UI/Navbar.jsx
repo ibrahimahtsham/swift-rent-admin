@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+
 import SwiftRentLogo from "../../assets/images/swift-rent-logo-white.png";
 import "../../assets/css/Navbar.css";
 
-const Navbar = ({ handleMenuClick }) => {
+const Navbar = () => {
   return (
     <nav className="navbar-container">
       <div className="custom-navbar">
