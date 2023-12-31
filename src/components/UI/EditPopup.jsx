@@ -56,7 +56,7 @@ export default function EditPopup(props) {
               </label>
               <input
                 className="edit-inputs"
-                placeholder={props.userName}
+                defaultValue={props.userName}
                 type="text"
                 id="name"
                 name="name"
@@ -72,7 +72,7 @@ export default function EditPopup(props) {
                 id="dob"
                 name="dob"
                 pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
-                placeholder={props.userDOB}
+                defaultValue={props.userDOB}
                 required
               />
               {/* Checks that
@@ -88,7 +88,7 @@ export default function EditPopup(props) {
               </label>
               <input
                 className="edit-inputs"
-                placeholder={props.userEmail}
+                defaultValue={props.userEmail}
                 type="email"
                 id="email"
                 name="email"
@@ -100,7 +100,7 @@ export default function EditPopup(props) {
               </label>
               <input
                 className="edit-inputs"
-                placeholder={props.userPhone}
+                defaultValue={props.userPhone}
                 type="tel"
                 id="phone"
                 name="phone"
