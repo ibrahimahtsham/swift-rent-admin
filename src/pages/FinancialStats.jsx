@@ -7,7 +7,7 @@ const FinancialStats = () => {
     <div className="main-body">
       <h1>Financial Statistics</h1>
       <div>
-        <Card border="primary">
+        <Card border="primary" className="p-1">
           <div>
             {/* Line Chart 1 */}
             <Chart

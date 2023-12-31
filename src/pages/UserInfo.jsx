@@ -4,8 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const UserInfo = () => {
   // Assuming you have the user count and user type data
-  const userTypes = ["Owners", "Managers", "Tenants"]; // Replace with your actual user types
-  const userCounts = [10, 5, 20]; // Replace with your actual user counts
+  const userTypes = ["Owners", "Tenants"]; // Replace with your actual user types
+  const userCounts = [10, 20]; // Replace with your actual user counts
 
   const getTotalUsers = () => userCounts.reduce((acc, count) => acc + count, 0);
 
