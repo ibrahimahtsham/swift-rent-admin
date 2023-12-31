@@ -1,13 +1,8 @@
 .menu-item-container{
-    padding: 0px;
-}
-
-.menu-item-container li{
     display: inline-block;
     text-decoration: none;
     list-style-type: none;
     background-color: #ceecff;
-    border-bottom: dotted 1px#397FED;
     width: 100%;
     padding: 16px;
     font-size: 20px;
@@ -17,7 +12,7 @@
     box-sizing: border-box;
 }
 
-.menu-item-container li:hover{
+.menu-item:hover{
     background-color: #397FED;
     color:#ceecff;
 }
@@ -25,6 +20,10 @@
 .menu-item{
     text-decoration: none;
     color: #1463df;
+    display: flex;
+    padding: 16px 6px;
+    border-radius: 10px;
+    width: 250px;
 }
 
 .copyright-container{
