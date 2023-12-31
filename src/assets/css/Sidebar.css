@@ -10,7 +10,7 @@
     border-bottom: dotted 1px#397FED;
     width: 100%;
     padding: 16px;
-    font-size: 16px;
+    font-size: 20px;
     color:#1463df;
     text-align: left;
     cursor: pointer;
@@ -45,7 +45,7 @@
 .menu-div{
     background-color: #ceecff;
     margin: 0px;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 75px);
     width: auto;
     max-width: 300px;
     border-right:2px solid #397FED;

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { MdManageAccounts } from "react-icons/md";
 import { LuTableProperties } from "react-icons/lu";
-import { FaUsersCog } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
 import { TbDeviceAnalytics } from "react-icons/tb";
 import { GoReport } from "react-icons/go";
 import SwiftRentLogoColored from "../../assets/images/swift-rent-logo-color.png";
@@ -13,7 +13,7 @@ const Sidebar = () => {
       <ul className="menu-item-container">
         <NavLink className="menu-item" to="/dashboard/manage-owners">
           <li>
-            <MdManageAccounts className="manage-icon" />
+            <MdManageAccounts className="me-3 fs-3" />
             Manage Owners
           </li>
         </NavLink>
@@ -22,32 +22,32 @@ const Sidebar = () => {
         </NavLink> */}
         <NavLink className="menu-item" to="/dashboard/manage-tenants">
           <li>
-            <MdManageAccounts className="manage-icon" />
+            <MdManageAccounts className="me-3 fs-3" />
             Manage Tenants
           </li>
         </NavLink>
         <NavLink className="menu-item" to="/dashboard/manage-properties">
           <li>
-            <LuTableProperties />
-            Manage Properties (WIP)
+            <LuTableProperties className="me-3 fs-3" />
+            Manage Properties
           </li>
         </NavLink>
         <NavLink className="menu-item" to="/dashboard/user-info">
           <li>
-            <FaUsersCog />
-            User Info (WIP)
+            <FaUsers className="me-3 fs-3" />
+            User Info
           </li>
         </NavLink>
         <NavLink className="menu-item" to="/dashboard/financial-stats">
           <li>
-            <TbDeviceAnalytics />
-            Financial Statistics (WIP)
+            <TbDeviceAnalytics className="me-3 fs-3" />
+            Financial Statistics
           </li>
         </NavLink>
         <NavLink className="menu-item" to="/dashboard/user-complains">
           <li>
-            <GoReport />
-            User Complains (WIP)
+            <GoReport className="me-3 fs-3" />
+            User Complains
           </li>
         </NavLink>
       </ul>
