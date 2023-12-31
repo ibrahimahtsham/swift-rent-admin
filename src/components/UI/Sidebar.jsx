@@ -156,7 +156,7 @@ const Sidebar = () => {
           alt="swift rent logo"
         />
         {/*dynamically getting year for copyright*/}
-        <p className="copyright">© {new Date().getFullYear()} SwiftRent</p>
+        <p className="copyright mt-3">© {new Date().getFullYear()} SwiftRent</p>
       </div>
     </div>
   );
