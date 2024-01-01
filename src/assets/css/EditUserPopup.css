@@ -1,3 +1,8 @@
+.pop-up-body{
+    color:#1463df;
+    font-size: large;
+}
+
 .body.active-popup {
     overflow-y: hidden;
 }
@@ -10,21 +15,25 @@
     right: 0;
     bottom: 0;
     position: fixed;
+    z-index: 8;
 }
 
 .overlay {
     background: rgba(49,49,49,0.8);
 }
+
 .popup-content {
-    position: absolute;
-    top: 40%;
-    left: 50%;
+    position: fixed;
+    z-index: 9;
+    top: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
     line-height: 1.4;
     background: #f1f1f1;
-    padding: 14px 28px;
-    border-radius: 3px;
-    max-width: 600px;
+    padding: 7px 14px;
+    border-radius: 10px;
+    border: solid 3px #1463df;
+    max-width: 700px;
     min-width: 300px;
 }
 

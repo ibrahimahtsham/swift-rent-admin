@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
-import "../../assets/css/EditPopup.css";
+import "../../assets/css/EditUserPopup.css";
 import { useNavigate } from "react-router-dom"; // to navigate to dashboard
 
 export default function EditPopup(props) {
@@ -39,7 +39,7 @@ export default function EditPopup(props) {
   };
 
   return (
-    <>
+    <div className="pop-up-body">
       <button className="button blue-button fs-4 px-5" onClick={togglePopup}>
         Edit
       </button>
@@ -48,7 +48,7 @@ export default function EditPopup(props) {
         <div className="popup">
           <div onClick={togglePopup} className="overlay"></div>
           <div className="popup-content w-25 p-5">
-            <h2 className="text-center">Edit {props.editType}</h2>
+            <h2 className="text-center fs-5">Edit {props.editType}</h2>
             <form id="editForm" onSubmit={handleEdit}>
               <label className="edit-labels" for="name">
                 Name
@@ -109,20 +109,20 @@ export default function EditPopup(props) {
               />
 
               <div style={{ textAlign: "center" }}>
-                <button className="button blue-button fs-3 mt-3" type="submit">
+                <button className="button blue-button fs-5 mt-3" type="submit">
                   Submit
                 </button>
               </div>
             </form>
             <button
-              className="button red-button close-popup fs-5 mt-2 me-3"
+              className="button red-button close-popup mt-1 me-1"
               onClick={togglePopup}
             >
-              X
+              x
             </button>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
