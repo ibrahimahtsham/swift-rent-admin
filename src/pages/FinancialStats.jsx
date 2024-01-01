@@ -6,7 +6,7 @@ const FinancialStats = () => {
   return (
     <div className="main-body content-screen">
       <div>
-        <Card className="p-3" style={{ borderColor: "#ceecff" }}>
+        <Card className="p-3" style={{ borderColor: "#effbff" }}>
           <h1>Financial Statistics</h1>
           <div>
             {/* Line Chart 1 */}

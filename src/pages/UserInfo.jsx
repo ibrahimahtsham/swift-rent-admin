@@ -43,15 +43,10 @@ const UserInfo = () => {
           </Container>
         </div>
       </div>
-      <br />
       <ManageOwners />
-      <br />
       <ManageTenants />
-      <br />
       <ManageProperties />
-      <br />
       <FinancialStats />
-      <br />
       <UserComplains />
     </div>
   );

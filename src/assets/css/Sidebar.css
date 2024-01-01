@@ -2,7 +2,7 @@
     display: inline-block;
     text-decoration: none;
     list-style-type: none;
-    background-color: #ceecff;
+    background-color: #effbff;
     width: 100%;
     padding: 16px;
     font-size: 20px;
@@ -21,13 +21,13 @@
 }
 
 .menu-item:hover{
-    background-color: #397FED;
-    color:#ceecff;
+    background-color: #1463df;
+    color:#effbff;
 }
 
 .active {
-    background-color: #397FED;
-    color:#ceecff;
+    background-color: #1463df;
+    color:#effbff;
 }
 
 .copyright-container{
@@ -46,12 +46,12 @@
 }
 
 .menu-div{
-    background-color: #ceecff;
+    background-color: #effbff;
     margin: 0px;
     height: calc(100vh - 75px);
     width: auto;
     max-width: 300px;
-    border-right:2px solid #397FED;
+    border-right:2px solid #1463df;
     top: 75px;
     position: fixed;
     display: flex;

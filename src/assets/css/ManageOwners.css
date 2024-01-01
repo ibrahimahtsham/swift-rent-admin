@@ -9,7 +9,7 @@ table {
 
 .page-border{
   border-radius: 6px;
-  border: solid 1px #ceecff;
+  border: solid 1px #effbff;
   padding: 16px;
 }
 
@@ -24,7 +24,7 @@ th, td {
   text-align: left;
 }
 
-tr:hover {background-color: #ceecff;}
+tr:hover {background-color: #effbff;}
 
 .button {
   font-size: medium;
@@ -40,7 +40,7 @@ tr:hover {background-color: #ceecff;}
 
 .blue-button{
   border: 1px solid #1463df;
-  background-color: #397FED;
+  background-color: #1463df;
 }
 
 .red-button{
