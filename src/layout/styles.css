@@ -1,5 +1,5 @@
 .main-container{
-    display: flex;
+    display: block;
 }
 
 body{
@@ -7,4 +7,23 @@ body{
     font-family: 'Open Sans', sans-serif;
     margin: 0px;
     font-size: 25px;
+}
+
+.main-body{
+    padding: 26px 32px;
+    width: 100%;
+}
+
+.content-screen{
+    width:auto;
+    position:relative;
+    top: 70px;
+    padding-left: 310px;
+}
+
+.content-screen-main{
+    width:auto;
+    position:relative;
+    top: 75px;
+    padding-left: 310px;
 }

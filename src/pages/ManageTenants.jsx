@@ -83,8 +83,8 @@ const ManageTenants = () => {
   };
 
   return (
-    <div className="main-body">
-      <div className="table-div">
+    <div className="main-body content-screen">
+      <div className="page-border">
         <h1>Tenant Data</h1>
         <table>
           <thead>

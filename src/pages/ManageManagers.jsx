@@ -4,7 +4,7 @@ import "../assets/css/ManageManagers.css";
 const ManageManagers = () => {
   return (
     <div className="main-body">
-      <div className="table-div">
+      <div className="page-border">
         <h1>Manager Data</h1>
         <table>
           <thead>

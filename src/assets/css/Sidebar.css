@@ -52,5 +52,8 @@
     width: auto;
     max-width: 300px;
     border-right:2px solid #397FED;
-    position: relative;
+    top: 75px;
+    position: fixed;
+    display: flex;
+    z-index: 10;
 }

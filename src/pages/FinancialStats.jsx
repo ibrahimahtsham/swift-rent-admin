@@ -4,10 +4,10 @@ import { Card } from "react-bootstrap";
 
 const FinancialStats = () => {
   return (
-    <div className="main-body">
-      <h1>Financial Statistics</h1>
+    <div className="main-body content-screen">
       <div>
-        <Card border="primary" className="p-1">
+        <Card className="p-3" style={{ borderColor: "#ceecff" }}>
+          <h1>Financial Statistics</h1>
           <div>
             {/* Line Chart 1 */}
             <Chart

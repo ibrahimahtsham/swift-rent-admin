@@ -3,8 +3,8 @@ import "../assets/css/UserComplains.css";
 
 const UserComplains = () => {
   return (
-    <div className="main-body">
-      <div className="table-div">
+    <div className="main-body content-screen">
+      <div className="page-border">
         <h1>User Complains</h1>
         <table>
           <thead>
