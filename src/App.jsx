@@ -16,13 +16,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+//loaders imports
+import { loader as layoutPageLoader } from "./layout";
+import { loader as loginPageLoader } from "./pages/LoginPage";
+
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/dashboard" element={<Layout />}>
+        <Route path="/" loader={loginPageLoader} element={<LoginPage />} />
+        <Route path="/dashboard" loader={layoutPageLoader} element={<Layout />}>
           <Route path="manage-owners" element={<ManageOwners />} />
           <Route path="manage-tenants" element={<ManageTenants />} />
           <Route path="manage-managers" element={<ManageManagers />} />

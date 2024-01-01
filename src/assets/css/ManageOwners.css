@@ -2,6 +2,10 @@ h1 {
   font-weight: 400;
 }
 
+.table-container{
+  overflow: auto;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -17,6 +21,7 @@ th{
   background-color: #1463df;
   color: white;
   font-weight: 400;
+  min-width: 250px;
 }
 
 th, td {

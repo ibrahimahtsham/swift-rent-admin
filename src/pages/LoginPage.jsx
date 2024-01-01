@@ -1,7 +1,8 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants"; // api url
 import { useState } from "react"; // store state of error to be shown if error occurs
-import { useNavigate } from "react-router-dom"; // to navigate to dashboard
+import { redirect, useNavigate } from "react-router-dom"; // to navigate to dashboard
+import { getCookie } from "../utils/helpers";
 
 import SwiftRentLogo from "../assets/images/swift-rent-logo.png";
 import "../assets/css/Login.css";
@@ -22,6 +23,7 @@ const LoginPage = () => {
         password: formData.get("password"),
       });
       if (response?.data) {
+        document.cookie = `loggedIn=true; expires=${new Date()}; path=/`;
         navigate("/dashboard/main");
       }
     } catch (error) {
@@ -68,3 +70,9 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+export function loader() {
+  const isLoggedIn = getCookie("loggedIn");
+  if (isLoggedIn) return redirect("/dashboard/main");
+  return null;
+}

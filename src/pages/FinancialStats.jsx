@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 import { Card } from "react-bootstrap";
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
 
 const FinancialStats = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post(`${BASE_URL}/admin/monthly-profits`);
+        setData(response.data.monthlyProfits);
+      } catch (error) {
+        setError(error);
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []); // The empty dependency array ensures that the effect runs once after the initial render
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="main-body content-screen">
       <div>
@@ -15,36 +42,10 @@ const FinancialStats = () => {
               height={"600px"}
               chartType="LineChart"
               loader={<div>Loading Chart</div>}
-              data={[
-                ["Month", "Rent Collected"],
-                ["Jan 2023", 1000],
-                ["Feb 2023", 1170],
-                ["Mar 2023", 660],
-                ["Apr 2023", 1030],
-                ["May 2023", 850],
-                ["Jun 2023", 1250],
-                ["Jul 2023", 1100],
-                ["Aug 2023", 900],
-                ["Sep 2023", 1050],
-                ["Oct 2023", 950],
-                ["Nov 2023", 1200],
-                ["Dec 2023", 1300],
-                ["Jan 2024", 1400],
-                ["Feb 2024", 1600],
-                ["Mar 2024", 1100],
-                ["Apr 2024", 900],
-                ["May 2024", 950],
-                ["Jun 2024", 1200],
-                ["Jul 2024", 1350],
-                ["Aug 2024", 1150],
-                ["Sep 2024", 1000],
-                ["Oct 2024", 950],
-                ["Nov 2024", 1300],
-                ["Dec 2024", 1450],
-              ]}
+              data={data}
               options={{
                 title: "Property Information",
-                curveType: "function",
+                curveType: "line",
                 legend: { position: "bottom" },
               }}
               rootProps={{ "data-testid": "1" }}

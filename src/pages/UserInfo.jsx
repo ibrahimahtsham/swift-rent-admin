@@ -1,16 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Card, Container, Row, Col } from "react-bootstrap";
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
 import ManageOwners from "./ManageOwners";
 import ManageTenants from "./ManageTenants";
 import ManageProperties from "./ManageProperties";
 import FinancialStats from "./FinancialStats";
 import UserComplains from "./UserComplains";
-import { Card, Container, Row, Col } from "react-bootstrap";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const UserInfo = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/admin/user-info`);
+        console.log(response.data);
+        setData(response.data);
+      } catch (error) {
+        setError(error);
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []); // The empty dependency array ensures that the effect runs once after the initial render
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
   // Assuming you have the user count and user type data
   const userTypes = ["Owners", "Tenants"]; // Replace with your actual user types
-  const userCounts = [10, 20]; // Replace with your actual user counts
+  const userCounts = [data.totalOwners, data.totalTenants]; // Replace with your actual user counts
 
   const getTotalUsers = () => userCounts.reduce((acc, count) => acc + count, 0);
 

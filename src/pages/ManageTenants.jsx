@@ -86,18 +86,20 @@ const ManageTenants = () => {
     <div className="main-body content-screen">
       <div className="page-border">
         <h1>Tenant Data</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Tenant Name</th>
-              <th>Date Of Birth</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-          <tbody>{data.map(renderTenant)}</tbody>
-        </table>
+        <div className="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Tenant Name</th>
+                <th>Date Of Birth</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>{data.map(renderTenant)}</tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

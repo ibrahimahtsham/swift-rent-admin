@@ -24,29 +24,6 @@ const ManageOwners = () => {
     fetchData();
   }, []); // The empty dependency array ensures that the effect runs once after the initial render
 
-  // const handleDelete = async (ownerID) => {
-  //   try {
-  //     const formData = { ownerID: ownerID };
-  //     const response = await axios.delete(`${BASE_URL}/admin/delete-owner`, {
-  //       headers: {
-  //         "Content-Type": "application/x-www-form-urlencoded",
-  //       },
-  //       data: qs.stringify(formData),
-  //     });
-
-  //     console.log("From ibrahim: " + ownerID);
-
-  //     if (response?.data?.success) {
-  //       alert("Deleted successfully");
-  //     } else {
-  //       alert("Deletion failed");
-  //     }
-  //   } catch (error) {
-  //     setError(error);
-  //     console.error("Error deleting data:", error);
-  //   }
-  // };
-
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -86,18 +63,20 @@ const ManageOwners = () => {
     <div className="main-body content-screen">
       <div className="page-border">
         <h1>Owner Data</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Owner Name</th>
-              <th>Date Of Birth</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-          <tbody>{data.map(renderOwner)}</tbody>
-        </table>
+        <div className="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Owner Name</th>
+                <th>Date Of Birth</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>{data.map(renderOwner)}</tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

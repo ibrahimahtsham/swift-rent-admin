@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
 import "../../assets/css/EditUserPopup.css";
-import { useNavigate } from "react-router-dom"; // to navigate to dashboard
 
 export default function EditPopup(props) {
   const [popup, setPopup] = useState(false);
-  const navigate = useNavigate();
 
   const togglePopup = () => {
     setPopup(!popup);
