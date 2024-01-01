@@ -11,11 +11,6 @@
     box-sizing: border-box;
 }
 
-.menu-item:hover{
-    background-color: #397FED;
-    color:#ceecff;
-}
-
 .menu-item{
     text-decoration: none;
     color: #1463df;
@@ -23,6 +18,16 @@
     padding: 16px 10px;
     border-radius: 10px;
     width: 250px;
+}
+
+.menu-item:hover{
+    background-color: #397FED;
+    color:#ceecff;
+}
+
+.active {
+    background-color: #397FED;
+    color:#ceecff;
 }
 
 .copyright-container{
