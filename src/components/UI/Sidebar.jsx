@@ -2,7 +2,6 @@ import { NavLink, redirect } from "react-router-dom";
 
 import { MdManageAccounts } from "react-icons/md";
 import { LuTableProperties } from "react-icons/lu";
-import { FaUsers } from "react-icons/fa";
 import { TbDeviceAnalytics } from "react-icons/tb";
 import { GoReport } from "react-icons/go";
 
@@ -19,58 +18,62 @@ const Sidebar = () => {
     var managePropertiesLinkID = document.getElementById(
       "managePropertiesLink"
     );
-    var userInfoLinkID = document.getElementById("userInfoLink");
     var financialStatisticsLinkID = document.getElementById(
       "financialStatisticsLink"
     );
     var userComplainsLinkID = document.getElementById("userComplainsLink");
 
+    if(window.location.pathname === "/dashboard/main"){
+      manageOwnersLinkID.style.backgroundColor = "";
+      manageOwnersLinkID.style.color = "";
+      manageTenantsLinkID.style.backgroundColor = "";
+      manageTenantsLinkID.style.color = "";
+      managePropertiesLinkID.style.backgroundColor = "";
+      managePropertiesLinkID.style.color = "";
+      financialStatisticsLinkID.style.backgroundColor = "";
+      financialStatisticsLinkID.style.color = "";
+      userComplainsLinkID.style.backgroundColor = "";
+      userComplainsLinkID.style.color = "";
+    }
+
     if (window.location.pathname === "/dashboard/manage-owners") {
       manageOwnersLinkID.style.backgroundColor = "#397FED";
       manageOwnersLinkID.style.color = "#ceecff";
     } else {
-      manageOwnersLinkID.style.backgroundColor = "#ceecff";
-      manageOwnersLinkID.style.color = "#397FED";
+      manageOwnersLinkID.style.backgroundColor = "";
+      manageOwnersLinkID.style.color = "";
     }
 
     if (window.location.pathname === "/dashboard/manage-tenants") {
       manageTenantsLinkID.style.backgroundColor = "#397FED";
       manageTenantsLinkID.style.color = "#ceecff";
     } else {
-      manageTenantsLinkID.style.backgroundColor = "#ceecff";
-      manageTenantsLinkID.style.color = "#397FED";
+      manageTenantsLinkID.style.backgroundColor = "";
+      manageTenantsLinkID.style.color = "";
     }
 
     if (window.location.pathname === "/dashboard/manage-properties") {
       managePropertiesLinkID.style.backgroundColor = "#397FED";
       managePropertiesLinkID.style.color = "#ceecff";
     } else {
-      managePropertiesLinkID.style.backgroundColor = "#ceecff";
-      managePropertiesLinkID.style.color = "#397FED";
-    }
-
-    if (window.location.pathname === "/dashboard/user-info") {
-      userInfoLinkID.style.backgroundColor = "#397FED";
-      userInfoLinkID.style.color = "#ceecff";
-    } else {
-      userInfoLinkID.style.backgroundColor = "#ceecff";
-      userInfoLinkID.style.color = "#397FED";
+      managePropertiesLinkID.style.backgroundColor = "";
+      managePropertiesLinkID.style.color = "";
     }
 
     if (window.location.pathname === "/dashboard/financial-stats") {
       financialStatisticsLinkID.style.backgroundColor = "#397FED";
       financialStatisticsLinkID.style.color = "#ceecff";
     } else {
-      financialStatisticsLinkID.style.backgroundColor = "#ceecff";
-      financialStatisticsLinkID.style.color = "#397FED";
+      financialStatisticsLinkID.style.backgroundColor = "";
+      financialStatisticsLinkID.style.color = "";
     }
 
     if (window.location.pathname === "/dashboard/user-complains") {
       userComplainsLinkID.style.backgroundColor = "#397FED";
       userComplainsLinkID.style.color = "#ceecff";
     } else {
-      userComplainsLinkID.style.backgroundColor = "#ceecff";
-      userComplainsLinkID.style.color = "#397FED";
+      userComplainsLinkID.style.backgroundColor = "";
+      userComplainsLinkID.style.color = "";
     }
 
     if (runEffect) {
@@ -117,16 +120,6 @@ const Sidebar = () => {
         >
           <LuTableProperties className="me-3 fs-3" />
           Manage Properties
-        </NavLink>
-        <br />
-        <NavLink
-          onClick={handleClick}
-          id="userInfoLink"
-          className="menu-item"
-          to="/dashboard/user-info"
-        >
-          <FaUsers className="me-3 fs-3" />
-          User Info
         </NavLink>
         <br />
         <NavLink

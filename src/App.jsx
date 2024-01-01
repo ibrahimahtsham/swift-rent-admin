@@ -27,7 +27,7 @@ function App() {
           <Route path="manage-tenants" element={<ManageTenants />} />
           <Route path="manage-managers" element={<ManageManagers />} />
           <Route path="manage-properties" element={<ManageProperties />} />
-          <Route path="user-info" element={<UserInfo />} />
+          <Route path="main" element={<UserInfo />} />
           <Route path="financial-stats" element={<FinancialStats />} />
           <Route path="user-complains" element={<UserComplains />} />
         </Route>

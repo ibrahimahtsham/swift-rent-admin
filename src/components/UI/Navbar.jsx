@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="navbar-container">
       <div className="custom-navbar">
-        <Link className="dashboard-text" to="/dashboard">
+        <Link className="dashboard-text" to="/dashboard/main">
           <img
             className="nav-logo dashboard-text"
             src={SwiftRentLogo}

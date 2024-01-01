@@ -22,7 +22,7 @@ const LoginPage = () => {
         password: formData.get("password"),
       });
       if (response?.data) {
-        navigate("/dashboard");
+        navigate("/dashboard/main");
       }
     } catch (error) {
       setError(error?.response?.data);
