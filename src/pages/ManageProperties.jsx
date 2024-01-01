@@ -15,7 +15,6 @@ const ManageProperties = () => {
                 <th>Status</th>
                 <th>Property Owner</th>
                 <th>Property Tenant</th>
-                <th>Options</th>
               </tr>
             </thead>
             <tbody>
@@ -25,16 +24,6 @@ const ManageProperties = () => {
                 <td>On-rent</td>
                 <td>Ibrahim Ahtsham</td>
                 <td>Abdullah Shahid</td>
-                <td>
-                  <EditPopup
-                    editType="Tenant"
-                    userID="{tenant.userid}"
-                    userName="{tenant.tenantname}"
-                    userDOB="{tenant.dob}"
-                    userEmail="{tenant.email}"
-                    userPhone="{tenant.phone}"
-                  />
-                </td>
               </tr>
               <tr className="border-bottom">
                 <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
@@ -42,16 +31,6 @@ const ManageProperties = () => {
                 <td>On-rent</td>
                 <td>Ibrahim Ahtsham</td>
                 <td>Abdullah Shahid</td>
-                <td>
-                  <EditPopup
-                    editType="Tenant"
-                    userID="{tenant.userid}"
-                    userName="{tenant.tenantname}"
-                    userDOB="{tenant.dob}"
-                    userEmail="{tenant.email}"
-                    userPhone="{tenant.phone}"
-                  />
-                </td>
               </tr>
               <tr className="border-bottom">
                 <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
@@ -59,16 +38,6 @@ const ManageProperties = () => {
                 <td>On-rent</td>
                 <td>Ibrahim Ahtsham</td>
                 <td>Abdullah Shahid</td>
-                <td>
-                  <EditPopup
-                    editType="Tenant"
-                    userID="{tenant.userid}"
-                    userName="{tenant.tenantname}"
-                    userDOB="{tenant.dob}"
-                    userEmail="{tenant.email}"
-                    userPhone="{tenant.phone}"
-                  />
-                </td>
               </tr>
               <tr className="border-bottom">
                 <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
@@ -76,67 +45,6 @@ const ManageProperties = () => {
                 <td>On-rent</td>
                 <td>Ibrahim Ahtsham</td>
                 <td>Abdullah Shahid</td>
-                <td>
-                  <EditPopup
-                    editType="Tenant"
-                    userID="{tenant.userid}"
-                    userName="{tenant.tenantname}"
-                    userDOB="{tenant.dob}"
-                    userEmail="{tenant.email}"
-                    userPhone="{tenant.phone}"
-                  />
-                </td>
-              </tr>
-              <tr className="border-bottom">
-                <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-                <td>$1,200.00</td>
-                <td>On-rent</td>
-                <td>Ibrahim Ahtsham</td>
-                <td>Abdullah Shahid</td>
-                <td>
-                  <EditPopup
-                    editType="Tenant"
-                    userID="{tenant.userid}"
-                    userName="{tenant.tenantname}"
-                    userDOB="{tenant.dob}"
-                    userEmail="{tenant.email}"
-                    userPhone="{tenant.phone}"
-                  />
-                </td>
-              </tr>
-              <tr className="border-bottom">
-                <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-                <td>$1,200.00</td>
-                <td>On-rent</td>
-                <td>Ibrahim Ahtsham</td>
-                <td>Abdullah Shahid</td>
-                <td>
-                  <EditPopup
-                    editType="Tenant"
-                    userID="{tenant.userid}"
-                    userName="{tenant.tenantname}"
-                    userDOB="{tenant.dob}"
-                    userEmail="{tenant.email}"
-                    userPhone="{tenant.phone}"
-                  />
-                </td>
-              </tr>
-              <tr className="border-bottom">
-                <td>House 540, Street no. 5, G-11 / 1, Islamabad, Pakistan</td>
-                <td>$1,200.00</td>
-                <td>On-rent</td>
-                <td>Ibrahim Ahtsham</td>
-                <td>Abdullah Shahid</td>
-                <td>
-                  <EditPopup
-                    editType="Tenant"
-                    userID="{tenant.userid}"
-                    userName="{tenant.tenantname}"
-                    userDOB="{tenant.dob}"
-                    userEmail="{tenant.email}"
-                    userPhone="{tenant.phone}"
-                  />
-                </td>
               </tr>
             </tbody>
           </table>
