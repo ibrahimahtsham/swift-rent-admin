@@ -44,9 +44,9 @@ const FinancialStats = () => {
               loader={<div>Loading Chart</div>}
               data={data}
               options={{
-                title: "Property Information",
-                curveType: "line",
+                curveType: "function",
                 legend: { position: "bottom" },
+                pointSize: 15, // Adjust the size of the dots as needed
               }}
               rootProps={{ "data-testid": "1" }}
             />
