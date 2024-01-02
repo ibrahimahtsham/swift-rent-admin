@@ -31,7 +31,6 @@
 }
 
 .copyright-container{
-    position: absolute;
     bottom: 0px;
     text-align: center;
     width: 100%;
@@ -56,5 +55,8 @@
     position: fixed;
     user-select: none;
     display: flex;
-    z-index: 8;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+    z-index: 9;
 }
