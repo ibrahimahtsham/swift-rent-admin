@@ -50,7 +50,7 @@ const ManageOwners = () => {
               userEmail={owner.email}
               userPhone={owner.phone}
             />
-            <BanUserPopup />
+            <BanUserPopup userID={owner.userid} userName={owner.ownername} />
           </div>
         </td>
       </tr>

@@ -4,6 +4,7 @@ import "../../../assets/css/EditUserPopup.css";
 import { BASE_URL } from "../../../utils/constants";
 
 export default function EditPopup(props) {
+  //popup open and close logic
   const [popup, setPopup] = useState(false);
 
   const togglePopup = () => {
@@ -15,6 +16,8 @@ export default function EditPopup(props) {
   } else {
     document.body.classList.remove("active-popup");
   }
+
+  //api
 
   const handleEdit = async (event) => {
     event.preventDefault(); //used this to pause console for debugging
