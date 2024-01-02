@@ -1,7 +1,7 @@
 import { BASE_URL } from "../utils/constants"; // api url
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import EditPopup from "../components/UI/EditUserPopup";
+import EditPopup from "../components/UI/popups/EditUserPopup";
 // import qs from "qs";
 
 import "../assets/css/ManageOwners.css";

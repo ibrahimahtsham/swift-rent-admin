@@ -1,4 +1,4 @@
-import EditPopup from "../components/UI/EditUserPopup";
+import EditPopup from "../components/UI/popups/EditUserPopup";
 import "../assets/css/ManageManagers.css";
 
 const ManageManagers = () => {

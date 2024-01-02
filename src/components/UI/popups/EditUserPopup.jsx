@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
-import "../../assets/css/EditUserPopup.css";
+import "../../../assets/css/EditUserPopup.css";
+import { BASE_URL } from "../../../utils/constants";
 
 export default function EditPopup(props) {
   const [popup, setPopup] = useState(false);
