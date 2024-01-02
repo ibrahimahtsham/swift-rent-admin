@@ -52,8 +52,10 @@ const UserInfo = () => {
               <Col lg={4} md={6} sm={12}>
                 <Card className="mb-4" border="secondary">
                   <Card.Body>
-                    <Card.Title>Total Users</Card.Title>
-                    <Card.Text>{getTotalUsers()}</Card.Text>
+                    <Card.Title className="fs-1">Total Users</Card.Title>
+                    <Card.Text className="fs-1 text-end">
+                      {getTotalUsers()}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -61,8 +63,10 @@ const UserInfo = () => {
                 <Col key={type} lg={4} md={6} sm={12}>
                   <Card className="mb-4" border="info">
                     <Card.Body>
-                      <Card.Title>{type}</Card.Title>
-                      <Card.Text>{`Count: ${userCounts[index]}`}</Card.Text>
+                      <Card.Title className="text-start fs-1">
+                        {type}
+                      </Card.Title>
+                      <Card.Text className="text-end fs-1">{`${userCounts[index]}`}</Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>

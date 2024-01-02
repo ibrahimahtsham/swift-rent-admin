@@ -30,12 +30,29 @@ const UserComplains = () => {
   }
 
   const renderComplains = (complain, index) => {
+    var userType = complain.usertype;
+    if (userType === "O") {
+      userType = "Owner";
+    }
+    if (userType === "T") {
+      userType = "Tenant";
+    }
+    var bugStatus = complain.bugstatus;
+    if (bugStatus === "F") {
+      bugStatus = "Fresh";
+    }
+    if (bugStatus === "P") {
+      bugStatus = "Pending";
+    }
+    if (bugStatus === "R") {
+      bugStatus = "Resolved";
+    }
     return (
       <tr className="border-bottom" key={index}>
-        <td>{complain.usertype}</td>
+        <td>{userType}</td>
         <td>{complain.bugtype}</td>
         <td>{complain.bugdescription}</td>
-        <td>{complain.bugstatus}</td>
+        <td>{bugStatus}</td>
       </tr>
     );
   };
