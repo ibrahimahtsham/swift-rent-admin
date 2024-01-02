@@ -5,7 +5,6 @@ import EditPopup from "../components/UI/popups/EditUserPopup";
 import BanUserPopup from "../components/UI/popups/BanUserPopup";
 
 import "../assets/css/ManageTenants.css";
-import UnBanUserPopup from "../components/UI/popups/UnBanUserPopup";
 
 const ManageTenants = () => {
   const [data, setData] = useState(null);
@@ -49,10 +48,11 @@ const ManageTenants = () => {
               userEmail={tenant.email}
               userPhone={tenant.phone}
             />
-            <BanUserPopup userID={tenant.userid} userName={tenant.tenantname} />
-            <UnBanUserPopup
+
+            <BanUserPopup
               userID={tenant.userid}
               userName={tenant.ownername}
+              banStatus={tenant.status}
             />
           </div>
         </td>
