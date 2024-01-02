@@ -6,6 +6,7 @@ import BanUserPopup from "../components/UI/popups/BanUserPopup";
 // import qs from "qs";
 
 import "../assets/css/ManageOwners.css";
+import UnBanUserPopup from "../components/UI/popups/UnBanUserPopup";
 
 const ManageOwners = () => {
   const [data, setData] = useState(null);
@@ -51,6 +52,7 @@ const ManageOwners = () => {
               userPhone={owner.phone}
             />
             <BanUserPopup userID={owner.userid} userName={owner.ownername} />
+            <UnBanUserPopup userID={owner.userid} userName={owner.ownername} />
           </div>
         </td>
       </tr>
