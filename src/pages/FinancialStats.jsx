@@ -46,7 +46,9 @@ const FinancialStats = () => {
               options={{
                 curveType: "function",
                 legend: { position: "bottom" },
-                pointSize: 15, // Adjust the size of the dots as needed
+                pointSize: 15,
+                hAxis: { textStyle: { fontSize: 20 } },
+                vAxis: { textStyle: { fontSize: 20 } },
               }}
               rootProps={{ "data-testid": "1" }}
             />
