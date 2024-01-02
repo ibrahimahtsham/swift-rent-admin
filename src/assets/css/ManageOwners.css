@@ -31,6 +31,13 @@ th, td {
 
 tr:hover {background-color: #effbff;}
 
+.options-buttons-container{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
 .button {
   font-size: medium;
   background: transparent;

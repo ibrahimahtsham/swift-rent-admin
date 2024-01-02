@@ -38,7 +38,7 @@ export default function EditPopup(props) {
 
   return (
     <div className="pop-up-body">
-      <button className="button blue-button fs-4 px-5" onClick={togglePopup}>
+      <button className="button blue-button fs-4" onClick={togglePopup}>
         Edit
       </button>
 
