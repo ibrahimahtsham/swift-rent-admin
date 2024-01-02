@@ -62,7 +62,10 @@ const BanUserPopup = (props) => {
             <div onClick={togglePopup} className="overlay"></div>
             <div className="popup-content w-25 p-5 text-center">
               <p className="fs-3">
-                Are you sure you want to un-ban the user: {props.userName}
+                Are you sure you want to ban the user?
+              </p>
+              <p className="fs-3">
+                {props.userName}
               </p>
               <button className="button red-button fs-1" onClick={handleBan}>
                 BAN
@@ -92,7 +95,10 @@ const BanUserPopup = (props) => {
             <div onClick={togglePopup} className="overlay"></div>
             <div className="popup-content w-25 p-5 text-center">
               <p className="fs-3">
-                Are you sure you want to un-ban the user: {props.userName}
+                Are you sure you want to un-ban the user?
+              </p>
+              <p className="fs-3">
+                {props.userName}
               </p>
               <button
                 className="button yellow-button fs-1"
