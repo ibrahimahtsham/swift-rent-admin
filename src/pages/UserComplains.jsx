@@ -2,6 +2,7 @@ import "../assets/css/UserComplains.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
+import UpdateBugStatusPopup from "../components/UI/popups/UpdateBugStatusPopup";
 
 const UserComplains = () => {
   const [data, setData] = useState(null);
@@ -53,6 +54,12 @@ const UserComplains = () => {
         <td>{complain.bugtype}</td>
         <td>{complain.bugdescription}</td>
         <td>{bugStatus}</td>
+        <td>
+          <UpdateBugStatusPopup
+            bugID={complain.id}
+            bugStatus={complain.bugstatus}
+          />
+        </td>
       </tr>
     );
   };
@@ -69,6 +76,7 @@ const UserComplains = () => {
                 <th>Bug Type</th>
                 <th>Bug Description</th>
                 <th>Bug Status</th>
+                <th>Options</th>
               </tr>
             </thead>
             <tbody>{data.map(renderComplains)}</tbody>
