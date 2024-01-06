@@ -44,6 +44,7 @@ const ManageTenants = () => {
             <EditPopup
               editType="Tenant"
               userID={tenant.userid}
+              userName={tenant.tenantname}
               userDOB={tenant.dob}
               userEmail={tenant.email}
               userPhone={tenant.phone}
@@ -51,7 +52,7 @@ const ManageTenants = () => {
 
             <BanUserPopup
               userID={tenant.userid}
-              userName={tenant.ownername}
+              userName={tenant.tenantname}
               banStatus={tenant.status}
             />
           </div>
