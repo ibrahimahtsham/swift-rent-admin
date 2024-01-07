@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditPopup from "../components/UI/popups/EditUserPopup";
 import BanUserPopup from "../components/UI/popups/BanUserPopup";
+import ResetPassPopup from "../components/UI/popups/ResetPassPopup";
 
 import "../assets/css/ManageTenants.css";
 
@@ -54,6 +55,10 @@ const ManageTenants = () => {
               userID={tenant.userid}
               userName={tenant.tenantname}
               banStatus={tenant.status}
+            />
+            <ResetPassPopup
+              userID={tenant.userid}
+              userName={tenant.tenantname}
             />
           </div>
         </td>
