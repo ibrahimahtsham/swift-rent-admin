@@ -27,16 +27,12 @@ const ResetPassPopup = (props) => {
       });
       if (banUserResponse?.data) {
         setPopup(false);
-        window.location.reload();
       }
-      const unBanUserResponse = await axios.post(
-        `${BASE_URL}/admin/unban-user`,
-        {
+      const unBanUserResponse = await axios.post(`${BASE_URL}/admin/unban-user`, {
           userID: props.userID,
         }
       );
       if (unBanUserResponse?.data) {
-        setPopup(false);
         window.location.reload();
       }
     } catch (error) {
@@ -47,7 +43,7 @@ const ResetPassPopup = (props) => {
   return (
     <div className="pop-up-body">
       <button className="button yellow-button fs-4" onClick={togglePopup}>
-        Reset Pass
+        Reset Password
       </button>
 
       {popup && (
