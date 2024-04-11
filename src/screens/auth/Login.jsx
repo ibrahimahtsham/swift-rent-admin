@@ -1,6 +1,7 @@
 // Login.jsx
 import { useFormik } from "formik";
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { icons } from "../../utils/ImageImports.js";
 import { loginValidation } from "../../utils/validation/loginValidation.js";
 import { ThemeContext } from "./../../utils/ThemeContext.js";
@@ -14,6 +15,7 @@ const initialValues = {
 
 const Login = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.body.className = theme;
@@ -28,8 +30,7 @@ const Login = () => {
         values.username === "admin" &&
         values.password === "unpredictable69"
       ) {
-        alert("Login successful");
-        // Redirect to dashboard
+        navigate("/dashboard", { replace: true });
       } else {
         // Set errors manually
         setFieldError("username", "Invalid credentials");
