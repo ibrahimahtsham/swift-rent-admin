@@ -1,7 +1,10 @@
 :root {
+  /* common */
+  --text-color-black: black;
+  --text-color-white: white;
+
   /* light */
   --background-color-light: white;
-  --text-color-light: black;
   --button-color-light: #4eb7fc;
   --input-border-color-light: black;
   --input-background-color-light: white;
@@ -10,7 +13,6 @@
 
   /* dark */
   --background-color-dark: black;
-  --text-color-dark: white;
   --button-color-dark: gray;
   --input-border-color-dark: white;
   --input-background-color-dark: black;
@@ -20,22 +22,22 @@
 
 body.light {
   background-color: var(--background-color-light);
-  color: var(--text-color-light);
+  color: var(--text-color-black);
 }
 
 body.dark {
   background-color: var(--background-color-dark);
-  color: var(--text-color-dark);
+  color: var(--text-color-white);
 }
 
 button.light {
   background-color: var(--button-color-light);
-  color: var(--text-color-dark);
+  color: var(--text-color-black);
 }
 
 button.dark {
   background-color: var(--button-color-dark);
-  color: var(--text-color-light);
+  color: var(--text-color-white);
 }
 
 input.light {

@@ -74,6 +74,10 @@
   border-radius: 10px;
 }
 
+.login-button:active {
+  opacity: 0.5;
+}
+
 .error-text {
   color: red;
   text-align: center;
