@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import Navbar from "../../components/navbar";
 import { ThemeContext } from "../../utils/ThemeContext";
-import "./styles/styles.css";
+import "./styles/Dashboard.css";
 
 const Dashboard = () => {
   const { theme } = useContext(ThemeContext);

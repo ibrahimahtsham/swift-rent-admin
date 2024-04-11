@@ -19,7 +19,7 @@ const Navbar = () => {
       </div>
       <div className="right-container">
         <img
-          src={theme === "light" ? icons.sunIcon : icons.moonIcon}
+          src={theme === "light" ? icons.sunIconWhite : icons.moonIcon}
           alt="Theme icon"
           onClick={toggleTheme}
           style={{ cursor: "pointer" }}

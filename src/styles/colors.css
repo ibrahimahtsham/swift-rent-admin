@@ -39,7 +39,7 @@ body.dark {
 
 button.light {
   background-color: var(--button-color-light);
-  color: var(--text-color-black);
+  color: var(--text-color-white);
 }
 
 button.dark {
@@ -98,5 +98,5 @@ label.dark {
 }
 
 .navbar-theme-icon.light {
-  filter: invert(100%);
+  color: white;
 }
