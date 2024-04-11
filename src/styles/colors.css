@@ -2,6 +2,9 @@
   /* common */
   --text-color-black: black;
   --text-color-white: white;
+  --background-color-dark-blue: #1463df;
+  --background-color-light-blue: #4eb7fc;
+  --bacground-color-white: white;
 
   /* light */
   --background-color-light: white;
@@ -9,7 +12,9 @@
   --input-border-color-light: black;
   --input-background-color-light: white;
   --input-text-color-light: black;
-  ---label-color-light: black;
+  --label-color-light: black;
+  --navbar-background-color-light: #1463df;
+  --dashboard-background-color-light: white;
 
   /* dark */
   --background-color-dark: black;
@@ -17,7 +22,9 @@
   --input-border-color-dark: white;
   --input-background-color-dark: black;
   --input-text-color-dark: white;
-  ---label-color-dark: white;
+  --label-color-dark: white;
+  --navbar-background-color-dark: black;
+  --dashboard-background-color-dark: rgb(59, 59, 59);
 }
 
 body.light {
@@ -58,4 +65,38 @@ label.light {
 
 label.dark {
   color: var(--label-color-dark);
+}
+
+.navbar.light {
+  background-color: var(--navbar-background-color-light);
+  color: var(--text-color-black);
+}
+
+.navbar.dark {
+  background-color: var(--navbar-background-color-dark);
+  color: var(--text-color-white);
+}
+
+.logout-button.light {
+  background-color: var(--bacground-color-white);
+  color: var(--text-color-black);
+}
+
+.logout-button.dark {
+  background-color: var(--background-color-dark-blue);
+  color: var(--text-color-white);
+}
+
+.dashboard-body.light {
+  background-color: var(--dashboard-background-color-light);
+  color: var(--text-color-black);
+}
+
+.dashboard-body.dark {
+  background-color: var(--dashboard-background-color-dark);
+  color: var(--text-color-white);
+}
+
+.navbar-theme-icon.light {
+  filter: invert(100%);
 }

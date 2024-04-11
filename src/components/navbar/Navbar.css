@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-logo {
+  width: 20px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.navbar-title {
+  margin: 0;
+  color: white;
+}
+
+.left-container {
+  display: flex;
+  align-items: center;
+}
+
+.right-container {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.navbar-theme-icon {
+  cursor: pointer;
+  width: 20px;
+  object-fit: contain;
+  padding: 0.5rem;
+  border: solid 2px;
+  border-radius: 10px;
+}

@@ -1,12 +1,22 @@
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import Navbar from "../../components/navbar";
+import { ThemeContext } from "../../utils/ThemeContext";
+import "./styles/styles.css";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   return (
-    <div>
-      <p>hello</p>
-      <button onClick={() => navigate("/", { replace: true })}>Go Back</button>
-    </div>
+    <>
+      <Navbar />
+      <div className={`dashboard-body ${theme}`}>
+        <h1>Dashboard</h1>
+      </div>
+    </>
   );
 };
 
