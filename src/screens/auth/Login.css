@@ -1,0 +1,89 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(30%);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  object-fit: contain;
+}
+
+.login-text {
+  font-weight: bold;
+  color: #1463df;
+  text-align: center;
+}
+
+.theme-icon {
+  cursor: pointer;
+  width: 20px;
+  object-fit: contain;
+  padding: 0.5rem;
+  border: solid 2px;
+  border-radius: 10px;
+  position: absolute;
+  top: 3%;
+  right: 2%;
+}
+
+.input-field {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 200px;
+}
+
+.input-field-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid;
+}
+
+.input-field-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem 0;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.input-field-input:valid + .input-field-label,
+.input-field-input:focus + .input-field-label {
+  top: -1.5rem;
+  left: 0;
+  transform: scale(0.75);
+}
+
+.login-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.error-text {
+  color: red;
+  text-align: center;
+}
+
+.input-field-input.error,
+.input-field-label.error {
+  border-color: red;
+}
+
+.input-field-input.error + .input-field-label {
+  color: red;
+}

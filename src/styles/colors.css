@@ -1,0 +1,59 @@
+:root {
+  /* light */
+  --background-color-light: white;
+  --text-color-light: black;
+  --button-color-light: #4eb7fc;
+  --input-border-color-light: black;
+  --input-background-color-light: white;
+  --input-text-color-light: black;
+  ---label-color-light: black;
+
+  /* dark */
+  --background-color-dark: black;
+  --text-color-dark: white;
+  --button-color-dark: gray;
+  --input-border-color-dark: white;
+  --input-background-color-dark: black;
+  --input-text-color-dark: white;
+  ---label-color-dark: white;
+}
+
+body.light {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
+body.dark {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+button.light {
+  background-color: var(--button-color-light);
+  color: var(--text-color-dark);
+}
+
+button.dark {
+  background-color: var(--button-color-dark);
+  color: var(--text-color-light);
+}
+
+input.light {
+  border-color: var(--input-border-color-light);
+  background-color: var(--input-background-color-light);
+  color: var(--input-text-color-light);
+}
+
+input.dark {
+  border-color: var(--input-border-color-dark);
+  background-color: var(--input-background-color-dark);
+  color: var(--input-text-color-dark);
+}
+
+label.light {
+  color: var(--label-color-light);
+}
+
+label.dark {
+  color: var(--label-color-dark);
+}
