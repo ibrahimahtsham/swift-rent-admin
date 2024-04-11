@@ -1,12 +1,12 @@
 :root {
-  /* common */
+  /* Common colors */
   --text-color-black: black;
   --text-color-white: white;
   --background-color-dark-blue: #1463df;
   --background-color-light-blue: #4eb7fc;
-  --bacground-color-white: white;
+  --background-color-white: white;
 
-  /* light */
+  /* Light theme colors */
   --background-color-light: white;
   --button-color-light: #4eb7fc;
   --input-border-color-light: black;
@@ -16,7 +16,7 @@
   --navbar-background-color-light: #1463df;
   --dashboard-background-color-light: white;
 
-  /* dark */
+  /* Dark theme colors */
   --background-color-dark: black;
   --button-color-dark: gray;
   --input-border-color-dark: white;
@@ -27,23 +27,14 @@
   --dashboard-background-color-dark: rgb(59, 59, 59);
 }
 
+/* Light theme styles */
 body.light {
   background-color: var(--background-color-light);
   color: var(--text-color-black);
 }
 
-body.dark {
-  background-color: var(--background-color-dark);
-  color: var(--text-color-white);
-}
-
 button.light {
   background-color: var(--button-color-light);
-  color: var(--text-color-white);
-}
-
-button.dark {
-  background-color: var(--button-color-dark);
   color: var(--text-color-white);
 }
 
@@ -53,18 +44,8 @@ input.light {
   color: var(--input-text-color-light);
 }
 
-input.dark {
-  border-color: var(--input-border-color-dark);
-  background-color: var(--input-background-color-dark);
-  color: var(--input-text-color-dark);
-}
-
 label.light {
   color: var(--label-color-light);
-}
-
-label.dark {
-  color: var(--label-color-dark);
 }
 
 .navbar.light {
@@ -72,19 +53,9 @@ label.dark {
   color: var(--text-color-black);
 }
 
-.navbar.dark {
-  background-color: var(--navbar-background-color-dark);
-  color: var(--text-color-white);
-}
-
 .logout-button.light {
-  background-color: var(--bacground-color-white);
+  background-color: var(--background-color-white);
   color: var(--text-color-black);
-}
-
-.logout-button.dark {
-  background-color: var(--background-color-dark-blue);
-  color: var(--text-color-white);
 }
 
 .dashboard-body.light {
@@ -92,11 +63,42 @@ label.dark {
   color: var(--text-color-black);
 }
 
-.dashboard-body.dark {
-  background-color: var(--dashboard-background-color-dark);
+.navbar-theme-icon.light {
+  color: white;
+}
+
+/* Dark theme styles */
+body.dark {
+  background-color: var(--background-color-dark);
   color: var(--text-color-white);
 }
 
-.navbar-theme-icon.light {
-  color: white;
+button.dark {
+  background-color: var(--button-color-dark);
+  color: var(--text-color-white);
+}
+
+input.dark {
+  border-color: var(--input-border-color-dark);
+  background-color: var(--input-background-color-dark);
+  color: var(--input-text-color-dark);
+}
+
+label.dark {
+  color: var(--label-color-dark);
+}
+
+.navbar.dark {
+  background-color: var(--navbar-background-color-dark);
+  color: var(--text-color-white);
+}
+
+.logout-button.dark {
+  background-color: var(--background-color-dark-blue);
+  color: var(--text-color-white);
+}
+
+.dashboard-body.dark {
+  background-color: var(--dashboard-background-color-dark);
+  color: var(--text-color-white);
 }
