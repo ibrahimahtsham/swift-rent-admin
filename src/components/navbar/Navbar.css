@@ -38,49 +38,19 @@
 
 .navbar-theme-icon {
   cursor: pointer;
-  width: 3vw;
   object-fit: contain;
   padding: 0.5rem;
   border: solid 0.1vw;
   border-radius: 10px;
 }
+
 .navbar-menu-icon {
   cursor: pointer;
-  width: 3vw;
   object-fit: contain;
   margin-right: 0.5rem;
 }
 
 .navbar-logo {
-  width: 3vw;
   object-fit: contain;
   margin-right: 10px;
-}
-
-/* media queries for mobile and desktop */
-
-/* mobile */
-@media (max-width: 500px) {
-  .navbar-theme-icon {
-    width: 6vw;
-  }
-  .navbar-menu-icon {
-    width: 6vw;
-  }
-  .navbar-logo {
-    width: 6vw;
-  }
-}
-
-/* desktop */
-@media (min-width: 800px) {
-  .navbar-theme-icon {
-    width: 2vw;
-  }
-  .navbar-menu-icon {
-    width: 2vw;
-  }
-  .navbar-logo {
-    width: 2vw;
-  }
 }

@@ -17,6 +17,14 @@ button {
   font-size: 2vw; /* tablet */
 }
 
+img {
+  width: 2vw; /* tablet */
+}
+
+span {
+  font-size: 2vw; /* tablet */
+}
+
 /* mobile */
 @media (max-width: 500px) {
   html {
@@ -26,6 +34,12 @@ button {
     font-size: 4vw;
   }
   button {
+    font-size: 4vw;
+  }
+  img {
+    width: 4vw;
+  }
+  span {
     font-size: 4vw;
   }
 }
@@ -39,6 +53,12 @@ button {
     font-size: 1.5vw;
   }
   button {
+    font-size: 1.5vw;
+  }
+  img {
+    width: 1.5vw;
+  }
+  span {
     font-size: 1.5vw;
   }
 }

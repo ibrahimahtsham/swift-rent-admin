@@ -16,6 +16,8 @@
   --navbar-background-color-light: #1463df;
   --dashboard-background-color-light: white;
   --sidebar-background-color-light: #4eb7fc;
+  --sidebar-button-color-light: white;
+  --sidebar-button-active-color-light: #1463df;
 
   /* Dark theme colors */
   --background-color-dark: black;
@@ -27,6 +29,8 @@
   --navbar-background-color-dark: black;
   --dashboard-background-color-dark: rgb(59, 59, 59);
   --sidebar-background-color-dark: rgb(43, 43, 43);
+  --sidebar-button-color-dark: rgb(114, 114, 114);
+  --sidebar-button-active-color-dark: #1463df;
 }
 
 /* Light theme styles */
@@ -74,6 +78,20 @@ label.light {
   color: var(--text-color-black);
 }
 
+.sidebar-button.light {
+  background-color: var(--sidebar-button-color-light);
+  color: var(--text-color-black);
+}
+
+.sidebar-button.active.light {
+  background-color: var(--sidebar-button-active-color-light);
+  color: var(--text-color-white);
+}
+
+.sidebar-button-img.active.light {
+  filter: invert(1);
+}
+
 /* Dark theme styles */
 body.dark {
   background-color: var(--background-color-dark);
@@ -113,4 +131,22 @@ label.dark {
 .sidebar.dark {
   background-color: var(--sidebar-background-color-dark);
   color: var(--text-color-white);
+}
+
+.sidebar-button.dark {
+  background-color: var(--sidebar-button-color-dark);
+  color: var(--text-color-white);
+}
+
+.sidebar-button.active.dark {
+  background-color: var(--sidebar-button-active-color-dark);
+  color: var(--text-color-white);
+}
+
+.sidebar-button-img.dark {
+  filter: invert(1);
+}
+
+.sidebar-button-img.active.dark {
+  filter: invert(1);
 }
