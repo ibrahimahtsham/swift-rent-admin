@@ -6,20 +6,20 @@ body {
 }
 
 html {
-  font-size: 1.8vw; /* 1.8% of the viewport's width */
+  font-size: 1vw; /* 1.8% of the viewport's width */
 }
 
 /* Use a media query to set a minimum font size */
 @media (max-width: 600px) {
   html {
-    font-size: 10px;
+    font-size: 8px;
   }
 }
 
 /* Use a media query to set a maximum font size */
 @media (min-width: 1200px) {
   html {
-    font-size: 22px;
+    font-size: 14px;
   }
 }
 

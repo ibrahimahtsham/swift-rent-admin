@@ -1,13 +1,31 @@
 .sidebar {
-  height: calc(100vh); /* Subtract the height of the navbar */
-  position: fixed;
-  background-color: #333;
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
+  height: calc(100vh - 98px);
+  position: fixed;
+  top: 58px;
+  left: 0;
+  z-index: 2;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
 }
 
 .sidebar.open {
   transform: translateX(0);
+}
+
+.copyright-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.copyright-logo {
+  width: 50%;
+  object-fit: contain;
 }

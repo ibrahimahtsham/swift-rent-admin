@@ -60,7 +60,7 @@ label.light {
   color: var(--text-color-black);
 }
 
-.dashboard-body.light {
+.dashboard-content-container.light {
   background-color: var(--dashboard-background-color-light);
   color: var(--text-color-black);
 }
@@ -105,7 +105,7 @@ label.dark {
   color: var(--text-color-white);
 }
 
-.dashboard-body.dark {
+.dashboard-content-container.dark {
   background-color: var(--dashboard-background-color-dark);
   color: var(--text-color-white);
 }
