@@ -19,7 +19,6 @@ const Navbar = () => {
           alt="menu icon"
           onClick={toggleSidebar}
         />
-        {console.log(isOpen)}
         <img
           src={icons.swiftRentLogoWhite}
           alt="Logo"
