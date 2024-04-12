@@ -3,9 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: translateY(30%);
-  margin: 0 auto; /* Center the container on larger screens */
-  padding: 0 20px; /* Add some horizontal padding */
+  margin: 0 auto;
+  padding: 50px 20px;
 }
 
 .login-form {
@@ -19,32 +18,29 @@
 .input-field {
   position: relative;
   margin-bottom: 2rem;
-  width: 70%; /* Make the input fields take up the full width of the container */
+  width: 70%;
 }
 
-/* Use a media query to adjust styles for screens that are wider than 600px (tablet and above) */
 @media (min-width: 600px) {
   .login-container {
-    transform: translateY(20%); /* Adjust the vertical positioning */
+    transform: translateY(20%);
   }
 
   .input-field {
-    width: 30%; /* Make the input fields take up 80% of the container's width */
+    width: 30%;
   }
 }
 
-/* Use a media query to adjust styles for screens that are wider than 900px (desktop and above) */
 @media (min-width: 900px) {
   .login-container {
-    transform: translateY(10%); /* Adjust the vertical positioning */
+    transform: translateY(10%);
   }
 
   .input-field {
-    width: 30%; /* Make the input fields take up 60% of the container's width */
+    width: 30%;
   }
 }
 
-/* Rest of your CSS */
 .logo {
   width: 100px;
   object-fit: contain;
@@ -61,11 +57,12 @@
   width: 20px;
   object-fit: contain;
   padding: 0.5rem;
+  margin: 2rem;
   border: solid 2px;
   border-radius: 10px;
   position: absolute;
-  top: 3%;
-  right: 2%;
+  right: 0;
+  z-index: 1;
 }
 
 .input-field-input {
