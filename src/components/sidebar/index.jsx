@@ -33,29 +33,18 @@ const Sidebar = () => {
           onClick={() => setActiveButton("Button 3")}
         />
       </div>
-      {!isOpen && (
-        <div className="copyright-container">
-          <img
-            style={{ width: "30px" }}
-            className="copyright-logo"
-            src={icons.swiftRentLogoColor}
-            alt="swift rent logo"
-          />
+      <div className="copyright-container">
+        <img
+          style={{ width: isOpen ? "auto" : "30px" }}
+          className="copyright-logo"
+          src={icons.swiftRentLogoColor}
+          alt="swift rent logo"
+        />
 
-          <p style={{ fontSize: 8 }}>&copy; {new Date().getFullYear()}</p>
-        </div>
-      )}
-      {isOpen && (
-        <div className="copyright-container">
-          <img
-            className="copyright-logo"
-            src={icons.swiftRentLogoColor}
-            alt="swift rent logo"
-          />
-
-          <p>Copyright &copy; {new Date().getFullYear()}</p>
-        </div>
-      )}
+        <p style={{ fontSize: isOpen ? "initial" : 8 }}>
+          {isOpen ? "Copyright " : ""} &copy; {new Date().getFullYear()}
+        </p>
+      </div>
     </div>
   );
 };
