@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import Navbar from "../../components/navbar";
+import Sidebar from "../../components/sidebar";
 import { ThemeContext } from "../../utils/ThemeContext";
 import "./styles/Dashboard.css";
 
@@ -13,6 +14,7 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
+      <Sidebar />
       <div className={`dashboard-body ${theme}`}>
         <h1>Dashboard</h1>
       </div>

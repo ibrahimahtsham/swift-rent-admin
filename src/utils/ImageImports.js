@@ -1,3 +1,4 @@
+import hamburgerMenu from "../assets/icons/hamburger-menu.png";
 import moonIcon from "../assets/icons/moon.png";
 import sunIconWhite from "../assets/icons/sun-white.png";
 import sunIcon from "../assets/icons/sun.png";
@@ -12,4 +13,5 @@ export const icons = {
   sunIcon,
   sunIconWhite,
   moonIcon,
+  hamburgerMenu,
 };

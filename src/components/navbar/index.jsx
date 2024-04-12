@@ -1,15 +1,25 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { icons } from "../../utils/ImageImports";
+import { SidebarContext } from "../../utils/SidebarContext";
 import { ThemeContext } from "../../utils/ThemeContext";
 import "./Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { isOpen, toggleSidebar } = useContext(SidebarContext);
+
   return (
     <nav className={`navbar ${theme}`}>
       <div className="left-container">
+        <img
+          className="navbar-menu-icon"
+          src={icons.hamburgerMenu}
+          alt="menu icon"
+          onClick={toggleSidebar}
+        />
+        {console.log(isOpen)}
         <img
           src={icons.swiftRentLogoWhite}
           alt="Logo"

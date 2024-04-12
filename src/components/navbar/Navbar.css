@@ -5,6 +5,13 @@
   padding: 10px 20px;
 }
 
+.navbar-menu-icon {
+  cursor: pointer;
+  width: 30px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+}
+
 .navbar-logo {
   width: 30px;
   object-fit: contain;
