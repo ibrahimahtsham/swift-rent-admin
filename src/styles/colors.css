@@ -15,6 +15,7 @@
   --label-color-light: black;
   --navbar-background-color-light: #1463df;
   --dashboard-background-color-light: white;
+  --sidebar-background-color-light: #4eb7fc;
 
   /* Dark theme colors */
   --background-color-dark: black;
@@ -25,6 +26,7 @@
   --label-color-dark: white;
   --navbar-background-color-dark: black;
   --dashboard-background-color-dark: rgb(59, 59, 59);
+  --sidebar-background-color-dark: rgb(43, 43, 43);
 }
 
 /* Light theme styles */
@@ -67,6 +69,11 @@ label.light {
   color: white;
 }
 
+.sidebar.light {
+  background-color: var(--sidebar-background-color-light);
+  color: var(--text-color-black);
+}
+
 /* Dark theme styles */
 body.dark {
   background-color: var(--background-color-dark);
@@ -100,5 +107,10 @@ label.dark {
 
 .dashboard-body.dark {
   background-color: var(--dashboard-background-color-dark);
+  color: var(--text-color-white);
+}
+
+.sidebar.dark {
+  background-color: var(--sidebar-background-color-dark);
   color: var(--text-color-white);
 }

@@ -6,35 +6,49 @@ body {
 }
 
 html {
-  font-size: 16px; /* defines 1rem */
+  font-size: 1.8vw; /* 1.8% of the viewport's width */
+}
+
+/* Use a media query to set a minimum font size */
+@media (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+/* Use a media query to set a maximum font size */
+@media (min-width: 1200px) {
+  html {
+    font-size: 22px;
+  }
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 5.4rem;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.7rem;
 }
 
 h3 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 h5 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
 }
 
 h6 {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 p {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 a {
@@ -44,9 +58,9 @@ a {
 
 button {
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 input {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }

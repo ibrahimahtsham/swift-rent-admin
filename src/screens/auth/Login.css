@@ -4,14 +4,47 @@
   justify-content: center;
   align-items: center;
   transform: translateY(30%);
+  margin: 0 auto; /* Center the container on larger screens */
+  padding: 0 20px; /* Add some horizontal padding */
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
+.input-field {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 70%; /* Make the input fields take up the full width of the container */
+}
+
+/* Use a media query to adjust styles for screens that are wider than 600px (tablet and above) */
+@media (min-width: 600px) {
+  .login-container {
+    transform: translateY(20%); /* Adjust the vertical positioning */
+  }
+
+  .input-field {
+    width: 30%; /* Make the input fields take up 80% of the container's width */
+  }
+}
+
+/* Use a media query to adjust styles for screens that are wider than 900px (desktop and above) */
+@media (min-width: 900px) {
+  .login-container {
+    transform: translateY(10%); /* Adjust the vertical positioning */
+  }
+
+  .input-field {
+    width: 30%; /* Make the input fields take up 60% of the container's width */
+  }
+}
+
+/* Rest of your CSS */
 .logo {
   width: 100px;
   object-fit: contain;
@@ -33,12 +66,6 @@
   position: absolute;
   top: 3%;
   right: 2%;
-}
-
-.input-field {
-  position: relative;
-  margin-bottom: 2rem;
-  width: 200px;
 }
 
 .input-field-input {
