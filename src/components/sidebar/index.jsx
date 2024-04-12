@@ -37,7 +37,11 @@ const Sidebar = () => {
         <img
           style={{ width: isOpen ? "auto" : "30px" }}
           className="copyright-logo"
-          src={icons.swiftRentLogoColor}
+          src={
+            theme === "light"
+              ? icons.swiftRentLogoBlackSVG
+              : icons.swiftRentLogoWhiteSVG
+          }
           alt="swift rent logo"
         />
 

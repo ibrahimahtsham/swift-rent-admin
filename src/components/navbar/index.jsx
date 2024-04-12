@@ -8,7 +8,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { isOpen, toggleSidebar } = useContext(SidebarContext);
+  const { toggleSidebar } = useContext(SidebarContext);
 
   return (
     <nav className={`navbar ${theme}`}>
@@ -20,7 +20,7 @@ const Navbar = () => {
           onClick={toggleSidebar}
         />
         <img
-          src={icons.swiftRentLogoWhite}
+          src={icons.swiftRentLogoWhiteSVG}
           alt="Logo"
           className="navbar-logo"
         />

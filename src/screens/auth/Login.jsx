@@ -49,7 +49,11 @@ const Login = () => {
         className="theme-icon"
       />
       <div className="login-container">
-        <img src={icons.swiftRentLogo} alt="Logo" className="logo" />
+        <img
+          src={icons.swiftRentLogoColorSVG}
+          alt="Swift Rent Logo"
+          className="logo"
+        />
         <h2 className="login-text">Authorization</h2>
         <LoginForm formik={formik} theme={theme} />
       </div>
