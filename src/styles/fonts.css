@@ -6,61 +6,39 @@ body {
 }
 
 html {
-  font-size: 1vw; /* 1.8% of the viewport's width */
-}
-
-/* Use a media query to set a minimum font size */
-@media (max-width: 600px) {
-  html {
-    font-size: 8px;
-  }
-}
-
-/* Use a media query to set a maximum font size */
-@media (min-width: 1200px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-h1 {
-  font-size: 5.4rem;
-}
-
-h2 {
-  font-size: 2.7rem;
-}
-
-h3 {
-  font-size: 2.25rem;
-}
-
-h4 {
-  font-size: 1.8rem;
-}
-
-h5 {
-  font-size: 1.35rem;
-}
-
-h6 {
-  font-size: 1.125rem;
-}
-
-p {
-  font-size: 0.9rem;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 2vw; /* tablet */
 }
 
 input {
-  font-size: 0.9rem;
+  font-size: 2vw; /* tablet */
+}
+
+button {
+  font-size: 2vw; /* tablet */
+}
+
+/* mobile */
+@media (max-width: 500px) {
+  html {
+    font-size: 4vw;
+  }
+  input {
+    font-size: 4vw;
+  }
+  button {
+    font-size: 4vw;
+  }
+}
+
+/* desktop */
+@media (min-width: 800px) {
+  html {
+    font-size: 1.5vw;
+  }
+  input {
+    font-size: 1.5vw;
+  }
+  button {
+    font-size: 1.5vw;
+  }
 }

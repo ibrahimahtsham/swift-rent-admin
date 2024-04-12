@@ -42,8 +42,22 @@
 }
 
 .logo {
-  width: 100px;
+  width: 15vw;
   object-fit: contain;
+}
+
+/* media queries for mobile and desktop for .logo */
+
+@media (max-width: 500px) {
+  .logo {
+    width: 20vw;
+  }
+}
+
+@media (min-width: 800px) {
+  .logo {
+    width: 10vw;
+  }
 }
 
 .login-text {

@@ -25,7 +25,7 @@ const Navbar = () => {
           alt="Logo"
           className="navbar-logo"
         />
-        <h4 className="navbar-title">Swift Rent</h4>
+        <h1 className="navbar-title">Swift Rent</h1>
       </div>
       <div className="right-container">
         <img
