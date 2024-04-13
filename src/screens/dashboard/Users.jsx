@@ -1,6 +1,7 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { DataGrid } from "@mui/x-data-grid";
 import { useContext } from "react";
+import { icons } from "../../utils/ImageImports";
 import { ThemeContext } from "../../utils/ThemeContext";
 import { rows } from "../../utils/data/UsersData";
 
@@ -36,7 +37,7 @@ const columns = [
   {
     field: "options",
     headerName: "Options",
-    width: 150,
+    width: 250,
     renderCell: (params) => {
       const handleResetPassword = () => {
         // Implement the logic to reset the password here
@@ -49,9 +50,40 @@ const columns = [
       };
 
       return (
-        <div>
-          <button onClick={handleResetPassword}>Reset Password</button>
-          <button onClick={handleDelete}>Delete</button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            flexDirection: "row",
+            width: "100%",
+          }}
+        >
+          <div
+            onClick={handleResetPassword}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              cursor: "pointer",
+              backgroundColor: "#FFD93D",
+              padding: 5,
+              borderRadius: 5,
+            }}
+          >
+            <span style={{ color: "#000" }}>Reset Pass</span>
+            <img src={icons.resetPasswordIcon} alt="Reset Password" />
+          </div>
+          <img
+            src={icons.deleteIcon}
+            alt="Delete"
+            onClick={handleDelete}
+            style={{
+              cursor: "pointer",
+              backgroundColor: "#f52929",
+              padding: 5,
+              borderRadius: 5,
+            }}
+          />
         </div>
       );
     },
@@ -68,8 +100,11 @@ export default function Users() {
         <DataGrid
           rows={rows}
           columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
+          initialState={{
+            ...rows.initialState,
+            pagination: { paginationModel: { pageSize: 5 } },
+          }}
+          pageSizeOptions={[5, 10, 25]}
           disableSelectionOnClick
           disableRowSelectionOnClick
         />
