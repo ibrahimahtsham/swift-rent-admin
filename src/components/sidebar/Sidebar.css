@@ -10,8 +10,9 @@
   top: 58px;
   left: 0;
   z-index: 2;
-  width: 70px;
+  width: 55px;
   transition: 0.3s ease-in-out;
+  overflow: auto;
 }
 
 .sidebar.open {
@@ -28,8 +29,24 @@
 }
 
 .copyright-logo {
-  width: 50%;
+  width: 10vw;
   object-fit: contain;
+}
+
+/* media queries for desktop and mobile for copyright-logo */
+
+/* mobile */
+@media (max-width: 500px) {
+  .copyright-logo {
+    width: 20vw;
+  }
+}
+
+/* desktop */
+@media (min-width: 800px) {
+  .copyright-logo {
+    width: 5vw;
+  }
 }
 
 .menus-container {
