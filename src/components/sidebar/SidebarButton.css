@@ -5,7 +5,7 @@
   padding: 10px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
   margin-bottom: 1vh;
   border-radius: 10px;
   word-break: break-all;

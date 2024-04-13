@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { icons } from "../../utils/ImageImports";
 import { SidebarContext } from "../../utils/SidebarContext";
@@ -9,6 +9,10 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { toggleSidebar, setActivePage, isOpen } = useContext(SidebarContext);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return (
     <nav className={`navbar ${theme}`}>
