@@ -10,6 +10,7 @@
   width: 100%;
   box-sizing: border-box;
   z-index: 3;
+  transition: all 0.3s;
 }
 
 .navbar-title {
@@ -23,6 +24,13 @@
   align-items: center;
 }
 
+.icon-and-logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
 .right-container {
   display: flex;
   align-items: center;
@@ -34,6 +42,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin-left: 2vw;
+  transition: all 0.3s;
 }
 
 .navbar-theme-icon {
@@ -48,6 +57,7 @@
   cursor: pointer;
   object-fit: contain;
   margin-right: 0.5rem;
+  transition: all 0.3s;
 }
 
 .navbar-logo {

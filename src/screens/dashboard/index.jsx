@@ -3,11 +3,17 @@ import Navbar from "../../components/navbar";
 import Sidebar from "../../components/sidebar";
 import { SidebarContext } from "../../utils/SidebarContext";
 import { ThemeContext } from "../../utils/ThemeContext";
+import Analytics from "./Analytics";
+import AuditLogs from "./AuditLogs";
+import Complains from "./Complains";
+import MainPage from "./MainPage";
+import Properties from "./Properties";
+import Users from "./Users";
 import "./styles/Dashboard.css";
 
 const Dashboard = () => {
   const { theme } = useContext(ThemeContext);
-  const { isOpen } = useContext(SidebarContext);
+  const { isOpen, activePage } = useContext(SidebarContext);
 
   useEffect(() => {
     document.body.className = theme;
@@ -23,16 +29,12 @@ const Dashboard = () => {
             isOpen ? "shrink" : "grow"
           }`}
         >
-          <h1>Dashboard1</h1>
-          <h1>Dashboard2</h1>
-          <h1>Dashboard3</h1>
-          <h1>Dashboard4</h1>
-          <h1>Dashboard5</h1>
-          <h1>Dashboard6</h1>
-          <h1>Dashboard7</h1>
-          <h1>Dashboard8</h1>
-          <h1>Dashboard9</h1>
-          <h1>Dashboard10</h1>
+          {activePage === "Main Page" && <MainPage />}
+          {activePage === "Manage Users" && <Users />}
+          {activePage === "Manage Properties" && <Properties />}
+          {activePage === "Analytics" && <Analytics />}
+          {activePage === "Manage Complains" && <Complains />}
+          {activePage === "Audit Logs" && <AuditLogs />}
         </div>
       </div>
     </>

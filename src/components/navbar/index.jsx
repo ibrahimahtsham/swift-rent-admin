@@ -8,23 +8,28 @@ import "./Navbar.css";
 const Navbar = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { toggleSidebar } = useContext(SidebarContext);
+  const { toggleSidebar, setActivePage, isOpen } = useContext(SidebarContext);
 
   return (
     <nav className={`navbar ${theme}`}>
       <div className="left-container">
         <img
-          className="navbar-menu-icon"
+          className={`navbar-menu-icon ${isOpen ? "open" : ""} ${theme}`}
           src={icons.hamburgerMenu}
           alt="menu icon"
           onClick={toggleSidebar}
         />
-        <img
-          src={icons.swiftRentLogoWhiteSVG}
-          alt="Logo"
-          className="navbar-logo"
-        />
-        <h1 className="navbar-title">Swift Rent</h1>
+        <div
+          className="icon-and-logo-container"
+          onClick={() => setActivePage("Main Page")}
+        >
+          <img
+            src={icons.swiftRentLogoWhiteSVG}
+            alt="Logo"
+            className="navbar-logo"
+          />
+          <h1 className="navbar-title">Swift Rent</h1>
+        </div>
       </div>
       <div className="right-container">
         <img
