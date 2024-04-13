@@ -15,31 +15,31 @@ const Sidebar = () => {
     <div className={`sidebar ${isOpen ? "open" : "closed"} ${theme}`}>
       <div className="menus-container">
         <SidebarButton
-          image={icons.sunIcon}
+          image={icons.usersIcon}
           title="Manage Users"
           isActive={activeButton === "Manage Users"}
           onClick={() => setActiveButton("Manage Users")}
         />
         <SidebarButton
-          image={icons.sunIcon}
+          image={icons.propertiesIcon}
           title="Manage Properties"
           isActive={activeButton === "Manage Properties"}
           onClick={() => setActiveButton("Manage Properties")}
         />
         <SidebarButton
-          image={icons.sunIcon}
+          image={icons.analytics}
           title="Analytics"
           isActive={activeButton === "Analytics"}
           onClick={() => setActiveButton("Analytics")}
         />
         <SidebarButton
-          image={icons.sunIcon}
+          image={icons.complains}
           title="Manage Complains"
           isActive={activeButton === "Manage Complains"}
           onClick={() => setActiveButton("Manage Complains")}
         />
         <SidebarButton
-          image={icons.sunIcon}
+          image={icons.auditIcon}
           title="Audit Logs"
           isActive={activeButton === "Audit Logs"}
           onClick={() => setActiveButton("Audit Logs")}
