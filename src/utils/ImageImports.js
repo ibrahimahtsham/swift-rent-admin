@@ -1,4 +1,4 @@
-import hamburgerMenu from "../assets/icons/hamburger-menu.png";
+import hamburgerMenu from "../assets/icons/hamburger-menu.svg";
 import moonIcon from "../assets/icons/moon.png";
 import sunIconWhite from "../assets/icons/sun-white.png";
 import sunIcon from "../assets/icons/sun.png";
