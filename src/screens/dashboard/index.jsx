@@ -35,6 +35,7 @@ const Dashboard = () => {
           {activePage === "Analytics" && <Analytics />}
           {activePage === "Manage Complains" && <Complains />}
           {activePage === "Audit Logs" && <AuditLogs />}
+          <div style={{ marginBottom: 120 }}></div>
         </div>
       </div>
     </>
