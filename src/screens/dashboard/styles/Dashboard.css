@@ -10,13 +10,13 @@
   z-index: 1;
   word-break: break-all;
   transition: 0.3s;
-  padding: 10px 30px;
+  padding: 1vw 3vw;
   top: 0;
 }
 
 .dashboard-content-container.grow {
-  left: 50px;
-  width: calc(100% - 50px);
+  left: 70px;
+  width: calc(100% - 70px);
 }
 
 .dashboard-content-container.shrink {
