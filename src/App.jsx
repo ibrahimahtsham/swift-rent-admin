@@ -25,7 +25,6 @@ function AppContent() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("isLoggedIn", isLoggedIn);
     if (!isLoggedIn) {
       navigate("/", { replace: true });
     } else {

@@ -17,8 +17,8 @@ const UserRowOptions = ({
     console.log(`Reset password for user ${row.id}`);
   };
 
-  const handleDelete = () => {
-    console.log(`Delete user ${row.id}`);
+  const handleBan = () => {
+    console.log(`Ban user ${row.id}`);
   };
 
   return (
@@ -58,7 +58,7 @@ const UserRowOptions = ({
       <Button
         variant="contained"
         color="error"
-        onClick={handleDelete} // You might want to rename this function to handleBan
+        onClick={handleBan}
         startIcon={<img src={icons.userBanIcon} alt="Ban" />}
       >
         Ban User
