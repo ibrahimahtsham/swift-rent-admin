@@ -1,10 +1,9 @@
-// Login.jsx
 import axios from "axios";
 import { useFormik } from "formik";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../db-config.js";
 import { icons } from "../../utils/ImageImports.js";
+import { BASE_URL } from "../../utils/db-config.js";
 import { loginValidation } from "../../utils/validation/loginValidation.js";
 import { ThemeContext } from "./../../utils/ThemeContext.js";
 import "./Login.css";
