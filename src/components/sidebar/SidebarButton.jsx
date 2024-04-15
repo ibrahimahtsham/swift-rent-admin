@@ -10,7 +10,7 @@ const SidebarButton = ({ image, title, isActive, onClick }) => {
   return (
     <Button
       sx={{
-        justifyContent: "space-between",
+        justifyContent: isOpen ? "space-between" : "center",
         marginBottom: "1vh",
         padding: "1vh 1vh",
         minWidth: "80%",

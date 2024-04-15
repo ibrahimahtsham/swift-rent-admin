@@ -1,7 +1,6 @@
 import Button from "@mui/material/Button";
 import { styled } from "@mui/system";
 import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../utils/AuthContext";
 import { icons } from "../../utils/ImageImports";
 import { SidebarContext } from "../../utils/SidebarContext";
@@ -9,7 +8,6 @@ import { ThemeContext } from "../../utils/ThemeContext";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const navigate = useNavigate();
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { toggleSidebar, setActivePage, isOpen } = useContext(SidebarContext);
   const { logout } = useContext(AuthContext);
