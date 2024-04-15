@@ -7,15 +7,6 @@ import { SidebarContext } from "../../utils/SidebarContext";
 import { ThemeContext } from "../../utils/ThemeContext";
 import "./Navbar.css";
 
-const StyledButton = styled(Button)({
-  marginLeft: "1vw",
-  "&:hover": {
-    backgroundColor: "#104cb7",
-  },
-  fontFamily: "Open Sans",
-  textTransform: "none",
-});
-
 const Navbar = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -24,6 +15,15 @@ const Navbar = () => {
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
+
+  const StyledButton = styled(Button)({
+    marginLeft: "1vw",
+    "&:hover": {
+      backgroundColor: theme === "light" ? "#D3D3D3" : "#104cb7",
+    },
+    fontFamily: "Open Sans",
+    textTransform: "none",
+  });
 
   return (
     <nav className={`navbar ${theme}`}>
