@@ -60,6 +60,7 @@ const EditUserPopup = ({ open, handleClose, handleSave, editingRowData }) => {
                   name="firstName"
                   error={touched.firstName && !!errors.firstName}
                   helperText={<ErrorMessage name="firstName" />}
+                  required
                 />
 
                 <Field
@@ -74,6 +75,7 @@ const EditUserPopup = ({ open, handleClose, handleSave, editingRowData }) => {
                   name="lastName"
                   error={touched.lastName && !!errors.lastName}
                   helperText={<ErrorMessage name="lastName" />}
+                  required
                 />
 
                 <Field
@@ -88,6 +90,7 @@ const EditUserPopup = ({ open, handleClose, handleSave, editingRowData }) => {
                   name="dob"
                   error={touched.dob && !!errors.dob}
                   helperText={<ErrorMessage name="dob" />}
+                  required
                 />
 
                 <Field
@@ -102,6 +105,7 @@ const EditUserPopup = ({ open, handleClose, handleSave, editingRowData }) => {
                   name="phone"
                   error={touched.phone && !!errors.phone}
                   helperText={<ErrorMessage name="phone" />}
+                  required
                 />
 
                 <Field
@@ -116,6 +120,7 @@ const EditUserPopup = ({ open, handleClose, handleSave, editingRowData }) => {
                   name="email"
                   error={touched.email && !!errors.email}
                   helperText={<ErrorMessage name="email" />}
+                  required
                 />
 
                 <FormControlLabel
