@@ -10,19 +10,10 @@ import {
 } from "@mui/material";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
-import * as Yup from "yup";
 import DataTable from "../../components/DataTable";
 import { icons } from "../../utils/ImageImports";
 import { rows } from "../../utils/data/UsersData";
-
-const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required("Required"),
-  lastName: Yup.string().required("Required"),
-  dob: Yup.date().required("Required"),
-  phone: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
-  registeredOn: Yup.date().required("Required"),
-});
+import { editUserSchema } from "../../utils/validation/EditUserValidation";
 
 export default function Users() {
   const [open, setOpen] = useState(false);
@@ -171,7 +162,7 @@ export default function Users() {
                 registeredOn: "",
               }
             }
-            validationSchema={validationSchema}
+            validationSchema={editUserSchema}
             onSubmit={handleSave}
           >
             {({ errors, touched, values, handleChange, handleBlur }) => (
