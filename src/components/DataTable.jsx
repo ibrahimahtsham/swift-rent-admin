@@ -1,5 +1,5 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useContext } from "react";
 import { ThemeContext } from "../utils/ThemeContext";
 
@@ -25,12 +25,14 @@ const DataTable = (props) => {
         <DataGrid
           rows={props.rows}
           columns={props.columns}
+          slots={{
+            toolbar: GridToolbar,
+          }}
           initialState={{
             ...props.rows.initialState,
             pagination: { paginationModel: { pageSize: 5 } },
           }}
           pageSizeOptions={[5, 10, 25]}
-          disableSelectionOnClick
           disableRowSelectionOnClick
         />
       </div>
