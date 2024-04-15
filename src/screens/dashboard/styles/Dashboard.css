@@ -18,7 +18,21 @@
   width: calc(100% - 5vw);
 }
 
+@media (min-width: 1900px) {
+  .dashboard-content-container.grow {
+    left: 3vw;
+    width: calc(100% - 3vw);
+  }
+}
+
 .dashboard-content-container.shrink {
   left: 25vw;
   width: calc(100% - 25vw);
+}
+
+@media (min-width: 1900px) {
+  .dashboard-content-container.shrink {
+    left: 15vw;
+    width: calc(100% - 15vw);
+  }
 }
