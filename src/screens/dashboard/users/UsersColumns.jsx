@@ -6,7 +6,6 @@ export const getColumns = (setOpen, setEditingRowId, setEditingRowData) => [
     field: "firstName",
     headerName: "First name",
     width: 130,
-    editable: true,
   },
   { field: "lastName", headerName: "Last name", width: 130 },
   { field: "dob", headerName: "DOB", width: 110 },
@@ -17,7 +16,6 @@ export const getColumns = (setOpen, setEditingRowId, setEditingRowData) => [
     field: "isManager",
     headerName: "Is Manager",
     width: 130,
-    editable: true,
   },
   { field: "isOwner", headerName: "Is Owner", width: 110 },
   { field: "isTenant", headerName: "Is Tenant", width: 110 },
@@ -25,7 +23,6 @@ export const getColumns = (setOpen, setEditingRowId, setEditingRowData) => [
     field: "registeredOn",
     headerName: "Registered On",
     width: 250,
-    editable: true,
   },
   {
     field: "options",
