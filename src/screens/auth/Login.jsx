@@ -6,7 +6,7 @@ import { icons } from "../../utils/ImageImports.js";
 import { loginValidation } from "../../utils/validation/loginValidation.js";
 import { ThemeContext } from "./../../utils/ThemeContext.js";
 import "./Login.css";
-import { LoginForm } from "./form/LoginForm.jsx";
+import LoginForm from "./form/LoginForm.jsx";
 
 const initialValues = {
   username: "",
