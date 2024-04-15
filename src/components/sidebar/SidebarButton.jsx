@@ -15,6 +15,9 @@ const SidebarButton = ({ image, title, isActive, onClick }) => {
         minWidth: "80%",
         minHeight: "25px",
         fontFamily: "Open Sans",
+        "&:hover": {
+          backgroundColor: theme === "dark" ? "#5c5c5c" : "#e0e0e0",
+        },
       }}
       className={`sidebar-button ${isActive ? "active" : ""} ${theme} ${
         isOpen ? "open" : ""
