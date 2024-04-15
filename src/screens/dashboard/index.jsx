@@ -8,8 +8,8 @@ import AuditLogs from "./AuditLogs";
 import Complains from "./Complains";
 import MainPage from "./MainPage";
 import Properties from "./Properties";
-import Users from "./Users";
 import "./styles/Dashboard.css";
+import Users from "./users/Users";
 
 const Dashboard = () => {
   const { theme } = useContext(ThemeContext);

@@ -11,11 +11,11 @@ import {
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useContext, useState } from "react";
-import DataTable from "../../components/DataTable";
-import { icons } from "../../utils/ImageImports";
-import { ThemeContext } from "../../utils/ThemeContext";
-import { rows } from "../../utils/data/UsersData";
-import { editUserSchema } from "../../utils/validation/EditUserValidation";
+import DataTable from "../../../components/DataTable";
+import { icons } from "../../../utils/ImageImports";
+import { ThemeContext } from "../../../utils/ThemeContext";
+import { rows } from "../../../utils/data/UsersData";
+import { editUserSchema } from "../../../utils/validation/EditUserValidation";
 
 const Users = () => {
   const { theme } = useContext(ThemeContext);
