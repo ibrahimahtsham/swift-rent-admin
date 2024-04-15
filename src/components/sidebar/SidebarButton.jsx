@@ -11,9 +11,11 @@ const SidebarButton = ({ image, title, isActive, onClick }) => {
     <Button
       sx={{
         marginBottom: "1vh",
-        padding: "0 10",
+        padding: "1vh 1vh",
         minWidth: "80%",
-        minHeight: "50px",
+        minHeight: "25px",
+        maxHeight: "60px",
+        fontFamily: "Open Sans",
       }}
       className={`sidebar-button ${isActive ? "active" : ""} ${theme} ${
         isOpen ? "open" : ""
