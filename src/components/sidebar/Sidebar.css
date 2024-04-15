@@ -15,21 +15,9 @@
   overflow: auto;
 }
 
-@media (min-width: 1900px) {
-  .sidebar {
-    width: 3vw;
-  }
-}
-
 .sidebar.open {
   padding: 10px;
   width: 25vw;
-}
-
-@media (min-width: 1900px) {
-  .sidebar.open {
-    width: 15vw;
-  }
 }
 
 .copyright-container {

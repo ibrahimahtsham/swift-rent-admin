@@ -25,6 +25,24 @@ span {
   font-size: 2vw; /* tablet */
 }
 
+.sidebar {
+  width: 5vw;
+}
+
+.sidebar.open {
+  width: 20vw;
+}
+
+.dashboard-content-container.grow {
+  left: 5vw;
+  width: calc(100% - 5vw);
+}
+
+.dashboard-content-container.shrink {
+  left: 20vw;
+  width: calc(100% - 20vw);
+}
+
 /* mobile */
 @media (max-width: 500px) {
   html {
@@ -41,6 +59,20 @@ span {
   }
   span {
     font-size: 4vw;
+  }
+  .sidebar {
+    width: 15vw;
+  }
+  .sidebar.open {
+    width: 60vw;
+  }
+  .dashboard-content-container.grow {
+    left: 15vw;
+    width: calc(100% - 15vw);
+  }
+  .dashboard-content-container.shrink {
+    left: 60vw;
+    width: calc(100% - 60vw);
   }
 }
 
@@ -61,6 +93,20 @@ span {
   span {
     font-size: 1.5vw;
   }
+  .sidebar {
+    width: 4vw;
+  }
+  .sidebar.open {
+    width: 16vw;
+  }
+  .dashboard-content-container.grow {
+    left: 4vw;
+    width: calc(100% - 4vw);
+  }
+  .dashboard-content-container.shrink {
+    left: 16vw;
+    width: calc(100% - 16vw);
+  }
 }
 
 /* 1920 res desktop */
@@ -79,5 +125,19 @@ span {
   }
   span {
     font-size: 1vw;
+  }
+  .sidebar {
+    width: 3vw;
+  }
+  .sidebar.open {
+    width: 15vw;
+  }
+  .dashboard-content-container.grow {
+    left: 3vw;
+    width: calc(100% - 3vw);
+  }
+  .dashboard-content-container.shrink {
+    left: 15vw;
+    width: calc(100% - 15vw);
   }
 }
