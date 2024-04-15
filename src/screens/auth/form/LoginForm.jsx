@@ -1,11 +1,13 @@
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { styled } from "@mui/system";
 import "../Login.css";
 
 const StyledButton = styled(Button)({
   backgroundColor: "#808080",
   "&:hover": {
-    backgroundColor: "#666666", // A darker shade of #808080
+    backgroundColor: "#666666",
   },
   fontFamily: "Open Sans",
   textTransform: "none",
@@ -13,54 +15,33 @@ const StyledButton = styled(Button)({
 
 export const LoginForm = ({ formik, theme }) => (
   <form className="login-form" onSubmit={formik.handleSubmit}>
-    <div className="input-field">
-      <input
+    <ThemeProvider theme={createTheme({ palette: { mode: theme } })}>
+      <TextField
+        label="Username"
         type="text"
         name="username"
         id="username"
         {...formik.getFieldProps("username")}
-        className={`input-field-input ${theme} ${
-          formik.touched.username && formik.errors.username ? "error" : ""
-        }`}
+        error={formik.touched.username && Boolean(formik.errors.username)}
+        helperText={formik.touched.username && formik.errors.username}
         required
+        sx={{ marginBottom: "3vh" }}
       />
-      <label
-        htmlFor="username"
-        className={`input-field-label ${theme} ${
-          formik.touched.username && formik.errors.username ? "error" : ""
-        }`}
-      >
-        Username
-      </label>
-      {formik.touched.username && formik.errors.username ? (
-        <div className="error-text">{formik.errors.username}</div>
-      ) : null}
-    </div>
-    <div className="input-field">
-      <input
+
+      <TextField
+        label="Password"
         type="password"
         name="password"
         id="password"
         {...formik.getFieldProps("password")}
-        className={`input-field-input ${theme} ${
-          formik.touched.password && formik.errors.password ? "error" : ""
-        }`}
+        error={formik.touched.password && Boolean(formik.errors.password)}
+        helperText={formik.touched.password && formik.errors.password}
         required
+        sx={{ marginBottom: "3vh" }}
       />
-      <label
-        htmlFor="password"
-        className={`input-field-label ${theme} ${
-          formik.touched.password && formik.errors.password ? "error" : ""
-        }`}
-      >
-        Password
-      </label>
-      {formik.touched.password && formik.errors.password ? (
-        <div className="error-text">{formik.errors.password}</div>
-      ) : null}
-    </div>
-    <StyledButton type="submit" className={`login-button ${theme}`}>
-      Login
-    </StyledButton>
+      <StyledButton type="submit" className={`login-button ${theme}`}>
+        Login
+      </StyledButton>
+    </ThemeProvider>
   </form>
 );
