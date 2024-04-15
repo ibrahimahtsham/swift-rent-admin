@@ -45,13 +45,23 @@ const Sidebar = () => {
       </div>
       <div className="copyright-container">
         <img
-          style={{ width: isOpen ? "" : "30px" }}
+          style={{
+            width: isOpen
+              ? "var(--sidebar-copyright-logo-width-open)"
+              : "var(--sidebar-copyright-logo-width-closed)",
+          }}
           className="copyright-logo"
           src={icons.swiftRentLogoWhiteSVG}
           alt="swift rent logo"
         />
 
-        <p style={{ fontSize: isOpen ? "initial" : 8 }}>
+        <p
+          style={{
+            fontSize: isOpen
+              ? "var(--sidebar-copyright-text-width-open)"
+              : "var(--sidebar-copyright-text-width-closed)",
+          }}
+        >
           {isOpen ? "Copyright " : ""} &copy; {new Date().getFullYear()}
         </p>
       </div>

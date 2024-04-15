@@ -1,3 +1,4 @@
+import Button from "@mui/material/Button";
 import React, { useContext } from "react";
 import { ThemeContext } from "../../utils/ThemeContext";
 import { SidebarContext } from "./../../utils/SidebarContext";
@@ -7,7 +8,13 @@ const SidebarButton = ({ image, title, isActive, onClick }) => {
   const { theme } = useContext(ThemeContext);
   const { isOpen } = useContext(SidebarContext);
   return (
-    <button
+    <Button
+      sx={{
+        marginBottom: "1vh",
+        padding: "0 10",
+        minWidth: "80%",
+        minHeight: "50px",
+      }}
       className={`sidebar-button ${isActive ? "active" : ""} ${theme} ${
         isOpen ? "open" : ""
       }`}
@@ -19,7 +26,7 @@ const SidebarButton = ({ image, title, isActive, onClick }) => {
         alt={title}
       />
       {isOpen && <span className="sidebar-title">{title}</span>}
-    </button>
+    </Button>
   );
 };
 

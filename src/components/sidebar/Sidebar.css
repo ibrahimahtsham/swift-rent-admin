@@ -1,3 +1,41 @@
+/* tablet */
+:root {
+  --sidebar-copyright-logo-width-open: 8vw;
+  --sidebar-copyright-logo-width-closed: 4vw;
+  --sidebar-copyright-text-width-open: 2vw;
+  --sidebar-copyright-text-width-closed: 1.6vw;
+}
+
+/* mobile */
+@media (max-width: 500px) {
+  :root {
+    --sidebar-copyright-logo-width-open: 16vw;
+    --sidebar-copyright-logo-width-closed: 8vw;
+    --sidebar-copyright-text-width-open: 4vw;
+    --sidebar-copyright-text-width-closed: 3.2vw;
+  }
+}
+
+/* desktop */
+@media (min-width: 800px) {
+  :root {
+    --sidebar-copyright-logo-width-open: 4vw;
+    --sidebar-copyright-logo-width-closed: 2vw;
+    --sidebar-copyright-text-width-open: 1vw;
+    --sidebar-copyright-text-width-closed: 0.8vw;
+  }
+}
+
+/* 1920 desktop */
+@media (min-width: 1900px) {
+  :root {
+    --sidebar-copyright-logo-width-open: 3vw;
+    --sidebar-copyright-logo-width-closed: 2vw;
+    --sidebar-copyright-text-width-open: 0.8vw;
+    --sidebar-copyright-text-width-closed: 0.5vw;
+  }
+}
+
 .sidebar {
   box-sizing: border-box;
   display: flex;
@@ -31,22 +69,6 @@
 .copyright-logo {
   width: 10vw;
   object-fit: contain;
-}
-
-/* media queries for desktop and mobile for copyright-logo */
-
-/* mobile */
-@media (max-width: 500px) {
-  .copyright-logo {
-    width: 20vw;
-  }
-}
-
-/* desktop */
-@media (min-width: 800px) {
-  .copyright-logo {
-    width: 5vw;
-  }
 }
 
 .menus-container {
