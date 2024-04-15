@@ -1,21 +1,6 @@
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { DataGrid } from "@mui/x-data-grid";
-import { useContext } from "react";
+import DataTable from "../../components/DataTable";
 import { icons } from "../../utils/ImageImports";
-import { ThemeContext } from "../../utils/ThemeContext";
 import { rows } from "../../utils/data/UsersData";
-
-const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-  },
-});
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
 
 const columns = [
   { field: "id", headerName: "UserID", width: 100, editable: true },
@@ -91,24 +76,5 @@ const columns = [
 ];
 
 export default function Users() {
-  const { theme } = useContext(ThemeContext);
-
-  return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <div style={{ height: "100%", width: "100%" }}>
-        <h1>Users</h1>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          initialState={{
-            ...rows.initialState,
-            pagination: { paginationModel: { pageSize: 5 } },
-          }}
-          pageSizeOptions={[5, 10, 25]}
-          disableSelectionOnClick
-          disableRowSelectionOnClick
-        />
-      </div>
-    </ThemeProvider>
-  );
+  return <DataTable title="Users" rows={rows} columns={columns} />;
 }
