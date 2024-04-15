@@ -1,4 +1,15 @@
+import Button from "@mui/material/Button";
+import { styled } from "@mui/system";
 import "../Login.css";
+
+const StyledButton = styled(Button)({
+  backgroundColor: "#808080",
+  "&:hover": {
+    backgroundColor: "#666666", // A darker shade of #808080
+  },
+  fontFamily: "Open Sans",
+  textTransform: "none",
+});
 
 export const LoginForm = ({ formik, theme }) => (
   <form className="login-form" onSubmit={formik.handleSubmit}>
@@ -48,8 +59,8 @@ export const LoginForm = ({ formik, theme }) => (
         <div className="error-text">{formik.errors.password}</div>
       ) : null}
     </div>
-    <button type="submit" className={`login-button ${theme}`}>
+    <StyledButton type="submit" className={`login-button ${theme}`}>
       Login
-    </button>
+    </StyledButton>
   </form>
 );

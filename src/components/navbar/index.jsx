@@ -1,9 +1,20 @@
+import Button from "@mui/material/Button";
+import { styled } from "@mui/system";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { icons } from "../../utils/ImageImports";
 import { SidebarContext } from "../../utils/SidebarContext";
 import { ThemeContext } from "../../utils/ThemeContext";
 import "./Navbar.css";
+
+const StyledButton = styled(Button)({
+  marginLeft: "1vw",
+  "&:hover": {
+    backgroundColor: "#104cb7",
+  },
+  fontFamily: "Open Sans",
+  textTransform: "none",
+});
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -43,12 +54,12 @@ const Navbar = () => {
           style={{ cursor: "pointer" }}
           className={`navbar-theme-icon ${theme}`}
         />
-        <button
+        <StyledButton
           className={`logout-button ${theme}`}
           onClick={() => navigate("/", { replace: true })}
         >
           Logout
-        </button>
+        </StyledButton>
       </div>
     </nav>
   );

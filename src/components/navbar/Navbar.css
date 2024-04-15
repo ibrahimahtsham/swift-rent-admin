@@ -36,15 +36,6 @@
   align-items: center;
 }
 
-.logout-button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 2vw;
-  transition: all 0.3s;
-}
-
 .navbar-theme-icon {
   cursor: pointer;
   object-fit: contain;
