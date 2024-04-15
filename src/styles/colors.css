@@ -93,7 +93,7 @@ label.light {
 }
 
 .navbar-menu-icon.open.light {
-  background-color: var(--background-color-light-blue);
+  background-color: #0b4dbf;
   border-radius: 100%;
   padding: 0.5vw;
 }
