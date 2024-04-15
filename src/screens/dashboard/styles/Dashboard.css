@@ -14,11 +14,11 @@
 }
 
 .dashboard-content-container.grow {
-  left: 55px;
-  width: calc(100% - 55px);
+  left: 5vw;
+  width: calc(100% - 5vw);
 }
 
 .dashboard-content-container.shrink {
-  left: 250px;
-  width: calc(100% - 250px);
+  left: 25vw;
+  width: calc(100% - 25vw);
 }

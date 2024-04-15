@@ -62,3 +62,22 @@ span {
     font-size: 1.5vw;
   }
 }
+
+/* 1920 res desktop */
+@media (min-width: 1900px) {
+  html {
+    font-size: 1vw;
+  }
+  input {
+    font-size: 1vw;
+  }
+  button {
+    font-size: 1vw;
+  }
+  img {
+    width: 1.25vw;
+  }
+  span {
+    font-size: 1vw;
+  }
+}

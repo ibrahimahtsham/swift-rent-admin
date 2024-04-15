@@ -10,14 +10,14 @@
   top: 58px;
   left: 0;
   z-index: 2;
-  width: 55px;
+  width: 5vw;
   transition: 0.3s ease-in-out;
   overflow: auto;
 }
 
 .sidebar.open {
   padding: 10px;
-  width: 250px;
+  width: 25vw;
 }
 
 .copyright-container {
