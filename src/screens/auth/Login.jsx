@@ -1,9 +1,7 @@
-import axios from "axios";
 import { useFormik } from "formik";
 import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../utils/AuthContext.jsx";
 import { icons } from "../../utils/ImageImports.js";
-import { BASE_URL } from "../../utils/db-config.js";
 import { loginValidation } from "../../utils/validation/loginValidation.js";
 import { ThemeContext } from "./../../utils/ThemeContext.js";
 import "./Login.css";
@@ -16,7 +14,7 @@ const initialValues = {
 
 const Login = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   useEffect(() => {
     document.body.className = theme;
@@ -26,24 +24,7 @@ const Login = () => {
     initialValues,
     validationSchema: loginValidation,
     onSubmit: async (values, { setFieldError }) => {
-      const data = {
-        userName: values.username,
-        password: values.password,
-      };
-
-      try {
-        const response = await axios.post(`${BASE_URL}/api/admin/login/`, data);
-        if (response.status === 200) {
-          navigate("/dashboard", { replace: true });
-        } else {
-          setFieldError("username", "Invalid credentials");
-          setFieldError("password", "Invalid credentials");
-        }
-      } catch (error) {
-        setFieldError("username", "An error occurred");
-        setFieldError("password", "An error occurred");
-        console.log(error);
-      }
+      login(values.username, values.password, setFieldError);
     },
   });
 

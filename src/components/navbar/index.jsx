@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/system";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../utils/AuthContext";
 import { icons } from "../../utils/ImageImports";
 import { SidebarContext } from "../../utils/SidebarContext";
 import { ThemeContext } from "../../utils/ThemeContext";
@@ -11,6 +12,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { toggleSidebar, setActivePage, isOpen } = useContext(SidebarContext);
+  const { logout } = useContext(AuthContext);
 
   useEffect(() => {
     document.body.className = theme;
@@ -56,7 +58,7 @@ const Navbar = () => {
         />
         <StyledButton
           className={`logout-button ${theme}`}
-          onClick={() => navigate("/", { replace: true })}
+          onClick={() => logout()}
         >
           Logout
         </StyledButton>
