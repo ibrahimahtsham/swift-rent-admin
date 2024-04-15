@@ -35,15 +35,12 @@ const Login = () => {
       try {
         const response = await axios.post(`${BASE_URL}/api/admin/login/`, data);
         if (response.status === 200) {
-          // Handle successful login here, e.g., navigate to dashboard
           navigate("/dashboard", { replace: true });
         } else {
-          // Handle unsuccessful login here, e.g., set field errors
           setFieldError("username", "Invalid credentials");
           setFieldError("password", "Invalid credentials");
         }
       } catch (error) {
-        // Handle error here, e.g., set field errors
         setFieldError("username", "An error occurred");
         setFieldError("password", "An error occurred");
         console.log(error);
