@@ -2,6 +2,7 @@ import analytics from "../assets/icons/analytics.svg";
 import auditIcon from "../assets/icons/audit.svg";
 import complains from "../assets/icons/complains.svg";
 import deleteIcon from "../assets/icons/delete.svg";
+import editIcon from "../assets/icons/edit.svg";
 import hamburgerMenu from "../assets/icons/hamburger-menu.svg";
 import moonIcon from "../assets/icons/moon.svg";
 import propertiesIcon from "../assets/icons/properties.svg";
@@ -28,4 +29,5 @@ export const icons = {
   auditIcon,
   resetPasswordIcon,
   deleteIcon,
+  editIcon,
 };
