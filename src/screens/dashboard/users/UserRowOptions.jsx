@@ -32,7 +32,10 @@ const UserRowOptions = ({
     >
       <Button
         variant="contained"
-        sx={{ bgcolor: "#1463df", "&:hover": { bgcolor: "#1463df" } }}
+        sx={{
+          bgcolor: "#1463df",
+          "&:hover": { bgcolor: "#1463df" },
+        }}
         onClick={handleEdit}
         aria-label="Edit"
       >
@@ -55,10 +58,10 @@ const UserRowOptions = ({
       <Button
         variant="contained"
         color="error"
-        onClick={handleDelete}
-        aria-label="Delete"
+        onClick={handleDelete} // You might want to rename this function to handleBan
+        startIcon={<img src={icons.userBanIcon} alt="Ban" />}
       >
-        <img src={icons.deleteIcon} alt="Delete" />
+        Ban User
       </Button>
     </div>
   );

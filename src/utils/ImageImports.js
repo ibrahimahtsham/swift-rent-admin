@@ -1,5 +1,6 @@
 import analytics from "../assets/icons/analytics.svg";
 import auditIcon from "../assets/icons/audit.svg";
+import userBanIcon from "../assets/icons/ban.svg";
 import complains from "../assets/icons/complains.svg";
 import deleteIcon from "../assets/icons/delete.svg";
 import editIcon from "../assets/icons/edit.svg";
@@ -30,4 +31,5 @@ export const icons = {
   resetPasswordIcon,
   deleteIcon,
   editIcon,
+  userBanIcon,
 };
