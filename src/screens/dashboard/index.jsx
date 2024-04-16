@@ -7,7 +7,7 @@ import Analytics from "./Analytics";
 import AuditLogs from "./AuditLogs";
 import Complains from "./Complains";
 import MainPage from "./MainPage";
-import Properties from "./Properties";
+import Properties from "./properties/Properties";
 import "./styles/Dashboard.css";
 import Users from "./users/Users";
 
