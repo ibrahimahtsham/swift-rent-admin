@@ -38,7 +38,7 @@ const LoginForm = ({ formik, theme }) => {
             "input:-webkit-autofill": {
               WebkitBoxShadow:
                 theme === "dark"
-                  ? "0 0 0px 1000px rgba(19, 99, 223, 0.2) inset !important"
+                  ? "0 0 0px 1000px rgba(204, 204, 0, 0.2) inset !important"
                   : "0 0 0px 1000px #ffffcc inset !important",
               WebkitTextFillColor:
                 theme === "dark" ? "#fff !important" : "#000 !important",
