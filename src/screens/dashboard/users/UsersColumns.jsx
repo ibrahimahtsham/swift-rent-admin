@@ -27,7 +27,7 @@ export const getColumns = (setOpen, setEditingRowId, setEditingRowData) => [
   {
     field: "options",
     headerName: "Options",
-    width: 350,
+    width: 400,
     renderCell: (params) => (
       <UserRowOptions
         row={params.row}

@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import { styled } from "@mui/system";
 import { icons } from "../../../utils/ImageImports";
 
 const UserRowOptions = ({
@@ -21,6 +22,12 @@ const UserRowOptions = ({
     console.log(`Ban user ${row.id}`);
   };
 
+  const StyledButton = styled(Button)({
+    width: "max-content",
+    padding: "0px 8px",
+    minWidth: "auto",
+  });
+
   return (
     <div
       style={{
@@ -30,7 +37,7 @@ const UserRowOptions = ({
         width: "100%",
       }}
     >
-      <Button
+      <StyledButton
         variant="contained"
         sx={{
           bgcolor: "#1463df",
@@ -40,9 +47,9 @@ const UserRowOptions = ({
         aria-label="Edit"
       >
         <img src={icons.editIcon} alt="Edit" />
-      </Button>
+      </StyledButton>
 
-      <Button
+      <StyledButton
         variant="contained"
         onClick={handleResetPassword}
         startIcon={<img src={icons.resetPasswordIcon} alt="Reset Password" />}
@@ -53,16 +60,16 @@ const UserRowOptions = ({
         }}
       >
         Reset Pass
-      </Button>
+      </StyledButton>
 
-      <Button
+      <StyledButton
         variant="contained"
         color="error"
         onClick={handleBan}
         startIcon={<img src={icons.userBanIcon} alt="Ban" />}
       >
         Ban User
-      </Button>
+      </StyledButton>
     </div>
   );
 };
