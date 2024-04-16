@@ -8,18 +8,25 @@ const UserRowOptions = ({
   setEditingRowId,
   setEditingRowData,
 }) => {
-  const handleEdit = () => {
+  const handleEdit = (event) => {
+    event.stopPropagation();
     setEditingRowId(row.id);
     setEditingRowData(row);
     setOpen(true);
   };
 
-  const handleResetPassword = () => {
+  const handleResetPassword = (event) => {
+    event.stopPropagation();
     console.log(`Reset password for user ${row.id}`);
   };
 
-  const handleBan = () => {
+  const handleBan = (event) => {
+    event.stopPropagation();
     console.log(`Ban user ${row.id}`);
+  };
+
+  const handleMouseDown = (event) => {
+    event.stopPropagation();
   };
 
   const StyledButton = styled(Button)({
@@ -44,6 +51,7 @@ const UserRowOptions = ({
           "&:hover": { bgcolor: "#1463df" },
         }}
         onClick={handleEdit}
+        onMouseDown={handleMouseDown}
         aria-label="Edit"
       >
         <img src={icons.editIcon} alt="Edit" />
@@ -52,6 +60,7 @@ const UserRowOptions = ({
       <StyledButton
         variant="contained"
         onClick={handleResetPassword}
+        onMouseDown={handleMouseDown}
         startIcon={<img src={icons.resetPasswordIcon} alt="Reset Password" />}
         sx={{
           bgcolor: "#FFD93D",
@@ -66,6 +75,7 @@ const UserRowOptions = ({
         variant="contained"
         color="error"
         onClick={handleBan}
+        onMouseDown={handleMouseDown}
         startIcon={<img src={icons.userBanIcon} alt="Ban" />}
       >
         Ban User

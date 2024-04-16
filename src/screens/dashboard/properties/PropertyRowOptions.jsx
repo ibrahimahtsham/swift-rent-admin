@@ -2,27 +2,33 @@ import { Button } from "@mui/material";
 import { styled } from "@mui/system";
 import { icons } from "../../../utils/ImageImports";
 
+const StyledButton = styled(Button)({
+  width: "max-content",
+  padding: "4px 4px",
+  minWidth: "auto",
+});
+
 const PropertyRowOptions = ({
   row,
   setOpen,
   setEditingRowId,
   setEditingRowData,
 }) => {
-  const handleEdit = () => {
+  const handleEdit = (event) => {
+    event.stopPropagation();
     setEditingRowId(row.id);
     setEditingRowData(row);
     setOpen(true);
   };
 
-  const handleDelete = () => {
+  const handleDelete = (event) => {
+    event.stopPropagation();
     console.log(`Delete Property ${row.id}`);
   };
 
-  const StyledButton = styled(Button)({
-    width: "max-content",
-    padding: "4px 8px",
-    minWidth: "auto",
-  });
+  const handleMouseDown = (event) => {
+    event.stopPropagation();
+  };
 
   return (
     <div
@@ -40,6 +46,7 @@ const PropertyRowOptions = ({
           "&:hover": { bgcolor: "#1463df" },
         }}
         onClick={handleEdit}
+        onMouseDown={handleMouseDown}
         aria-label="Edit"
       >
         <img src={icons.editIcon} alt="Edit" />
@@ -47,8 +54,12 @@ const PropertyRowOptions = ({
 
       <StyledButton
         variant="contained"
-        color="error"
+        sx={{
+          bgcolor: "#f44336",
+          "&:hover": { bgcolor: "#f44336" },
+        }}
         onClick={handleDelete}
+        onMouseDown={handleMouseDown}
         aria-label="Delete"
       >
         <img src={icons.deleteIcon} alt="Delete" />
