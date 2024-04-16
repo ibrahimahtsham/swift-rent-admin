@@ -3,12 +3,12 @@ import Navbar from "../../components/navbar";
 import Sidebar from "../../components/sidebar";
 import { SidebarContext } from "../../utils/SidebarContext";
 import { ThemeContext } from "../../utils/ThemeContext";
+import "./Dashboard.css";
 import MainPage from "./MainPage";
 import Analytics from "./analytics/Analytics";
 import AuditLogs from "./audit-logs/AuditLogs";
 import Complains from "./complains/Complains";
 import Properties from "./properties/Properties";
-import "./styles/Dashboard.css";
 import Users from "./users/Users";
 
 const Dashboard = () => {
