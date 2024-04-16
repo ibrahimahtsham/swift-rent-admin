@@ -16,6 +16,7 @@ const Users = () => {
   const handleSave = () => {
     // Implement your logic to save the changes here
     console.log(`Save changes for user ${editingRowId}`);
+    console.log(editingRowData);
     setOpen(false);
   };
 

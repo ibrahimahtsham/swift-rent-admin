@@ -16,6 +16,7 @@ const Properties = () => {
   const handleSave = () => {
     // Implement your logic to save the changes here
     console.log(`Save changes for property ${editingRowId}`);
+    console.log(editingRowData);
     setOpen(false);
   };
 
