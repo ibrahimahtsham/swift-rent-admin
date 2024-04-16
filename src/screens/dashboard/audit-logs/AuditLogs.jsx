@@ -1,8 +1,12 @@
+import DataTable from "../../../components/DataTable";
+import { rows } from "../../../utils/data/AuditLogsData";
+import { columns } from "./AuditLogsColumns";
+
 const AuditLogs = () => {
   return (
-    <div>
-      <h1>Audit Logs</h1>
-    </div>
+    <>
+      <DataTable title="Audit Logs" rows={rows} columns={columns} />
+    </>
   );
 };
 
