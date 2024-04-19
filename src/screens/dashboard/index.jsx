@@ -7,6 +7,7 @@ import "./Dashboard.css";
 import MainPage from "./MainPage";
 import Analytics from "./analytics/Analytics";
 import AuditLogs from "./audit-logs/AuditLogs";
+import Cities from "./cities/Cities";
 import Complains from "./complains/Complains";
 import Properties from "./properties/Properties";
 import Users from "./users/Users";
@@ -30,10 +31,15 @@ const Dashboard = () => {
           }`}
         >
           {activePage === "Main Page" && <MainPage />}
-          {activePage === "Manage Users" && <Users />}
-          {activePage === "Manage Properties" && <Properties />}
+
           {activePage === "Analytics" && <Analytics />}
+
+          {activePage === "Manage Users" && <Users />}
+          {activePage === "Manage Cities" && <Cities />}
+          {activePage === "Manage Properties" && <Properties />}
+
           {activePage === "Manage Complains" && <Complains />}
+
           {activePage === "Audit Logs" && <AuditLogs />}
           <div style={{ marginBottom: 120 }}></div>
         </div>
