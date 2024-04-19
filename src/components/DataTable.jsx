@@ -20,7 +20,7 @@ const DataTable = (props) => {
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <div style={{ height: "max-content", width: "100%" }}>
+      <div style={{ height: "80%", width: "100%" }}>
         <h1>{props.title}</h1>
         <DataGrid
           rows={props.rows}

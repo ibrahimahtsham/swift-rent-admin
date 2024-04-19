@@ -1,5 +1,4 @@
-import { Button } from "@mui/material";
-import { styled } from "@mui/system";
+import { DataTableButton } from "../../../components/common/DataTableButton";
 import { icons } from "../../../utils/ImageImports";
 
 const UserRowOptions = ({
@@ -29,12 +28,6 @@ const UserRowOptions = ({
     event.stopPropagation();
   };
 
-  const StyledButton = styled(Button)({
-    width: "max-content",
-    padding: "0px 8px",
-    minWidth: "auto",
-  });
-
   return (
     <div
       style={{
@@ -44,7 +37,7 @@ const UserRowOptions = ({
         width: "100%",
       }}
     >
-      <StyledButton
+      <DataTableButton
         variant="contained"
         sx={{
           bgcolor: "#1463df",
@@ -55,9 +48,9 @@ const UserRowOptions = ({
         aria-label="Edit"
       >
         <img src={icons.editIcon} alt="Edit" />
-      </StyledButton>
+      </DataTableButton>
 
-      <StyledButton
+      <DataTableButton
         variant="contained"
         onClick={handleResetPassword}
         onMouseDown={handleMouseDown}
@@ -69,9 +62,9 @@ const UserRowOptions = ({
         }}
       >
         Reset Pass
-      </StyledButton>
+      </DataTableButton>
 
-      <StyledButton
+      <DataTableButton
         variant="contained"
         color="error"
         onClick={handleBan}
@@ -79,7 +72,7 @@ const UserRowOptions = ({
         startIcon={<img src={icons.userBanIcon} alt="Ban" />}
       >
         Ban User
-      </StyledButton>
+      </DataTableButton>
     </div>
   );
 };

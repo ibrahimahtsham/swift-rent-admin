@@ -1,12 +1,5 @@
-import { Button } from "@mui/material";
-import { styled } from "@mui/system";
+import { DataTableButton } from "../../../components/common/DataTableButton";
 import { icons } from "../../../utils/ImageImports";
-
-const StyledButton = styled(Button)({
-  width: "max-content",
-  padding: "4px 4px",
-  minWidth: "auto",
-});
 
 const PropertyRowOptions = ({
   row,
@@ -39,7 +32,7 @@ const PropertyRowOptions = ({
         width: "100%",
       }}
     >
-      <StyledButton
+      <DataTableButton
         variant="contained"
         sx={{
           bgcolor: "#1463df",
@@ -50,9 +43,9 @@ const PropertyRowOptions = ({
         aria-label="Edit"
       >
         <img src={icons.editIcon} alt="Edit" />
-      </StyledButton>
+      </DataTableButton>
 
-      <StyledButton
+      <DataTableButton
         variant="contained"
         sx={{
           bgcolor: "#f44336",
@@ -63,7 +56,7 @@ const PropertyRowOptions = ({
         aria-label="Delete"
       >
         <img src={icons.deleteIcon} alt="Delete" />
-      </StyledButton>
+      </DataTableButton>
     </div>
   );
 };
