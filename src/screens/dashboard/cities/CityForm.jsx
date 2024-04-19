@@ -1,7 +1,14 @@
-import { Button, Grid, TextField } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import React from "react";
-import { cityValidationSchema } from "./validationSchemas";
+import * as Yup from "yup";
+import FormButton from "../../../components/common/FormButton";
+
+export const cityValidationSchema = Yup.object().shape({
+  city: Yup.string()
+    .required("City is required")
+    .matches(/^\S*$/, "No white spaces are allowed"),
+});
 
 const CityForm = ({ handleAddCity }) => (
   <Formik
@@ -20,12 +27,13 @@ const CityForm = ({ handleAddCity }) => (
               label="City"
               error={Boolean(touched.city && errors.city)}
               helperText={touched.city && errors.city}
+              required
             />
           </Grid>
           <Grid item xs={4}>
-            <Button type="submit" fullWidth>
+            <FormButton type="submit" fullWidth>
               Add City
-            </Button>
+            </FormButton>
           </Grid>
         </Grid>
       </Form>

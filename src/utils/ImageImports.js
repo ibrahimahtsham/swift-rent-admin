@@ -1,3 +1,4 @@
+import addIcon from "../assets/icons/add.svg";
 import analytics from "../assets/icons/analytics.svg";
 import auditIcon from "../assets/icons/audit.svg";
 import userBanIcon from "../assets/icons/ban.svg";
@@ -34,4 +35,5 @@ export const icons = {
   editIcon,
   userBanIcon,
   citiesIcon,
+  addIcon,
 };

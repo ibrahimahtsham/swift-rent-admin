@@ -1,7 +1,15 @@
-import { Button, FormControl, Grid, MenuItem, TextField } from "@mui/material";
+import { FormControl, Grid, MenuItem, TextField } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import React from "react";
-import { areaValidationSchema } from "./validationSchemas";
+import * as Yup from "yup";
+import FormButton from "../../../components/common/FormButton";
+
+export const areaValidationSchema = Yup.object().shape({
+  area: Yup.string()
+    .required("Area is required")
+    .matches(/^\S*$/, "No white spaces are allowed"),
+  city: Yup.string().required("City is required"),
+});
 
 const AreaForm = ({ handleAddArea, cities }) => (
   <Formik
@@ -18,8 +26,10 @@ const AreaForm = ({ handleAddArea, cities }) => (
               name="area"
               fullWidth
               label="Area"
+              disabled={!values.city}
               error={Boolean(touched.area && errors.area)}
               helperText={touched.area && errors.area}
+              required
             />
           </Grid>
           <Grid item xs={4}>
@@ -30,22 +40,23 @@ const AreaForm = ({ handleAddArea, cities }) => (
                 name="city"
                 value={values.city}
                 onChange={handleChange}
-                label="City"
+                label="Select City"
                 error={Boolean(touched.city && errors.city)}
                 helperText={touched.city && errors.city}
+                required
               >
                 {cities.map((city, index) => (
-                  <MenuItem key={index} value={city}>
-                    {city}
+                  <MenuItem key={index} value={city.city}>
+                    {city.city}
                   </MenuItem>
                 ))}
               </Field>
             </FormControl>
           </Grid>
           <Grid item xs={4}>
-            <Button type="submit" fullWidth>
+            <FormButton type="submit" fullWidth>
               Add Area
-            </Button>
+            </FormButton>
           </Grid>
         </Grid>
       </Form>
