@@ -1,6 +1,8 @@
 import Button from "@mui/material/Button";
+import { darken } from "@mui/system";
 import React, { useContext } from "react";
 import { ThemeContext } from "../../utils/ThemeContext";
+import { buttonDarkenValue } from "../../utils/constants";
 import { SidebarContext } from "./../../utils/SidebarContext";
 import "./SidebarButton.css";
 
@@ -18,7 +20,10 @@ const SidebarButton = ({ image, title, isActive, onClick }) => {
         minHeight: "25px",
         fontFamily: "Open Sans",
         "&:hover": {
-          backgroundColor: theme === "dark" ? "#5c5c5c" : "#e0e0e0",
+          backgroundColor:
+            theme === "dark"
+              ? darken("#727272", buttonDarkenValue)
+              : darken("#fff", buttonDarkenValue),
         },
       }}
       className={`sidebar-button ${isActive ? "active" : ""} ${theme} ${
