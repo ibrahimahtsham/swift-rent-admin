@@ -36,8 +36,9 @@ export const getColumns = (setOpen, setEditingRowId, setEditingRowData) => [
   {
     field: "options",
     headerName: "Options",
-    disableClickEventBubbling: true,
-    width: 150,
+    width: 350,
+    sortable: false,
+    filterable: false,
     renderCell: (params) => (
       <PropertyRowOptions
         row={params.row}

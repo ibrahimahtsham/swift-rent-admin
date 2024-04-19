@@ -19,19 +19,17 @@ const PropertyRowOptions = ({
     console.log(`Delete Property ${row.id}`);
   };
 
+  const handleRemoveManager = (event) => {
+    event.stopPropagation();
+    console.log(`Remove Manager ${row.id}`);
+  };
+
   const handleMouseDown = (event) => {
     event.stopPropagation();
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-evenly",
-        flexDirection: "row",
-        width: "100%",
-      }}
-    >
+    <div>
       <DataTableButton
         variant="contained"
         sx={{
@@ -57,6 +55,18 @@ const PropertyRowOptions = ({
       >
         <img src={icons.deleteIcon} alt="Delete" />
       </DataTableButton>
+
+      {row.managerName && (
+        <DataTableButton
+          variant="contained"
+          color="error"
+          onClick={handleRemoveManager}
+          onMouseDown={handleMouseDown}
+          startIcon={<img src={icons.userBanIcon} alt="Ban" />}
+        >
+          Remove Manager
+        </DataTableButton>
+      )}
     </div>
   );
 };

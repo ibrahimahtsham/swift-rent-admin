@@ -29,14 +29,7 @@ const UserRowOptions = ({
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-evenly",
-        flexDirection: "row",
-        width: "100%",
-      }}
-    >
+    <div>
       <DataTableButton
         variant="contained"
         sx={{

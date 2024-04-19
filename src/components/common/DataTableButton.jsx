@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { styled } from "@mui/system";
 
 export const DataTableButton = styled(Button)({
+  marginRight: "15px",
   padding: "4px 4px",
   minWidth: 0,
   minHeight: 0,

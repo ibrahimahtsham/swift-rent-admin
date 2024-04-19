@@ -3,7 +3,6 @@ export const rows = [
     id: 1,
     ownerName: "Owner 1",
     tenantName: "Tenant 1",
-    managerName: "Manager 1",
     address: "123 Street, City, State, Country",
     registeredOn: "2022-01-01",
     propertyStatus: "Occupied",
