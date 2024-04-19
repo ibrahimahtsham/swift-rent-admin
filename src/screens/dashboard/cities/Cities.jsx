@@ -48,9 +48,25 @@ const Cities = () => {
     resetForm();
   };
 
+  const updateCity = (id, newCity) => {
+    setCities((prevCities) =>
+      prevCities.map((city) =>
+        city.id === id ? { id: id, city: newCity.city } : city
+      )
+    );
+  };
+
   const handleAddArea = (values, { resetForm }) => {
     setAreas([...areas, { area: values.area, city: values.city }]);
     resetForm();
+  };
+
+  const updateArea = (id, newValues) => {
+    setAreas((prevAreas) =>
+      prevAreas.map((area) =>
+        area.id === id ? { ...area, ...newValues } : area
+      )
+    );
   };
 
   return (
@@ -61,14 +77,14 @@ const Cities = () => {
             Cities
           </Typography>
           <CityForm handleAddCity={handleAddCity} />
-          <CityList cities={cities} />
+          <CityList cities={cities} updateCity={updateCity} />
         </Grid>
         <Grid item xs={6}>
           <Typography variant="h4" sx={{ mb: 2 }}>
             Areas
           </Typography>
           <AreaForm handleAddArea={handleAddArea} cities={cities} />
-          <AreaList areas={areas} cities={cities} />
+          <AreaList areas={areas} cities={cities} updateArea={updateArea} />
         </Grid>
       </Grid>
     </ThemeProvider>

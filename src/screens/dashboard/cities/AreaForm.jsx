@@ -19,7 +19,7 @@ const AreaForm = ({ handleAddArea, cities }) => (
   >
     {({ values, handleChange, touched, errors }) => (
       <Form>
-        <Grid container spacing={2} alignItems="center" justifyContent="center">
+        <Grid container spacing={2}>
           <Grid item xs={4}>
             <Field
               as={TextField}

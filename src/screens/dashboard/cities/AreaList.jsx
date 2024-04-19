@@ -16,7 +16,7 @@ const validationSchema = Yup.object().shape({
   city: Yup.string().required("City is required"),
 });
 
-const AreaList = ({ areas, cities }) => {
+const AreaList = ({ areas, cities, updateArea }) => {
   const [editingAreaId, setEditingAreaId] = useState(null);
 
   const handleEditClick = (areaId) => {
@@ -43,19 +43,14 @@ const AreaList = ({ areas, cities }) => {
               initialValues={{ area: area.area, city: area.city }}
               validationSchema={validationSchema}
               onSubmit={(values) => {
-                // handle submit
                 console.log(area.id, values.area, values.city);
+                updateArea(area.id, values);
                 setEditingAreaId(null);
               }}
             >
               {({ touched, errors, handleSubmit, handleChange, values }) => (
                 <>
-                  <Grid
-                    container
-                    spacing={2}
-                    alignItems="center"
-                    justifyContent="center"
-                  >
+                  <Grid container spacing={2}>
                     <Grid item xs={4}>
                       <Field
                         as={TextField}

@@ -18,7 +18,7 @@ const CityForm = ({ handleAddCity }) => (
   >
     {({ touched, errors }) => (
       <Form>
-        <Grid container spacing={2} alignItems="center" justifyContent="center">
+        <Grid container spacing={2}>
           <Grid item xs={8}>
             <Field
               as={TextField}

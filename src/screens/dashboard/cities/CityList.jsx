@@ -9,7 +9,7 @@ const validationSchema = Yup.object().shape({
   city: Yup.string().required("City is required"),
 });
 
-const CityList = ({ cities }) => {
+const CityList = ({ cities, updateCity }) => {
   const [editingCityId, setEditingCityId] = useState(null);
 
   const handleEditClick = (cityId) => {
@@ -38,6 +38,7 @@ const CityList = ({ cities }) => {
               onSubmit={(values) => {
                 // handle submit
                 console.log(city.id, values.city);
+                updateCity(city.id, values);
                 setEditingCityId(null);
               }}
             >
