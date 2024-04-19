@@ -5,14 +5,18 @@ import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { GlobalStyles, styled } from "@mui/system";
+import { GlobalStyles, darken, styled } from "@mui/system";
 import React, { useState } from "react";
+import { buttonDarkenValue } from "../../../utils/ThemeContext";
 import "../Login.css";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#808080",
   "&:hover": {
-    backgroundColor: theme.palette.mode === "light" ? "#3da6db" : "#666666",
+    backgroundColor:
+      theme.palette.mode === "light"
+        ? darken("#4eb7fc", buttonDarkenValue)
+        : darken("#808080", buttonDarkenValue),
   },
   fontFamily: "Open Sans",
   textTransform: "none",
