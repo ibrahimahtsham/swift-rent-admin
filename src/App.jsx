@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 import React, { useContext, useEffect } from "react";
 import {
   Route,
@@ -32,10 +31,10 @@ function AppContent() {
       navigate("/dashboard", { replace: true });
     }
 
-    // Clear cookies when tab is closed
-    window.onbeforeunload = () => {
-      Cookies.remove("auth");
-    };
+    // window.onbeforeunload = () => {
+    //   // Remove the auth cookie
+    //   sessionStorage.removeItem("auth");
+    // };
   }, [isLoggedIn, navigate]);
 
   return (
