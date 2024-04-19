@@ -7,14 +7,9 @@ import {
 } from "@mui/material";
 import { Field, Formik } from "formik";
 import React, { useState } from "react";
-import * as Yup from "yup";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
-
-const validationSchema = Yup.object().shape({
-  area: Yup.string().required("Area is required"),
-  city: Yup.string().required("City is required"),
-});
+import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
 
 const AreaList = ({ areas, cities, updateArea }) => {
   const [editingAreaId, setEditingAreaId] = useState(null);
@@ -41,7 +36,7 @@ const AreaList = ({ areas, cities, updateArea }) => {
           {editingAreaId === area.id ? (
             <Formik
               initialValues={{ area: area.area, city: area.city }}
-              validationSchema={validationSchema}
+              validationSchema={addAreaValidationSchema}
               onSubmit={(values) => {
                 console.log(area.id, values.area, values.city);
                 updateArea(area.id, values);

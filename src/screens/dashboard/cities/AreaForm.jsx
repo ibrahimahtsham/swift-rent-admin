@@ -1,20 +1,13 @@
 import { FormControl, Grid, MenuItem, TextField } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import React from "react";
-import * as Yup from "yup";
 import FormButton from "../../../components/common/FormButton";
-
-export const areaValidationSchema = Yup.object().shape({
-  area: Yup.string()
-    .required("Area is required")
-    .matches(/^\S*$/, "No white spaces are allowed"),
-  city: Yup.string().required("City is required"),
-});
+import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
 
 const AreaForm = ({ handleAddArea, cities }) => (
   <Formik
     initialValues={{ area: "", city: "" }}
-    validationSchema={areaValidationSchema}
+    validationSchema={addAreaValidationSchema}
     onSubmit={handleAddArea}
   >
     {({ values, handleChange, touched, errors }) => (

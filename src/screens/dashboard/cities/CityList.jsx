@@ -1,13 +1,9 @@
 import { Grid, TextField, Typography } from "@mui/material";
 import { Field, Formik } from "formik";
 import React, { useState } from "react";
-import * as Yup from "yup";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
-
-const validationSchema = Yup.object().shape({
-  city: Yup.string().required("City is required"),
-});
+import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
 
 const CityList = ({ cities, updateCity }) => {
   const [editingCityId, setEditingCityId] = useState(null);
@@ -34,7 +30,7 @@ const CityList = ({ cities, updateCity }) => {
           {editingCityId === city.id ? (
             <Formik
               initialValues={{ city: city.city }}
-              validationSchema={validationSchema}
+              validationSchema={addCityValidationSchema}
               onSubmit={(values) => {
                 // handle submit
                 console.log(city.id, values.city);
