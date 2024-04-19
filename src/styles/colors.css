@@ -33,6 +33,16 @@
   --sidebar-button-active-color-dark: #1463df;
 }
 
+/* Common theme styles */
+
+.sidebar-category-title {
+  color: var(--input-text-color-dark);
+}
+
+.sidebar-button-img {
+  filter: invert(1);
+}
+
 /* Light theme styles */
 body.light {
   background-color: var(--background-color-light);
@@ -88,14 +98,16 @@ label.light {
   color: var(--text-color-white);
 }
 
+.sidebar-button-img.light {
+  filter: invert(0);
+}
+
 .sidebar-button-img.active.light {
   filter: invert(1);
 }
 
 .navbar-menu-icon.open.light {
   background-color: #0b4dbf;
-  border-radius: 100%;
-  padding: 0.5vw;
 }
 
 /* Dark theme styles */
@@ -149,16 +161,6 @@ label.dark {
   color: var(--text-color-white);
 }
 
-.sidebar-button-img.dark {
-  filter: invert(1);
-}
-
-.sidebar-button-img.active.dark {
-  filter: invert(1);
-}
-
 .navbar-menu-icon.open.dark {
   background-color: var(--sidebar-button-color-dark);
-  border-radius: 100%;
-  padding: 0.5vw;
 }

@@ -9,9 +9,22 @@ const Sidebar = () => {
   const { theme } = useContext(ThemeContext);
   const { isOpen, setActivePage, activePage } = useContext(SidebarContext);
 
+  const SidebarCategoryTitle = ({ isOpen, title }) => {
+    return isOpen && <h4 className="sidebar-category-title">{title}</h4>;
+  };
+
+  const SidebarCategorySeparator = ({ isOpen }) => {
+    return (
+      !isOpen && (
+        <div className="category-separator" style={{ width: "70%" }}></div>
+      )
+    );
+  };
+
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"} ${theme}`}>
       <div className="menus-container">
+        <SidebarCategoryTitle isOpen={isOpen} title="User Management" />
         <SidebarButton
           image={icons.usersIcon}
           title="Manage Users"
@@ -24,18 +37,30 @@ const Sidebar = () => {
           isActive={activePage === "Manage Properties"}
           onClick={() => setActivePage("Manage Properties")}
         />
+
+        <SidebarCategorySeparator isOpen={isOpen} />
+
+        <SidebarCategoryTitle isOpen={isOpen} title="Analytics" />
         <SidebarButton
           image={icons.analytics}
           title="Analytics"
           isActive={activePage === "Analytics"}
           onClick={() => setActivePage("Analytics")}
         />
+
+        <SidebarCategorySeparator isOpen={isOpen} />
+
+        <SidebarCategoryTitle isOpen={isOpen} title="Complaints" />
         <SidebarButton
           image={icons.complains}
           title="Manage Complains"
           isActive={activePage === "Manage Complains"}
           onClick={() => setActivePage("Manage Complains")}
         />
+
+        <SidebarCategorySeparator isOpen={isOpen} />
+
+        <SidebarCategoryTitle isOpen={isOpen} title="Logs" />
         <SidebarButton
           image={icons.auditIcon}
           title="Audit Logs"

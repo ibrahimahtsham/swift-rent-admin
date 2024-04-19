@@ -7,7 +7,7 @@
   overflow-y: auto;
   position: fixed;
   z-index: 1;
-  word-break: break-all;
+  text-wrap: pretty;
   transition: 0.3s;
   padding: 1vw 2vw;
   top: 58px;

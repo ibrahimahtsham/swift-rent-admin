@@ -9,6 +9,7 @@ const SidebarButton = ({ image, title, isActive, onClick }) => {
   const { isOpen } = useContext(SidebarContext);
   return (
     <Button
+      title={title}
       sx={{
         justifyContent: isOpen ? "space-between" : "center",
         marginBottom: "1vh",
