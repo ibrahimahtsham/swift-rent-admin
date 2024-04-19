@@ -32,10 +32,7 @@ const UserRowOptions = ({
     <div>
       <DataTableButton
         variant="contained"
-        sx={{
-          bgcolor: "#1463df",
-          "&:hover": { bgcolor: "#1463df" },
-        }}
+        bgcolor="#1463df"
         onClick={handleEdit}
         onMouseDown={handleMouseDown}
         aria-label="Edit"
@@ -48,10 +45,9 @@ const UserRowOptions = ({
         onClick={handleResetPassword}
         onMouseDown={handleMouseDown}
         startIcon={<img src={icons.resetPasswordIcon} alt="Reset Password" />}
+        bgcolor="#FFD93D"
         sx={{
-          bgcolor: "#FFD93D",
           color: "black",
-          "&:hover": { bgcolor: "#FFD93D" },
         }}
       >
         Reset Pass
@@ -60,6 +56,7 @@ const UserRowOptions = ({
       <DataTableButton
         variant="contained"
         color="error"
+        bgcolor="#f44336"
         onClick={handleBan}
         onMouseDown={handleMouseDown}
         startIcon={<img src={icons.userBanIcon} alt="Ban" />}

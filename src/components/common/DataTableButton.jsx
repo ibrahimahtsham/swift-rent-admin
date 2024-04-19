@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
-import { styled } from "@mui/system";
+import { darken, styled } from "@mui/system";
+import { buttonDarkenValue } from "../../utils/constants";
 
-export const DataTableButton = styled(Button)({
+export const DataTableButton = styled(Button)(({ bgcolor = "#1463df" }) => ({
   marginRight: "15px",
   padding: "4px 4px",
   minWidth: 0,
@@ -12,4 +13,9 @@ export const DataTableButton = styled(Button)({
   "& .MuiTouchRipple-root": {
     width: "auto",
   },
-});
+
+  background: bgcolor,
+  "&:hover": {
+    backgroundColor: darken(bgcolor, buttonDarkenValue),
+  },
+}));

@@ -32,10 +32,7 @@ const PropertyRowOptions = ({
     <div>
       <DataTableButton
         variant="contained"
-        sx={{
-          bgcolor: "#1463df",
-          "&:hover": { bgcolor: "#1463df" },
-        }}
+        bgcolor="#1463df"
         onClick={handleEdit}
         onMouseDown={handleMouseDown}
         aria-label="Edit"
@@ -45,10 +42,7 @@ const PropertyRowOptions = ({
 
       <DataTableButton
         variant="contained"
-        sx={{
-          bgcolor: "#f44336",
-          "&:hover": { bgcolor: "#f44336" },
-        }}
+        bgcolor="#f44336"
         onClick={handleDelete}
         onMouseDown={handleMouseDown}
         aria-label="Delete"
@@ -59,7 +53,10 @@ const PropertyRowOptions = ({
       {row.managerName && (
         <DataTableButton
           variant="contained"
-          color="error"
+          bgcolor="#f44336"
+          sx={{
+            color: "white",
+          }}
           onClick={handleRemoveManager}
           onMouseDown={handleMouseDown}
           startIcon={<img src={icons.userBanIcon} alt="Ban" />}
