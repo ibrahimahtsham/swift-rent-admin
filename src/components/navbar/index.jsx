@@ -1,10 +1,11 @@
 import Button from "@mui/material/Button";
-import { styled } from "@mui/system";
+import { darken, styled } from "@mui/system";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../utils/AuthContext";
 import { icons } from "../../utils/ImageImports";
 import { SidebarContext } from "../../utils/SidebarContext";
 import { ThemeContext } from "../../utils/ThemeContext";
+import { buttonDarkenValue } from "../../utils/constants";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -19,7 +20,10 @@ const Navbar = () => {
   const StyledButton = styled(Button)({
     marginLeft: "1vw",
     "&:hover": {
-      backgroundColor: theme === "light" ? "#D3D3D3" : "#104cb7",
+      backgroundColor:
+        theme === "dark"
+          ? darken("#1463df", buttonDarkenValue)
+          : darken("#fff", buttonDarkenValue),
     },
     fontFamily: "Open Sans",
     textTransform: "none",
