@@ -12,7 +12,7 @@ const SidebarButton = ({ image, title, isActive, onClick }) => {
       title={title}
       sx={{
         justifyContent: isOpen ? "space-between" : "center",
-        marginBottom: "1vh",
+        marginBottom: "0.5vh",
         padding: "1vh 1vh",
         minWidth: "80%",
         minHeight: "25px",

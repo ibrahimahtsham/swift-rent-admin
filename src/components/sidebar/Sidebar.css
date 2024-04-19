@@ -81,5 +81,5 @@
 .category-separator {
   height: 1px;
   background-color: #fff;
-  margin: 0 0 1vh 0; /* top | right | bottom | left */
+  margin: 0 0 0.5vh 0; /* top | right | bottom | left */
 }

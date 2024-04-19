@@ -24,22 +24,6 @@ const Sidebar = () => {
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"} ${theme}`}>
       <div className="menus-container">
-        <SidebarCategoryTitle isOpen={isOpen} title="User Management" />
-        <SidebarButton
-          image={icons.usersIcon}
-          title="Manage Users"
-          isActive={activePage === "Manage Users"}
-          onClick={() => setActivePage("Manage Users")}
-        />
-        <SidebarButton
-          image={icons.propertiesIcon}
-          title="Manage Properties"
-          isActive={activePage === "Manage Properties"}
-          onClick={() => setActivePage("Manage Properties")}
-        />
-
-        <SidebarCategorySeparator isOpen={isOpen} />
-
         <SidebarCategoryTitle isOpen={isOpen} title="Analytics" />
         <SidebarButton
           image={icons.analytics}
@@ -50,7 +34,26 @@ const Sidebar = () => {
 
         <SidebarCategorySeparator isOpen={isOpen} />
 
-        <SidebarCategoryTitle isOpen={isOpen} title="Complaints" />
+        <SidebarCategoryTitle isOpen={isOpen} title="Management" />
+
+        <SidebarButton
+          image={icons.usersIcon}
+          title="Manage Users"
+          isActive={activePage === "Manage Users"}
+          onClick={() => setActivePage("Manage Users")}
+        />
+        <SidebarButton
+          image={icons.citiesIcon}
+          title="Manage Cities"
+          isActive={activePage === "Manage Cities"}
+          onClick={() => setActivePage("Manage Cities")}
+        />
+        <SidebarButton
+          image={icons.propertiesIcon}
+          title="Manage Properties"
+          isActive={activePage === "Manage Properties"}
+          onClick={() => setActivePage("Manage Properties")}
+        />
         <SidebarButton
           image={icons.complains}
           title="Manage Complains"
