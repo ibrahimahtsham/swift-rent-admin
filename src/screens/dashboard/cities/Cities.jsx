@@ -44,7 +44,10 @@ const Cities = () => {
   const { theme } = useContext(ThemeContext);
 
   const handleAddCity = (values, { resetForm }) => {
-    setCities([...cities, values.city]);
+    setCities((prevCities) => [
+      ...prevCities,
+      { id: prevCities.length + 1, city: values.city },
+    ]);
     resetForm();
   };
 
@@ -57,7 +60,10 @@ const Cities = () => {
   };
 
   const handleAddArea = (values, { resetForm }) => {
-    setAreas([...areas, { area: values.area, city: values.city }]);
+    setAreas((prevAreas) => [
+      ...prevAreas,
+      { id: prevAreas.length + 1, area: values.area, city: values.city },
+    ]);
     resetForm();
   };
 
