@@ -23,8 +23,9 @@ const darkTheme = createTheme({
 const Cities = () => {
   const [cities, setCities] = useState([]);
   const [areas, setAreas] = useState([]);
+  const [selectedCityId, setSelectedCityId] = useState(null);
+  const { theme } = useContext(ThemeContext);
 
-  // Fetch list of cities when component mounts
   useEffect(() => {
     const fetchCities = async () => {
       try {
@@ -41,10 +42,6 @@ const Cities = () => {
 
     fetchCities();
   }, []);
-
-  const [selectedCityId, setSelectedCityId] = useState(null);
-
-  const { theme } = useContext(ThemeContext);
 
   const fetchAreas = async (cityId) => {
     try {

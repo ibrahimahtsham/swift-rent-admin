@@ -2,6 +2,7 @@ import { Grid, TextField } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import FormButton from "../../../components/common/FormButton";
+import { icons } from "../../../utils/ImageImports";
 import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
 
 const CityForm = ({ handleAddCity }) => (
@@ -25,8 +26,8 @@ const CityForm = ({ handleAddCity }) => (
             />
           </Grid>
           <Grid item xs={4}>
-            <FormButton type="submit" fullWidth>
-              Add City
+            <FormButton type="submit" variant="contained" aria-label="Add City">
+              <img src={icons.addIcon} alt="Add" />
             </FormButton>
           </Grid>
         </Grid>

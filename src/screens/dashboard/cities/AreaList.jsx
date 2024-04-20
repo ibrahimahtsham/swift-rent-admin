@@ -1,4 +1,5 @@
 import {
+  CircularProgress,
   FormControl,
   Grid,
   MenuItem,
@@ -7,7 +8,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { Field, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
 import { BASE_URL } from "../../../utils/db-config";
@@ -21,6 +22,7 @@ const AreaList = ({
   deleteArea,
 }) => {
   const [editingAreaId, setEditingAreaId] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleEditClick = (areaId) => {
     setEditingAreaId(areaId);
@@ -73,9 +75,34 @@ const AreaList = ({
     ? areas.filter((area) => area.cityid === selectedCityId)
     : [];
 
+  useEffect(() => {
+    setLoading(true);
+
+    if (Array.isArray(filteredAreas) && filteredAreas.length > 0) {
+      setLoading(false);
+    }
+
+    const timer = setTimeout(() => {
+      if (Array.isArray(filteredAreas) && filteredAreas.length === 0) {
+        setLoading(false);
+      }
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [selectedCityId]);
+
   return (
     <>
-      {Array.isArray(filteredAreas) && filteredAreas.length > 0 ? (
+      {selectedCityId === null ? (
+        <Typography variant="subtitle1" sx={{ mt: 2 }}>
+          Select a city to view its areas
+        </Typography>
+      ) : loading ? (
+        <Typography variant="subtitle1" sx={{ mt: 2 }}>
+          Loading areas...
+          <CircularProgress style={{ marginLeft: "10px" }} size={20} />
+        </Typography>
+      ) : Array.isArray(filteredAreas) && filteredAreas.length > 0 ? (
         filteredAreas.map((area, index) => (
           <Grid
             container

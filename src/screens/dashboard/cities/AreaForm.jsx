@@ -2,6 +2,7 @@ import { FormControl, Grid, MenuItem, TextField, Tooltip } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import FormButton from "../../../components/common/FormButton";
+import { icons } from "../../../utils/ImageImports";
 import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
 
 const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
@@ -17,7 +18,7 @@ const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
     {({ values, handleChange, touched, errors }) => (
       <Form>
         <Grid container spacing={2}>
-          <Grid item xs={4}>
+          <Grid item xs={5}>
             <Tooltip title={!values.city ? "Please select city first" : ""}>
               <div>
                 <Field
@@ -33,7 +34,7 @@ const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
               </div>
             </Tooltip>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={5}>
             <FormControl fullWidth>
               <Field
                 as={TextField}
@@ -63,9 +64,9 @@ const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
               </Field>
             </FormControl>
           </Grid>
-          <Grid item xs={4}>
-            <FormButton type="submit" fullWidth>
-              Add Area
+          <Grid item xs={2}>
+            <FormButton type="submit" variant="contained" aria-label="Add City">
+              <img src={icons.addIcon} alt="Add" />
             </FormButton>
           </Grid>
         </Grid>
