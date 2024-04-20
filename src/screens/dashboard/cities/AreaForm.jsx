@@ -15,7 +15,7 @@ const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
       values.city = values.city;
     }}
   >
-    {({ values, handleChange, touched, errors }) => (
+    {({ values, handleChange, touched, errors, isValid }) => (
       <Form>
         <Grid container spacing={2}>
           <Grid item xs={5}>
@@ -65,7 +65,12 @@ const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
             </FormControl>
           </Grid>
           <Grid item xs={2}>
-            <FormButton type="submit" variant="contained" aria-label="Add City">
+            <FormButton
+              type="submit"
+              variant="contained"
+              aria-label="Add City"
+              bgcolor={isValid && values.area !== "" ? "#00bf63" : undefined}
+            >
               <img src={icons.addIcon} alt="Add" />
             </FormButton>
           </Grid>

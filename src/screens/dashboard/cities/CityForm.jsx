@@ -11,7 +11,7 @@ const CityForm = ({ handleAddCity }) => (
     validationSchema={addCityValidationSchema}
     onSubmit={handleAddCity}
   >
-    {({ touched, errors }) => (
+    {({ touched, errors, isValid, values }) => (
       <Form>
         <Grid container spacing={2}>
           <Grid item xs={8}>
@@ -26,7 +26,12 @@ const CityForm = ({ handleAddCity }) => (
             />
           </Grid>
           <Grid item xs={4}>
-            <FormButton type="submit" variant="contained" aria-label="Add City">
+            <FormButton
+              type="submit"
+              variant="contained"
+              aria-label="Add City"
+              bgcolor={isValid && values.city !== "" ? "#00bf63" : undefined}
+            >
               <img src={icons.addIcon} alt="Add" />
             </FormButton>
           </Grid>
