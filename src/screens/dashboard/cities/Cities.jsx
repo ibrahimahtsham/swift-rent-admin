@@ -108,10 +108,10 @@ const Cities = () => {
   };
 
   const updateCity = (id, newCity) => {
-    const updatedCities = cities.map((city) =>
+    const updatedCity = cities.map((city) =>
       city.id === id ? { ...city, ...newCity } : city
     );
-    setCities(updatedCities);
+    setCities(updatedCity);
   };
 
   const updateArea = (id, newValues) => {
