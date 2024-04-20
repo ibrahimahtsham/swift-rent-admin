@@ -7,13 +7,14 @@ import {
   Typography,
 } from "@mui/material";
 import { Field, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
 import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
 
 const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
   const [editingAreaId, setEditingAreaId] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleEditClick = (areaId) => {
     setEditingAreaId(areaId);
@@ -26,6 +27,22 @@ const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
   const filteredAreas = selectedCityId
     ? areas.filter((area) => area.cityid === selectedCityId)
     : [];
+
+  useEffect(() => {
+    setLoading(true);
+
+    if (Array.isArray(filteredAreas) && filteredAreas.length > 0) {
+      setLoading(false);
+    }
+
+    const timer = setTimeout(() => {
+      if (Array.isArray(filteredAreas) && filteredAreas.length === 0) {
+        setLoading(false);
+      }
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [selectedCityId]);
 
   return (
     <>
@@ -154,12 +171,17 @@ const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
               )}
             </Grid>
           ))
-        : selectedCityId !== null && (
+        : selectedCityId !== null &&
+          (loading ? (
             <Typography variant="subtitle1" sx={{ mt: 2 }}>
               Loading areas...
               <CircularProgress style={{ marginLeft: "10px" }} size={20} />
             </Typography>
-          )}
+          ) : (
+            <Typography variant="subtitle1" sx={{ mt: 2 }}>
+              No areas added yet.
+            </Typography>
+          ))}
     </>
   );
 };

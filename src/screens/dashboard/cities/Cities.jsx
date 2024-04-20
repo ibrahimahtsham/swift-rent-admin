@@ -33,9 +33,6 @@ const Cities = () => {
             "ngrok-skip-browser-warning": "true",
           },
         });
-
-        console.log("Full response:", response);
-        console.log("Cities:", response.data);
         setCities(response.data);
       } catch (error) {
         console.error("Error fetching cities:", error);
