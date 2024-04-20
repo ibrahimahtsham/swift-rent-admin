@@ -92,7 +92,6 @@ const Cities = () => {
   };
 
   const handleAddArea = async (values) => {
-    console.log("Inside handleAddArea()");
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/addArea`,
@@ -146,6 +145,11 @@ const Cities = () => {
     setCities(updatedCities);
   };
 
+  const deleteArea = (id) => {
+    const updatedAreas = areas.filter((area) => area.id !== id);
+    setAreas(updatedAreas);
+  };
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Grid container spacing={3}>
@@ -170,6 +174,7 @@ const Cities = () => {
             cities={cities}
             selectedCityId={selectedCityId}
             updateArea={updateArea}
+            deleteArea={deleteArea}
           />
         </Grid>
       </Grid>

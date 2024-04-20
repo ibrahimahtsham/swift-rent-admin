@@ -6,13 +6,21 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import axios from "axios";
 import { Field, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
+import { BASE_URL } from "../../../utils/db-config";
 import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
 
-const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
+const AreaList = ({
+  areas,
+  cities,
+  selectedCityId,
+  updateArea,
+  deleteArea,
+}) => {
   const [editingAreaId, setEditingAreaId] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -20,8 +28,26 @@ const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
     setEditingAreaId(areaId);
   };
 
-  const handleDeleteClick = (areaId) => {
-    console.log(areaId);
+  const handleDeleteArea = async (areaId) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/admin/deleteArea`,
+        { areaID: areaId },
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      );
+
+      if (response.data.message === "Area Deleted") {
+        deleteArea(areaId);
+      } else {
+        console.error(response.data.error);
+      }
+    } catch (error) {
+      console.error(`Error deleting area: ${error.message}`);
+    }
   };
 
   const filteredAreas = selectedCityId
@@ -128,7 +154,7 @@ const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
                             <FormButton
                               aria-label="Delete"
                               bgcolor="#f44336"
-                              onClick={() => handleDeleteClick(area.id)}
+                              onClick={() => handleDeleteArea(area.id)}
                             >
                               <img src={icons.deleteIcon} alt="Delete" />
                             </FormButton>
@@ -161,7 +187,7 @@ const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
                       <FormButton
                         aria-label="Delete"
                         bgcolor="#f44336"
-                        onClick={() => handleDeleteClick(area.id)}
+                        onClick={() => handleDeleteArea(area.id)}
                       >
                         <img src={icons.deleteIcon} alt="Delete" />
                       </FormButton>
