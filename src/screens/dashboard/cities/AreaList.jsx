@@ -1,4 +1,5 @@
 import {
+  CircularProgress,
   FormControl,
   Grid,
   MenuItem,
@@ -23,129 +24,142 @@ const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
   };
 
   const filteredAreas = selectedCityId
-    ? areas.filter((area) => area.cityID === selectedCityId)
+    ? areas.filter((area) => area.cityid === selectedCityId)
     : [];
 
   return (
     <>
-      {selectedCityId ? (
-        filteredAreas.map((area, index) => (
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            key={index}
-            sx={{ mt: 2, width: "100%" }}
-          >
-            {editingAreaId === area.id ? (
-              <Formik
-                initialValues={{ area: area.area, city: area.city }}
-                validationSchema={addAreaValidationSchema}
-                onSubmit={(values) => {
-                  console.log(area.id, values.area, values.city);
-                  updateArea(area.id, values);
-                  setEditingAreaId(null);
-                }}
-              >
-                {({ touched, errors, handleSubmit, handleChange, values }) => (
-                  <>
-                    <Grid container spacing={2}>
-                      <Grid item xs={4}>
-                        <Field
-                          as={TextField}
-                          name="area"
-                          fullWidth
-                          label="Area"
-                          error={Boolean(touched.area && errors.area)}
-                          helperText={touched.area && errors.area}
-                          required
-                        />
-                      </Grid>
-                      <Grid item xs={4}>
-                        <FormControl fullWidth>
+      {Array.isArray(filteredAreas) && filteredAreas.length > 0
+        ? filteredAreas.map((area, index) => (
+            <Grid
+              container
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              key={index}
+              sx={{ mt: 2, width: "100%" }}
+            >
+              {editingAreaId === area.id ? (
+                <Formik
+                  initialValues={{
+                    area: area.areaname,
+                    city: area.cityid.toString(),
+                  }}
+                  validationSchema={addAreaValidationSchema}
+                  onSubmit={(values) => {
+                    console.log(area.id, values.area, values.city);
+                    updateArea(area.id, values);
+                    setEditingAreaId(null);
+                  }}
+                >
+                  {({
+                    touched,
+                    errors,
+                    handleSubmit,
+                    handleChange,
+                    values,
+                  }) => (
+                    <>
+                      <Grid container spacing={2}>
+                        <Grid item xs={4}>
                           <Field
                             as={TextField}
-                            select
-                            name="city"
-                            value={values.city}
-                            onChange={handleChange}
-                            label="Select City"
-                            error={Boolean(touched.city && errors.city)}
-                            helperText={touched.city && errors.city}
+                            name="area"
+                            fullWidth
+                            label="Area"
+                            error={Boolean(touched.area && errors.area)}
+                            helperText={touched.area && errors.area}
                             required
+                          />
+                        </Grid>
+                        <Grid item xs={4}>
+                          <FormControl fullWidth>
+                            <Field
+                              as={TextField}
+                              select
+                              name="city"
+                              value={values.city}
+                              onChange={handleChange}
+                              label="Select City"
+                              error={Boolean(touched.city && errors.city)}
+                              helperText={touched.city && errors.city}
+                              required
+                            >
+                              {cities.map((city) => (
+                                <MenuItem key={city.id} value={city.id}>
+                                  {city.cityname}
+                                </MenuItem>
+                              ))}
+                            </Field>
+                          </FormControl>
+                        </Grid>
+                        <Grid item xs={4}>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "flex-end",
+                            }}
                           >
-                            {cities.map((city, index) => (
-                              <MenuItem key={index} value={city.cityname}>
-                                {city.cityname}
-                              </MenuItem>
-                            ))}
-                          </Field>
-                        </FormControl>
+                            <FormButton
+                              aria-label="Edit"
+                              bgcolor="#00bf63"
+                              sx={{ mr: 1 }}
+                              onClick={handleSubmit}
+                            >
+                              <img src={icons.editIcon} alt="Edit" />
+                            </FormButton>
+                            <FormButton
+                              aria-label="Delete"
+                              bgcolor="#f44336"
+                              onClick={() => handleDeleteClick(area.id)}
+                            >
+                              <img src={icons.deleteIcon} alt="Delete" />
+                            </FormButton>
+                          </div>
+                        </Grid>
                       </Grid>
-                      <Grid item xs={4}>
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "flex-end",
-                          }}
-                        >
-                          <FormButton
-                            aria-label="Edit"
-                            bgcolor="#00bf63"
-                            sx={{ mr: 1 }}
-                            onClick={handleSubmit}
-                          >
-                            <img src={icons.editIcon} alt="Edit" />
-                          </FormButton>
-                          <FormButton
-                            aria-label="Delete"
-                            bgcolor="#f44336"
-                            onClick={() => handleDeleteClick(area.id)}
-                          >
-                            <img src={icons.deleteIcon} alt="Delete" />
-                          </FormButton>
-                        </div>
-                      </Grid>
-                    </Grid>
-                  </>
-                )}
-              </Formik>
-            ) : (
-              <>
-                <Grid item xs={8}>
-                  <Typography>
-                    {area.id} {area.area} (
-                    {cities.find((city) => city.id === area.cityID)?.cityname})
-                  </Typography>
-                </Grid>
-                <Grid item xs={4}>
-                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <FormButton
-                      aria-label="Edit"
-                      style={{ marginRight: "10px" }}
-                      onClick={() => handleEditClick(area.id)}
+                    </>
+                  )}
+                </Formik>
+              ) : (
+                <>
+                  <Grid item xs={8}>
+                    <Typography>
+                      {area.id} {area.areaname} (
+                      {cities.find((city) => city.id === area.cityid)?.cityname}
+                      )
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <div
+                      style={{ display: "flex", justifyContent: "flex-end" }}
                     >
-                      <img src={icons.editIcon} alt="Edit" />
-                    </FormButton>
-                    <FormButton
-                      aria-label="Delete"
-                      bgcolor="#f44336"
-                      onClick={() => handleDeleteClick(area.id)}
-                    >
-                      <img src={icons.deleteIcon} alt="Delete" />
-                    </FormButton>
-                  </div>
-                </Grid>
-              </>
-            )}
-          </Grid>
-        ))
-      ) : (
-        <Typography variant="subtitle1">
-          Select a city to view areas.
-        </Typography>
-      )}
+                      <FormButton
+                        aria-label="Edit"
+                        style={{ marginRight: "10px" }}
+                        onClick={() => handleEditClick(area.id)}
+                      >
+                        <img src={icons.editIcon} alt="Edit" />
+                      </FormButton>
+                      <FormButton
+                        aria-label="Delete"
+                        bgcolor="#f44336"
+                        onClick={() => handleDeleteClick(area.id)}
+                      >
+                        <img src={icons.deleteIcon} alt="Delete" />
+                      </FormButton>
+                    </div>
+                  </Grid>
+                </>
+              )}
+            </Grid>
+          ))
+        : selectedCityId !== null && (
+            <Typography variant="subtitle1" sx={{ mt: 2 }}>
+              Loading areas...
+              <CircularProgress style={{ marginLeft: "10px" }} size={20} />
+            </Typography>
+          )}
     </>
   );
 };

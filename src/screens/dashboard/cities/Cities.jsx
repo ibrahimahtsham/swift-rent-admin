@@ -22,10 +22,7 @@ const darkTheme = createTheme({
 
 const Cities = () => {
   const [cities, setCities] = useState([]);
-  const [areas, setAreas] = useState([
-    { id: 1, area: "G-11/1", cityID: 1 },
-    { id: 2, area: "Satellite-Town", cityID: 2 },
-  ]);
+  const [areas, setAreas] = useState([]);
 
   // Fetch list of cities when component mounts
   useEffect(() => {
@@ -51,6 +48,24 @@ const Cities = () => {
   const [selectedCityId, setSelectedCityId] = useState(null);
 
   const { theme } = useContext(ThemeContext);
+
+  const fetchAreas = async (cityId) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/admin/areaList`,
+        { cityID: cityId },
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      );
+
+      setAreas(response.data);
+    } catch (error) {
+      console.error(`Error fetching areas: ${error.message}`);
+    }
+  };
 
   const handleAddCity = async (values, { resetForm }) => {
     try {
@@ -89,8 +104,10 @@ const Cities = () => {
     resetForm();
   };
 
-  const handleCityChange = (event) => {
-    setSelectedCityId(parseInt(event.target.value));
+  const handleCityChange = async (event) => {
+    const cityId = parseInt(event.target.value);
+    setSelectedCityId(cityId);
+    await fetchAreas(cityId); // Fetch areas for the selected city
   };
 
   const updateCity = (id, newCity) => {
