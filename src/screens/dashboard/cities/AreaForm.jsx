@@ -1,4 +1,4 @@
-import { FormControl, Grid, MenuItem, TextField } from "@mui/material";
+import { FormControl, Grid, MenuItem, TextField, Tooltip } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import FormButton from "../../../components/common/FormButton";
@@ -14,16 +14,20 @@ const AreaForm = ({ handleAddArea, cities }) => (
       <Form>
         <Grid container spacing={2}>
           <Grid item xs={4}>
-            <Field
-              as={TextField}
-              name="area"
-              fullWidth
-              label="Area"
-              disabled={!values.city}
-              error={Boolean(touched.area && errors.area)}
-              helperText={touched.area && errors.area}
-              required
-            />
+            <Tooltip title={!values.city ? "Please select city first" : ""}>
+              <div>
+                <Field
+                  as={TextField}
+                  name="area"
+                  fullWidth
+                  label="Area"
+                  disabled={!values.city}
+                  error={Boolean(touched.area && errors.area)}
+                  helperText={touched.area && errors.area}
+                  required
+                />
+              </div>
+            </Tooltip>
           </Grid>
           <Grid item xs={4}>
             <FormControl fullWidth>
