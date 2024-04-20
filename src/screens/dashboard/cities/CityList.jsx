@@ -7,7 +7,7 @@ import { icons } from "../../../utils/ImageImports";
 import { BASE_URL } from "../../../utils/db-config";
 import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
 
-const CityList = ({ cities, updateCity }) => {
+const CityList = ({ cities, updateCity, deleteCity }) => {
   const [editingCityId, setEditingCityId] = useState(null);
 
   const handleEditClick = (cityId) => {
@@ -48,7 +48,7 @@ const CityList = ({ cities, updateCity }) => {
       );
 
       if (response.data.message === "City Deleted") {
-        updateCity(cityId, { cityname: "" }); // Update with empty cityname to re-render the component
+        deleteCity(cityId);
       } else {
         console.error(response.data.error);
       }

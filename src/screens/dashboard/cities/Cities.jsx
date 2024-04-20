@@ -120,13 +120,22 @@ const Cities = () => {
     );
   };
 
+  const deleteCity = (id) => {
+    const updatedCities = cities.filter((city) => city.id !== id);
+    setCities(updatedCities);
+  };
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <h1>Cities</h1>
           <CityForm handleAddCity={handleAddCity} />
-          <CityList cities={cities} updateCity={updateCity} />
+          <CityList
+            cities={cities}
+            updateCity={updateCity}
+            deleteCity={deleteCity}
+          />
         </Grid>
         <Grid item xs={6}>
           <h1>Areas</h1>
