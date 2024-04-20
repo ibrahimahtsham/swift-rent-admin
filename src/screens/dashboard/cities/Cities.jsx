@@ -1,5 +1,5 @@
 import { Grid, ThemeProvider, createTheme } from "@mui/material";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "../../../utils/ThemeContext";
 import AreaForm from "./AreaForm";
 import AreaList from "./AreaList";
@@ -28,6 +28,8 @@ const Cities = () => {
     { id: 2, area: "Satellite-Town", cityID: 2 },
   ]);
 
+  const [selectedCityId, setSelectedCityId] = useState(null);
+
   const { theme } = useContext(ThemeContext);
 
   const handleAddCity = (values, { resetForm }) => {
@@ -44,6 +46,10 @@ const Cities = () => {
     };
     setAreas([...areas, newArea]);
     resetForm();
+  };
+
+  const handleCityChange = (event) => {
+    setSelectedCityId(parseInt(event.target.value));
   };
 
   const updateCity = (id, newCity) => {
@@ -69,8 +75,17 @@ const Cities = () => {
         </Grid>
         <Grid item xs={6}>
           <h1>Areas</h1>
-          <AreaForm handleAddArea={handleAddArea} cities={cities} />
-          <AreaList areas={areas} cities={cities} updateArea={updateArea} />
+          <AreaForm
+            handleAddArea={handleAddArea}
+            cities={cities}
+            onCityChange={handleCityChange}
+          />
+          <AreaList
+            areas={areas}
+            cities={cities}
+            selectedCityId={selectedCityId}
+            updateArea={updateArea}
+          />
         </Grid>
       </Grid>
     </ThemeProvider>

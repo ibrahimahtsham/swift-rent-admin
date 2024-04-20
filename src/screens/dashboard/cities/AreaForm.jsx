@@ -4,7 +4,7 @@ import React from "react";
 import FormButton from "../../../components/common/FormButton";
 import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
 
-const AreaForm = ({ handleAddArea, cities }) => (
+const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
   <Formik
     initialValues={{ area: "", city: "" }}
     validationSchema={addAreaValidationSchema}
@@ -36,7 +36,10 @@ const AreaForm = ({ handleAddArea, cities }) => (
                 select
                 name="city"
                 value={values.city}
-                onChange={handleChange}
+                onChange={(e) => {
+                  handleChange(e);
+                  onCityChange(e);
+                }}
                 label="Select City"
                 error={Boolean(touched.city && errors.city)}
                 helperText={touched.city && errors.city}
