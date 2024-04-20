@@ -1,4 +1,4 @@
-import { Grid, ThemeProvider, Typography, createTheme } from "@mui/material";
+import { Grid, ThemeProvider, createTheme } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../utils/ThemeContext";
 import AreaForm from "./AreaForm";
@@ -24,8 +24,8 @@ const Cities = () => {
     { id: 2, city: "Rawalpindi" },
   ]);
   const [areas, setAreas] = useState([
-    { id: 1, area: "G-11/1", city: "Islamabad" },
-    { id: 2, area: "Satellite-Town", city: "Rawalpindi" },
+    { id: 1, area: "G-11/1", cityID: 1 },
+    { id: 2, area: "Satellite-Town", cityID: 2 },
   ]);
 
   const { theme } = useContext(ThemeContext);
@@ -40,7 +40,7 @@ const Cities = () => {
     const newArea = {
       id: areas.length + 1,
       area: values.area,
-      city: values.city,
+      cityID: parseInt(values.city),
     };
     setAreas([...areas, newArea]);
     resetForm();
@@ -51,7 +51,6 @@ const Cities = () => {
       city.id === id ? { ...city, ...newCity } : city
     );
     setCities(updatedCities);
-    updateAreasCity(id, newCity.city);
   };
 
   const updateArea = (id, newValues) => {
@@ -60,30 +59,16 @@ const Cities = () => {
     );
   };
 
-  const updateAreasCity = (cityId, newCity) => {
-    setAreas(
-      areas.map((area) =>
-        area.city === cities.find((city) => city.id === cityId).city
-          ? { ...area, city: newCity }
-          : area
-      )
-    );
-  };
-
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Grid container spacing={3}>
         <Grid item xs={6}>
-          <Typography variant="h4" sx={{ mb: 2 }}>
-            Cities
-          </Typography>
+          <h1>Cities</h1>
           <CityForm handleAddCity={handleAddCity} />
           <CityList cities={cities} updateCity={updateCity} />
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="h4" sx={{ mb: 2 }}>
-            Areas
-          </Typography>
+          <h1>Areas</h1>
           <AreaForm handleAddArea={handleAddArea} cities={cities} />
           <AreaList areas={areas} cities={cities} updateArea={updateArea} />
         </Grid>

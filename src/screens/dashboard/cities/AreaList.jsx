@@ -107,7 +107,8 @@ const AreaList = ({ areas, cities, updateArea }) => {
             <>
               <Grid item xs={8}>
                 <Typography>
-                  {area.area} ({area.city})
+                  {area.id} {area.area} (
+                  {cities.find((city) => city.id === area.cityID)?.city})
                 </Typography>
               </Grid>
               <Grid item xs={4}>

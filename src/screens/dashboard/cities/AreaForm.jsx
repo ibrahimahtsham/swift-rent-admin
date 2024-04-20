@@ -42,8 +42,8 @@ const AreaForm = ({ handleAddArea, cities }) => (
                 helperText={touched.city && errors.city}
                 required
               >
-                {cities.map((city, index) => (
-                  <MenuItem key={index} value={city.city}>
+                {cities.map((city) => (
+                  <MenuItem key={city.id} value={city.id}>
                     {city.city}
                   </MenuItem>
                 ))}

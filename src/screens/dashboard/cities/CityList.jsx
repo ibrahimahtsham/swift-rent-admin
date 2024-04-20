@@ -78,7 +78,9 @@ const CityList = ({ cities, updateCity }) => {
           ) : (
             <>
               <Grid item xs={8}>
-                <Typography>{city.city}</Typography>
+                <Typography>
+                  {city.id} {city.city}
+                </Typography>
               </Grid>
               <Grid item xs={4}>
                 <div style={{ display: "flex", justifyContent: "flex-end" }}>
