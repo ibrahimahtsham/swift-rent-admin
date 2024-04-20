@@ -30,11 +30,6 @@ function AppContent() {
     } else {
       navigate("/dashboard", { replace: true });
     }
-
-    // window.onbeforeunload = () => {
-    //   // Remove the auth cookie
-    //   sessionStorage.removeItem("auth");
-    // };
   }, [isLoggedIn, navigate]);
 
   return (
