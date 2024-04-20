@@ -20,57 +20,52 @@ const darkTheme = createTheme({
 
 const Cities = () => {
   const [cities, setCities] = useState([
-    {
-      id: 1,
-      city: "Islamabad",
-    },
-    {
-      id: 2,
-      city: "Rawalpindi",
-    },
+    { id: 1, city: "Islamabad" },
+    { id: 2, city: "Rawalpindi" },
   ]);
   const [areas, setAreas] = useState([
-    {
-      id: 1,
-      area: "G-11/1",
-      city: "Islamabad",
-    },
-    {
-      id: 2,
-      area: "Satellite-Town",
-      city: "Rawalpindi",
-    },
+    { id: 1, area: "G-11/1", city: "Islamabad" },
+    { id: 2, area: "Satellite-Town", city: "Rawalpindi" },
   ]);
+
   const { theme } = useContext(ThemeContext);
 
   const handleAddCity = (values, { resetForm }) => {
-    setCities((prevCities) => [
-      ...prevCities,
-      { id: prevCities.length + 1, city: values.city },
-    ]);
+    const newCity = { id: cities.length + 1, city: values.city };
+    setCities([...cities, newCity]);
+    resetForm();
+  };
+
+  const handleAddArea = (values, { resetForm }) => {
+    const newArea = {
+      id: areas.length + 1,
+      area: values.area,
+      city: values.city,
+    };
+    setAreas([...areas, newArea]);
     resetForm();
   };
 
   const updateCity = (id, newCity) => {
-    setCities((prevCities) =>
-      prevCities.map((city) =>
-        city.id === id ? { id: id, city: newCity.city } : city
-      )
+    const updatedCities = cities.map((city) =>
+      city.id === id ? { ...city, ...newCity } : city
     );
-  };
-
-  const handleAddArea = (values, { resetForm }) => {
-    setAreas((prevAreas) => [
-      ...prevAreas,
-      { id: prevAreas.length + 1, area: values.area, city: values.city },
-    ]);
-    resetForm();
+    setCities(updatedCities);
+    updateAreasCity(id, newCity.city);
   };
 
   const updateArea = (id, newValues) => {
-    setAreas((prevAreas) =>
-      prevAreas.map((area) =>
-        area.id === id ? { ...area, ...newValues } : area
+    setAreas(
+      areas.map((area) => (area.id === id ? { ...area, ...newValues } : area))
+    );
+  };
+
+  const updateAreasCity = (cityId, newCity) => {
+    setAreas(
+      areas.map((area) =>
+        area.city === cities.find((city) => city.id === cityId).city
+          ? { ...area, city: newCity }
+          : area
       )
     );
   };
