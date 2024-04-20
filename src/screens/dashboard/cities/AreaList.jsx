@@ -76,8 +76,8 @@ const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
                             required
                           >
                             {cities.map((city, index) => (
-                              <MenuItem key={index} value={city.city}>
-                                {city.city}
+                              <MenuItem key={index} value={city.cityname}>
+                                {city.cityname}
                               </MenuItem>
                             ))}
                           </Field>
@@ -116,7 +116,7 @@ const AreaList = ({ areas, cities, selectedCityId, updateArea }) => {
                 <Grid item xs={8}>
                   <Typography>
                     {area.id} {area.area} (
-                    {cities.find((city) => city.id === area.cityID)?.city})
+                    {cities.find((city) => city.id === area.cityID)?.cityname})
                   </Typography>
                 </Grid>
                 <Grid item xs={4}>

@@ -27,7 +27,6 @@ const CityList = ({ cities, updateCity }) => {
       );
 
       if (response.data.message === "City Deleted") {
-        const updatedCities = cities.filter((city) => city.id !== cityId);
         updateCity(cityId, { cityname: "" }); // Update with empty cityname to re-render the component
       } else {
         console.error(response.data.error);

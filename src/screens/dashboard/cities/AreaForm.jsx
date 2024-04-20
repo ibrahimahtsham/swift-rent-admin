@@ -48,7 +48,7 @@ const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
                 {Array.isArray(cities) && cities.length > 0 ? (
                   cities.map((city) => (
                     <MenuItem key={city.id} value={city.id}>
-                      {city.city}
+                      {city.cityname}
                     </MenuItem>
                   ))
                 ) : (
