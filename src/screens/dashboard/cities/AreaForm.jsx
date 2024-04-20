@@ -8,7 +8,11 @@ const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
   <Formik
     initialValues={{ area: "", city: "" }}
     validationSchema={addAreaValidationSchema}
-    onSubmit={handleAddArea}
+    onSubmit={(values) => {
+      handleAddArea(values);
+      values.area = "";
+      values.city = values.city;
+    }}
   >
     {({ values, handleChange, touched, errors }) => (
       <Form>

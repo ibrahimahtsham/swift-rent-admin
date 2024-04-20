@@ -91,20 +91,41 @@ const Cities = () => {
     }
   };
 
-  const handleAddArea = (values, { resetForm }) => {
-    const newArea = {
-      id: areas.length + 1,
-      area: values.area,
-      cityID: parseInt(values.city),
-    };
-    setAreas([...areas, newArea]);
-    resetForm();
+  const handleAddArea = async (values) => {
+    console.log("Inside handleAddArea()");
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/admin/addArea`,
+        {
+          cityID: parseInt(values.city),
+          areaName: values.area,
+        },
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        const newArea = {
+          id: response.data.id,
+          cityid: response.data.cityid,
+          areaname: response.data.areaname,
+        };
+        setAreas([...areas, newArea]);
+      } else {
+        throw new Error("Failed to add area");
+      }
+    } catch (error) {
+      console.error(`Error adding area: ${error.message}`);
+    }
   };
 
   const handleCityChange = async (event) => {
     const cityId = parseInt(event.target.value);
     setSelectedCityId(cityId);
-    await fetchAreas(cityId); // Fetch areas for the selected city
+    await fetchAreas(cityId);
   };
 
   const updateCity = (id, newCity) => {
