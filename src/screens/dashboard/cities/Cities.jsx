@@ -46,7 +46,7 @@ const Cities = () => {
     };
 
     fetchCities();
-  }, [cities]);
+  }, []);
 
   const [selectedCityId, setSelectedCityId] = useState(null);
 

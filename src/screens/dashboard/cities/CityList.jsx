@@ -14,6 +14,27 @@ const CityList = ({ cities, updateCity }) => {
     setEditingCityId(cityId);
   };
 
+  const handleUpdateCity = async (cityId, cityName) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/admin/updateCity`,
+        { cityID: cityId, cityName: cityName },
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        updateCity(cityId, { cityname: cityName });
+        setEditingCityId(null);
+      }
+    } catch (error) {
+      console.error(`Error updating city: ${error.message}`);
+    }
+  };
+
   const handleDeleteClick = async (cityId) => {
     try {
       const response = await axios.post(
@@ -53,9 +74,7 @@ const CityList = ({ cities, updateCity }) => {
                 initialValues={{ city: city.cityname }}
                 validationSchema={addCityValidationSchema}
                 onSubmit={(values) => {
-                  console.log(city.id, values.city);
-                  updateCity(city.id, values);
-                  setEditingCityId(null);
+                  handleUpdateCity(city.id, values.city);
                 }}
               >
                 {({ touched, errors, handleSubmit }) => (
