@@ -52,10 +52,31 @@ const Cities = () => {
 
   const { theme } = useContext(ThemeContext);
 
-  const handleAddCity = (values, { resetForm }) => {
-    const newCity = { id: cities.length + 1, city: values.city };
-    setCities([...cities, newCity]);
-    resetForm();
+  const handleAddCity = async (values, { resetForm }) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/admin/addCity`,
+        { cityName: values.city },
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        const newCity = {
+          id: response.data.id,
+          cityname: response.data.cityname,
+        };
+        setCities([...cities, newCity]);
+        resetForm();
+      } else {
+        throw new Error("Failed to add city");
+      }
+    } catch (error) {
+      console.error(`Error adding city: ${error.message}`);
+    }
   };
 
   const handleAddArea = (values, { resetForm }) => {
