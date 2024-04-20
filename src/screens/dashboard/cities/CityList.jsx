@@ -1,8 +1,10 @@
 import { CircularProgress, Grid, TextField, Typography } from "@mui/material";
+import axios from "axios";
 import { Field, Formik } from "formik";
 import React, { useState } from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
+import { BASE_URL } from "../../../utils/db-config";
 import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
 
 const CityList = ({ cities, updateCity }) => {
@@ -12,8 +14,27 @@ const CityList = ({ cities, updateCity }) => {
     setEditingCityId(cityId);
   };
 
-  const handleDeleteClick = (cityId) => {
-    console.log(cityId);
+  const handleDeleteClick = async (cityId) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/admin/deleteCity`,
+        { cityID: cityId },
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      );
+
+      if (response.data.message === "City Deleted") {
+        const updatedCities = cities.filter((city) => city.id !== cityId);
+        updateCity(cityId, { cityname: "" }); // Update with empty cityname to re-render the component
+      } else {
+        console.error(response.data.error);
+      }
+    } catch (error) {
+      console.error(`Error deleting city: ${error.message}`);
+    }
   };
 
   return (
