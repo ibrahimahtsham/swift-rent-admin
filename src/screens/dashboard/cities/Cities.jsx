@@ -1,6 +1,8 @@
 import { Grid, ThemeProvider, createTheme } from "@mui/material";
-import { useContext, useState } from "react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../../utils/ThemeContext";
+import { BASE_URL } from "../../../utils/db-config";
 import AreaForm from "./AreaForm";
 import AreaList from "./AreaList";
 import CityForm from "./CityForm";
@@ -19,14 +21,32 @@ const darkTheme = createTheme({
 });
 
 const Cities = () => {
-  const [cities, setCities] = useState([
-    { id: 1, city: "Islamabad" },
-    { id: 2, city: "Rawalpindi" },
-  ]);
+  const [cities, setCities] = useState([]);
   const [areas, setAreas] = useState([
     { id: 1, area: "G-11/1", cityID: 1 },
     { id: 2, area: "Satellite-Town", cityID: 2 },
   ]);
+
+  // Fetch list of cities when component mounts
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/admin/cityList`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        });
+
+        console.log("Full response:", response);
+        console.log("Cities:", response.data);
+        setCities(response.data);
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    };
+
+    fetchCities();
+  }, []);
 
   const [selectedCityId, setSelectedCityId] = useState(null);
 

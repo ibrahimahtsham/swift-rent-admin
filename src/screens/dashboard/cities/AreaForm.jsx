@@ -45,11 +45,17 @@ const AreaForm = ({ handleAddArea, cities, onCityChange }) => (
                 helperText={touched.city && errors.city}
                 required
               >
-                {cities.map((city) => (
-                  <MenuItem key={city.id} value={city.id}>
-                    {city.city}
+                {Array.isArray(cities) && cities.length > 0 ? (
+                  cities.map((city) => (
+                    <MenuItem key={city.id} value={city.id}>
+                      {city.city}
+                    </MenuItem>
+                  ))
+                ) : (
+                  <MenuItem value="" disabled>
+                    No cities available
                   </MenuItem>
-                ))}
+                )}
               </Field>
             </FormControl>
           </Grid>
