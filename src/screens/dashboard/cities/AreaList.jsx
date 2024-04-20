@@ -49,7 +49,15 @@ const AreaList = ({
     }
   };
 
-  const handleDeleteArea = async (areaId) => {
+  const handleDeleteArea = async (areaId, areaName) => {
+    const isConfirmed = window.confirm(
+      `Are you sure you want to delete the area "${areaName}"?`
+    );
+
+    if (!isConfirmed) {
+      return;
+    }
+
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/deleteArea`,
@@ -176,7 +184,9 @@ const AreaList = ({
                           <FormButton
                             aria-label="Delete"
                             bgcolor="#f44336"
-                            onClick={() => handleDeleteArea(area.id)}
+                            onClick={() =>
+                              handleDeleteArea(area.id, area.areaname)
+                            }
                           >
                             <img src={icons.deleteIcon} alt="Delete" />
                           </FormButton>
@@ -208,7 +218,7 @@ const AreaList = ({
                     <FormButton
                       aria-label="Delete"
                       bgcolor="#f44336"
-                      onClick={() => handleDeleteArea(area.id)}
+                      onClick={() => handleDeleteArea(area.id, area.areaname)}
                     >
                       <img src={icons.deleteIcon} alt="Delete" />
                     </FormButton>
