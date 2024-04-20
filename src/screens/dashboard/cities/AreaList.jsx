@@ -190,8 +190,10 @@ const AreaList = ({
               <>
                 <Grid item xs={8}>
                   <Typography>
-                    {area.id} {area.areaname} (
-                    {cities.find((city) => city.id === area.cityid)?.cityname})
+                    {"[ID:"}
+                    {area.id}
+                    {"] "}
+                    {area.areaname}
                   </Typography>
                 </Grid>
                 <Grid item xs={4}>

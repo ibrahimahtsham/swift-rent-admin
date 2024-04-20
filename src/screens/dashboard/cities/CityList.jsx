@@ -35,7 +35,15 @@ const CityList = ({ cities, updateCity, deleteCity }) => {
     }
   };
 
-  const handleDeleteClick = async (cityId) => {
+  const handleDeleteClick = async (cityId, cityName) => {
+    const isConfirmed = window.confirm(
+      `Are you sure you want to delete the city "${cityName}"?`
+    );
+
+    if (!isConfirmed) {
+      return;
+    }
+
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/deleteCity`,
@@ -49,11 +57,13 @@ const CityList = ({ cities, updateCity, deleteCity }) => {
 
       if (response.data.message === "City Deleted") {
         deleteCity(cityId);
-      } else {
-        console.error(response.data.error);
       }
     } catch (error) {
-      console.error(`Error deleting city: ${error.message}`);
+      if (error.response.status === 400) {
+        alert(error.response.data.error);
+      } else {
+        console.error(`Error deleting city: ${error.message}`);
+      }
     }
   };
 
@@ -105,7 +115,9 @@ const CityList = ({ cities, updateCity, deleteCity }) => {
                         <FormButton
                           aria-label="Delete"
                           bgcolor="#f44336"
-                          onClick={() => handleDeleteClick(city.id)}
+                          onClick={() =>
+                            handleDeleteClick(city.id, city.cityname)
+                          }
                         >
                           <img src={icons.deleteIcon} alt="Delete" />
                         </FormButton>
@@ -118,7 +130,10 @@ const CityList = ({ cities, updateCity, deleteCity }) => {
               <>
                 <Grid item xs={8}>
                   <Typography>
-                    {city.id} {city.cityname}
+                    {"[ID:"}
+                    {city.id}
+                    {"] "}
+                    {city.cityname}
                   </Typography>
                 </Grid>
                 <Grid item xs={4}>
@@ -133,7 +148,7 @@ const CityList = ({ cities, updateCity, deleteCity }) => {
                     <FormButton
                       aria-label="Delete"
                       bgcolor="#f44336"
-                      onClick={() => handleDeleteClick(city.id)}
+                      onClick={() => handleDeleteClick(city.id, city.cityname)}
                     >
                       <img src={icons.deleteIcon} alt="Delete" />
                     </FormButton>
