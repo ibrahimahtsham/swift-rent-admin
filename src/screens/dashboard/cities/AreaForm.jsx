@@ -75,7 +75,7 @@ const AreaForm = ({
                     ))
                   ) : (
                     <MenuItem value="" disabled>
-                      No cities available
+                      No Cities Loaded
                     </MenuItem>
                   )}
                 </Field>
