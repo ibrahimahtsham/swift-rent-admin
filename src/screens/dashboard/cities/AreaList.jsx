@@ -23,12 +23,15 @@ const AreaList = ({
 }) => {
   const [editingAreaId, setEditingAreaId] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loadingEditAreaID, setLoadingEditAreaID] = useState(null);
+  const [loadingDeleteAreaID, setLoadingDeleteAreaID] = useState(null);
 
   const handleEditClick = (areaId) => {
     setEditingAreaId(areaId);
   };
 
   const handleUpdateArea = async (areaId, areaName) => {
+    setLoadingEditAreaID(areaId);
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/updateArea`,
@@ -46,15 +49,19 @@ const AreaList = ({
       }
     } catch (error) {
       console.error(`Error updating area: ${error.message}`);
+    } finally {
+      setLoadingEditAreaID(null);
     }
   };
 
   const handleDeleteArea = async (areaId, areaName) => {
+    setLoadingDeleteAreaID(areaId);
     const isConfirmed = window.confirm(
       `Are you sure you want to delete the area "${areaName}"?`
     );
 
     if (!isConfirmed) {
+      setLoadingDeleteAreaID(null);
       return;
     }
 
@@ -76,6 +83,8 @@ const AreaList = ({
       }
     } catch (error) {
       console.error(`Error deleting area: ${error.message}`);
+    } finally {
+      setLoadingDeleteAreaID(null);
     }
   };
 
@@ -173,7 +182,11 @@ const AreaList = ({
                             sx={{ mr: 1 }}
                             onClick={handleSubmit}
                           >
-                            <img src={icons.editIcon} alt="Edit" />
+                            {loadingEditAreaID === area.id ? (
+                              <CircularProgress size={20} color="inherit" />
+                            ) : (
+                              <img src={icons.editIcon} alt="Edit" />
+                            )}
                           </FormButton>
                           <FormButton
                             aria-label="Delete"
@@ -182,7 +195,11 @@ const AreaList = ({
                               handleDeleteArea(area.id, area.areaname)
                             }
                           >
-                            <img src={icons.deleteIcon} alt="Delete" />
+                            {loadingDeleteAreaID === area.id ? (
+                              <CircularProgress size={20} color="inherit" />
+                            ) : (
+                              <img src={icons.deleteIcon} alt="Delete" />
+                            )}
                           </FormButton>
                         </div>
                       </Grid>
@@ -207,14 +224,22 @@ const AreaList = ({
                       style={{ marginRight: "10px" }}
                       onClick={() => handleEditClick(area.id)}
                     >
-                      <img src={icons.editIcon} alt="Edit" />
+                      {loadingEditAreaID === area.id ? (
+                        <CircularProgress size={20} color="inherit" />
+                      ) : (
+                        <img src={icons.editIcon} alt="Edit" />
+                      )}
                     </FormButton>
                     <FormButton
                       aria-label="Delete"
                       bgcolor="#f44336"
                       onClick={() => handleDeleteArea(area.id, area.areaname)}
                     >
-                      <img src={icons.deleteIcon} alt="Delete" />
+                      {loadingDeleteAreaID === area.id ? (
+                        <CircularProgress size={20} color="inherit" />
+                      ) : (
+                        <img src={icons.deleteIcon} alt="Delete" />
+                      )}
                     </FormButton>
                   </div>
                 </Grid>

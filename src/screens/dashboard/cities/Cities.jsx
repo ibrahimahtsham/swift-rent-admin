@@ -25,6 +25,8 @@ const Cities = () => {
   const [areas, setAreas] = useState([]);
   const [selectedCityId, setSelectedCityId] = useState(null);
   const { theme } = useContext(ThemeContext);
+  const [loadingAddCity, setLoadingAddCity] = useState(false);
+  const [loadingAddArea, setLoadingAddArea] = useState(false);
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -62,6 +64,7 @@ const Cities = () => {
   };
 
   const handleAddCity = async (values, { resetForm }) => {
+    setLoadingAddCity(true);
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/addCity`,
@@ -85,10 +88,13 @@ const Cities = () => {
       }
     } catch (error) {
       console.error(`Error adding city: ${error.message}`);
+    } finally {
+      setLoadingAddCity(false);
     }
   };
 
   const handleAddArea = async (values) => {
+    setLoadingAddArea(true);
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/addArea`,
@@ -115,6 +121,8 @@ const Cities = () => {
       }
     } catch (error) {
       console.error(`Error adding area: ${error.message}`);
+    } finally {
+      setLoadingAddArea(false);
     }
   };
 
@@ -152,7 +160,10 @@ const Cities = () => {
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <h1>Cities</h1>
-          <CityForm handleAddCity={handleAddCity} />
+          <CityForm
+            handleAddCity={handleAddCity}
+            loadingAddCity={loadingAddCity}
+          />
           <CityList
             cities={cities}
             updateCity={updateCity}
@@ -169,6 +180,7 @@ const Cities = () => {
             cities={cities}
             onCityChange={handleCityChange}
             selectedCityId={selectedCityId}
+            loadingAddArea={loadingAddArea}
           />
           <AreaList
             areas={areas}

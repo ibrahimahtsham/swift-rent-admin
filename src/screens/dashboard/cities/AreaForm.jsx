@@ -1,13 +1,24 @@
-import { FormControl, Grid, MenuItem, TextField, Tooltip } from "@mui/material";
+import {
+  CircularProgress,
+  FormControl,
+  Grid,
+  MenuItem,
+  TextField,
+  Tooltip,
+} from "@mui/material";
 import { Field, Form, Formik } from "formik";
-import React, { useRef } from "react";
+import React from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
 import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
 
-const AreaForm = ({ handleAddArea, cities, onCityChange, selectedCityId }) => {
-  const renderCount = useRef(0);
-
+const AreaForm = ({
+  handleAddArea,
+  cities,
+  onCityChange,
+  selectedCityId,
+  loadingAddArea,
+}) => {
   return (
     <Formik
       initialValues={{
@@ -77,7 +88,11 @@ const AreaForm = ({ handleAddArea, cities, onCityChange, selectedCityId }) => {
                 aria-label="Add City"
                 bgcolor={isValid && values.area !== "" ? "#00bf63" : undefined}
               >
-                <img src={icons.addIcon} alt="Add" />
+                {loadingAddArea ? (
+                  <CircularProgress size={20} color="inherit" />
+                ) : (
+                  <img src={icons.addIcon} alt="Add" />
+                )}
               </FormButton>
             </Grid>
           </Grid>

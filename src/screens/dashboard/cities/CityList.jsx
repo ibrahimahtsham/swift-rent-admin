@@ -14,17 +14,20 @@ const CityList = ({
   selectedCityId,
   setSelectedCityId,
 }) => {
-  const [editingCityId, setEditingCityId] = useState(null);
+  const [editingCityID, setEditingCityID] = useState(null);
+  const [loadingEditCityID, setLoadingEditCityID] = useState(null);
+  const [loadingDeleteCityID, setLoadingDeleteCityID] = useState(null);
 
-  const handleEditClick = (cityId) => {
-    setEditingCityId(cityId);
+  const handleEditClick = (cityID) => {
+    setEditingCityID(cityID);
   };
 
-  const handleUpdateCity = async (cityId, cityName) => {
+  const handleUpdateCity = async (cityID, cityName) => {
+    setLoadingEditCityID(cityID);
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/updateCity`,
-        { cityID: cityId, cityName: cityName },
+        { cityID: cityID, cityName: cityName },
         {
           headers: {
             "ngrok-skip-browser-warning": "true",
@@ -33,20 +36,24 @@ const CityList = ({
       );
 
       if (response.status === 200) {
-        updateCity(cityId, { cityname: cityName });
-        setEditingCityId(null);
+        updateCity(cityID, { cityname: cityName });
+        setEditingCityID(null);
       }
     } catch (error) {
       console.error(`Error updating city: ${error.message}`);
+    } finally {
+      setLoadingEditCityID(null);
     }
   };
 
   const handleDeleteClick = async (cityId, cityName) => {
+    setLoadingDeleteCityID(cityId);
     const isConfirmed = window.confirm(
       `Are you sure you want to delete the city "${cityName}"?`
     );
 
     if (!isConfirmed) {
+      setLoadingDeleteCityID(null);
       return;
     }
 
@@ -74,6 +81,8 @@ const CityList = ({
       } else {
         console.error(`Error deleting city: ${error.message}`);
       }
+    } finally {
+      setLoadingDeleteCityID(null);
     }
   };
 
@@ -89,7 +98,7 @@ const CityList = ({
             key={index}
             sx={{ mt: 2, width: "80%" }}
           >
-            {editingCityId === city.id ? (
+            {editingCityID === city.id ? (
               <Formik
                 initialValues={{ city: city.cityname }}
                 validationSchema={addCityValidationSchema}
@@ -120,7 +129,11 @@ const CityList = ({
                           sx={{ mr: 1 }}
                           onClick={handleSubmit}
                         >
-                          <img src={icons.editIcon} alt="Edit" />
+                          {loadingEditCityID === city.id ? (
+                            <CircularProgress size={20} color="inherit" />
+                          ) : (
+                            <img src={icons.editIcon} alt="Edit" />
+                          )}
                         </FormButton>
                         <FormButton
                           aria-label="Delete"
@@ -129,7 +142,11 @@ const CityList = ({
                             handleDeleteClick(city.id, city.cityname)
                           }
                         >
-                          <img src={icons.deleteIcon} alt="Delete" />
+                          {loadingDeleteCityID === city.id ? (
+                            <CircularProgress size={20} color="inherit" />
+                          ) : (
+                            <img src={icons.deleteIcon} alt="Delete" />
+                          )}
                         </FormButton>
                       </div>
                     </Grid>
@@ -153,14 +170,22 @@ const CityList = ({
                       style={{ marginRight: "10px" }}
                       onClick={() => handleEditClick(city.id)}
                     >
-                      <img src={icons.editIcon} alt="Edit" />
+                      {loadingEditCityID === city.id ? (
+                        <CircularProgress size={20} color="inherit" />
+                      ) : (
+                        <img src={icons.editIcon} alt="Edit" />
+                      )}
                     </FormButton>
                     <FormButton
                       aria-label="Delete"
                       bgcolor="#f44336"
                       onClick={() => handleDeleteClick(city.id, city.cityname)}
                     >
-                      <img src={icons.deleteIcon} alt="Delete" />
+                      {loadingDeleteCityID === city.id ? (
+                        <CircularProgress size={20} color="inherit" />
+                      ) : (
+                        <img src={icons.deleteIcon} alt="Delete" />
+                      )}
                     </FormButton>
                   </div>
                 </Grid>

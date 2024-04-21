@@ -1,11 +1,11 @@
-import { Grid, TextField } from "@mui/material";
+import { CircularProgress, Grid, TextField } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
 import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
 
-const CityForm = ({ handleAddCity }) => (
+const CityForm = ({ handleAddCity, loadingAddCity }) => (
   <Formik
     initialValues={{ city: "" }}
     validationSchema={addCityValidationSchema}
@@ -32,7 +32,11 @@ const CityForm = ({ handleAddCity }) => (
               aria-label="Add City"
               bgcolor={isValid && values.city !== "" ? "#00bf63" : undefined}
             >
-              <img src={icons.addIcon} alt="Add" />
+              {loadingAddCity ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                <img src={icons.addIcon} alt="Add" />
+              )}
             </FormButton>
           </Grid>
         </Grid>
