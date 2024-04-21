@@ -1,6 +1,5 @@
 import { CircularProgress, Grid, TextField } from "@mui/material";
 import { Field, Form, Formik } from "formik";
-import React from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
 import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
@@ -14,7 +13,7 @@ const CityForm = ({ handleAddCity, loadingAddCity }) => (
     {({ touched, errors, isValid, values }) => (
       <Form>
         <Grid container spacing={2}>
-          <Grid item xs={8}>
+          <Grid item xs={10}>
             <Field
               as={TextField}
               name="city"
@@ -25,7 +24,7 @@ const CityForm = ({ handleAddCity, loadingAddCity }) => (
               required
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={2}>
             <FormButton
               type="submit"
               variant="contained"

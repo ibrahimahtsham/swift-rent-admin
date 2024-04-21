@@ -8,34 +8,38 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { Field, Formik } from "formik";
-import { useEffect, useState } from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
 import { BASE_URL } from "../../../utils/db-config";
 import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const AreaList = ({
   areas,
   cities,
-  selectedCityId,
+  selectedCityID,
   updateArea,
   deleteArea,
 }) => {
-  const [editingAreaId, setEditingAreaId] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // State variables
+  const [editingAreaID, setEditingAreaID] = useState(null);
   const [loadingEditAreaID, setLoadingEditAreaID] = useState(null);
   const [loadingDeleteAreaID, setLoadingDeleteAreaID] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const handleEditClick = (areaId) => {
-    setEditingAreaId(areaId);
+  // Handle edit click
+  const handleEditClick = (areaID) => {
+    setEditingAreaID(areaID);
   };
 
-  const handleUpdateArea = async (areaId, areaName) => {
-    setLoadingEditAreaID(areaId);
+  // Handle update area
+  const handleUpdateArea = async (areaID, areaName) => {
+    setLoadingEditAreaID(areaID);
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/updateArea`,
-        { areaID: areaId, areaName: areaName },
+        { areaID: areaID, areaName: areaName },
         {
           headers: {
             "ngrok-skip-browser-warning": "true",
@@ -44,8 +48,8 @@ const AreaList = ({
       );
 
       if (response.status === 200) {
-        updateArea(areaId, { areaname: areaName });
-        setEditingAreaId(null);
+        updateArea(areaID, { areaname: areaName });
+        setEditingAreaID(null);
       }
     } catch (error) {
       console.error(`Error updating area: ${error.message}`);
@@ -54,8 +58,9 @@ const AreaList = ({
     }
   };
 
-  const handleDeleteArea = async (areaId, areaName) => {
-    setLoadingDeleteAreaID(areaId);
+  // Handle delete area
+  const handleDeleteArea = async (areaID, areaName) => {
+    setLoadingDeleteAreaID(areaID);
     const isConfirmed = window.confirm(
       `Are you sure you want to delete the area "${areaName}"?`
     );
@@ -68,7 +73,7 @@ const AreaList = ({
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/deleteArea`,
-        { areaID: areaId },
+        { areaID: areaID },
         {
           headers: {
             "ngrok-skip-browser-warning": "true",
@@ -77,7 +82,7 @@ const AreaList = ({
       );
 
       if (response.data.message === "Area Deleted") {
-        deleteArea(areaId);
+        deleteArea(areaID);
       } else {
         console.error(response.data.error);
       }
@@ -88,6 +93,7 @@ const AreaList = ({
     }
   };
 
+  // useEffect to handle loading state
   useEffect(() => {
     setLoading(true);
     if (Array.isArray(areas) && areas.length > 0) {
@@ -100,11 +106,11 @@ const AreaList = ({
 
       return () => clearTimeout(timer);
     }
-  }, [selectedCityId, areas]);
+  }, [selectedCityID, areas]);
 
   return (
     <>
-      {selectedCityId === null ? (
+      {selectedCityID === null ? (
         <Typography variant="subtitle1" sx={{ mt: 2 }}>
           Select a city to view its areas
         </Typography>
@@ -123,7 +129,7 @@ const AreaList = ({
             key={index}
             sx={{ mt: 2, width: "100%" }}
           >
-            {editingAreaId === area.id ? (
+            {editingAreaID === area.id ? (
               <Formik
                 initialValues={{
                   area: area.areaname,
@@ -134,10 +140,10 @@ const AreaList = ({
                   handleUpdateArea(area.id, values.area);
                 }}
               >
-                {({ touched, errors, handleSubmit, handleChange, values }) => (
+                {({ touched, errors, handleSubmit }) => (
                   <>
                     <Grid container spacing={2}>
-                      <Grid item xs={4}>
+                      <Grid item xs={8}>
                         <Field
                           as={TextField}
                           name="area"
@@ -147,27 +153,6 @@ const AreaList = ({
                           helperText={touched.area && errors.area}
                           required
                         />
-                      </Grid>
-                      <Grid item xs={4}>
-                        <FormControl fullWidth>
-                          <Field
-                            as={TextField}
-                            select
-                            name="city"
-                            value={values.city}
-                            onChange={handleChange}
-                            label="Select City"
-                            error={Boolean(touched.city && errors.city)}
-                            helperText={touched.city && errors.city}
-                            required
-                          >
-                            {cities.map((city) => (
-                              <MenuItem key={city.id} value={city.id}>
-                                {city.cityname}
-                              </MenuItem>
-                            ))}
-                          </Field>
-                        </FormControl>
                       </Grid>
                       <Grid item xs={4}>
                         <div
@@ -218,7 +203,12 @@ const AreaList = ({
                   </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                    }}
+                  >
                     <FormButton
                       aria-label="Edit"
                       style={{ marginRight: "10px" }}
@@ -249,7 +239,7 @@ const AreaList = ({
         ))
       ) : (
         <Typography variant="subtitle1" sx={{ mt: 2 }}>
-          Could not find any areas for the selected city.
+          No areas available for the selected city
         </Typography>
       )}
     </>

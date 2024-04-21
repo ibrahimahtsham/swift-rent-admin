@@ -8,6 +8,7 @@ import AreaList from "./AreaList";
 import CityForm from "./CityForm";
 import CityList from "./CityList";
 
+// Theme definitions
 const lightTheme = createTheme({
   palette: {
     mode: "light",
@@ -21,13 +22,17 @@ const darkTheme = createTheme({
 });
 
 const Cities = () => {
+  // State variables
   const [cities, setCities] = useState([]);
   const [areas, setAreas] = useState([]);
-  const [selectedCityId, setSelectedCityId] = useState(null);
-  const { theme } = useContext(ThemeContext);
+  const [selectedCityID, setSelectedCityID] = useState(null);
   const [loadingAddCity, setLoadingAddCity] = useState(false);
   const [loadingAddArea, setLoadingAddArea] = useState(false);
 
+  // Theme context
+  const { theme } = useContext(ThemeContext);
+
+  // Fetch cities on component mount
   useEffect(() => {
     const fetchCities = async () => {
       try {
@@ -45,12 +50,13 @@ const Cities = () => {
     fetchCities();
   }, []);
 
-  const fetchAreas = async (cityId) => {
+  // Fetch areas based on selected city
+  const fetchAreas = async (cityID) => {
     setAreas([]);
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/areaList`,
-        { cityID: cityId },
+        { cityID: cityID },
         {
           headers: {
             "ngrok-skip-browser-warning": "true",
@@ -63,6 +69,7 @@ const Cities = () => {
     }
   };
 
+  // Handlers for adding city and area
   const handleAddCity = async (values, { resetForm }) => {
     setLoadingAddCity(true);
     try {
@@ -126,12 +133,7 @@ const Cities = () => {
     }
   };
 
-  const handleCityChange = async (event) => {
-    const cityId = parseInt(event.target.value);
-    setSelectedCityId(cityId);
-    await fetchAreas(cityId);
-  };
-
+  // Handlers for city and area updates and deletions
   const updateCity = (id, newCity) => {
     const updatedCity = cities.map((city) =>
       city.id === id ? { ...city, ...newCity } : city
@@ -155,6 +157,13 @@ const Cities = () => {
     setAreas(updatedAreas);
   };
 
+  // Handle city change to fetch areas
+  const handleCityChange = async (event) => {
+    const cityID = parseInt(event.target.value);
+    setSelectedCityID(cityID);
+    await fetchAreas(cityID);
+  };
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Grid container spacing={3}>
@@ -168,8 +177,8 @@ const Cities = () => {
             cities={cities}
             updateCity={updateCity}
             deleteCity={deleteCity}
-            selectedCityId={selectedCityId}
-            setSelectedCityId={setSelectedCityId}
+            selectedCityID={selectedCityID}
+            setSelectedCityID={setSelectedCityID}
           />
         </Grid>
 
@@ -179,13 +188,13 @@ const Cities = () => {
             handleAddArea={handleAddArea}
             cities={cities}
             onCityChange={handleCityChange}
-            selectedCityId={selectedCityId}
+            selectedCityID={selectedCityID}
             loadingAddArea={loadingAddArea}
           />
           <AreaList
             areas={areas}
             cities={cities}
-            selectedCityId={selectedCityId}
+            selectedCityID={selectedCityID}
             updateArea={updateArea}
             deleteArea={deleteArea}
           />

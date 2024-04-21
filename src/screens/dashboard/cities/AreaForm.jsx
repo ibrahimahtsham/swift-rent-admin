@@ -7,7 +7,6 @@ import {
   Tooltip,
 } from "@mui/material";
 import { Field, Form, Formik } from "formik";
-import React from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
 import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
@@ -16,7 +15,7 @@ const AreaForm = ({
   handleAddArea,
   cities,
   onCityChange,
-  selectedCityId,
+  selectedCityID,
   loadingAddArea,
 }) => {
   return (
@@ -57,7 +56,7 @@ const AreaForm = ({
                   as={TextField}
                   select
                   name="city"
-                  value={selectedCityId === null ? "" : values.city}
+                  value={selectedCityID === null ? "" : values.city}
                   onChange={(e) => {
                     handleChange(e);
                     onCityChange(e);
@@ -75,7 +74,7 @@ const AreaForm = ({
                     ))
                   ) : (
                     <MenuItem value="" disabled>
-                      No Cities Loaded
+                      No cities available
                     </MenuItem>
                   )}
                 </Field>

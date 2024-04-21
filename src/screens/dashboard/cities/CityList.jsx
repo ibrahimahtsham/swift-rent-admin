@@ -1,27 +1,30 @@
 import { CircularProgress, Grid, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { Field, Formik } from "formik";
-import React, { useState } from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
 import { BASE_URL } from "../../../utils/db-config";
 import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
+import { useState } from "react";
 
 const CityList = ({
   cities,
   updateCity,
   deleteCity,
-  selectedCityId,
-  setSelectedCityId,
+  selectedCityID,
+  setSelectedCityID,
 }) => {
+  // State variables
   const [editingCityID, setEditingCityID] = useState(null);
   const [loadingEditCityID, setLoadingEditCityID] = useState(null);
   const [loadingDeleteCityID, setLoadingDeleteCityID] = useState(null);
 
+  // Handle edit click
   const handleEditClick = (cityID) => {
     setEditingCityID(cityID);
   };
 
+  // Handle update city
   const handleUpdateCity = async (cityID, cityName) => {
     setLoadingEditCityID(cityID);
     try {
@@ -46,8 +49,9 @@ const CityList = ({
     }
   };
 
-  const handleDeleteClick = async (cityId, cityName) => {
-    setLoadingDeleteCityID(cityId);
+  // Handle delete city
+  const handleDeleteClick = async (cityID, cityName) => {
+    setLoadingDeleteCityID(cityID);
     const isConfirmed = window.confirm(
       `Are you sure you want to delete the city "${cityName}"?`
     );
@@ -57,14 +61,14 @@ const CityList = ({
       return;
     }
 
-    if (selectedCityId === cityId) {
-      setSelectedCityId(null);
+    if (selectedCityID === cityID) {
+      setSelectedCityID(null);
     }
 
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/deleteCity`,
-        { cityID: cityId },
+        { cityID: cityID },
         {
           headers: {
             "ngrok-skip-browser-warning": "true",
@@ -73,10 +77,11 @@ const CityList = ({
       );
 
       if (response.data.message === "City Deleted") {
-        deleteCity(cityId);
+        deleteCity(cityID);
       }
     } catch (error) {
       if (error.response.status === 400) {
+        setLoadingDeleteCityID(null);
         alert(error.response.data.error);
       } else {
         console.error(`Error deleting city: ${error.message}`);
@@ -96,7 +101,7 @@ const CityList = ({
             justifyContent="space-between"
             alignItems="center"
             key={index}
-            sx={{ mt: 2, width: "80%" }}
+            sx={{ mt: 2, width: "100%" }}
           >
             {editingCityID === city.id ? (
               <Formik
