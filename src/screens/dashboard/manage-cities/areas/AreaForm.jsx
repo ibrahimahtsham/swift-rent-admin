@@ -7,9 +7,9 @@ import {
   Tooltip,
 } from "@mui/material";
 import { Field, Form, Formik } from "formik";
-import FormButton from "../../../components/common/FormButton";
-import { icons } from "../../../utils/ImageImports";
-import { addAreaValidationSchema } from "../../../utils/validation/AddAreaValidation";
+import FormButton from "../../../../components/common/FormButton";
+import { icons } from "../../../../utils/ImageImports";
+import { addAreaValidationSchema } from "../../../../utils/validation/AddAreaValidation";
 
 const AreaForm = ({
   handleAddArea,

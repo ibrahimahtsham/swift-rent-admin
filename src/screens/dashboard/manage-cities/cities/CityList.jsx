@@ -2,10 +2,10 @@ import { CircularProgress, Grid, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { Field, Formik } from "formik";
 import { useState } from "react";
-import FormButton from "../../../components/common/FormButton";
-import { icons } from "../../../utils/ImageImports";
-import { BASE_URL } from "../../../utils/db-config";
-import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
+import FormButton from "../../../../components/common/FormButton";
+import { icons } from "../../../../utils/ImageImports";
+import { BASE_URL } from "../../../../utils/db-config";
+import { addCityValidationSchema } from "../../../../utils/validation/AddCityValidation";
 
 const CityList = ({
   cities,

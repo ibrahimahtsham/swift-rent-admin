@@ -1,8 +1,8 @@
 import { CircularProgress, Grid, TextField } from "@mui/material";
 import { Field, Form, Formik } from "formik";
-import FormButton from "../../../components/common/FormButton";
-import { icons } from "../../../utils/ImageImports";
-import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
+import FormButton from "../../../../components/common/FormButton";
+import { icons } from "../../../../utils/ImageImports";
+import { addCityValidationSchema } from "../../../../utils/validation/AddCityValidation";
 
 const CityForm = ({ handleAddCity, loadingAddCity }) => (
   <Formik
