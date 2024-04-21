@@ -7,10 +7,10 @@ import "./Dashboard.css";
 import MainPage from "./MainPage";
 import Analytics from "./analytics/Analytics";
 import AuditLogs from "./audit-logs/AuditLogs";
-import Cities from "./cities/Cities";
-import Complains from "./complains/Complains";
-import Properties from "./properties/Properties";
-import Users from "./users/Users";
+import ManageCities from "./manage-cities/ManageCities";
+import ManageComplains from "./manage-complains/ManageComplains";
+import ManageProperties from "./manage-properties/ManageProperties";
+import ManageUsers from "./manage-users/ManageUsers";
 
 const Dashboard = () => {
   const { theme } = useContext(ThemeContext);
@@ -34,11 +34,11 @@ const Dashboard = () => {
 
           {activePage === "Analytics" && <Analytics />}
 
-          {activePage === "Manage Users" && <Users />}
-          {activePage === "Manage Cities" && <Cities />}
-          {activePage === "Manage Properties" && <Properties />}
+          {activePage === "Manage Users" && <ManageUsers />}
+          {activePage === "Manage Cities" && <ManageCities />}
+          {activePage === "Manage Properties" && <ManageProperties />}
 
-          {activePage === "Manage Complains" && <Complains />}
+          {activePage === "Manage Complains" && <ManageComplains />}
 
           {activePage === "Audit Logs" && <AuditLogs />}
           <div style={{ marginBottom: 120 }}></div>

@@ -1,4 +1,4 @@
-const Complains = () => {
+const ManageComplains = () => {
   return (
     <div>
       <h1>Complains</h1>
@@ -6,4 +6,4 @@ const Complains = () => {
   );
 };
 
-export default Complains;
+export default ManageComplains;

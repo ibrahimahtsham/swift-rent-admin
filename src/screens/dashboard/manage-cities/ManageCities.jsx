@@ -21,7 +21,7 @@ const darkTheme = createTheme({
   },
 });
 
-const Cities = () => {
+const ManageCities = () => {
   // State variables
   const [cities, setCities] = useState([]);
   const [areas, setAreas] = useState([]);
@@ -204,4 +204,4 @@ const Cities = () => {
   );
 };
 
-export default Cities;
+export default ManageCities;

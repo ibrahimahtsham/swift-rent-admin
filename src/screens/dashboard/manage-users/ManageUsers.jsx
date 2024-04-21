@@ -4,7 +4,7 @@ import { rows } from "../../../utils/data/UsersData";
 import EditUserPopup from "./EditUserPopup";
 import { getColumns } from "./UsersColumns";
 
-const Users = () => {
+const ManageUsers = () => {
   const [open, setOpen] = useState(false);
   const [editingRowId, setEditingRowId] = useState(null);
   const [editingRowData, setEditingRowData] = useState(null);
@@ -36,4 +36,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default ManageUsers;

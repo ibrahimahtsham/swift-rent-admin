@@ -4,7 +4,7 @@ import { rows } from "../../../utils/data/PropertiesData";
 import EditPropertyPopup from "./EditPropertyPopup";
 import { getColumns } from "./PropertiesColumns";
 
-const Properties = () => {
+const ManageProperties = () => {
   const [open, setOpen] = useState(false);
   const [editingRowId, setEditingRowId] = useState(null);
   const [editingRowData, setEditingRowData] = useState(null);
@@ -36,4 +36,4 @@ const Properties = () => {
   );
 };
 
-export default Properties;
+export default ManageProperties;
