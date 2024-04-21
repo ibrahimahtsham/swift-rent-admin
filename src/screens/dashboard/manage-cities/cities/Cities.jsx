@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../../../../utils/db-config";
 import CityForm from "./CityForm";
-import CityList from "./CityList";
+import CitiesList from "./cities-list/CitiesList";
 
 const Cities = ({ cities, setCities, selectedCityID, setSelectedCityID }) => {
   // State variables
@@ -74,7 +74,7 @@ const Cities = ({ cities, setCities, selectedCityID, setSelectedCityID }) => {
     <>
       <h1>Cities</h1>
       <CityForm handleAddCity={handleAddCity} loadingAddCity={loadingAddCity} />
-      <CityList
+      <CitiesList
         cities={cities}
         updateCity={updateCity}
         deleteCity={deleteCity}

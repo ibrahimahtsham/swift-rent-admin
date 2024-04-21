@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { BASE_URL } from "../../../../utils/db-config";
 import AreaForm from "./AreaForm";
-import AreaList from "./AreaList";
+import AreasList from "./areas-list/AreasList";
 
 const ManageCities = ({
   areas,
@@ -95,7 +95,7 @@ const ManageCities = ({
         selectedCityID={selectedCityID}
         loadingAddArea={loadingAddArea}
       />
-      <AreaList
+      <AreasList
         areas={areas}
         selectedCityID={selectedCityID}
         updateArea={updateArea}

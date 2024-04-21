@@ -1,14 +1,13 @@
-import { Grid, TextField, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import axios from "axios";
-import { Field, Formik } from "formik";
 import { useState } from "react";
-import FormButton from "../../../../components/common/FormButton";
-import LoadingSpinner from "../../../../components/common/LoadingSpinner";
-import { icons } from "../../../../utils/ImageImports";
-import { BASE_URL } from "../../../../utils/db-config";
-import { addCityValidationSchema } from "../../../../utils/validation/AddCityValidation";
+import FormButton from "../../../../../components/common/FormButton";
+import LoadingSpinner from "../../../../../components/common/LoadingSpinner";
+import { icons } from "../../../../../utils/ImageImports";
+import { BASE_URL } from "../../../../../utils/db-config";
+import CityEditListForm from "./CityEditListForm";
 
-const CityList = ({
+const CitiesList = ({
   cities,
   updateCity,
   deleteCity,
@@ -23,31 +22,6 @@ const CityList = ({
   // Handle edit click
   const handleEditClick = (cityID) => {
     setEditingCityID(cityID);
-  };
-
-  // Handle update city
-  const handleUpdateCity = async (cityID, cityName) => {
-    setLoadingEditCityID(cityID);
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/api/admin/updateCity`,
-        { cityID: cityID, cityName: cityName },
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        updateCity(cityID, { cityname: cityName });
-        setEditingCityID(null);
-      }
-    } catch (error) {
-      console.error(`Error updating city: ${error.message}`);
-    } finally {
-      setLoadingEditCityID(null);
-    }
   };
 
   // Handle delete city
@@ -106,60 +80,15 @@ const CityList = ({
             sx={{ mt: 2, width: "100%" }}
           >
             {editingCityID === city.id ? ( // Check if city row is being edited based on city ID
-              <Formik
-                initialValues={{ city: city.cityname }}
-                validationSchema={addCityValidationSchema}
-                onSubmit={(values) => {
-                  handleUpdateCity(city.id, values.city);
-                }}
-              >
-                {({ touched, errors, handleSubmit }) => (
-                  <>
-                    <Grid item xs={8}>
-                      <Field
-                        as={TextField}
-                        name="city"
-                        fullWidth
-                        label="City"
-                        error={Boolean(touched.city && errors.city)}
-                        helperText={touched.city && errors.city}
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={4}>
-                      <div
-                        style={{ display: "flex", justifyContent: "flex-end" }}
-                      >
-                        <FormButton
-                          aria-label="Edit"
-                          bgcolor="#00bf63"
-                          sx={{ mr: 1 }}
-                          onClick={handleSubmit}
-                        >
-                          {loadingEditCityID === city.id ? (
-                            <LoadingSpinner />
-                          ) : (
-                            <img src={icons.editIcon} alt="Edit" />
-                          )}
-                        </FormButton>
-                        <FormButton
-                          aria-label="Delete"
-                          bgcolor="#f44336"
-                          onClick={() =>
-                            handleDeleteClick(city.id, city.cityname)
-                          }
-                        >
-                          {loadingDeleteCityID === city.id ? (
-                            <LoadingSpinner />
-                          ) : (
-                            <img src={icons.deleteIcon} alt="Delete" />
-                          )}
-                        </FormButton>
-                      </div>
-                    </Grid>
-                  </>
-                )}
-              </Formik>
+              <CityEditListForm
+                city={city}
+                updateCity={updateCity}
+                setEditingCityID={setEditingCityID}
+                handleDeleteClick={handleDeleteClick}
+                loadingDeleteCityID={loadingDeleteCityID}
+                loadingEditCityID={loadingEditCityID}
+                setLoadingEditCityID={setLoadingEditCityID}
+              />
             ) : (
               // Display city details if not being edited
               <>
@@ -214,4 +143,4 @@ const CityList = ({
   );
 };
 
-export default CityList;
+export default CitiesList;
