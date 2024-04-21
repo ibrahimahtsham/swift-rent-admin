@@ -1,7 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
-import { BASE_URL } from "../../../../utils/db-config";
 import AreaForm from "./AreaForm";
+import { fetchAreas, handleAddArea } from "./AreasAPIs"; // import the functions
 import AreasList from "./areas-list/AreasList";
 
 const ManageCities = ({
@@ -14,57 +13,9 @@ const ManageCities = ({
   // State variables
   const [loadingAddArea, setLoadingAddArea] = useState(false);
 
-  // Fetch areas based on selected city in the add area dropdown
-  const fetchAreas = async (cityID) => {
-    setAreas([]);
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/api/admin/areaList`,
-        { cityID: cityID },
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        }
-      );
-      setAreas(response.data);
-    } catch (error) {
-      console.error(`Error fetching areas: ${error.message}`);
-    }
-  };
-
   // Handle add area
-  const handleAddArea = async (values) => {
-    setLoadingAddArea(true);
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/api/admin/addArea`,
-        {
-          cityID: parseInt(values.city),
-          areaName: values.area,
-        },
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        const newArea = {
-          id: response.data.id,
-          cityid: response.data.cityid,
-          areaname: response.data.areaname,
-        };
-        setAreas([...areas, newArea]); // Add new area to the already fetched areas
-      } else {
-        throw new Error("Failed to add area");
-      }
-    } catch (error) {
-      console.error(`Error adding area: ${error.message}`);
-    } finally {
-      setLoadingAddArea(false);
-    }
+  const addArea = (values) => {
+    handleAddArea(values, areas, setAreas, setLoadingAddArea); // use the function
   };
 
   const updateArea = (id, newValues) => {
@@ -82,14 +33,14 @@ const ManageCities = ({
   const handleCityChange = async (event) => {
     const cityID = parseInt(event.target.value);
     setSelectedCityID(cityID);
-    await fetchAreas(cityID);
+    await fetchAreas(cityID, setAreas); // use the function
   };
 
   return (
     <>
       <h1>Areas</h1>
       <AreaForm
-        handleAddArea={handleAddArea}
+        handleAddArea={addArea}
         cities={cities}
         onCityChange={handleCityChange}
         selectedCityID={selectedCityID}

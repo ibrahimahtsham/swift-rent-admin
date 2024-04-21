@@ -1,6 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../../../../utils/db-config";
+import { fetchCities, handleAddCity } from "./CitiesAPIs";
 import CityForm from "./CityForm";
 import CitiesList from "./cities-list/CitiesList";
 
@@ -10,51 +9,12 @@ const Cities = ({ cities, setCities, selectedCityID, setSelectedCityID }) => {
 
   // Fetch cities on component mount
   useEffect(() => {
-    const fetchCities = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/api/admin/cityList`, {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        });
-        setCities(response.data);
-      } catch (error) {
-        console.error("Error fetching cities:", error);
-      }
-    };
-
-    fetchCities();
+    fetchCities(setCities);
   }, []);
 
   // Handlers for adding city and area
-  const handleAddCity = async (values, { resetForm }) => {
-    setLoadingAddCity(true);
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/api/admin/addCity`,
-        { cityName: values.city },
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        const newCity = {
-          id: response.data.id,
-          cityname: response.data.cityname,
-        };
-        setCities([...cities, newCity]);
-        resetForm();
-      } else {
-        throw new Error("Failed to add city");
-      }
-    } catch (error) {
-      console.error(`Error adding city: ${error.message}`);
-    } finally {
-      setLoadingAddCity(false);
-    }
+  const addCity = (values, formikBag) => {
+    handleAddCity(values, formikBag, cities, setCities, setLoadingAddCity);
   };
 
   // Handlers for city and area updates and deletions
@@ -73,7 +33,7 @@ const Cities = ({ cities, setCities, selectedCityID, setSelectedCityID }) => {
   return (
     <>
       <h1>Cities</h1>
-      <CityForm handleAddCity={handleAddCity} loadingAddCity={loadingAddCity} />
+      <CityForm handleAddCity={addCity} loadingAddCity={loadingAddCity} />
       <CitiesList
         cities={cities}
         updateCity={updateCity}
