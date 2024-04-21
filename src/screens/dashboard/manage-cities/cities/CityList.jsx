@@ -1,8 +1,9 @@
-import { CircularProgress, Grid, TextField, Typography } from "@mui/material";
+import { Grid, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { Field, Formik } from "formik";
 import { useState } from "react";
 import FormButton from "../../../../components/common/FormButton";
+import LoadingSpinner from "../../../../components/common/LoadingSpinner";
 import { icons } from "../../../../utils/ImageImports";
 import { BASE_URL } from "../../../../utils/db-config";
 import { addCityValidationSchema } from "../../../../utils/validation/AddCityValidation";
@@ -62,6 +63,7 @@ const CityList = ({
     }
 
     if (selectedCityID === cityID) {
+      // Clear selected city ID from the add area dropdown if it is being deleted and is selected
       setSelectedCityID(null);
     }
 
@@ -93,7 +95,7 @@ const CityList = ({
 
   return (
     <>
-      {Array.isArray(cities) && cities.length > 0 ? (
+      {Array.isArray(cities) && cities.length > 0 ? ( // Check if cities array is not empty
         cities.map((city, index) => (
           <Grid
             container
@@ -103,7 +105,7 @@ const CityList = ({
             key={index}
             sx={{ mt: 2, width: "100%" }}
           >
-            {editingCityID === city.id ? (
+            {editingCityID === city.id ? ( // Check if city row is being edited based on city ID
               <Formik
                 initialValues={{ city: city.cityname }}
                 validationSchema={addCityValidationSchema}
@@ -135,7 +137,7 @@ const CityList = ({
                           onClick={handleSubmit}
                         >
                           {loadingEditCityID === city.id ? (
-                            <CircularProgress size={20} color="inherit" />
+                            <LoadingSpinner />
                           ) : (
                             <img src={icons.editIcon} alt="Edit" />
                           )}
@@ -148,7 +150,7 @@ const CityList = ({
                           }
                         >
                           {loadingDeleteCityID === city.id ? (
-                            <CircularProgress size={20} color="inherit" />
+                            <LoadingSpinner />
                           ) : (
                             <img src={icons.deleteIcon} alt="Delete" />
                           )}
@@ -159,6 +161,7 @@ const CityList = ({
                 )}
               </Formik>
             ) : (
+              // Display city details if not being edited
               <>
                 <Grid item xs={8}>
                   <Typography>
@@ -175,9 +178,10 @@ const CityList = ({
                       style={{ marginRight: "10px" }}
                       onClick={() => handleEditClick(city.id)}
                     >
-                      {loadingEditCityID === city.id ? (
-                        <CircularProgress size={20} color="inherit" />
+                      {loadingEditCityID === city.id ? ( // Show loading spinner if city is being edited
+                        <LoadingSpinner />
                       ) : (
+                        // Show edit icon if city is not being edited
                         <img src={icons.editIcon} alt="Edit" />
                       )}
                     </FormButton>
@@ -186,9 +190,10 @@ const CityList = ({
                       bgcolor="#f44336"
                       onClick={() => handleDeleteClick(city.id, city.cityname)}
                     >
-                      {loadingDeleteCityID === city.id ? (
-                        <CircularProgress size={20} color="inherit" />
+                      {loadingDeleteCityID === city.id ? ( // Show loading spinner if city is being deleted
+                        <LoadingSpinner />
                       ) : (
+                        // Show delete icon if city is not being deleted
                         <img src={icons.deleteIcon} alt="Delete" />
                       )}
                     </FormButton>
@@ -199,9 +204,10 @@ const CityList = ({
           </Grid>
         ))
       ) : (
+        // Show loading spinner if cities array is empty
         <Typography variant="subtitle1" sx={{ mt: 2 }}>
           Loading cities...
-          <CircularProgress style={{ marginLeft: "10px" }} size={20} />
+          <LoadingSpinner />
         </Typography>
       )}
     </>

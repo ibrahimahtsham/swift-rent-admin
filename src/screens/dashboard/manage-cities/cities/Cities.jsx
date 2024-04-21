@@ -59,14 +59,14 @@ const Cities = ({ cities, setCities, selectedCityID, setSelectedCityID }) => {
 
   // Handlers for city and area updates and deletions
   const updateCity = (id, newCity) => {
-    const updatedCity = cities.map((city) =>
-      city.id === id ? { ...city, ...newCity } : city
+    const updatedCity = cities.map(
+      (city) => (city.id === id ? { ...city, ...newCity } : city) // Update city if id matches
     );
     setCities(updatedCity);
   };
 
   const deleteCity = (id) => {
-    const updatedCities = cities.filter((city) => city.id !== id);
+    const updatedCities = cities.filter((city) => city.id !== id); // Remove city if id matches
     setCities(updatedCities);
   };
 

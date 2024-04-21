@@ -1,6 +1,7 @@
-import { CircularProgress, Grid, TextField } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import FormButton from "../../../../components/common/FormButton";
+import LoadingSpinner from "../../../../components/common/LoadingSpinner";
 import { icons } from "../../../../utils/ImageImports";
 import { addCityValidationSchema } from "../../../../utils/validation/AddCityValidation";
 
@@ -32,7 +33,7 @@ const CityForm = ({ handleAddCity, loadingAddCity }) => (
               bgcolor={isValid && values.city !== "" ? "#00bf63" : undefined}
             >
               {loadingAddCity ? (
-                <CircularProgress size={20} color="inherit" />
+                <LoadingSpinner />
               ) : (
                 <img src={icons.addIcon} alt="Add" />
               )}

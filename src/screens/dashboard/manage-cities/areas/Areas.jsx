@@ -14,7 +14,7 @@ const ManageCities = ({
   // State variables
   const [loadingAddArea, setLoadingAddArea] = useState(false);
 
-  // Fetch areas based on selected city
+  // Fetch areas based on selected city in the add area dropdown
   const fetchAreas = async (cityID) => {
     setAreas([]);
     try {
@@ -33,6 +33,7 @@ const ManageCities = ({
     }
   };
 
+  // Handle add area
   const handleAddArea = async (values) => {
     setLoadingAddArea(true);
     try {
@@ -55,7 +56,7 @@ const ManageCities = ({
           cityid: response.data.cityid,
           areaname: response.data.areaname,
         };
-        setAreas([...areas, newArea]);
+        setAreas([...areas, newArea]); // Add new area to the already fetched areas
       } else {
         throw new Error("Failed to add area");
       }
@@ -68,16 +69,16 @@ const ManageCities = ({
 
   const updateArea = (id, newValues) => {
     setAreas(
-      areas.map((area) => (area.id === id ? { ...area, ...newValues } : area))
+      areas.map((area) => (area.id === id ? { ...area, ...newValues } : area)) // Update area if id matches
     );
   };
 
   const deleteArea = (id) => {
-    const updatedAreas = areas.filter((area) => area.id !== id);
+    const updatedAreas = areas.filter((area) => area.id !== id); // Remove area if id matches
     setAreas(updatedAreas);
   };
 
-  // Handle city change to fetch areas
+  // Handle city change to fetch areas so that the areas list is updated
   const handleCityChange = async (event) => {
     const cityID = parseInt(event.target.value);
     setSelectedCityID(cityID);
