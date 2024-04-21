@@ -1,8 +1,14 @@
+import DataTable from "../../../components/DataTable";
+import { rows } from "../../../utils/data/ComplainsData";
+import { getColumns } from "./ComplainsColumns";
+
 const ManageComplains = () => {
+  const columns = getColumns();
+
   return (
-    <div>
-      <h1>Complains</h1>
-    </div>
+    <>
+      <DataTable title="Complains" rows={rows} columns={columns} />
+    </>
   );
 };
 

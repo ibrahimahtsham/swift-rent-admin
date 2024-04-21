@@ -2,8 +2,10 @@ import addIcon from "../assets/icons/add.svg";
 import analytics from "../assets/icons/analytics.svg";
 import auditIcon from "../assets/icons/audit.svg";
 import userBanIcon from "../assets/icons/ban.svg";
+import checkIcon from "../assets/icons/check.svg";
 import citiesIcon from "../assets/icons/cities.svg";
 import complains from "../assets/icons/complains.svg";
+import crossIcon from "../assets/icons/cross.svg";
 import deleteIcon from "../assets/icons/delete.svg";
 import editIcon from "../assets/icons/edit.svg";
 import hamburgerMenu from "../assets/icons/hamburger-menu.svg";
@@ -36,4 +38,6 @@ export const icons = {
   userBanIcon,
   citiesIcon,
   addIcon,
+  checkIcon,
+  crossIcon,
 };
