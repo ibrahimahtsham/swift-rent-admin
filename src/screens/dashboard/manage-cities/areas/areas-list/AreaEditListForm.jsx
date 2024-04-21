@@ -1,10 +1,9 @@
 import { CircularProgress, Grid, TextField } from "@mui/material";
-import axios from "axios";
 import { Field, Formik } from "formik";
 import FormButton from "../../../../../components/common/FormButton";
 import { icons } from "../../../../../utils/ImageImports";
-import { BASE_URL } from "../../../../../utils/db-config";
 import { addAreaValidationSchema } from "../../../../../utils/validation/AddAreaValidation";
+import { handleUpdateArea } from "./AreasListAPIs";
 
 const AreaEditListForm = ({
   area,
@@ -15,31 +14,6 @@ const AreaEditListForm = ({
   setLoadingEditAreaID,
   loadingDeleteAreaID,
 }) => {
-  // Handle update area
-  const handleUpdateArea = async (areaID, areaName) => {
-    setLoadingEditAreaID(areaID);
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/api/admin/updateArea`,
-        { areaID: areaID, areaName: areaName },
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        updateArea(areaID, { areaname: areaName }); // Update the area name in the areas list state
-        setEditingAreaID(null); // Reset the editing area id after the area has been updated
-      }
-    } catch (error) {
-      console.error(`Error updating area: ${error.message}`);
-    } finally {
-      setLoadingEditAreaID(null);
-    }
-  };
-
   return (
     <Formik
       initialValues={{
@@ -48,7 +22,13 @@ const AreaEditListForm = ({
       }}
       validationSchema={addAreaValidationSchema}
       onSubmit={(values) => {
-        handleUpdateArea(area.id, values.area);
+        handleUpdateArea(
+          area.id,
+          values.area,
+          updateArea,
+          setEditingAreaID,
+          setLoadingEditAreaID
+        );
       }}
     >
       {({ touched, errors, handleSubmit }) => (

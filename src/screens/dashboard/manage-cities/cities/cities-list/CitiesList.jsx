@@ -1,10 +1,9 @@
 import { Grid, Typography } from "@mui/material";
-import axios from "axios";
 import { useState } from "react";
 import FormButton from "../../../../../components/common/FormButton";
 import LoadingSpinner from "../../../../../components/common/LoadingSpinner";
 import { icons } from "../../../../../utils/ImageImports";
-import { BASE_URL } from "../../../../../utils/db-config";
+import { handleDeleteCity } from "./CitiesListAPIs";
 import CityEditListForm from "./CityEditListForm";
 
 const CitiesList = ({
@@ -25,46 +24,15 @@ const CitiesList = ({
   };
 
   // Handle delete city
-  const handleDeleteClick = async (cityID, cityName) => {
-    setLoadingDeleteCityID(cityID);
-    const isConfirmed = window.confirm(
-      `Are you sure you want to delete the city "${cityName}"?`
-    );
-
-    if (!isConfirmed) {
-      setLoadingDeleteCityID(null);
-      return;
-    }
-
-    if (selectedCityID === cityID) {
-      // Clear selected city ID from the add area dropdown if it is being deleted and is selected
-      setSelectedCityID(null);
-    }
-
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/api/admin/deleteCity`,
-        { cityID: cityID },
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        }
-      );
-
-      if (response.data.message === "City Deleted") {
-        deleteCity(cityID);
-      }
-    } catch (error) {
-      if (error.response.status === 400) {
-        setLoadingDeleteCityID(null);
-        alert(error.response.data.error);
-      } else {
-        console.error(`Error deleting city: ${error.message}`);
-      }
-    } finally {
-      setLoadingDeleteCityID(null);
-    }
+  const handleDeleteClick = (cityID, cityName) => {
+    handleDeleteCity(
+      cityID,
+      cityName,
+      selectedCityID,
+      setSelectedCityID,
+      deleteCity,
+      setLoadingDeleteCityID
+    ); // use the function
   };
 
   return (

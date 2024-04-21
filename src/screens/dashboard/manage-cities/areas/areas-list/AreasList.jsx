@@ -1,10 +1,9 @@
 import { CircularProgress, Grid, Typography } from "@mui/material";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import FormButton from "../../../../../components/common/FormButton";
 import { icons } from "../../../../../utils/ImageImports";
-import { BASE_URL } from "../../../../../utils/db-config";
 import AreaEditListForm from "./AreaEditListForm";
+import { handleDeleteArea } from "./AreasListAPIs";
 
 const AreasList = ({ areas, selectedCityID, updateArea, deleteArea }) => {
   // State variables
@@ -19,38 +18,8 @@ const AreasList = ({ areas, selectedCityID, updateArea, deleteArea }) => {
   };
 
   // Handle delete area
-  const handleDeleteArea = async (areaID, areaName) => {
-    setLoadingDeleteAreaID(areaID);
-    const isConfirmed = window.confirm(
-      `Are you sure you want to delete the area "${areaName}"?`
-    );
-
-    if (!isConfirmed) {
-      setLoadingDeleteAreaID(null); // Reset the loading state if the deletion is not confirmed
-      return;
-    }
-
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/api/admin/deleteArea`,
-        { areaID: areaID },
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        }
-      );
-
-      if (response.data.message === "Area Deleted") {
-        deleteArea(areaID); // Delete the area from the areas list state
-      } else {
-        console.error(response.data.error);
-      }
-    } catch (error) {
-      console.error(`Error deleting area: ${error.message}`);
-    } finally {
-      setLoadingDeleteAreaID(null);
-    }
+  const handleDeleteClick = (areaID, areaName) => {
+    handleDeleteArea(areaID, areaName, deleteArea, setLoadingDeleteAreaID);
   };
 
   // useEffect to handle loading state
@@ -135,7 +104,7 @@ const AreasList = ({ areas, selectedCityID, updateArea, deleteArea }) => {
                     <FormButton
                       aria-label="Delete"
                       bgcolor="#f44336"
-                      onClick={() => handleDeleteArea(area.id, area.areaname)}
+                      onClick={() => handleDeleteClick(area.id, area.areaname)}
                     >
                       {loadingDeleteAreaID === area.id ? (
                         <CircularProgress size={20} color="inherit" />

@@ -1,3 +1,7 @@
-export const BASE_URL = "https://8a71-101-50-71-2.ngrok-free.app";
+export const BASE_URL =
+  "https://a693-2407-d000-b-f3a9-b9d4-d4cd-a957-6035.ngrok-free.app";
 
 //http://localhost:3000
+
+//anas server
+//https://a693-2407-d000-b-f3a9-b9d4-d4cd-a957-6035.ngrok-free.app

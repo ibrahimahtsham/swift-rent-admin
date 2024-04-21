@@ -1,11 +1,10 @@
 import { Grid, TextField } from "@mui/material";
-import axios from "axios";
 import { Field, Formik } from "formik";
 import FormButton from "../../../../../components/common/FormButton";
 import LoadingSpinner from "../../../../../components/common/LoadingSpinner";
 import { icons } from "../../../../../utils/ImageImports";
-import { BASE_URL } from "../../../../../utils/db-config";
 import { addCityValidationSchema } from "../../../../../utils/validation/AddCityValidation";
+import { handleUpdateCity } from "./CitiesListAPIs";
 
 const CityEditListForm = ({
   city,
@@ -16,36 +15,18 @@ const CityEditListForm = ({
   loadingEditCityID,
   setLoadingEditCityID,
 }) => {
-  // Handle update city
-  const handleUpdateCity = async (cityID, cityName) => {
-    setLoadingEditCityID(cityID);
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/api/admin/updateCity`,
-        { cityID: cityID, cityName: cityName },
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        updateCity(cityID, { cityname: cityName });
-        setEditingCityID(null);
-      }
-    } catch (error) {
-      console.error(`Error updating city: ${error.message}`);
-    } finally {
-      setLoadingEditCityID(null);
-    }
-  };
   return (
     <Formik
       initialValues={{ city: city.cityname }}
       validationSchema={addCityValidationSchema}
       onSubmit={(values) => {
-        handleUpdateCity(city.id, values.city);
+        handleUpdateCity(
+          city.id,
+          values.city,
+          updateCity,
+          setEditingCityID,
+          setLoadingEditCityID
+        ); // use the function
       }}
     >
       {({ touched, errors, handleSubmit }) => (
