@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { Field, Formik } from "formik";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import FormButton from "../../../components/common/FormButton";
 import { icons } from "../../../utils/ImageImports";
 import { BASE_URL } from "../../../utils/db-config";
@@ -79,25 +79,19 @@ const AreaList = ({
     }
   };
 
-  const filteredAreas = selectedCityId
-    ? areas.filter((area) => area.cityid === selectedCityId)
-    : [];
-
   useEffect(() => {
     setLoading(true);
-
-    if (Array.isArray(filteredAreas) && filteredAreas.length > 0) {
+    if (Array.isArray(areas) && areas.length > 0) {
       setLoading(false);
-    }
-
-    const timer = setTimeout(() => {
-      if (Array.isArray(filteredAreas) && filteredAreas.length === 0) {
+    } else if (Array.isArray(areas) && areas.length === 0) {
+      setLoading(true);
+      const timer = setTimeout(() => {
         setLoading(false);
-      }
-    }, 5000);
+      }, 8000);
 
-    return () => clearTimeout(timer);
-  }, [selectedCityId]);
+      return () => clearTimeout(timer);
+    }
+  }, [selectedCityId, areas]);
 
   return (
     <>
@@ -110,8 +104,8 @@ const AreaList = ({
           Loading areas...
           <CircularProgress style={{ marginLeft: "10px" }} size={20} />
         </Typography>
-      ) : Array.isArray(filteredAreas) && filteredAreas.length > 0 ? (
-        filteredAreas.map((area, index) => (
+      ) : Array.isArray(areas) && areas.length > 0 ? (
+        areas.map((area, index) => (
           <Grid
             container
             direction="row"
@@ -230,7 +224,7 @@ const AreaList = ({
         ))
       ) : (
         <Typography variant="subtitle1" sx={{ mt: 2 }}>
-          No areas added yet.
+          Could not find any areas for the selected city.
         </Typography>
       )}
     </>

@@ -44,6 +44,7 @@ const Cities = () => {
   }, []);
 
   const fetchAreas = async (cityId) => {
+    setAreas([]);
     try {
       const response = await axios.post(
         `${BASE_URL}/api/admin/areaList`,
@@ -54,7 +55,6 @@ const Cities = () => {
           },
         }
       );
-
       setAreas(response.data);
     } catch (error) {
       console.error(`Error fetching areas: ${error.message}`);
@@ -157,14 +157,18 @@ const Cities = () => {
             cities={cities}
             updateCity={updateCity}
             deleteCity={deleteCity}
+            selectedCityId={selectedCityId}
+            setSelectedCityId={setSelectedCityId}
           />
         </Grid>
+
         <Grid item xs={6}>
           <h1>Areas</h1>
           <AreaForm
             handleAddArea={handleAddArea}
             cities={cities}
             onCityChange={handleCityChange}
+            selectedCityId={selectedCityId}
           />
           <AreaList
             areas={areas}

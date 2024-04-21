@@ -7,7 +7,13 @@ import { icons } from "../../../utils/ImageImports";
 import { BASE_URL } from "../../../utils/db-config";
 import { addCityValidationSchema } from "../../../utils/validation/AddCityValidation";
 
-const CityList = ({ cities, updateCity, deleteCity }) => {
+const CityList = ({
+  cities,
+  updateCity,
+  deleteCity,
+  selectedCityId,
+  setSelectedCityId,
+}) => {
   const [editingCityId, setEditingCityId] = useState(null);
 
   const handleEditClick = (cityId) => {
@@ -42,6 +48,10 @@ const CityList = ({ cities, updateCity, deleteCity }) => {
 
     if (!isConfirmed) {
       return;
+    }
+
+    if (selectedCityId === cityId) {
+      setSelectedCityId(null);
     }
 
     try {
