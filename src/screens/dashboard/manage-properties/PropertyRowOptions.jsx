@@ -19,11 +19,6 @@ const PropertyRowOptions = ({
     console.log(`Delete Property ${row.id}`);
   };
 
-  const handleRemoveManager = (event) => {
-    event.stopPropagation();
-    console.log(`Remove Manager ${row.id}`);
-  };
-
   const handleMouseDown = (event) => {
     event.stopPropagation();
   };
@@ -49,21 +44,6 @@ const PropertyRowOptions = ({
       >
         <img src={icons.deleteIcon} alt="Delete" />
       </DataTableButton>
-
-      {row.managerName && (
-        <DataTableButton
-          variant="contained"
-          bgcolor="#f44336"
-          sx={{
-            color: "white",
-          }}
-          onClick={handleRemoveManager}
-          onMouseDown={handleMouseDown}
-          startIcon={<img src={icons.userBanIcon} alt="Ban" />}
-        >
-          Remove Manager
-        </DataTableButton>
-      )}
     </div>
   );
 };
