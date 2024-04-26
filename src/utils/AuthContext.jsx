@@ -8,10 +8,10 @@ export const AuthProvider = ({ children }) => {
   // Initialize isLoggedIn state and its setter function (_setIsLoggedIn)
   // _setIsLoggedIn is the original state setter function returned by useState
   const [isLoggedIn, _setIsLoggedIn] = useState(() => {
-    // Try to get the auth cookie
-    const cookieLoggedIn = sessionStorage.getItem("auth");
-    // If the cookie exists, use its value as the initial state, otherwise default to false
-    return cookieLoggedIn ? cookieLoggedIn : false;
+    // Try to get the auth session
+    const sessionLoggedIn = sessionStorage.getItem("auth");
+    // If the session exists, use its value as the initial state, otherwise default to false
+    return sessionLoggedIn ? sessionLoggedIn : false;
   });
 
   // Create a ref to hold the current value of isLoggedIn
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
         // Use the setIsLoggedIn function to update the state
         // This will also update the ref, so isLoggedInRef.current will be the latest state
         setIsLoggedIn(true);
-        // Set the auth cookie
+        // Set the auth session
         sessionStorage.setItem("auth", "true");
       } else {
         setFieldError("username", "Invalid credentials");
@@ -54,8 +54,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    // Remove the auth cookie
+    // Remove the auth session
     sessionStorage.removeItem("auth");
+
     // Use the setIsLoggedIn function to update the state
     setIsLoggedIn(false);
   };

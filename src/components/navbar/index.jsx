@@ -60,7 +60,10 @@ const Navbar = () => {
         />
         <StyledButton
           className={`logout-button ${theme}`}
-          onClick={() => logout()}
+          onClick={() => {
+            logout();
+            setActivePage("Main Page");
+          }}
         >
           Logout
         </StyledButton>
