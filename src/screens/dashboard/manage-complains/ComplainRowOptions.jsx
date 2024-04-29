@@ -2,14 +2,14 @@ import { DataTableButton } from "../../../components/common/DataTableButton";
 import { icons } from "../../../utils/ImageImports";
 
 const ComplainRowOptions = ({ row }) => {
-  const handleAcknowledged = (event) => {
+  const handleInProgress = (event) => {
     event.stopPropagation();
-    console.log(`Acknowledged complain ${row.id}`);
+    console.log(`In-Progress complain ${row.id}`);
   };
 
-  const handleMarkResolved = (event) => {
+  const handleMarkSolved = (event) => {
     event.stopPropagation();
-    console.log(`Mark as resolved for complain ${row.id}`);
+    console.log(`Mark as solved for complain ${row.id}`);
   };
 
   const handleReject = (event) => {
@@ -25,28 +25,28 @@ const ComplainRowOptions = ({ row }) => {
     <div>
       <DataTableButton
         variant="contained"
-        onClick={handleAcknowledged}
+        onClick={handleInProgress}
         onMouseDown={handleMouseDown}
-        startIcon={<img src={icons.checkIcon} alt="Acknowledged" />}
+        startIcon={<img src={icons.checkIcon} alt="In-Progress" />}
         bgcolor="#1463df"
         sx={{
           color: "white",
         }}
       >
-        Acknowledged
+        In-Progress
       </DataTableButton>
 
       <DataTableButton
         variant="contained"
-        onClick={handleMarkResolved}
+        onClick={handleMarkSolved}
         onMouseDown={handleMouseDown}
-        startIcon={<img src={icons.checkIcon} alt="Mark Resolved" />}
+        startIcon={<img src={icons.checkIcon} alt="Mark Solved" />}
         bgcolor="#4CAF50"
         sx={{
           color: "white",
         }}
       >
-        Resolved
+        Solved
       </DataTableButton>
 
       <DataTableButton
