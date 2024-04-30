@@ -4,10 +4,8 @@ import { handleApiError, headers } from "../../../../utils/helpers";
 
 export const fetchCities = async (setCities) => {
   try {
-    const response = await axios.get(`${BASE_URL}/api/admin/cityList`, {
-      headers: {
-        "ngrok-skip-browser-warning": "true",
-      },
+    const response = await axios.get(`${BASE_URL}/api/admin/city-list`, {
+      headers,
     });
     setCities(response.data);
   } catch (error) {
@@ -25,7 +23,7 @@ export const handleAddCity = async (
   setLoadingAddCity(true);
   try {
     const response = await axios.post(
-      `${BASE_URL}/api/admin/addCity`,
+      `${BASE_URL}/api/admin/add-city`,
       { cityName: values.city },
       {
         headers,

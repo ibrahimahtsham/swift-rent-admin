@@ -20,7 +20,7 @@ export const handleDeleteArea = async (
 
   try {
     const response = await axios.post(
-      `${BASE_URL}/api/admin/deleteArea`,
+      `${BASE_URL}/api/admin/delete-area`,
       { areaID: areaID },
       {
         headers,
@@ -47,7 +47,7 @@ export const handleUpdateArea = async (
   setLoadingEditAreaID(areaID);
   try {
     const response = await axios.post(
-      `${BASE_URL}/api/admin/updateArea`,
+      `${BASE_URL}/api/admin/update-area`,
       { areaID: areaID, areaName: areaName },
       {
         headers,

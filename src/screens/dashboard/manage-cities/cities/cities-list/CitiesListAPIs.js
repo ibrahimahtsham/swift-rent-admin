@@ -22,7 +22,7 @@ export const handleDeleteCity = async (
 
   try {
     const response = await axios.post(
-      `${BASE_URL}/api/admin/deleteCity`,
+      `${BASE_URL}/api/admin/delete-city`,
       { cityID: cityID },
       {
         headers,
@@ -54,7 +54,7 @@ export const handleUpdateCity = async (
   setLoadingEditCityID(cityID);
   try {
     const response = await axios.post(
-      `${BASE_URL}/api/admin/updateCity`,
+      `${BASE_URL}/api/admin/update-city`,
       { cityID: cityID, cityName: cityName },
       {
         headers,

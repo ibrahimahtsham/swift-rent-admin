@@ -5,6 +5,20 @@ import { icons } from "../../../utils/ImageImports";
 import { handleApiError, headers } from "../../../utils/helpers";
 
 const ComplainRowOptions = ({ row, prevRows, setRows }) => {
+  const formattedDate = (date) => {
+    return date
+      .toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      })
+      .replace(",", "");
+  };
+
   const handleApiCall = async (event, url, status) => {
     //show an are you sure message
     if (
@@ -19,14 +33,22 @@ const ComplainRowOptions = ({ row, prevRows, setRows }) => {
       await axios.post(url, { complaintID: row.id }, { headers });
       alert(`Complain marked as ${status}`);
       // Map over the previous rows to create a new array
-      const updatedRows = prevRows.map((item) =>
+      const updatedRows = prevRows.map((item) => {
         // If the ID of the current item matches the ID of the row being updated...
-        item.id === row.id
-          ? // ...return a new object that is a copy of the current item, but with complaintstatus updated to the new status
-            { ...item, complaintstatus: status }
-          : // ...otherwise, return the current item unchanged
-            item
-      );
+        if (item.id === row.id) {
+          // ...return a new object that is a copy of the current item, but with complaintstatus updated to the new status
+          return {
+            ...item,
+            complaintstatus: status,
+            ...(status === "Solved"
+              ? { complaintsolvedon: formattedDate(new Date()) }
+              : {}),
+          };
+        } else {
+          // ...otherwise, return the current item unchanged
+          return item;
+        }
+      });
 
       // Update the rows state with the new array
       setRows(updatedRows);
@@ -60,7 +82,9 @@ const ComplainRowOptions = ({ row, prevRows, setRows }) => {
           bgcolor="#1463df"
           sx={{ color: "white" }}
         >
-          In-Progress
+          {row.complaintstatus === "In-Progress"
+            ? "In-Progress"
+            : "Mark In-Progress"}
         </DataTableButton>
       )}
 
@@ -77,7 +101,7 @@ const ComplainRowOptions = ({ row, prevRows, setRows }) => {
           bgcolor="#4CAF50"
           sx={{ color: "white" }}
         >
-          Solved
+          {row.complaintstatus === "Solved" ? "Solved" : "Send To Solved"}
         </DataTableButton>
       )}
 
@@ -98,7 +122,7 @@ const ComplainRowOptions = ({ row, prevRows, setRows }) => {
           onMouseDown={handleMouseDown}
           startIcon={<img src={icons.crossIcon} alt="Reject" />}
         >
-          Reject
+          {row.complaintstatus === "Rejected" ? "Rejected" : "Reject"}
         </DataTableButton>
       )}
     </div>

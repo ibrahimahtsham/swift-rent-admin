@@ -6,7 +6,7 @@ export const fetchAreas = async (cityID, setAreas) => {
   setAreas([]);
   try {
     const response = await axios.post(
-      `${BASE_URL}/api/admin/areaList`,
+      `${BASE_URL}/api/admin/area-list`,
       { cityID: cityID },
       {
         headers,
@@ -27,7 +27,7 @@ export const handleAddArea = async (
   setLoadingAddArea(true);
   try {
     const response = await axios.post(
-      `${BASE_URL}/api/admin/addArea`,
+      `${BASE_URL}/api/admin/add-area`,
       {
         cityID: parseInt(values.city),
         areaName: values.area,

@@ -59,7 +59,7 @@ const ManageComplains = () => {
     };
 
     fetchData();
-  }, [rows]);
+  }, []);
 
   return (
     <DataTable
