@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../../../../utils/db-config";
+import { handleApiError, headers } from "../../../../../utils/helpers";
 
 export const handleDeleteArea = async (
   areaID,
@@ -22,19 +23,15 @@ export const handleDeleteArea = async (
       `${BASE_URL}/api/admin/deleteArea`,
       { areaID: areaID },
       {
-        headers: {
-          "ngrok-skip-browser-warning": "true",
-        },
+        headers,
       }
     );
 
     if (response.data.message === "Area Deleted") {
       deleteArea(areaID);
-    } else {
-      console.error(response.data.error);
     }
   } catch (error) {
-    console.error(`Error deleting area: ${error.message}`);
+    alert(`Error deleting area: ${handleApiError(error)}`);
   } finally {
     setLoadingDeleteAreaID(null);
   }
@@ -53,9 +50,7 @@ export const handleUpdateArea = async (
       `${BASE_URL}/api/admin/updateArea`,
       { areaID: areaID, areaName: areaName },
       {
-        headers: {
-          "ngrok-skip-browser-warning": "true",
-        },
+        headers,
       }
     );
 
@@ -64,7 +59,7 @@ export const handleUpdateArea = async (
       setEditingAreaID(null);
     }
   } catch (error) {
-    console.error(`Error updating area: ${error.message}`);
+    alert(`Error updating area: ${handleApiError(error)}`);
   } finally {
     setLoadingEditAreaID(null);
   }

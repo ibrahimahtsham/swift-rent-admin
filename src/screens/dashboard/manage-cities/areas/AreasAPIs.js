@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../../../utils/db-config";
+import { handleApiError, headers } from "../../../../utils/helpers";
 
 export const fetchAreas = async (cityID, setAreas) => {
   setAreas([]);
@@ -8,14 +9,12 @@ export const fetchAreas = async (cityID, setAreas) => {
       `${BASE_URL}/api/admin/areaList`,
       { cityID: cityID },
       {
-        headers: {
-          "ngrok-skip-browser-warning": "true",
-        },
+        headers,
       }
     );
     setAreas(response.data);
   } catch (error) {
-    console.error(`Error fetching areas: ${error.message}`);
+    alert(`Error fetching areas: ${handleApiError(error)}`);
   }
 };
 
@@ -34,9 +33,7 @@ export const handleAddArea = async (
         areaName: values.area,
       },
       {
-        headers: {
-          "ngrok-skip-browser-warning": "true",
-        },
+        headers,
       }
     );
 
@@ -47,11 +44,9 @@ export const handleAddArea = async (
         areaname: response.data.areaname,
       };
       setAreas([...areas, newArea]); // Add new area to the already fetched areas
-    } else {
-      throw new Error("Failed to add area");
     }
   } catch (error) {
-    console.error(`Error adding area: ${error.message}`);
+    alert(`Error adding area: ${handleApiError(error)}`);
   } finally {
     setLoadingAddArea(false);
   }

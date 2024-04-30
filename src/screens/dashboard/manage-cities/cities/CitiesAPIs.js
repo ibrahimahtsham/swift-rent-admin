@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../../../utils/db-config";
+import { handleApiError, headers } from "../../../../utils/helpers";
 
 export const fetchCities = async (setCities) => {
   try {
@@ -10,7 +11,7 @@ export const fetchCities = async (setCities) => {
     });
     setCities(response.data);
   } catch (error) {
-    console.error("Error fetching cities:", error);
+    alert(`Error fetching cities: ${handleApiError(error)}`);
   }
 };
 
@@ -27,9 +28,7 @@ export const handleAddCity = async (
       `${BASE_URL}/api/admin/addCity`,
       { cityName: values.city },
       {
-        headers: {
-          "ngrok-skip-browser-warning": "true",
-        },
+        headers,
       }
     );
 
@@ -40,11 +39,9 @@ export const handleAddCity = async (
       };
       setCities([...cities, newCity]);
       resetForm();
-    } else {
-      throw new Error("Failed to add city");
     }
   } catch (error) {
-    console.error(`Error adding city: ${error.message}`);
+    alert(`Error adding city: ${handleApiError(error)}`);
   } finally {
     setLoadingAddCity(false);
   }

@@ -23,6 +23,7 @@ const DataTable = (props) => {
       <div style={{ minHeight: "450px", height: "80%", width: "100%" }}>
         <h1>{props.title}</h1>
         <DataGrid
+          loading={props.loading}
           rows={props.rows}
           columns={props.columns}
           slots={{

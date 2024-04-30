@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../../../../utils/db-config";
+import { headers } from "../../../../../utils/helpers";
 
 export const handleDeleteCity = async (
   cityID,
@@ -24,9 +25,7 @@ export const handleDeleteCity = async (
       `${BASE_URL}/api/admin/deleteCity`,
       { cityID: cityID },
       {
-        headers: {
-          "ngrok-skip-browser-warning": "true",
-        },
+        headers,
       }
     );
 
@@ -39,12 +38,7 @@ export const handleDeleteCity = async (
       }
     }
   } catch (error) {
-    if (error.response.status === 400) {
-      setLoadingDeleteCityID(null);
-      alert(error.response.data.error);
-    } else {
-      console.error(`Error deleting city: ${error.message}`);
-    }
+    alert(`Error deleting city: ${handleApiError(error)}`);
   } finally {
     setLoadingDeleteCityID(null);
   }
@@ -63,9 +57,7 @@ export const handleUpdateCity = async (
       `${BASE_URL}/api/admin/updateCity`,
       { cityID: cityID, cityName: cityName },
       {
-        headers: {
-          "ngrok-skip-browser-warning": "true",
-        },
+        headers,
       }
     );
 
@@ -74,7 +66,7 @@ export const handleUpdateCity = async (
       setEditingCityID(null);
     }
   } catch (error) {
-    console.error(`Error updating city: ${error.message}`);
+    alert(`Error updating city: ${handleApiError(error)}`);
   } finally {
     setLoadingEditCityID(null);
   }

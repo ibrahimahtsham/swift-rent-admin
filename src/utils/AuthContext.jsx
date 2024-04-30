@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useRef, useState } from "react";
 import { BASE_URL } from "./db-config";
+import { handleApiError, headers } from "./helpers";
 
 export const AuthContext = createContext();
 
@@ -35,7 +36,9 @@ export const AuthProvider = ({ children }) => {
     };
 
     try {
-      const response = await axios.post(`${BASE_URL}/api/admin/login/`, data);
+      const response = await axios.post(`${BASE_URL}/api/admin/login/`, data, {
+        headers,
+      });
       if (response.status === 200) {
         // Use the setIsLoggedIn function to update the state
         // This will also update the ref, so isLoggedInRef.current will be the latest state
@@ -46,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       setFieldError("username", error.response.data.error);
       setFieldError("password", error.response.data.error);
-      console.log(error.response.data.error);
+      alert(`Error logging in: ${handleApiError(error)}`);
     }
   };
 
