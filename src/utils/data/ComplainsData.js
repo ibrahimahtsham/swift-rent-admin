@@ -10,7 +10,7 @@ export const rows = [
     id: 2,
     complainType: "Electricity Failure",
     complainDescription: "Electricity is not working in my room.",
-    status: "Resolved",
+    status: "Solved",
     registeredOn: "2024-04-02 10:45:00",
   },
   {
@@ -31,7 +31,7 @@ export const rows = [
     id: 5,
     complainType: "Parking Issue",
     complainDescription: "No available parking spots.",
-    status: "Resolved",
+    status: "Solved",
     registeredOn: "2024-04-05 14:20:00",
   },
 ];
