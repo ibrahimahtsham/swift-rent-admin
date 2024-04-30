@@ -42,14 +42,11 @@ export const AuthProvider = ({ children }) => {
         setIsLoggedIn(true);
         // Set the auth session
         sessionStorage.setItem("auth", "true");
-      } else {
-        setFieldError("username", "Invalid credentials");
-        setFieldError("password", "Invalid credentials");
       }
     } catch (error) {
-      setFieldError("username", "An error occurred");
-      setFieldError("password", "An error occurred");
-      console.log(error);
+      setFieldError("username", error.response.data.error);
+      setFieldError("password", error.response.data.error);
+      console.log(error.response.data.error);
     }
   };
 
