@@ -1,6 +1,6 @@
-export const BASE_URL = "https://swiftrent-server.in.ngrok.io";
+export const BASE_URL = "https://swiftrent.in.ngrok.io";
 
 //http://localhost:3000
 
 //anas server
-//https://swiftrent-server.in.ngrok.io
+//https://swiftrent.in.ngrok.io
