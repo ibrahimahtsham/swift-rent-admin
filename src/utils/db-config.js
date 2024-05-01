@@ -1,6 +1,6 @@
-export const BASE_URL = "https://4845-101-50-71-2.ngrok-free.app";
+export const BASE_URL = "https://swiftrent-server.in.ngrok.io";
 
 //http://localhost:3000
 
 //anas server
-//https://4845-101-50-71-2.ngrok-free.app
+//https://swiftrent-server.in.ngrok.io
