@@ -14,7 +14,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../../utils/ThemeContext";
 import { editUserSchema } from "./../../../utils/validation/EditUserValidation";
 
-const EditUserPopup = ({ open, handleClose, handleSave, editingRowData }) => {
+const EditUserPopup = ({ open, handleClose, handleSave, editingRow }) => {
   const { theme } = useContext(ThemeContext);
 
   const dialogTheme = createTheme({
@@ -30,141 +30,143 @@ const EditUserPopup = ({ open, handleClose, handleSave, editingRowData }) => {
         <DialogContent>
           <Formik
             initialValues={
-              editingRowData || {
-                firstName: "",
-                lastName: "",
+              editingRow || {
+                firstname: "",
+                lastname: "",
                 dob: "",
                 phone: "",
                 email: "",
-                isManager: false,
-                isOwner: false,
-                isTenant: false,
-                registeredOn: "",
+                ismanager: false,
+                isowner: false,
+                istenant: false,
+                registeredon: "",
               }
             }
             validationSchema={editUserSchema}
             onSubmit={handleSave}
           >
-            {({ errors, touched, values, handleChange, handleBlur }) => (
-              <Form>
-                <Field
-                  as={TextField}
-                  autoFocus
-                  margin="dense"
-                  label="First Name"
-                  type="text"
-                  fullWidth
-                  value={values.firstName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  name="firstName"
-                  error={touched.firstName && !!errors.firstName}
-                  helperText={<ErrorMessage name="firstName" />}
-                  required
-                />
+            {({ errors, touched, values, handleChange, handleBlur }) => {
+              return (
+                <Form>
+                  <Field
+                    as={TextField}
+                    autoFocus
+                    margin="dense"
+                    label="First Name"
+                    type="text"
+                    fullWidth
+                    value={values.firstname}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="firstname"
+                    error={touched.firstname && !!errors.firstname}
+                    helperText={<ErrorMessage name="firstname" />}
+                    required
+                  />
 
-                <Field
-                  as={TextField}
-                  margin="dense"
-                  label="Last Name"
-                  type="text"
-                  fullWidth
-                  value={values.lastName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  name="lastName"
-                  error={touched.lastName && !!errors.lastName}
-                  helperText={<ErrorMessage name="lastName" />}
-                  required
-                />
+                  <Field
+                    as={TextField}
+                    margin="dense"
+                    label="Last Name"
+                    type="text"
+                    fullWidth
+                    value={values.lastname}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="lastname"
+                    error={touched.lastname && !!errors.lastname}
+                    helperText={<ErrorMessage name="lastname" />}
+                    required
+                  />
 
-                <Field
-                  as={TextField}
-                  margin="dense"
-                  label="Date of Birth"
-                  type="date"
-                  fullWidth
-                  value={values.dob}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  name="dob"
-                  error={touched.dob && !!errors.dob}
-                  helperText={<ErrorMessage name="dob" />}
-                  required
-                />
+                  <Field
+                    as={TextField}
+                    margin="dense"
+                    label="Date of Birth"
+                    type="text" // change this to text
+                    fullWidth
+                    value={values.dob}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="dob"
+                    error={touched.dob && !!errors.dob}
+                    helperText={<ErrorMessage name="dob" />}
+                    required
+                  />
 
-                <Field
-                  as={TextField}
-                  margin="dense"
-                  label="Phone"
-                  type="text"
-                  fullWidth
-                  value={values.phone}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  name="phone"
-                  error={touched.phone && !!errors.phone}
-                  helperText={<ErrorMessage name="phone" />}
-                  required
-                />
+                  <Field
+                    as={TextField}
+                    margin="dense"
+                    label="Phone"
+                    type="text"
+                    fullWidth
+                    value={values.phone}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="phone"
+                    error={touched.phone && !!errors.phone}
+                    helperText={<ErrorMessage name="phone" />}
+                    required
+                  />
 
-                <Field
-                  as={TextField}
-                  margin="dense"
-                  label="Email"
-                  type="email"
-                  fullWidth
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  name="email"
-                  error={touched.email && !!errors.email}
-                  helperText={<ErrorMessage name="email" />}
-                  required
-                />
+                  <Field
+                    as={TextField}
+                    margin="dense"
+                    label="Email"
+                    type="email"
+                    fullWidth
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="email"
+                    error={touched.email && !!errors.email}
+                    helperText={<ErrorMessage name="email" />}
+                    required
+                  />
 
-                <FormControlLabel
-                  control={
-                    <Field
-                      as={Checkbox}
-                      checked={values.isManager}
-                      onChange={handleChange}
-                      name="isManager"
-                    />
-                  }
-                  label="Is Manager"
-                />
+                  <FormControlLabel
+                    control={
+                      <Field
+                        as={Checkbox}
+                        checked={values.isowner}
+                        onChange={handleChange}
+                        name="isowner"
+                      />
+                    }
+                    label="Is Owner"
+                  />
 
-                <FormControlLabel
-                  control={
-                    <Field
-                      as={Checkbox}
-                      checked={values.isOwner}
-                      onChange={handleChange}
-                      name="isOwner"
-                    />
-                  }
-                  label="Is Owner"
-                />
+                  <FormControlLabel
+                    control={
+                      <Field
+                        as={Checkbox}
+                        checked={values.ismanager}
+                        onChange={handleChange}
+                        name="ismanager"
+                      />
+                    }
+                    label="Is Manager"
+                  />
 
-                <FormControlLabel
-                  control={
-                    <Field
-                      as={Checkbox}
-                      checked={values.isTenant}
-                      onChange={handleChange}
-                      name="isTenant"
-                    />
-                  }
-                  label="Is Tenant"
-                />
+                  <FormControlLabel
+                    control={
+                      <Field
+                        as={Checkbox}
+                        checked={values.istenant}
+                        onChange={handleChange}
+                        name="istenant"
+                      />
+                    }
+                    label="Is Tenant"
+                  />
 
-                <DialogActions>
-                  <Button onClick={handleClose}>Cancel</Button>
-                  <Button type="submit">Save</Button>
-                </DialogActions>
-              </Form>
-            )}
+                  <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button type="submit">Save</Button>
+                  </DialogActions>
+                </Form>
+              );
+            }}
           </Formik>
         </DialogContent>
       </Dialog>

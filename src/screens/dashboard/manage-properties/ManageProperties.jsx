@@ -7,7 +7,7 @@ import { getColumns } from "./PropertiesColumns";
 const ManageProperties = () => {
   const [open, setOpen] = useState(false);
   const [editingRowId, setEditingRowId] = useState(null);
-  const [editingRowData, setEditingRowData] = useState(null);
+  const [resetPasswordRowID, setEditingRowData] = useState(null);
 
   const handleClose = () => {
     setOpen(false);
@@ -16,7 +16,7 @@ const ManageProperties = () => {
   const handleSave = () => {
     // Implement your logic to save the changes here
     console.log(`Save changes for property ${editingRowId}`);
-    console.log(editingRowData);
+    console.log(resetPasswordRowID);
     setOpen(false);
   };
 
@@ -30,7 +30,7 @@ const ManageProperties = () => {
         open={open}
         handleClose={handleClose}
         handleSave={handleSave}
-        editingRowData={editingRowData}
+        resetPasswordRowID={resetPasswordRowID}
       />
     </>
   );

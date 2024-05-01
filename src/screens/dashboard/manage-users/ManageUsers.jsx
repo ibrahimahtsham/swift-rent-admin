@@ -1,36 +1,80 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DataTable from "../../../components/DataTable";
-import { rows } from "../../../utils/data/UsersData";
 import EditUserPopup from "./EditUserPopup";
+import { editUser, fetchUsers, resetPassword } from "./ManageUsersAPIs";
+import ResetPasswordPopup from "./ResetPasswordPopup";
 import { getColumns } from "./UsersColumns";
 
 const ManageUsers = () => {
-  const [open, setOpen] = useState(false);
-  const [editingRowId, setEditingRowId] = useState(null);
-  const [editingRowData, setEditingRowData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  // Editing Popup
+  const [openEditingPopup, setOpenEditingPopup] = useState(false);
+  const [editingRow, setEditingRow] = useState(null);
 
-  const handleClose = () => {
-    setOpen(false);
+  // Reset Password Popup
+  const [openResetPasswordPopup, setOpenResetPasswordPopup] = useState(false);
+  const [resetPasswordRowID, setResetPasswordRowID] = useState(null);
+
+  const [rows, setRows] = useState([]);
+  const columns = getColumns(
+    setOpenEditingPopup,
+    setEditingRow,
+    setOpenResetPasswordPopup,
+    setResetPasswordRowID,
+    setRows,
+    setLoading
+  );
+
+  useEffect(() => {
+    fetchUsers(setLoading, setRows);
+  }, []);
+
+  // Handlers to close the popups
+
+  const handleEditingClose = () => {
+    setOpenEditingPopup(false);
   };
 
-  const handleSave = () => {
-    // Implement your logic to save the changes here
-    console.log(`Save changes for user ${editingRowId}`);
-    console.log(editingRowData);
-    setOpen(false);
+  const handleCloseResetPassword = () => {
+    setOpenResetPasswordPopup(false);
   };
 
-  const columns = getColumns(setOpen, setEditingRowId, setEditingRowData);
+  // Handlers to save the data from the popups
+
+  const handleEditingSave = async (values) => {
+    editUser(values, setOpenEditingPopup, setLoading, fetchUsers, setRows);
+  };
+
+  const handleSaveResetPassword = async (values) => {
+    resetPassword(
+      { ...values, id: resetPasswordRowID },
+      setOpenResetPasswordPopup,
+      setLoading,
+      fetchUsers,
+      setRows
+    );
+  };
 
   return (
     <>
-      <DataTable title="Users" rows={rows} columns={columns} />
+      <DataTable
+        title="Users"
+        rows={rows}
+        columns={columns}
+        loading={loading}
+      />
 
       <EditUserPopup
-        open={open}
-        handleClose={handleClose}
-        handleSave={handleSave}
-        editingRowData={editingRowData}
+        open={openEditingPopup}
+        handleClose={handleEditingClose}
+        handleSave={handleEditingSave}
+        editingRow={editingRow}
+      />
+
+      <ResetPasswordPopup
+        open={openResetPasswordPopup}
+        handleClose={handleCloseResetPassword}
+        handleSave={handleSaveResetPassword}
       />
     </>
   );

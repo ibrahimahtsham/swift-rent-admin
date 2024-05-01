@@ -47,7 +47,7 @@ const Navbar = () => {
             alt="Logo"
             className="navbar-logo"
           />
-          <h1 className="navbar-title">Swift Rent</h1>
+          <h1 className="navbar-title">SwiftRent</h1>
         </div>
       </div>
       <div className="right-container">

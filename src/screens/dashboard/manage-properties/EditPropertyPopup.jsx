@@ -16,7 +16,7 @@ const EditPropertyPopup = ({
   open,
   handleClose,
   handleSave,
-  editingRowData,
+  resetPasswordRowID,
 }) => {
   const { theme } = useContext(ThemeContext);
 
@@ -33,7 +33,7 @@ const EditPropertyPopup = ({
         <DialogContent>
           <Formik
             initialValues={
-              editingRowData || {
+              resetPasswordRowID || {
                 ownerName: "",
                 tenantName: "",
                 managerName: "",
