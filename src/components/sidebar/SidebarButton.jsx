@@ -13,7 +13,7 @@ const SidebarButton = ({ image, title, isActive, onClick }) => {
     <Button
       title={title}
       sx={{
-        justifyContent: isOpen ? "space-between" : "center",
+        justifyContent: isOpen ? "flex-start" : "center",
         marginBottom: "0.5vh",
         padding: "1vh 1vh",
         minWidth: "80%",
