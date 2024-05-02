@@ -2,12 +2,13 @@ import { ResponsivePie } from "@nivo/pie";
 import React, { useContext } from "react";
 import { ThemeContext } from "../../utils/ThemeContext";
 
-const PieGraph = ({ data, label }) => {
+const PieGraph = ({ data, label, description }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
     <>
       <h2>{label}</h2>
+      <h3>{description}</h3>
       <ResponsivePie
         data={data}
         margin={{ top: 40, right: 80 }}
@@ -42,7 +43,7 @@ const PieGraph = ({ data, label }) => {
             direction: "row",
             justify: false,
             translateX: 0,
-            translateY: -100,
+            translateY: -70,
             itemsSpacing: 60,
             itemWidth: 60,
             itemHeight: 18,

@@ -18,32 +18,52 @@ const Analytics = () => {
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <div style={{ height: "300px" }}>
-            <PieGraph data={usersData} label={"Total Users: 10"} />
+            <PieGraph
+              data={usersData}
+              label={"Users"}
+              description={"Total: 5"}
+            />
           </div>
         </Grid>
         <Grid item xs={6}>
           <div style={{ height: "300px" }}>
-            <PieGraph data={cityData} label={"Total Properties: 5"} />
+            <PieGraph
+              data={cityData}
+              label={"Properties"}
+              description={"Total: 5"}
+            />
           </div>
         </Grid>
         <Grid item xs={6}>
           <div style={{ height: "300px" }}>
-            <PieGraph data={propertyStatusData} label={"Property Status"} />
+            <PieGraph
+              data={propertyStatusData}
+              label={"Property Status"}
+              description={"Total: 5"}
+            />
           </div>
         </Grid>
         <Grid item xs={6}>
           <div style={{ height: "300px" }}>
-            <PieGraph data={complainsData} label={"User Complains"} />
+            <PieGraph
+              data={complainsData}
+              label={"User Complains"}
+              description={"Total: 5"}
+            />
           </div>
         </Grid>
         <Grid item xs={6}>
           <div style={{ height: "300px" }}>
-            <PieGraph data={managerTypesData} label={"Manager Types"} />
+            <PieGraph
+              data={managerTypesData}
+              label={"Manager Types"}
+              description={"Total: 5"}
+            />
           </div>
         </Grid>
         <Grid item xs={12}>
-          <div style={{ height: "400px" }}>
-            <BarGraph data={barGraphData} label={"Bar Graph"} />
+          <div style={{ height: "300px" }}>
+            <BarGraph data={barGraphData} label={"Property Types Per City"} />
           </div>
         </Grid>
       </Grid>

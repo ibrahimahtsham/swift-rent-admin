@@ -37,7 +37,7 @@ const BarGraph = ({ data, label }) => {
           "Factories",
         ]}
         indexBy="city"
-        margin={{ top: 50, right: 130, bottom: 50, left: 100 }}
+        margin={{ right: 130, left: 100 }}
         padding={0.8}
         layout="horizontal"
         valueScale={{ type: "linear" }}
@@ -55,11 +55,17 @@ const BarGraph = ({ data, label }) => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "City",
           legendPosition: "middle",
           legendOffset: -40,
           truncateTickAt: 0,
-          legendTextColor: theme === "dark" ? "#fff" : "#000",
+        }}
+        theme={{
+          tooltip: {
+            container: {
+              background: theme === "dark" ? "#333" : "#fff",
+            },
+          },
+          text: theme === "dark" ? { fill: "#fff" } : { fill: "#000" },
         }}
         enableGridY={false}
         enableTotals={true}
