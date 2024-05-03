@@ -17,6 +17,7 @@
     "@nivo/bar": "^0.86.0",
     "@nivo/line": "^0.86.0",
     "@nivo/pie": "^0.86.0",
+    "@nivo/sunburst": "^0.86.0",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
     "date-fns": "^3.6.0",

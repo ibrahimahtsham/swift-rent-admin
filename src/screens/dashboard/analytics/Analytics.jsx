@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import BarGraph from "../../../components/common/BarGraph";
 import LineGraph from "../../../components/common/LineGraph";
 import PieGraph from "../../../components/common/PieGraph";
+import SunburstGraph from "../../../components/common/SunburstGraph";
 import { ThemeContext } from "../../../utils/ThemeContext";
 import {
   barGraphData,
@@ -52,6 +53,15 @@ const Analytics = () => {
             <BarGraph data={barGraphData} label={"Property Types Per City"} />
           </CardComponent>
         </Grid>
+        <Grid item xs={12}>
+          <CardComponent style={{ height: "500px" }}>
+            <SunburstGraph
+              data={propertyStatusData}
+              label={"Property Status"}
+              description={"Total: 5"}
+            />
+          </CardComponent>
+        </Grid>
         <Grid item xs={6}>
           <CardComponent>
             <PieGraph
@@ -66,15 +76,6 @@ const Analytics = () => {
             <PieGraph
               data={cityData}
               label={"Properties (Islamabad vs Rawalpindi)"}
-              description={"Total: 5"}
-            />
-          </CardComponent>
-        </Grid>
-        <Grid item xs={6}>
-          <CardComponent>
-            <PieGraph
-              data={propertyStatusData}
-              label={"Property Status"}
               description={"Total: 5"}
             />
           </CardComponent>

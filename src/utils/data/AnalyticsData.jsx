@@ -34,20 +34,27 @@ export const cityData = [
   },
 ];
 
-export const propertyStatusData = [
-  {
-    id: "Vacant",
-    label: "Vacant",
-    value: 2,
-    color: "hsl(218, 89.7%, 40.8%)",
-  },
-  {
-    id: "Occupied",
-    label: "Occupied",
-    value: 3,
-    color: "hsl(213, 93.8%, 55.6%)",
-  },
-];
+export const propertyStatusData = {
+  id: "Rawalpindi and Islamabad",
+  children: [
+    {
+      id: "Rawalpindi",
+      color: "hsl(218, 89.7%, 40.8%)",
+      children: [
+        { id: "Vacant", value: 1, color: "hsl(218, 89.7%, 40.8%)" },
+        { id: "Occupied", value: 2, color: "hsl(213, 93.8%, 55.6%)" },
+      ],
+    },
+    {
+      id: "Islamabad",
+      color: "hsl(213, 93.8%, 55.6%)",
+      children: [
+        { id: "Vacant", value: 1, color: "hsl(218, 89.7%, 40.8%)" },
+        { id: "Occupied", value: 1, color: "hsl(213, 93.8%, 55.6%)" },
+      ],
+    },
+  ],
+};
 
 export const rentPaymentData = [
   {
