@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BarGraph from "../../../components/common/graphs/BarGraph";
 import LineGraph from "../../../components/common/graphs/LineGraph";
 import PieGraph from "../../../components/common/graphs/PieGraph";
@@ -16,8 +16,40 @@ import {
   usersData,
 } from "../../../utils/data/AnalyticsData";
 import { AnalyticsCard } from "./AnalyticsCard";
+import {
+  updateCityData,
+  updateComplainsData,
+  updateManagerTypesData,
+  updateRentPaymentData,
+  updateRentalsData,
+  updateUserData,
+} from "./AnalyticsDataUpdaters";
 
 const Analytics = () => {
+  // line graph
+
+  // pie graphs
+  const [updatedUserData, setUpdatedUserData] = useState(usersData);
+  const [updatedRentalsData, setUpdatedRentalsData] = useState(rentalsData);
+  const [updatedRentPaymentData, setUpdatedRentPaymentData] =
+    useState(rentPaymentData);
+  const [updatedCityData, setUpdatedCityData] = useState(cityData);
+  const [updatedComplainsData, setUpdatedComplainsData] =
+    useState(complainsData);
+  const [updatedManagerTypesData, setUpdatedManagerTypesData] =
+    useState(managerTypesData);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setUpdatedUserData(updateUserData(usersData));
+      setUpdatedRentalsData(updateRentalsData(rentalsData));
+      setUpdatedRentPaymentData(updateRentPaymentData(rentPaymentData));
+      setUpdatedCityData(updateCityData(cityData));
+      setUpdatedComplainsData(updateComplainsData(complainsData));
+      setUpdatedManagerTypesData(updateManagerTypesData(managerTypesData));
+    }, 200);
+  }, []);
+
   return (
     <div>
       <h1>Analytics</h1>
@@ -47,7 +79,7 @@ const Analytics = () => {
         <Grid item xs={6}>
           <AnalyticsCard>
             <PieGraph
-              data={usersData}
+              data={updatedUserData}
               label={"Users"}
               description={"Total: 5"}
             />
@@ -56,7 +88,7 @@ const Analytics = () => {
         <Grid item xs={6}>
           <AnalyticsCard>
             <PieGraph
-              data={rentalsData}
+              data={updatedRentalsData}
               label={"Tenants vs Rentals"}
               description={"Total: 5"}
             />
@@ -65,7 +97,7 @@ const Analytics = () => {
         <Grid item xs={6}>
           <AnalyticsCard>
             <PieGraph
-              data={rentPaymentData}
+              data={updatedRentPaymentData}
               label={"On-Time vs Late Rent Payments"}
               description={"Total: 5"}
             />
@@ -74,7 +106,7 @@ const Analytics = () => {
         <Grid item xs={6}>
           <AnalyticsCard>
             <PieGraph
-              data={cityData}
+              data={updatedCityData}
               label={"Properties (Islamabad vs Rawalpindi)"}
               description={"Total: 5"}
             />
@@ -83,7 +115,7 @@ const Analytics = () => {
         <Grid item xs={6}>
           <AnalyticsCard>
             <PieGraph
-              data={complainsData}
+              data={updatedComplainsData}
               label={"User Complains"}
               description={"Total: 5"}
             />
@@ -92,7 +124,7 @@ const Analytics = () => {
         <Grid item xs={6}>
           <AnalyticsCard>
             <PieGraph
-              data={managerTypesData}
+              data={updatedManagerTypesData}
               label={"Manager Types"}
               description={"Total: 5"}
             />
