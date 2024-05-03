@@ -11,7 +11,7 @@ const PieGraph = ({ data, label, description }) => {
       <h3>{description}</h3>
       <ResponsivePie
         data={data}
-        margin={{ top: 40, right: 80 }}
+        margin={{ top: 40, right: 80, left: 80 }}
         startAngle={-90}
         endAngle={90}
         sortByValue={true}
@@ -36,6 +36,7 @@ const PieGraph = ({ data, label, description }) => {
               color: theme === "dark" ? "#fff" : "#333",
             },
           },
+          text: theme === "dark" ? { fill: "#fff" } : { fill: "#000" },
         }}
         legends={[
           {

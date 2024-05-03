@@ -1,7 +1,9 @@
+import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import React from "react";
+import React, { useContext } from "react";
 import BarGraph from "../../../components/common/BarGraph";
 import PieGraph from "../../../components/common/PieGraph";
+import { ThemeContext } from "../../../utils/ThemeContext";
 import {
   barGraphData,
   cityData,
@@ -11,60 +13,77 @@ import {
   usersData,
 } from "../../../utils/data/AnalyticsData";
 
+const CardComponent = ({ children, style }) => {
+  const { theme } = useContext(ThemeContext);
+  return (
+    <Card
+      style={{
+        height: "300px",
+        padding: "20px",
+        backgroundColor: theme === "dark" ? "#424242" : "#fff",
+        color: theme === "dark" ? "#fff" : "#000",
+        ...style, // merge the passed style prop with the existing styles
+      }}
+    >
+      {children}
+    </Card>
+  );
+};
+
 const Analytics = () => {
   return (
     <div>
       <h1>Analytics</h1>
       <Grid container spacing={3}>
         <Grid item xs={6}>
-          <div style={{ height: "300px" }}>
+          <CardComponent>
             <PieGraph
               data={usersData}
               label={"Users"}
               description={"Total: 5"}
             />
-          </div>
+          </CardComponent>
         </Grid>
         <Grid item xs={6}>
-          <div style={{ height: "300px" }}>
+          <CardComponent>
             <PieGraph
               data={cityData}
               label={"Properties"}
               description={"Total: 5"}
             />
-          </div>
+          </CardComponent>
         </Grid>
         <Grid item xs={6}>
-          <div style={{ height: "300px" }}>
+          <CardComponent>
             <PieGraph
               data={propertyStatusData}
               label={"Property Status"}
               description={"Total: 5"}
             />
-          </div>
+          </CardComponent>
         </Grid>
         <Grid item xs={6}>
-          <div style={{ height: "300px" }}>
+          <CardComponent>
             <PieGraph
               data={complainsData}
               label={"User Complains"}
               description={"Total: 5"}
             />
-          </div>
+          </CardComponent>
         </Grid>
         <Grid item xs={6}>
-          <div style={{ height: "300px" }}>
+          <CardComponent>
             <PieGraph
               data={managerTypesData}
               label={"Manager Types"}
               description={"Total: 5"}
             />
-          </div>
+          </CardComponent>
         </Grid>
         <Grid item xs={12}>
-          <div style={{ height: "300px" }}>
+          <CardComponent style={{ height: "350px" }}>
             <BarGraph data={barGraphData} label={"Property Types Per City"} />
-          </div>
+          </CardComponent>
         </Grid>
       </Grid>
     </div>

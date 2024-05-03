@@ -79,7 +79,7 @@ const BarGraph = ({ data, label }) => {
             direction: "column",
             justify: true,
             translateX: 120,
-            translateY: 0,
+            translateY: -70,
             itemsSpacing: 2,
             itemWidth: 100,
             itemHeight: 20,
