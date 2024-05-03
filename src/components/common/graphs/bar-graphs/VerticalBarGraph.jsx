@@ -2,7 +2,7 @@ import { ResponsiveBar } from "@nivo/bar";
 import React, { useContext } from "react";
 import { ThemeContext } from "../../../../utils/ThemeContext";
 
-const VerticalBarGraph = ({ data, label }) => {
+const VerticalBarGraph = ({ data, yLabel, label }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -24,7 +24,7 @@ const VerticalBarGraph = ({ data, label }) => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "Cities",
+          legend: yLabel,
           legendPosition: "middle",
           legendOffset: 32,
         }}
@@ -42,10 +42,15 @@ const VerticalBarGraph = ({ data, label }) => {
             },
           },
           text: theme === "dark" ? { fill: "#fff" } : { fill: "#000" },
+          labels: {
+            text: {
+              fontSize: 50,
+            },
+          },
         }}
         labelSkipWidth={12}
         labelSkipHeight={12}
-        labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
+        labelTextColor="#fff"
         role="application"
         ariaLabel="Nivo bar chart demo"
         barAriaLabel={(e) =>

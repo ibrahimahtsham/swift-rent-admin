@@ -103,6 +103,7 @@ const Analytics = () => {
           <AnalyticsCard style={{ height: "500px" }}>
             <VerticalBarGraph
               data={verticalBarGraphData}
+              yLabel={"Cities"}
               label={"Property Types Per City"}
             />
           </AnalyticsCard>
