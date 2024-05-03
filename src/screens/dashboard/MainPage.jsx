@@ -17,7 +17,7 @@ const MainPageCard = ({ children }) => {
   return (
     <Card
       style={{
-        width: `${screenWidth - 170}px`,
+        width: `${screenWidth - screenWidth * 0.15}px`,
         padding: "20px",
         backgroundColor: theme === "dark" ? "#424242" : "#fff",
         color: theme === "dark" ? "#fff" : "#000",
@@ -30,50 +30,53 @@ const MainPageCard = ({ children }) => {
 
 const MainPage = () => {
   return (
-    <Grid container direction="column" spacing={2}>
-      <Grid item>
-        <MainPageCard>
-          <CardContent>
-            <Analytics />
-          </CardContent>
-        </MainPageCard>
+    <>
+      <h1>SwiftRent Admin Panel</h1>
+      <Grid container direction="column" spacing={2}>
+        <Grid item>
+          <MainPageCard>
+            <CardContent>
+              <Analytics />
+            </CardContent>
+          </MainPageCard>
+        </Grid>
+        <Grid item>
+          <MainPageCard>
+            <CardContent>
+              <AuditLogs />
+            </CardContent>
+          </MainPageCard>
+        </Grid>
+        <Grid item>
+          <MainPageCard>
+            <CardContent>
+              <ManageCities />
+            </CardContent>
+          </MainPageCard>
+        </Grid>
+        <Grid item>
+          <MainPageCard>
+            <CardContent>
+              <ManageComplains />
+            </CardContent>
+          </MainPageCard>
+        </Grid>
+        <Grid item>
+          <MainPageCard>
+            <CardContent>
+              <ManageProperties />
+            </CardContent>
+          </MainPageCard>
+        </Grid>
+        <Grid item>
+          <MainPageCard>
+            <CardContent>
+              <ManageUsers />
+            </CardContent>
+          </MainPageCard>
+        </Grid>
       </Grid>
-      <Grid item>
-        <MainPageCard>
-          <CardContent>
-            <AuditLogs />
-          </CardContent>
-        </MainPageCard>
-      </Grid>
-      <Grid item>
-        <MainPageCard>
-          <CardContent>
-            <ManageCities />
-          </CardContent>
-        </MainPageCard>
-      </Grid>
-      <Grid item>
-        <MainPageCard>
-          <CardContent>
-            <ManageComplains />
-          </CardContent>
-        </MainPageCard>
-      </Grid>
-      <Grid item>
-        <MainPageCard>
-          <CardContent>
-            <ManageProperties />
-          </CardContent>
-        </MainPageCard>
-      </Grid>
-      <Grid item>
-        <MainPageCard>
-          <CardContent>
-            <ManageUsers />
-          </CardContent>
-        </MainPageCard>
-      </Grid>
-    </Grid>
+    </>
   );
 };
 
