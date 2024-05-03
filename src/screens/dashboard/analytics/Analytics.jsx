@@ -39,7 +39,10 @@ const Analytics = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <CardComponent style={{ height: "400px" }}>
-            <LineGraph data={lineGraphData} label={"Analytics Per Month"} />
+            <LineGraph
+              data={lineGraphData}
+              label={"Analytics Per Month (for the past 12 months)"}
+            />
           </CardComponent>
         </Grid>
         <Grid item xs={12}>

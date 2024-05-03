@@ -31,15 +31,16 @@ const LineGraph = ({ data, label }) => {
           legendPosition: "middle",
           truncateTickAt: 0,
         }}
-        axisLeft={{
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: "Count",
-          legendOffset: -50,
-          legendPosition: "middle",
-          truncateTickAt: 0,
-        }}
+        axisLeft={null}
+        // axisLeft={{
+        //   tickSize: 5,
+        //   tickPadding: 5,
+        //   tickRotation: 0,
+        //   legend: "Count",
+        //   legendOffset: -50,
+        //   legendPosition: "middle",
+        //   truncateTickAt: 0,
+        // }}
         colors={({ id }) => data.find((d) => d.id === id).color}
         theme={{
           tooltip: {
@@ -61,7 +62,7 @@ const LineGraph = ({ data, label }) => {
         pointBorderWidth={1}
         pointBorderColor={theme === "dark" ? "#727272" : "#000000"}
         enablePointLabel={true}
-        pointLabel="data.y"
+        pointLabel="y"
         pointLabelYOffset={-12}
         areaOpacity={0}
         enableSlices="x"
