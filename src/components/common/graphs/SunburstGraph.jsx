@@ -27,7 +27,7 @@ const SunburstGraph = ({ data, label, description }) => {
         animate={true}
         motionConfig="gentle"
         enableArcLabels={true}
-        arcLabel={(d) => `${d.id.charAt(0)}`} // to display the value ${d.value ? d.value : ""}
+        arcLabel={(d) => `${d.id.charAt(0)}:${d.value ? d.value : ""}`}
         valueFormat={(value) => `${value}`}
         theme={{
           tooltip: {
