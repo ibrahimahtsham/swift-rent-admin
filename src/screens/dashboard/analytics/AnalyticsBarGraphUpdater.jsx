@@ -1,4 +1,4 @@
-export function updateBarGraphData() {
+export function updatePropertyTypesPerCityData() {
   return [
     {
       city: "Islamabad",

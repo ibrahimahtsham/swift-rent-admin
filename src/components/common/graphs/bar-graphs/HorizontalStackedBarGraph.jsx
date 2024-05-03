@@ -1,8 +1,8 @@
 import { ResponsiveBar } from "@nivo/bar";
 import React, { useContext } from "react";
-import { ThemeContext } from "../../../utils/ThemeContext";
+import { ThemeContext } from "../../../../utils/ThemeContext";
 
-const BarGraph = ({ data, label }) => {
+const HorizontalStackedBarGraph = ({ data, label }) => {
   const { theme } = useContext(ThemeContext);
 
   const maxSum = data.reduce((max, curr) => {
@@ -106,4 +106,4 @@ const BarGraph = ({ data, label }) => {
   );
 };
 
-export default BarGraph;
+export default HorizontalStackedBarGraph;

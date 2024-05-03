@@ -130,7 +130,7 @@ export const lineGraphData = [
 
 // bar graph data
 
-export const barGraphData = [
+export const propertyTypesPerCityData = [
   {
     city: "Islamabad",
     Houses: 0,
@@ -163,6 +163,14 @@ export const barGraphData = [
     Warehouses: 0,
     Factories: 0,
   },
+];
+
+export const verticalBarGraphData = [
+  { city: "City A", value: 100 },
+  { city: "City B", value: 80 },
+  { city: "City C", value: 50 },
+  { city: "City D", value: 90 },
+  { city: "City E", value: 40 },
 ];
 
 // sunburst graph data

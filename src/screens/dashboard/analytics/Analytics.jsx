@@ -1,21 +1,23 @@
 import Grid from "@mui/material/Grid";
 import React, { useEffect, useState } from "react";
-import BarGraph from "../../../components/common/graphs/BarGraph";
 import LineGraph from "../../../components/common/graphs/LineGraph";
 import PieGraph from "../../../components/common/graphs/PieGraph";
 import SunburstGraph from "../../../components/common/graphs/SunburstGraph";
+import HorizontalStackedBarGraph from "../../../components/common/graphs/bar-graphs/HorizontalStackedBarGraph";
+import VerticalBarGraph from "../../../components/common/graphs/bar-graphs/VerticalBarGraph";
 import {
-  barGraphData,
   cityData,
   complainsData,
   lineGraphData,
   managerTypesData,
   propertyStatusData,
+  propertyTypesPerCityData,
   rentPaymentData,
   rentalsData,
   usersData,
+  verticalBarGraphData,
 } from "../../../utils/data/AnalyticsData";
-import { updateBarGraphData } from "./AnalyticsBarGraphUpdater";
+import { updatePropertyTypesPerCityData } from "./AnalyticsBarGraphUpdater";
 import { AnalyticsCard } from "./AnalyticsCard";
 import { updateLineGraphData } from "./AnalyticsLineGraphUpdater";
 import {
@@ -34,7 +36,8 @@ const Analytics = () => {
     useState(lineGraphData);
 
   // bar graph
-  const [updatedBarGraphData, setUpdatedBarGraphData] = useState(barGraphData);
+  const [updatedPropertyTypesPerCityData, setUpdatedPropertyTypesPerCityData] =
+    useState(propertyTypesPerCityData);
 
   // sunburst graph
   const [updatedPropertyStatusData, setUpdatedPropertyStatusData] =
@@ -57,7 +60,9 @@ const Analytics = () => {
       setUpdatedLineGraphData(updateLineGraphData(lineGraphData));
 
       // bar graph
-      setUpdatedBarGraphData(updateBarGraphData(barGraphData));
+      setUpdatedPropertyTypesPerCityData(
+        updatePropertyTypesPerCityData(propertyTypesPerCityData)
+      );
 
       // sunburst graph
       setUpdatedPropertyStatusData(
@@ -88,8 +93,16 @@ const Analytics = () => {
         </Grid>
         <Grid item xs={12}>
           <AnalyticsCard style={{ height: "350px" }}>
-            <BarGraph
-              data={updatedBarGraphData}
+            <HorizontalStackedBarGraph
+              data={updatedPropertyTypesPerCityData}
+              label={"Property Types Per City"}
+            />
+          </AnalyticsCard>
+        </Grid>
+        <Grid item xs={12}>
+          <AnalyticsCard style={{ height: "500px" }}>
+            <VerticalBarGraph
+              data={verticalBarGraphData}
               label={"Property Types Per City"}
             />
           </AnalyticsCard>
