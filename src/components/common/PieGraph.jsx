@@ -11,7 +11,7 @@ const PieGraph = ({ data, label, description }) => {
       <h3>{description}</h3>
       <ResponsivePie
         data={data}
-        margin={{ top: 40, right: 80, left: 80 }}
+        margin={{ right: 160, left: 160 }}
         startAngle={-90}
         endAngle={90}
         sortByValue={true}
@@ -27,7 +27,12 @@ const PieGraph = ({ data, label, description }) => {
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: "color", modifiers: [] }}
         arcLabelsSkipAngle={9}
-        arcLabelsTextColor="#fff"
+        arcLabelsTextColor={({ data }) => {
+          const color = data.color.slice(4, -1);
+          const lightnessString = color.split(",")[2].trim().slice(0, -1);
+          const lightness = Number(lightnessString);
+          return lightness < 50 ? "#fff" : "#000";
+        }}
         motionConfig="slow"
         theme={{
           tooltip: {
@@ -37,6 +42,11 @@ const PieGraph = ({ data, label, description }) => {
             },
           },
           text: theme === "dark" ? { fill: "#fff" } : { fill: "#000" },
+          labels: {
+            text: {
+              fontSize: 20,
+            },
+          },
         }}
         legends={[
           {
