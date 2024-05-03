@@ -12,6 +12,7 @@ const LineGraph = ({ data, label }) => {
         data={data}
         margin={{ top: 30, right: 180, bottom: 120, left: 60 }}
         xScale={{ type: "point" }}
+        lineWidth={3}
         yScale={{
           type: "linear",
           min: "auto",
@@ -32,15 +33,6 @@ const LineGraph = ({ data, label }) => {
           truncateTickAt: 0,
         }}
         axisLeft={null}
-        // axisLeft={{
-        //   tickSize: 5,
-        //   tickPadding: 5,
-        //   tickRotation: 0,
-        //   legend: "Count",
-        //   legendOffset: -50,
-        //   legendPosition: "middle",
-        //   truncateTickAt: 0,
-        // }}
         colors={({ id }) => data.find((d) => d.id === id).color}
         theme={{
           tooltip: {

@@ -41,7 +41,7 @@ const Analytics = () => {
           <CardComponent style={{ height: "400px" }}>
             <LineGraph
               data={lineGraphData}
-              label={"Analytics Per Month (for the past 12 months)"}
+              label={"Analytics Per Month (past 12 months)"}
             />
           </CardComponent>
         </Grid>
