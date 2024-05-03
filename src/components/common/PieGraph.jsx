@@ -44,7 +44,7 @@ const PieGraph = ({ data, label, description }) => {
           text: theme === "dark" ? { fill: "#fff" } : { fill: "#000" },
           labels: {
             text: {
-              fontSize: 20,
+              fontSize: 16,
             },
           },
         }}
