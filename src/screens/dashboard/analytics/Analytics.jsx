@@ -16,6 +16,7 @@ import {
   usersData,
 } from "../../../utils/data/AnalyticsData";
 import { AnalyticsCard } from "./AnalyticsCard";
+import { updateLineGraphData } from "./AnalyticsLineGraphUpdater";
 import {
   updateCityData,
   updateComplainsData,
@@ -23,10 +24,16 @@ import {
   updateRentPaymentData,
   updateRentalsData,
   updateUserData,
-} from "./AnalyticsDataUpdaters";
+} from "./AnalyticsPieChartsDataUpdaters";
 
 const Analytics = () => {
   // line graph
+  const [updatedLineGraphData, setUpdatedLineGraphData] =
+    useState(lineGraphData);
+
+  // bar graph
+
+  // sunburst graph
 
   // pie graphs
   const [updatedUserData, setUpdatedUserData] = useState(usersData);
@@ -41,13 +48,17 @@ const Analytics = () => {
 
   useEffect(() => {
     setTimeout(() => {
+      // line graph
+      setUpdatedLineGraphData(updateLineGraphData(lineGraphData));
+
+      // pie charts
       setUpdatedUserData(updateUserData(usersData));
       setUpdatedRentalsData(updateRentalsData(rentalsData));
       setUpdatedRentPaymentData(updateRentPaymentData(rentPaymentData));
       setUpdatedCityData(updateCityData(cityData));
       setUpdatedComplainsData(updateComplainsData(complainsData));
       setUpdatedManagerTypesData(updateManagerTypesData(managerTypesData));
-    }, 200);
+    }, 2000);
   }, []);
 
   return (
@@ -57,7 +68,7 @@ const Analytics = () => {
         <Grid item xs={12}>
           <AnalyticsCard style={{ height: "400px" }}>
             <LineGraph
-              data={lineGraphData}
+              data={updatedLineGraphData}
               label={"Analytics Per Month (past 12 months)"}
             />
           </AnalyticsCard>
