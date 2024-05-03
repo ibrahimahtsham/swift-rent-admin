@@ -85,6 +85,7 @@ const Sidebar = () => {
 
         <p
           style={{
+            color: "#fff",
             fontSize: isOpen
               ? "var(--sidebar-copyright-text-width-open)"
               : "var(--sidebar-copyright-text-width-closed)",
