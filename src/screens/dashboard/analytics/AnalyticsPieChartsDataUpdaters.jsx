@@ -27,7 +27,7 @@ export function updateRentalsData(data) {
 
 export function updateRentPaymentData(data) {
   return data.map((rentPayment) => {
-    if (rentPayment.id === "On-Time") {
+    if (rentPayment.id === "On Time") {
       return { ...rentPayment, value: 12 };
     }
     if (rentPayment.id === "Late") {
