@@ -54,7 +54,7 @@ const PieGraph = ({ data, label, description }) => {
             direction: "row",
             justify: false,
             translateX: 0,
-            translateY: -70,
+            translateY: -110,
             itemsSpacing: 60,
             itemWidth: 60,
             itemHeight: 18,

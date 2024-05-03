@@ -63,7 +63,7 @@ const Analytics = () => {
           <CardComponent>
             <PieGraph
               data={cityData}
-              label={"Properties"}
+              label={"Properties (Islamabad vs Rawalpindi)"}
               description={"Total: 5"}
             />
           </CardComponent>
