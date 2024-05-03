@@ -11,7 +11,7 @@ const PieGraph = ({ data, label, description }) => {
       <h3>{description}</h3>
       <ResponsivePie
         data={data}
-        margin={{ right: 160, left: 160, bottom: 20 }}
+        margin={{ right: 160, left: 160, bottom: 50, top: 20 }}
         startAngle={-90}
         endAngle={90}
         sortByValue={true}
@@ -54,7 +54,7 @@ const PieGraph = ({ data, label, description }) => {
             direction: "row",
             justify: false,
             translateX: 0,
-            translateY: -110,
+            translateY: -85,
             itemsSpacing: 60,
             itemWidth: 60,
             itemHeight: 18,
