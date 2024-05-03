@@ -165,12 +165,34 @@ export const propertyTypesPerCityData = [
   },
 ];
 
-export const verticalBarGraphData = [
-  { city: "City A", value: 100 },
-  { city: "City B", value: 80 },
-  { city: "City C", value: 50 },
-  { city: "City D", value: 90 },
-  { city: "City E", value: 40 },
+export const passwordResetResponseTimeData = [
+  { x: "Feb 24", value: 0 },
+  { x: "Mar 24", value: 0 },
+  { x: "Apr 24", value: 0 },
+  { x: "May 24", value: 0 },
+  { x: "Jun 24", value: 0 },
+  { x: "Jul 24", value: 0 },
+  { x: "Aug 24", value: 0 },
+  { x: "Sep 24", value: 0 },
+  { x: "Oct 24", value: 0 },
+  { x: "Nov 24", value: 0 },
+  { x: "Dec 24", value: 0 },
+  { x: "Jan 25", value: 0 },
+];
+
+export const managerHireResponseTimeData = [
+  { x: "Feb 24", value: 0 },
+  { x: "Mar 24", value: 0 },
+  { x: "Apr 24", value: 0 },
+  { x: "May 24", value: 0 },
+  { x: "Jun 24", value: 0 },
+  { x: "Jul 24", value: 0 },
+  { x: "Aug 24", value: 0 },
+  { x: "Sep 24", value: 0 },
+  { x: "Oct 24", value: 0 },
+  { x: "Nov 24", value: 0 },
+  { x: "Dec 24", value: 0 },
+  { x: "Jan 25", value: 0 },
 ];
 
 // sunburst graph data

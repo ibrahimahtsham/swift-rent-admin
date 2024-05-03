@@ -11,7 +11,7 @@ const VerticalBarGraph = ({ data, yLabel, label }) => {
       <ResponsiveBar
         data={data}
         keys={["value"]}
-        indexBy="city"
+        indexBy="x"
         margin={{ top: 50, right: 60, bottom: 120, left: 60 }}
         padding={0.3}
         valueScale={{ type: "linear" }}
@@ -44,12 +44,12 @@ const VerticalBarGraph = ({ data, yLabel, label }) => {
           text: theme === "dark" ? { fill: "#fff" } : { fill: "#000" },
           labels: {
             text: {
-              fontSize: 50,
+              fontSize: 40,
             },
           },
         }}
         labelSkipWidth={12}
-        labelSkipHeight={12}
+        labelSkipHeight={36}
         labelTextColor="#fff"
         role="application"
         ariaLabel="Nivo bar chart demo"

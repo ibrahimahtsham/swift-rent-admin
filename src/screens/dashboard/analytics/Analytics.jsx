@@ -9,15 +9,20 @@ import {
   cityData,
   complainsData,
   lineGraphData,
+  managerHireResponseTimeData,
   managerTypesData,
+  passwordResetResponseTimeData,
   propertyStatusData,
   propertyTypesPerCityData,
   rentPaymentData,
   rentalsData,
   usersData,
-  verticalBarGraphData,
 } from "../../../utils/data/AnalyticsData";
-import { updatePropertyTypesPerCityData } from "./AnalyticsBarGraphUpdater";
+import {
+  updateManagerHireResponseTimeData,
+  updatePasswordResetResponseTimeData,
+  updatePropertyTypesPerCityData,
+} from "./AnalyticsBarGraphUpdater";
 import { AnalyticsCard } from "./AnalyticsCard";
 import { updateLineGraphData } from "./AnalyticsLineGraphUpdater";
 import {
@@ -38,6 +43,14 @@ const Analytics = () => {
   // bar graph
   const [updatedPropertyTypesPerCityData, setUpdatedPropertyTypesPerCityData] =
     useState(propertyTypesPerCityData);
+  const [
+    updatedPasswordResetResponseTimeData,
+    setUpdatedPasswordResetResponseTimeData,
+  ] = useState(passwordResetResponseTimeData);
+  const [
+    updatedManagerHireResponseTimeData,
+    setUpdatedManagerHireResponseTimeData,
+  ] = useState(managerHireResponseTimeData);
 
   // sunburst graph
   const [updatedPropertyStatusData, setUpdatedPropertyStatusData] =
@@ -62,6 +75,12 @@ const Analytics = () => {
       // bar graph
       setUpdatedPropertyTypesPerCityData(
         updatePropertyTypesPerCityData(propertyTypesPerCityData)
+      );
+      setUpdatedPasswordResetResponseTimeData(
+        updatePasswordResetResponseTimeData(passwordResetResponseTimeData)
+      );
+      setUpdatedManagerHireResponseTimeData(
+        updateManagerHireResponseTimeData(managerHireResponseTimeData)
       );
 
       // sunburst graph
@@ -102,9 +121,20 @@ const Analytics = () => {
         <Grid item xs={12}>
           <AnalyticsCard style={{ height: "500px" }}>
             <VerticalBarGraph
-              data={verticalBarGraphData}
-              yLabel={"Cities"}
-              label={"Property Types Per City"}
+              data={updatedPasswordResetResponseTimeData}
+              yLabel={"Months"}
+              label={"Average Response Time for Password Reset (in hours)"}
+            />
+          </AnalyticsCard>
+        </Grid>
+        <Grid item xs={12}>
+          <AnalyticsCard style={{ height: "500px" }}>
+            <VerticalBarGraph
+              data={updatedManagerHireResponseTimeData}
+              yLabel={"Months"}
+              label={
+                "Average Time Taken to Accept Manager Hire Requests (in hours)"
+              }
             />
           </AnalyticsCard>
         </Grid>
