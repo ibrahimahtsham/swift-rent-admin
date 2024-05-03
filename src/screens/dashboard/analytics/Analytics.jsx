@@ -15,6 +15,7 @@ import {
   rentalsData,
   usersData,
 } from "../../../utils/data/AnalyticsData";
+import { updateBarGraphData } from "./AnalyticsBarGraphUpdater";
 import { AnalyticsCard } from "./AnalyticsCard";
 import { updateLineGraphData } from "./AnalyticsLineGraphUpdater";
 import {
@@ -32,6 +33,7 @@ const Analytics = () => {
     useState(lineGraphData);
 
   // bar graph
+  const [updatedBarGraphData, setUpdatedBarGraphData] = useState(barGraphData);
 
   // sunburst graph
 
@@ -50,6 +52,9 @@ const Analytics = () => {
     setTimeout(() => {
       // line graph
       setUpdatedLineGraphData(updateLineGraphData(lineGraphData));
+
+      // bar graph
+      setUpdatedBarGraphData(updateBarGraphData(barGraphData));
 
       // pie charts
       setUpdatedUserData(updateUserData(usersData));
@@ -75,7 +80,10 @@ const Analytics = () => {
         </Grid>
         <Grid item xs={12}>
           <AnalyticsCard style={{ height: "350px" }}>
-            <BarGraph data={barGraphData} label={"Property Types Per City"} />
+            <BarGraph
+              data={updatedBarGraphData}
+              label={"Property Types Per City"}
+            />
           </AnalyticsCard>
         </Grid>
         <Grid item xs={12}>

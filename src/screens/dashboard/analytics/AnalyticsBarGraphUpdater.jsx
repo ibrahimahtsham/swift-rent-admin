@@ -1,0 +1,36 @@
+export function updateBarGraphData() {
+  return [
+    {
+      city: "Islamabad",
+      Houses: 27,
+      "Upper Portion": 10,
+      "Lower Portion": 15,
+      Flats: 20,
+      Rooms: 10,
+      "Commercial Plots": 5,
+      "Agricultural Plots": 5,
+      "Industrial Plots": 5,
+      Offices: 5,
+      Shops: 5,
+      Buildings: 5,
+      Warehouses: 5,
+      Factories: 5,
+    },
+    {
+      city: "Rawalpindi",
+      Houses: 20,
+      "Upper Portion": 10,
+      "Lower Portion": 15,
+      Flats: 20,
+      Rooms: 10,
+      "Commercial Plots": 5,
+      "Agricultural Plots": 5,
+      "Industrial Plots": 5,
+      Offices: 5,
+      Shops: 5,
+      Buildings: 5,
+      Warehouses: 5,
+      Factories: 5,
+    },
+  ];
+}
