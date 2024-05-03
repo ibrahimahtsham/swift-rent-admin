@@ -1,6 +1,6 @@
 import { ResponsiveBar } from "@nivo/bar";
 import React, { useContext } from "react";
-import { ThemeContext } from "../../utils/ThemeContext";
+import { ThemeContext } from "../../../utils/ThemeContext";
 
 const BarGraph = ({ data, label }) => {
   const { theme } = useContext(ThemeContext);

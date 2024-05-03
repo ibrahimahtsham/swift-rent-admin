@@ -1,10 +1,10 @@
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import React, { useContext } from "react";
-import BarGraph from "../../../components/common/BarGraph";
-import LineGraph from "../../../components/common/LineGraph";
-import PieGraph from "../../../components/common/PieGraph";
-import SunburstGraph from "../../../components/common/SunburstGraph";
+import BarGraph from "../../../components/common/graphs/BarGraph";
+import LineGraph from "../../../components/common/graphs/LineGraph";
+import PieGraph from "../../../components/common/graphs/PieGraph";
+import SunburstGraph from "../../../components/common/graphs/SunburstGraph";
 import { ThemeContext } from "../../../utils/ThemeContext";
 import {
   barGraphData,

@@ -1,6 +1,6 @@
 import { CircularProgress, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import FormButton from "../../../../../components/common/FormButton";
+import FormButton from "../../../../../components/common/buttons/FormButton";
 import { icons } from "../../../../../utils/ImageImports";
 import AreaEditListForm from "./AreaEditListForm";
 import { handleDeleteArea } from "./AreasListAPIs";

@@ -1,7 +1,7 @@
 import { Grid, TextField } from "@mui/material";
 import { Field, Form, Formik } from "formik";
-import FormButton from "../../../../components/common/FormButton";
 import LoadingSpinner from "../../../../components/common/LoadingSpinner";
+import FormButton from "../../../../components/common/buttons/FormButton";
 import { icons } from "../../../../utils/ImageImports";
 import { addCityValidationSchema } from "../../../../utils/validation/AddCityValidation";
 

@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import { useState } from "react";
-import FormButton from "../../../../../components/common/FormButton";
 import LoadingSpinner from "../../../../../components/common/LoadingSpinner";
+import FormButton from "../../../../../components/common/buttons/FormButton";
 import { icons } from "../../../../../utils/ImageImports";
 import { handleDeleteCity } from "./CitiesListAPIs";
 import CityEditListForm from "./CityEditListForm";

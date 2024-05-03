@@ -1,6 +1,6 @@
 import { ResponsiveLine } from "@nivo/line";
 import { useContext } from "react";
-import { ThemeContext } from "../../utils/ThemeContext";
+import { ThemeContext } from "../../../utils/ThemeContext";
 
 const LineGraph = ({ data, label }) => {
   const { theme } = useContext(ThemeContext);

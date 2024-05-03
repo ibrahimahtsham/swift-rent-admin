@@ -1,6 +1,6 @@
 import { CircularProgress, Grid, TextField } from "@mui/material";
 import { Field, Formik } from "formik";
-import FormButton from "../../../../../components/common/FormButton";
+import FormButton from "../../../../../components/common/buttons/FormButton";
 import { icons } from "../../../../../utils/ImageImports";
 import { addAreaValidationSchema } from "../../../../../utils/validation/AddAreaValidation";
 import { handleUpdateArea } from "./AreasListAPIs";

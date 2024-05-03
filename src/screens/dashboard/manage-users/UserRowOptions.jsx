@@ -1,4 +1,4 @@
-import { DataTableButton } from "../../../components/common/DataTableButton";
+import { DataTableButton } from "../../../components/common/buttons/DataTableButton";
 import { icons } from "../../../utils/ImageImports";
 import { banUser, unbanUser } from "./ManageUsersAPIs";
 

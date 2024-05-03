@@ -1,6 +1,6 @@
 import { ResponsivePie } from "@nivo/pie";
 import React, { useContext } from "react";
-import { ThemeContext } from "../../utils/ThemeContext";
+import { ThemeContext } from "../../../utils/ThemeContext";
 
 const PieGraph = ({ data, label, description }) => {
   const { theme } = useContext(ThemeContext);

@@ -1,6 +1,6 @@
 import { ResponsiveSunburst } from "@nivo/sunburst";
 import React, { useContext } from "react";
-import { ThemeContext } from "../../utils/ThemeContext";
+import { ThemeContext } from "../../../utils/ThemeContext";
 
 const SunburstGraph = ({ data, label, description }) => {
   const { theme } = useContext(ThemeContext);
