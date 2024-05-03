@@ -18,12 +18,17 @@ const SunburstGraph = ({ data, label, description }) => {
         borderWidth={1}
         borderColor={theme === "dark" ? "#333" : "#fff"}
         colors={(d) => d.data.color}
+        arcLabelsTextColor={({ data }) => {
+          const color = data.color.slice(4, -1);
+          const lightnessString = color.split(",")[2].trim().slice(0, -1);
+          const lightness = Number(lightnessString);
+          return lightness < 50 ? "#fff" : "#000";
+        }}
         animate={true}
         motionConfig="gentle"
         enableArcLabels={true}
-        arcLabel={(d) => `${d.id}`} // to display the value ${d.value ? d.value : ""}
+        arcLabel={(d) => `${d.id.charAt(0)}`} // to display the value ${d.value ? d.value : ""}
         valueFormat={(value) => `${value}`}
-        arcLabelsTextColor="#000000"
         theme={{
           tooltip: {
             container: {
@@ -34,7 +39,7 @@ const SunburstGraph = ({ data, label, description }) => {
           labels: {
             text: {
               fill: theme === "dark" ? "#fff" : "#000",
-              fontSize: 12,
+              fontSize: 10,
             },
           },
         }}

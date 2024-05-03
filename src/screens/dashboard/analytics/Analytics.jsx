@@ -57,7 +57,7 @@ const Analytics = () => {
           <CardComponent style={{ height: "500px" }}>
             <SunburstGraph
               data={propertyStatusData}
-              label={"Property Status"}
+              label={"Property Status (Vacant vs Occupied)"}
               description={"Total: 5"}
             />
           </CardComponent>

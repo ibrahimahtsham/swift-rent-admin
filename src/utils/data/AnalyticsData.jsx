@@ -42,14 +42,14 @@ export const propertyStatusData = {
       color: "hsl(218, 89.7%, 40.8%)",
       children: [
         { id: "Vacant", value: 1, color: "hsl(218, 89.7%, 40.8%)" },
-        { id: "Occupied", value: 2, color: "hsl(213, 93.8%, 55.6%)" },
+        { id: "Occupied", value: 2, color: "hsl(218, 89.7%, 40.8%)" },
       ],
     },
     {
       id: "Islamabad",
       color: "hsl(213, 93.8%, 55.6%)",
       children: [
-        { id: "Vacant", value: 1, color: "hsl(218, 89.7%, 40.8%)" },
+        { id: "Vacant", value: 1, color: "hsl(213, 93.8%, 55.6%)" },
         { id: "Occupied", value: 1, color: "hsl(213, 93.8%, 55.6%)" },
       ],
     },
