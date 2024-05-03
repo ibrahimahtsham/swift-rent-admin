@@ -26,6 +26,7 @@ import {
   updateRentalsData,
   updateUserData,
 } from "./AnalyticsPieChartsDataUpdaters";
+import { updatePropertyStatusData } from "./AnalyticsSunburstGraphUpdater";
 
 const Analytics = () => {
   // line graph
@@ -36,6 +37,8 @@ const Analytics = () => {
   const [updatedBarGraphData, setUpdatedBarGraphData] = useState(barGraphData);
 
   // sunburst graph
+  const [updatedPropertyStatusData, setUpdatedPropertyStatusData] =
+    useState(propertyStatusData);
 
   // pie graphs
   const [updatedUserData, setUpdatedUserData] = useState(usersData);
@@ -55,6 +58,11 @@ const Analytics = () => {
 
       // bar graph
       setUpdatedBarGraphData(updateBarGraphData(barGraphData));
+
+      // sunburst graph
+      setUpdatedPropertyStatusData(
+        updatePropertyStatusData(propertyStatusData)
+      );
 
       // pie charts
       setUpdatedUserData(updateUserData(usersData));
@@ -89,7 +97,7 @@ const Analytics = () => {
         <Grid item xs={12}>
           <AnalyticsCard style={{ height: "500px" }}>
             <SunburstGraph
-              data={propertyStatusData}
+              data={updatedPropertyStatusData}
               label={"Property Status (Vacant vs Occupied)"}
               description={"Total: 5"}
             />
