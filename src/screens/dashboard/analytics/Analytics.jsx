@@ -2,12 +2,14 @@ import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import React, { useContext } from "react";
 import BarGraph from "../../../components/common/BarGraph";
+import LineGraph from "../../../components/common/LineGraph";
 import PieGraph from "../../../components/common/PieGraph";
 import { ThemeContext } from "../../../utils/ThemeContext";
 import {
   barGraphData,
   cityData,
   complainsData,
+  lineGraphData,
   managerTypesData,
   propertyStatusData,
   usersData,
@@ -35,6 +37,16 @@ const Analytics = () => {
     <div>
       <h1>Analytics</h1>
       <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <CardComponent style={{ height: "400px" }}>
+            <LineGraph data={lineGraphData} label={"Analytics Per Month"} />
+          </CardComponent>
+        </Grid>
+        <Grid item xs={12}>
+          <CardComponent style={{ height: "350px" }}>
+            <BarGraph data={barGraphData} label={"Property Types Per City"} />
+          </CardComponent>
+        </Grid>
         <Grid item xs={6}>
           <CardComponent>
             <PieGraph
@@ -78,11 +90,6 @@ const Analytics = () => {
               label={"Manager Types"}
               description={"Total: 5"}
             />
-          </CardComponent>
-        </Grid>
-        <Grid item xs={12}>
-          <CardComponent style={{ height: "350px" }}>
-            <BarGraph data={barGraphData} label={"Property Types Per City"} />
           </CardComponent>
         </Grid>
       </Grid>

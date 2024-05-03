@@ -151,3 +151,38 @@ export const barGraphData = [
     FactoriesColor: "hsl(234, 70%, 50%)",
   },
 ];
+
+export const lineGraphData = [
+  {
+    id: "Registered Users",
+    color: "hsl(218, 89.7%, 40.8%)",
+    data: [
+      { x: "Sep 23", y: 1050 },
+      { x: "Oct 23", y: 1100 },
+      { x: "Nov 23", y: 1050 },
+      { x: "Dec 23", y: 1200 },
+      { x: "Jan 24", y: 1250 },
+      { x: "Feb 24", y: 1200 },
+      { x: "Mar 24", y: 1350 },
+      { x: "Apr 24", y: 1400 },
+      { x: "May 24", y: 1350 },
+      { x: "Jun 24", y: 1500 },
+    ],
+  },
+  {
+    id: "Properties",
+    color: "hsl(213, 93.8%, 55.6%)",
+    data: [
+      { x: "Sep 23", y: 1150 },
+      { x: "Oct 23", y: 1200 },
+      { x: "Nov 23", y: 1150 },
+      { x: "Dec 23", y: 1300 },
+      { x: "Jan 24", y: 1250 },
+      { x: "Feb 24", y: 1300 },
+      { x: "Mar 24", y: 1250 },
+      { x: "Apr 24", y: 1400 },
+      { x: "May 24", y: 1350 },
+      { x: "Jun 24", y: 1600 },
+    ],
+  },
+];
