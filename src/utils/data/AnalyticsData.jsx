@@ -49,6 +49,36 @@ export const propertyStatusData = [
   },
 ];
 
+export const rentPaymentData = [
+  {
+    id: "On Time",
+    label: "On Time",
+    value: 2,
+    color: "hsl(218, 89.7%, 40.8%)",
+  },
+  {
+    id: "Late",
+    label: "Late",
+    value: 3,
+    color: "hsl(213, 93.8%, 55.6%)",
+  },
+];
+
+export const rentalsData = [
+  {
+    id: "Rentals",
+    label: "Rentals",
+    value: 2,
+    color: "hsl(218, 89.7%, 40.8%)",
+  },
+  {
+    id: "Tenants",
+    label: "Tenants",
+    value: 3,
+    color: "hsl(213, 93.8%, 55.6%)",
+  },
+];
+
 export const complainsData = [
   {
     id: "Solved",

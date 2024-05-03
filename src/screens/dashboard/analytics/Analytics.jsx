@@ -12,6 +12,8 @@ import {
   lineGraphData,
   managerTypesData,
   propertyStatusData,
+  rentPaymentData,
+  rentalsData,
   usersData,
 } from "../../../utils/data/AnalyticsData";
 
@@ -73,6 +75,24 @@ const Analytics = () => {
             <PieGraph
               data={propertyStatusData}
               label={"Property Status"}
+              description={"Total: 5"}
+            />
+          </CardComponent>
+        </Grid>
+        <Grid item xs={6}>
+          <CardComponent>
+            <PieGraph
+              data={rentalsData}
+              label={"Tenants vs Rentals"}
+              description={"Total: 5"}
+            />
+          </CardComponent>
+        </Grid>
+        <Grid item xs={6}>
+          <CardComponent>
+            <PieGraph
+              data={rentPaymentData}
+              label={"On-Time vs Late Rent Payments"}
               description={"Total: 5"}
             />
           </CardComponent>
