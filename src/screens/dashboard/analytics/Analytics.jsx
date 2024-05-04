@@ -68,7 +68,7 @@ const Analytics = () => {
     useState(managerTypesData);
 
   useEffect(() => {
-    setTimeout(() => {
+    const intervalId = setInterval(() => {
       // line graph
       setUpdatedLineGraphData(updateLineGraphData(lineGraphData));
 
@@ -95,8 +95,18 @@ const Analytics = () => {
       setUpdatedCityData(updateCityData(cityData));
       setUpdatedComplainsData(updateComplainsData(complainsData));
       setUpdatedManagerTypesData(updateManagerTypesData(managerTypesData));
-    }, 10000);
-  }, []);
+    }, 500); // Run every 0.5 second
+
+    const timeoutId = setTimeout(() => {
+      clearInterval(intervalId); // Stop the interval after 5 seconds
+    }, 5000);
+
+    // Clear the interval and the timeout when the component unmounts
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+    };
+  }, []); // Empty dependency array means this effect runs once when the component mounts
 
   return (
     <div>
