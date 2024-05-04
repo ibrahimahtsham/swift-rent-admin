@@ -2,16 +2,26 @@ import { ResponsivePie } from "@nivo/pie";
 import React, { useContext } from "react";
 import { ThemeContext } from "../../../utils/ThemeContext";
 
-const PieGraph = ({ data, label, description }) => {
+const PieGraph = ({ data, label }) => {
   const { theme } = useContext(ThemeContext);
+
+  const sum = (data) => {
+    let sum = 0;
+    data.forEach((item) => {
+      sum += item.value;
+    });
+    return sum;
+  };
+
+  console.log(sum(data));
 
   return (
     <>
       <h2>{label}</h2>
-      <h3>{description}</h3>
+      <h3>{`Total: ${sum(data)}`}</h3>
       <ResponsivePie
         data={data}
-        margin={{ right: 160, left: 160, bottom: 50, top: 20 }}
+        margin={{ right: 160, left: 160, bottom: 120, top: 20 }}
         startAngle={-90}
         endAngle={90}
         sortByValue={true}
@@ -44,7 +54,12 @@ const PieGraph = ({ data, label, description }) => {
           text: theme === "dark" ? { fill: "#fff" } : { fill: "#000" },
           labels: {
             text: {
-              fontSize: 16,
+              fontSize: "1.3vw",
+            },
+          },
+          legends: {
+            text: {
+              fontSize: "0.8vw",
             },
           },
         }}

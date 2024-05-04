@@ -95,7 +95,7 @@ const Analytics = () => {
       setUpdatedCityData(updateCityData(cityData));
       setUpdatedComplainsData(updateComplainsData(complainsData));
       setUpdatedManagerTypesData(updateManagerTypesData(managerTypesData));
-    }, 2000);
+    }, 300);
   }, []);
 
   return (
@@ -104,20 +104,12 @@ const Analytics = () => {
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <AnalyticsCard>
-            <PieGraph
-              data={updatedComplainsData}
-              label={"User Complains"}
-              description={"Total: 5"}
-            />
+            <PieGraph data={updatedComplainsData} label={"User Complains"} />
           </AnalyticsCard>
         </Grid>
         <Grid item xs={6}>
           <AnalyticsCard>
-            <PieGraph
-              data={updatedUserData}
-              label={"Users"}
-              description={"Total: 5"}
-            />
+            <PieGraph data={updatedUserData} label={"Users"} />
           </AnalyticsCard>
         </Grid>
         <Grid item xs={12}>
@@ -125,7 +117,6 @@ const Analytics = () => {
             <SunburstGraph
               data={updatedPropertyStatusData}
               label={"Property Status (Vacant vs Occupied)"}
-              description={"Total: 5"}
             />
           </AnalyticsCard>
         </Grid>
@@ -167,11 +158,7 @@ const Analytics = () => {
         </Grid>
         <Grid item xs={6}>
           <AnalyticsCard>
-            <PieGraph
-              data={updatedRentalsData}
-              label={"Tenants vs Rentals"}
-              description={"Total: 5"}
-            />
+            <PieGraph data={updatedRentalsData} label={"Tenants vs Rentals"} />
           </AnalyticsCard>
         </Grid>
         <Grid item xs={6}>
@@ -179,7 +166,6 @@ const Analytics = () => {
             <PieGraph
               data={updatedRentPaymentData}
               label={"On-Time vs Late Rent Payments"}
-              description={"Total: 5"}
             />
           </AnalyticsCard>
         </Grid>
@@ -188,7 +174,6 @@ const Analytics = () => {
             <PieGraph
               data={updatedCityData}
               label={"Properties (Islamabad vs Rawalpindi) [Remove]"}
-              description={"Total: 5"}
             />
           </AnalyticsCard>
         </Grid>
@@ -197,7 +182,6 @@ const Analytics = () => {
             <PieGraph
               data={updatedManagerTypesData}
               label={"Manager Types (Remove)"}
-              description={"Total: 5"}
             />
           </AnalyticsCard>
         </Grid>

@@ -8,7 +8,7 @@ export const AnalyticsCard = ({ children, style }) => {
   return (
     <Card
       style={{
-        height: "300px",
+        height: "500px",
         padding: "20px",
         backgroundColor: theme === "dark" ? "#424242" : "#fff",
         color: theme === "dark" ? "#fff" : "#000",

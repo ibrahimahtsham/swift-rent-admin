@@ -11,7 +11,7 @@ const SunburstGraph = ({ data, label, description }) => {
       <h3>{description}</h3>
       <ResponsiveSunburst
         data={data}
-        margin={{ bottom: 160 }}
+        margin={{ bottom: 220 }}
         identity="id"
         value="value"
         cornerRadius={2}
