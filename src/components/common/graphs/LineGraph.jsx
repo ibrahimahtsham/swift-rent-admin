@@ -10,7 +10,7 @@ const LineGraph = ({ data, label }) => {
       <h2>{label}</h2>
       <ResponsiveLine
         data={data}
-        margin={{ top: 30, right: 180, bottom: 120, left: 60 }}
+        margin={{ top: 30, right: 180, bottom: 150, left: 60 }}
         xScale={{ type: "point" }}
         lineWidth={3}
         yScale={{

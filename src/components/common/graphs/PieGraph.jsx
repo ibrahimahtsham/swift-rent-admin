@@ -13,15 +13,13 @@ const PieGraph = ({ data, label }) => {
     return sum;
   };
 
-  console.log(sum(data));
-
   return (
     <>
       <h2>{label}</h2>
       <h3>{`Total: ${sum(data)}`}</h3>
       <ResponsivePie
         data={data}
-        margin={{ right: 160, left: 160, bottom: 120, top: 20 }}
+        margin={{ right: 160, left: 160, bottom: 120, top: 30 }}
         startAngle={-90}
         endAngle={90}
         sortByValue={true}

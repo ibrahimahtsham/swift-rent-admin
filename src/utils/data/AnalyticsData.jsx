@@ -198,13 +198,12 @@ export const managerHireResponseTimeData = [
 // sunburst graph data
 
 export const propertyStatusData = {
-  id: "Rawalpindi and Islamabad",
   children: [
     {
       id: "Rawalpindi",
       color: "hsl(218, 89.7%, 40.8%)",
       children: [
-        { id: "Vacant", value: 0, color: "hsl(218, 89.7%, 40.8%)" },
+        { id: "Vacant", value: 0, color: "hsl(218, 89.7%, 40.8%)" }, // keep colors for children too
         { id: "Occupied", value: 0, color: "hsl(218, 89.7%, 40.8%)" },
       ],
     },

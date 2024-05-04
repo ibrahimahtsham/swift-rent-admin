@@ -95,7 +95,7 @@ const Analytics = () => {
       setUpdatedCityData(updateCityData(cityData));
       setUpdatedComplainsData(updateComplainsData(complainsData));
       setUpdatedManagerTypesData(updateManagerTypesData(managerTypesData));
-    }, 300);
+    }, 10000);
   }, []);
 
   return (
@@ -112,11 +112,19 @@ const Analytics = () => {
             <PieGraph data={updatedUserData} label={"Users"} />
           </AnalyticsCard>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <AnalyticsCard style={{ height: "500px" }}>
             <SunburstGraph
               data={updatedPropertyStatusData}
               label={"Property Status (Vacant vs Occupied)"}
+            />
+          </AnalyticsCard>
+        </Grid>
+        <Grid item xs={6}>
+          <AnalyticsCard>
+            <PieGraph
+              data={updatedRentPaymentData}
+              label={"On-Time vs Late Rent Payments"}
             />
           </AnalyticsCard>
         </Grid>
@@ -158,14 +166,9 @@ const Analytics = () => {
         </Grid>
         <Grid item xs={6}>
           <AnalyticsCard>
-            <PieGraph data={updatedRentalsData} label={"Tenants vs Rentals"} />
-          </AnalyticsCard>
-        </Grid>
-        <Grid item xs={6}>
-          <AnalyticsCard>
             <PieGraph
-              data={updatedRentPaymentData}
-              label={"On-Time vs Late Rent Payments"}
+              data={updatedRentalsData}
+              label={"Tenants vs Rentals [Remove]"}
             />
           </AnalyticsCard>
         </Grid>

@@ -11,7 +11,7 @@ const SunburstGraph = ({ data, label, description }) => {
       <h3>{description}</h3>
       <ResponsiveSunburst
         data={data}
-        margin={{ bottom: 220 }}
+        margin={{ bottom: 100 }}
         identity="id"
         value="value"
         cornerRadius={2}
@@ -39,7 +39,7 @@ const SunburstGraph = ({ data, label, description }) => {
           labels: {
             text: {
               fill: theme === "dark" ? "#fff" : "#000",
-              fontSize: 10,
+              fontSize: 16,
             },
           },
         }}
