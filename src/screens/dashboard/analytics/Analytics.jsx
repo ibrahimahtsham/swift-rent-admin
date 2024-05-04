@@ -68,6 +68,11 @@ const Analytics = () => {
     useState(managerTypesData);
 
   useEffect(() => {
+    // sunburst graph
+    updatePropertyStatusData().then((data) => {
+      setUpdatedPropertyStatusData(data);
+    });
+
     const intervalId = setInterval(() => {
       // line graph
       setUpdatedLineGraphData(updateLineGraphData(lineGraphData));
@@ -83,12 +88,6 @@ const Analytics = () => {
         updateManagerHireResponseTimeData(managerHireResponseTimeData)
       );
 
-      // sunburst graph
-      updatePropertyStatusData().then((data) => {
-        console.log(data);
-        setUpdatedPropertyStatusData(data);
-      });
-
       // pie charts
       setUpdatedUserData(updateUserData(usersData));
       setUpdatedRentalsData(updateRentalsData(rentalsData));
@@ -96,11 +95,11 @@ const Analytics = () => {
       setUpdatedCityData(updateCityData(cityData));
       setUpdatedComplainsData(updateComplainsData(complainsData));
       setUpdatedManagerTypesData(updateManagerTypesData(managerTypesData));
-    }, 500); // Run every 0.5 second
+    }, 2500); // Run every 0.5 second
 
     const timeoutId = setTimeout(() => {
       clearInterval(intervalId); // Stop the interval after 5 seconds
-    }, 5000);
+    }, 4000);
 
     // Clear the interval and the timeout when the component unmounts
     return () => {
