@@ -30,8 +30,6 @@ let updatedManagerTypesDataTenantAcquirers = 21;
       { headers }
     );
 
-    alert("pie chart analytics response");
-
     updatedUserDataOwners = parseInt(response.data.usersAnalytics.NoOfOwners);
     updatedUserDataManagers = parseInt(
       response.data.usersAnalytics.NoOfManagers
