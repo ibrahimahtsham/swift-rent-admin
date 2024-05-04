@@ -98,11 +98,11 @@ const Analytics = () => {
       setUpdatedCityData(updateCityData(cityData));
       setUpdatedComplainsData(updateComplainsData(complainsData));
       setUpdatedManagerTypesData(updateManagerTypesData(managerTypesData));
-    }, 1000); // Run every 0.5 second
+    }, 500); // Run every 0.5 second
 
     const timeoutId = setTimeout(() => {
       clearInterval(intervalId); // Stop the interval after 5 seconds
-    }, 4000);
+    }, 3000);
 
     // Clear the interval and the timeout when the component unmounts
     return () => {
