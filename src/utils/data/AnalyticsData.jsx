@@ -130,40 +130,7 @@ export const lineGraphData = [
 
 // bar graph data
 
-export const propertyTypesPerCityData = [
-  {
-    city: "Islamabad",
-    Houses: 0,
-    "Upper Portion": 0,
-    "Lower Portion": 0,
-    Flats: 0,
-    Rooms: 0,
-    "Commercial Plots": 0,
-    "Agricultural Plots": 0,
-    "Industrial Plots": 0,
-    Offices: 0,
-    Shops: 0,
-    Buildings: 0,
-    Warehouses: 0,
-    Factories: 0,
-  },
-  {
-    city: "Rawalpindi",
-    Houses: 0,
-    "Upper Portion": 0,
-    "Lower Portion": 0,
-    Flats: 0,
-    Rooms: 0,
-    "Commercial Plots": 0,
-    "Agricultural Plots": 0,
-    "Industrial Plots": 0,
-    Offices: 0,
-    Shops: 0,
-    Buildings: 0,
-    Warehouses: 0,
-    Factories: 0,
-  },
-];
+export const propertyTypesPerCityData = [];
 
 export const passwordResetResponseTimeData = [
   { x: "Feb 24", value: 0 },

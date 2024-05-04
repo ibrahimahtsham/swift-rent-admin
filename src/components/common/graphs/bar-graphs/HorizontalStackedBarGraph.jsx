@@ -22,19 +22,19 @@ const HorizontalStackedBarGraph = ({ data, label }) => {
         data={data}
         maxValue={maxSum * 1.1}
         keys={[
-          "Houses",
-          "Upper Portion",
-          "Lower Portion",
-          "Flats",
-          "Rooms",
-          "Commercial Plots",
           "Agricultural Plots",
-          "Industrial Plots",
-          "Offices",
-          "Shops",
+          "Apartments",
           "Buildings",
-          "Warehouses",
+          "Commercial Plots",
           "Factories",
+          "Houses",
+          "Industrial Plots",
+          "Lower Floors",
+          "Offices",
+          "Rooms",
+          "Shops",
+          "Upper Floors",
+          "Warehouses",
         ]}
         indexBy="city"
         margin={{ right: 130, left: 100 }}

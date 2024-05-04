@@ -73,14 +73,17 @@ const Analytics = () => {
       setUpdatedPropertyStatusData(data);
     });
 
+    // bar graph
+    updatePropertyTypesPerCityData().then((data) => {
+      console.log(data);
+      setUpdatedPropertyTypesPerCityData(data);
+    });
+
     const intervalId = setInterval(() => {
       // line graph
       setUpdatedLineGraphData(updateLineGraphData(lineGraphData));
 
       // bar graph
-      setUpdatedPropertyTypesPerCityData(
-        updatePropertyTypesPerCityData(propertyTypesPerCityData)
-      );
       setUpdatedPasswordResetResponseTimeData(
         updatePasswordResetResponseTimeData(passwordResetResponseTimeData)
       );
@@ -95,7 +98,7 @@ const Analytics = () => {
       setUpdatedCityData(updateCityData(cityData));
       setUpdatedComplainsData(updateComplainsData(complainsData));
       setUpdatedManagerTypesData(updateManagerTypesData(managerTypesData));
-    }, 2500); // Run every 0.5 second
+    }, 1000); // Run every 0.5 second
 
     const timeoutId = setTimeout(() => {
       clearInterval(intervalId); // Stop the interval after 5 seconds
