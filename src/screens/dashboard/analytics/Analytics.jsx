@@ -84,9 +84,10 @@ const Analytics = () => {
       );
 
       // sunburst graph
-      setUpdatedPropertyStatusData(
-        updatePropertyStatusData(propertyStatusData)
-      );
+      updatePropertyStatusData().then((data) => {
+        console.log(data);
+        setUpdatedPropertyStatusData(data);
+      });
 
       // pie charts
       setUpdatedUserData(updateUserData(usersData));

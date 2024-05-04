@@ -1,32 +1,15 @@
-export function updatePropertyStatusData(data) {
-  const updatedChildren = data.children.map((city) => {
-    const updatedCityChildren = city.children.map((propertyStatus) => {
-      if (city.id === "Rawalpindi") {
-        if (propertyStatus.id === "Vacant") {
-          return { ...propertyStatus, value: 3 };
-        }
-        if (propertyStatus.id === "Occupied") {
-          return { ...propertyStatus, value: 4 };
-        }
-      }
+import axios from "axios";
+import { BASE_URL } from "../../../utils/db-config";
+import { handleApiError, headers } from "../../../utils/helpers";
 
-      if (city.id === "Islamabad") {
-        if (propertyStatus.id === "Vacant") {
-          return { ...propertyStatus, value: 5 };
-        }
-        if (propertyStatus.id === "Occupied") {
-          return { ...propertyStatus, value: 6 };
-        }
-      }
-
-      return propertyStatus;
-    });
-
-    return {
-      ...city,
-      children: updatedCityChildren,
-    };
-  });
-
-  return { ...data, children: updatedChildren };
+export async function updatePropertyStatusData() {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/api/admin/sunburst-analytics`,
+      { headers }
+    );
+    return response.data;
+  } catch (error) {
+    alert(handleApiError(error));
+  }
 }
