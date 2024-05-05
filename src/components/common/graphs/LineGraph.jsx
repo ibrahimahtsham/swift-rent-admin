@@ -17,7 +17,7 @@ const LineGraph = ({ data, label }) => {
           type: "linear",
           min: "auto",
           max: "auto",
-          stacked: true,
+          stacked: false,
           reverse: false,
         }}
         curve="natural"
@@ -32,7 +32,14 @@ const LineGraph = ({ data, label }) => {
           legendPosition: "middle",
           truncateTickAt: 0,
         }}
-        axisLeft={null}
+        axisLeft={{
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: "Value",
+          legendOffset: -40,
+          legendPosition: "middle",
+        }}
         colors={({ id }) => data.find((d) => d.id === id).color}
         theme={{
           tooltip: {
