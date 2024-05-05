@@ -1,8 +1,8 @@
 import axios from "axios";
-import { BASE_URL } from "../../../../../swift-rent-mobile/src/constants";
 import { DataTableButton } from "../../../components/common/buttons/DataTableButton";
 import { icons } from "../../../utils/ImageImports";
 import { handleApiError, headers } from "../../../utils/helpers";
+import { BASE_URL } from "./../../../utils/db-config";
 
 const ComplainRowOptions = ({ row, prevRows, setRows }) => {
   const formattedDate = (date) => {

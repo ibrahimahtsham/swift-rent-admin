@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../../../../../swift-rent-mobile/src/constants";
 import DataTable from "../../../components/DataTable";
+import { BASE_URL } from "../../../utils/db-config";
 import { handleApiError, headers } from "../../../utils/helpers";
 import { getColumns } from "./ComplainsColumns";
 
