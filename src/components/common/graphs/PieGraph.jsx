@@ -35,6 +35,7 @@ const PieGraph = ({ data, label }) => {
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: "color", modifiers: [] }}
         arcLabelsSkipAngle={17}
+        arcLinkLabelsSkipAngle={5}
         arcLabelsTextColor={({ data }) => {
           const color = data.color.slice(4, -1);
           const lightnessString = color.split(",")[2].trim().slice(0, -1);

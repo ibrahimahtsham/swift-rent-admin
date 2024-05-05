@@ -24,8 +24,9 @@ const SunburstGraph = ({ data, label, description }) => {
           const lightness = Number(lightnessString);
           return lightness < 50 ? "#fff" : "#000";
         }}
-        animate={false}
+        animate={true}
         motionConfig="gentle"
+        arcLabelsSkipAngle={5}
         enableArcLabels={true}
         arcLabel={(d) => `${d.id.charAt(0)}:${d.value ? d.value : ""}`}
         valueFormat={(value) => `${value}`}
