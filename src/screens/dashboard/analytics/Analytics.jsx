@@ -122,7 +122,7 @@ const Analytics = () => {
         </Grid>
         <Grid item xs={6}>
           <AnalyticsCard>
-            <PieGraph data={updatedUserData} label={"Users"} />
+            <PieGraph data={updatedUserData} label={"User Types"} />
           </AnalyticsCard>
         </Grid>
         <Grid item xs={6}>
