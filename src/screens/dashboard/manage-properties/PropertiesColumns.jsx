@@ -1,51 +1,53 @@
-import PropertyRowOptions from "./PropertyRowOptions";
-
 export const getColumns = (setOpen, setEditingRowId, setEditingRowData) => [
   {
-    field: "id",
+    field: "propertyid",
     headerName: "Property ID",
     width: 150,
-    editable: true,
   },
-  { field: "ownerName", headerName: "Owner Name", width: 150, editable: true },
+  { field: "ownerid", headerName: "Owner ID", width: 150 },
+  { field: "ownername", headerName: "Owner Name", width: 150 },
+  { field: "tenantid", headerName: "Tenant ID", width: 150 },
   {
-    field: "tenantName",
+    field: "tenantname",
     headerName: "Tenant Name",
     width: 150,
-    editable: true,
   },
+  { field: "managerid", headerName: "Manager ID", width: 150 },
   {
-    field: "managerName",
+    field: "managername",
     headerName: "Manager Name",
     width: 150,
-    editable: true,
   },
-  { field: "address", headerName: "Address", width: 250, editable: true },
+  { field: "fulladdress", headerName: "Address", width: 250 },
   {
-    field: "registeredOn",
+    field: "propertyregisteredon",
     headerName: "Registered On",
     width: 150,
-    editable: true,
+  },
+  { field: "propertyonrentdays", headerName: "Days on Rent", width: 150 },
+  {
+    field: "propertyoffrentdays",
+    headerName: "Days off Rent",
+    width: 150,
   },
   {
-    field: "propertyStatus",
+    field: "propertystatus",
     headerName: "Property Status",
     width: 180,
-    editable: true,
   },
-  {
-    field: "options",
-    headerName: "Options",
-    width: 350,
-    sortable: false,
-    filterable: false,
-    renderCell: (params) => (
-      <PropertyRowOptions
-        row={params.row}
-        setOpen={setOpen}
-        setEditingRowId={setEditingRowId}
-        setEditingRowData={setEditingRowData}
-      />
-    ),
-  },
+  // {
+  //   field: "options",
+  //   headerName: "Options",
+  //   width: 350,
+  //   sortable: false,
+  //   filterable: false,
+  //   renderCell: (params) => (
+  //     <PropertyRowOptions
+  //       row={params.row}
+  //       setOpen={setOpen}
+  //       setEditingRowId={setEditingRowId}
+  //       setEditingRowData={setEditingRowData}
+  //     />
+  //   ),
+  // },
 ];

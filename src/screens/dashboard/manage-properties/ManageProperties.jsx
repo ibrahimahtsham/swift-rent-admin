@@ -1,13 +1,35 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import DataTable from "../../../components/DataTable";
-import { rows } from "../../../utils/data/PropertiesData";
+import { BASE_URL } from "./../../../utils/db-config";
 import EditPropertyPopup from "./EditPropertyPopup";
 import { getColumns } from "./PropertiesColumns";
 
 const ManageProperties = () => {
   const [open, setOpen] = useState(false);
+  const [rows, setRows] = useState([]);
   const [editingRowId, setEditingRowId] = useState(null);
   const [resetPasswordRowID, setEditingRowData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/api/admin/view-property-list`)
+      .then((response) => {
+        setRows(
+          response.data.propertyList.map((item) => ({
+            ...item,
+            id: item.propertyid,
+          }))
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
   const handleClose = () => {
     setOpen(false);
@@ -24,7 +46,12 @@ const ManageProperties = () => {
 
   return (
     <>
-      <DataTable title="Properties" rows={rows} columns={columns} />
+      <DataTable
+        title="Properties"
+        rows={rows}
+        columns={columns}
+        loading={loading}
+      />
 
       <EditPropertyPopup
         open={open}
