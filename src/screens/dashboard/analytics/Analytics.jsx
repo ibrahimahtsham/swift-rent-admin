@@ -4,7 +4,6 @@ import LineGraph from "../../../components/common/graphs/LineGraph";
 import PieGraph from "../../../components/common/graphs/PieGraph";
 import SunburstGraph from "../../../components/common/graphs/SunburstGraph";
 import HorizontalStackedBarGraph from "../../../components/common/graphs/bar-graphs/HorizontalStackedBarGraph";
-import VerticalBarGraph from "../../../components/common/graphs/bar-graphs/VerticalBarGraph";
 import {
   cityData,
   complainsData,
@@ -81,7 +80,7 @@ const Analytics = () => {
 
     const intervalId = setInterval(() => {
       // line graph
-      setUpdatedLineGraphData(updateLineGraphData(lineGraphData));
+      setUpdatedLineGraphData(updateLineGraphData());
 
       // bar graph
       setUpdatedPasswordResetResponseTimeData(
@@ -157,7 +156,7 @@ const Analytics = () => {
             />
           </AnalyticsCard>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <AnalyticsCard style={{ height: "500px" }}>
             <VerticalBarGraph
               data={updatedPasswordResetResponseTimeData}
@@ -200,7 +199,7 @@ const Analytics = () => {
               label={"Manager Types (Remove)"}
             />
           </AnalyticsCard>
-        </Grid>
+        </Grid> */}
       </Grid>
     </div>
   );
