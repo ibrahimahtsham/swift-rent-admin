@@ -25,11 +25,17 @@ const UserRowOptions = ({
 
   const handleBan = (event) => {
     event.stopPropagation();
-    console.log(`Ban user ${row.id}`);
-    console.log(`Can the user be banned? ${!row.isbanned}`);
-    row.isbanned
-      ? unbanUser(row.id, setRows, setLoading)
-      : banUser(row.id, setRows, setLoading);
+    if (
+      window.confirm(
+        `Are you sure you want to ${row.isbanned ? "unban" : "ban"} ${
+          row.firstname
+        }?`
+      )
+    ) {
+      row.isbanned
+        ? unbanUser(row.id, setRows, setLoading)
+        : banUser(row.id, setRows, setLoading);
+    }
   };
 
   const handleMouseDown = (event) => {
