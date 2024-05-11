@@ -4,7 +4,6 @@ import Grid from "@mui/material/Grid";
 import React, { useContext } from "react";
 import { ThemeContext } from "../../utils/ThemeContext";
 import Analytics from "./analytics/Analytics";
-import AuditLogs from "./audit-logs/AuditLogs";
 import ManageCities from "./manage-cities/ManageCities";
 import ManageComplains from "./manage-complains/ManageComplains";
 import ManageProperties from "./manage-properties/ManageProperties";
@@ -43,7 +42,7 @@ const MainPage = () => {
         <Grid item>
           <MainPageCard>
             <CardContent>
-              <AuditLogs />
+              <ManageUsers />
             </CardContent>
           </MainPageCard>
         </Grid>
@@ -65,13 +64,6 @@ const MainPage = () => {
           <MainPageCard>
             <CardContent>
               <ManageProperties />
-            </CardContent>
-          </MainPageCard>
-        </Grid>
-        <Grid item>
-          <MainPageCard>
-            <CardContent>
-              <ManageUsers />
             </CardContent>
           </MainPageCard>
         </Grid>

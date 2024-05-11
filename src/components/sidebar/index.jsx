@@ -49,19 +49,19 @@ const Sidebar = () => {
           onClick={() => setActivePage("Manage Cities")}
         />
         <SidebarButton
-          image={icons.propertiesIcon}
-          title="Manage Properties"
-          isActive={activePage === "Manage Properties"}
-          onClick={() => setActivePage("Manage Properties")}
-        />
-        <SidebarButton
           image={icons.complains}
           title="Manage Complains"
           isActive={activePage === "Manage Complains"}
           onClick={() => setActivePage("Manage Complains")}
         />
+        <SidebarButton
+          image={icons.propertiesIcon}
+          title="View Properties"
+          isActive={activePage === "Manage Properties"}
+          onClick={() => setActivePage("Manage Properties")}
+        />
 
-        <SidebarCategorySeparator isOpen={isOpen} />
+        {/* <SidebarCategorySeparator isOpen={isOpen} />
 
         <SidebarCategoryTitle isOpen={isOpen} title="Logs" />
         <SidebarButton
@@ -69,7 +69,7 @@ const Sidebar = () => {
           title="Audit Logs"
           isActive={activePage === "Audit Logs"}
           onClick={() => setActivePage("Audit Logs")}
-        />
+        /> */}
       </div>
       <div className="copyright-container">
         <img
