@@ -1,4 +1,4 @@
-export const BASE_URL = "https://swift-rent.in.ngrok.io";
+export const BASE_URL = "https://swiftrent.in.ngrok.io";
 
 //http://localhost:3000
 
