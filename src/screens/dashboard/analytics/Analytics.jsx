@@ -1,4 +1,5 @@
 import Grid from "@mui/material/Grid";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import LineGraph from "../../../components/common/graphs/LineGraph";
 import PieGraph from "../../../components/common/graphs/PieGraph";
@@ -17,13 +18,13 @@ import {
   rentalsData,
   usersData,
 } from "../../../utils/data/AnalyticsData";
+import { BASE_URL } from "../../../utils/db-config";
 import {
   updateManagerHireResponseTimeData,
   updatePasswordResetResponseTimeData,
   updatePropertyTypesPerCityData,
 } from "./AnalyticsBarGraphUpdater";
 import { AnalyticsCard } from "./AnalyticsCard";
-import { updateLineGraphData } from "./AnalyticsLineGraphUpdater";
 import {
   updateCityData,
   updateComplainsData,
@@ -80,7 +81,9 @@ const Analytics = () => {
 
     const intervalId = setInterval(() => {
       // line graph
-      setUpdatedLineGraphData(updateLineGraphData());
+      axios.get(`${BASE_URL}/api/admin/line-graph`).then((response) => {
+        setUpdatedLineGraphData(response.data.data);
+      });
 
       // bar graph
       setUpdatedPasswordResetResponseTimeData(

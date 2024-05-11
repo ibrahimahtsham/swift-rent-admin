@@ -20,7 +20,7 @@ const LineGraph = ({ data, label }) => {
           stacked: false,
           reverse: false,
         }}
-        curve="natural"
+        curve="monotoneY"
         axisTop={null}
         axisRight={null}
         axisBottom={{

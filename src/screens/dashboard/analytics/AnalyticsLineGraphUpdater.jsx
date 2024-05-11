@@ -1,5 +1,26 @@
+import axios from "axios";
+import { BASE_URL } from "../../../utils/db-config";
+
 export function updateLineGraphData() {
   return [
+    {
+      id: "Website Visits",
+      color: "hsl(223, 88.5%, 35.6%)",
+      data: [
+        { x: "Jun 23", y: 500 },
+        { x: "Jul 23", y: 600 },
+        { x: "Aug 23", y: 550 },
+        { x: "Sep 23", y: 580 },
+        { x: "Oct 23", y: 700 },
+        { x: "Nov 23", y: 750 },
+        { x: "Dec 23", y: 800 },
+        { x: "Jan 24", y: 1000 },
+        { x: "Feb 24", y: 1100 },
+        { x: "Mar 24", y: 1200 },
+        { x: "Apr 24", y: 1300 },
+        { x: "May 24", y: 1400 },
+      ],
+    },
     {
       id: "Registered Users",
       color: "hsl(218, 89.7%, 40.8%)",
