@@ -127,22 +127,6 @@ const Analytics = () => {
             <PieGraph data={updatedUserData} label={"User Types"} />
           </AnalyticsCard>
         </Grid>
-        <Grid item xs={6}>
-          <AnalyticsCard style={{ height: "500px" }}>
-            <SunburstGraph
-              data={updatedPropertyStatusData}
-              label={"Property Status (Vacant vs Occupied)"}
-            />
-          </AnalyticsCard>
-        </Grid>
-        <Grid item xs={6}>
-          <AnalyticsCard>
-            <PieGraph
-              data={updatedRentPaymentData}
-              label={"On-Time vs Late Rent Payments"}
-            />
-          </AnalyticsCard>
-        </Grid>
         <Grid item xs={12}>
           <AnalyticsCard style={{ height: "400px" }}>
             <LineGraph
@@ -156,6 +140,22 @@ const Analytics = () => {
             <HorizontalStackedBarGraph
               data={updatedPropertyTypesPerCityData}
               label={"Property Types Per City"}
+            />
+          </AnalyticsCard>
+        </Grid>
+        <Grid item xs={6}>
+          <AnalyticsCard style={{ height: "500px" }}>
+            <SunburstGraph
+              data={updatedPropertyStatusData}
+              label={"Property Status (Vacant vs Occupied)"}
+            />
+          </AnalyticsCard>
+        </Grid>
+        <Grid item xs={6}>
+          <AnalyticsCard>
+            <PieGraph
+              data={updatedRentPaymentData}
+              label={"On-Time vs Late Rent Payments"}
             />
           </AnalyticsCard>
         </Grid>
