@@ -1,7 +1,6 @@
 import axios from "axios";
-import { md5 } from "js-md5";
 import { BASE_URL } from "../../../utils/db-config";
-import { handleApiError, headers } from "../../../utils/helpers";
+import { handleApiError, hashPassword, headers } from "../../../utils/helpers";
 
 export const fetchUsers = async (setLoading, setRows) => {
   setLoading(true);
@@ -68,7 +67,7 @@ export const resetPassword = async (
       `${BASE_URL}/api/admin/reset-password`,
       {
         userID: userData.id,
-        userPassword: md5(userData.password),
+        userPassword: hashPassword(userData.password),
       },
       {
         headers,

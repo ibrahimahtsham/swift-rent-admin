@@ -1,3 +1,5 @@
+import { md5 } from "js-md5";
+
 export const handleApiError = (error) => {
   console.log("Error: ", error);
   // Check if error response exists
@@ -23,3 +25,12 @@ export const handleApiError = (error) => {
 export const headers = {
   "ngrok-skip-browser-warning": "true",
 };
+
+export function hashPassword(password) {
+  let hashedPassword = password + "swiftrentmobilesalt";
+  let salt_rounds = 10;
+  for (let i = 0; i < salt_rounds; i++) {
+    hashedPassword = md5(hashedPassword);
+  }
+  return hashedPassword;
+}
