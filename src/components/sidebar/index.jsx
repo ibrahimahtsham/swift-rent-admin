@@ -37,16 +37,16 @@ const Sidebar = () => {
         <SidebarCategoryTitle isOpen={isOpen} title="Management" />
 
         <SidebarButton
-          image={icons.usersIcon}
-          title="Manage Users"
-          isActive={activePage === "Manage Users"}
-          onClick={() => setActivePage("Manage Users")}
-        />
-        <SidebarButton
           image={icons.citiesIcon}
           title="Manage Cities"
           isActive={activePage === "Manage Cities"}
           onClick={() => setActivePage("Manage Cities")}
+        />
+        <SidebarButton
+          image={icons.usersIcon}
+          title="Manage Users"
+          isActive={activePage === "Manage Users"}
+          onClick={() => setActivePage("Manage Users")}
         />
         <SidebarButton
           image={icons.complains}
