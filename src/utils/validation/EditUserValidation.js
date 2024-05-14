@@ -2,10 +2,10 @@ import * as Yup from "yup";
 
 export const editUserSchema = Yup.object().shape({
   firstname: Yup.string()
-    .matches(/^\S*$/, "No spaces allowed")
+    .matches(/^[^\s].*[^\s]$/, "No trailing spaces allowed")
     .required("Required"),
   lastname: Yup.string()
-    .matches(/^\S*$/, "No spaces allowed")
+    .matches(/^[^\s].*[^\s]$/, "No trailing spaces allowed")
     .required("Required"),
   //dob must be in format yyyy-mm-dd and check for age between 18 and 110
   dob: Yup.string()
