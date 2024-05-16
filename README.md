@@ -1,5 +1,9 @@
 # Swift Rent Web Admin Panel
 
+Copyright (c) 2024 SwiftRent ( ibrahimahtsham@gmail.com )
+
+All Rights Reserverd
+
 ## View Analytics
 
 ![image](https://github.com/ibrahimahtsham/swift-rent-admin/assets/111352185/f007b70e-7665-4c26-862b-537e0989a01a)
